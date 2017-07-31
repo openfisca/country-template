@@ -1,5 +1,7 @@
 # Changelog
 
+# 1.2.3.dev0 -
+
 # 1.2.3 - [#9](https://github.com/openfisca/country-template/pull/9)
 
 * Technical improvement: adapt to version `15.0.0` of Openfisca-Core
