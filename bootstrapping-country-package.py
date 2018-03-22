@@ -1,4 +1,5 @@
 #Developed by corrado-petrelli and LorenzoStacchioDev
+#Tested in Ubuntu, Debian and Windows 10
 from Tkinter import Tk,Scrollbar,RIGHT,Y,Listbox,SINGLE,Button,BOTH,END,DISABLED,ACTIVE
 import os
 import shutil
