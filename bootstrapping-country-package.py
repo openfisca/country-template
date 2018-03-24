@@ -15,7 +15,7 @@ COUNTRY_LIST = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antig
 def selectItem():
     item = listbox.curselection()
     # Continue only if there is a selected item else do nothing
-    if(len(item)!=0):
+    if(len(item) != 0):
         selectedCountry = str(COUNTRY_LIST[int(item[0])])
         # cut the escape sequence
         selectedCountry = selectedCountry.replace("\n", "")
@@ -36,7 +36,6 @@ def replaceIntoListOfFile(listOfFile, oldString, newString):
 
 # The script's core
 def cloneAndAdapt(item):
-    start = time.time()
     # Nome dello stato
     COUNTRY_NAME = item
     # lower case
@@ -47,7 +46,7 @@ def cloneAndAdapt(item):
     if os.path.isdir("openfisca-" + lowercase_country_name):
         sys.exit()
     # you must have install GIT for use this code
-    check_output("git clone https://github.com/openfisca/country-template.git", shell=True).decode() 
+    check_output("git clone https://github.com/openfisca/country-template.git", shell=True).decode()
     shutil.move("country-template", "openfisca-" + lowercase_country_name)
     # create directory
     os.chdir("openfisca-" + lowercase_country_name)
