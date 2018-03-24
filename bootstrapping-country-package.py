@@ -3,7 +3,6 @@
 from Tkinter import Tk, Scrollbar, RIGHT, Y, Listbox, SINGLE, Button, BOTH, END, ACTIVE
 import os
 import shutil
-import time
 import sys
 from subprocess import check_output
 
