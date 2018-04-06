@@ -55,7 +55,7 @@ class housing_tax(Variable):
         # `housing_occupancy_status` is an Enum variable
         occupancy_status = household('housing_occupancy_status', january)
         HousingOccupancyStatus = occupancy_status.possible_values  # Get the enum associated with the variable
-        # To access an enum element, we use the . notation.
+        # To access an enum element, we use the `.` notation.
         tenant = (occupancy_status == HousingOccupancyStatus.tenant)
         owner = (occupancy_status == HousingOccupancyStatus.owner)
 
