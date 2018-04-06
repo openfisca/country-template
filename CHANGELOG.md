@@ -3,11 +3,11 @@
 ## 2.1.0 - [#29](https://github.com/openfisca/country-template/pull/29) [#30](https://github.com/openfisca/country-template/pull/30)
 
 * Tax and benefit system evolution
-* Impacted areas: 
+* Impacted areas:
   - Parameters `general`
   - Variables `benefits`
 * Details:
-  - Add a parameter and a variable with non ascii characters 
+  - Add a parameter and a variable with non ascii characters
     - Introduce `age_of_retirement` parameter
     - Introduce `pension` variable
 
