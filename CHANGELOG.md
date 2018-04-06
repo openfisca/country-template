@@ -1,5 +1,12 @@
 # Changelog
 
+### 2.1.1 - [#34](https://github.com/openfisca/country-template/pull/34)
+
+* Minor change.
+* Impacted areas: no functional impact.
+* Details:
+  - Improved spelling
+
 ## 2.1.0 - [#29](https://github.com/openfisca/country-template/pull/29) [#30](https://github.com/openfisca/country-template/pull/30)
 
 * Tax and benefit system evolution
