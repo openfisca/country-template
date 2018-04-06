@@ -34,7 +34,7 @@ class housing_allowance(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = "Housing allowange"
+    label = "Housing allowance"
     reference = "https://law.gov.example/housing_allowance"  # Always use the most official source
     end = '2016-11-30'  # This allowance was removed on the 1st of Dec 2016. Calculating it before this date will always return the variable default value, 0.
 

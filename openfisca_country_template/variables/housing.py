@@ -15,7 +15,7 @@ class accomodation_size(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = u"Size of the accomodation, in square metres"
+    label = u"Size of the accommodation, in square metres"
 
 
 # This variable is a pure input: it doesn't have a formula

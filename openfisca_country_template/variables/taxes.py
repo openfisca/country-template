@@ -42,7 +42,7 @@ class housing_tax(Variable):
     value_type = float
     entity = Household
     definition_period = YEAR  # This housing tax is defined for a year.
-    label = u"Tax paid by each household proportionnally to the size of its accommodation"
+    label = u"Tax paid by each household proportionally to the size of its accommodation"
     reference = "https://law.gov.example/housing_tax"  # Always use the most official source
 
     def formula(household, period, parameters):
