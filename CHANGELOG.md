@@ -1,6 +1,16 @@
 # Changelog
 
-### 2.1.1 - [#34](https://github.com/openfisca/country-template/pull/34)
+# 3.0.0 - [#34](https://github.com/openfisca/country-template/pull/34)
+
+#### Breaking change
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `variables/housing`
+* Details:
+  - Fix spelling by renaming `accomodation_size` variable to `accommodation_size`
+
+#### Other changes
 
 * Minor change.
 * Impacted areas: no functional impact.
@@ -63,10 +73,10 @@ Now:
 Before:
 
 ```
-name: Household living in a 40 sq. metres accomodation while being free lodgers
+name: Household living in a 40 sq. metres accommodation while being free lodgers
   period: 2017
   input_variables:
-    accomodation_size:
+    accommodation_size:
       2017-01: 40
     housing_occupancy_status:
       2017-01: 2
@@ -76,10 +86,10 @@ name: Household living in a 40 sq. metres accomodation while being free lodgers
 Now:
 
 ```
-name: Household living in a 40 sq. metres accomodation while being free lodgers
+name: Household living in a 40 sq. metres accommodation while being free lodgers
   period: 2017
   input_variables:
-    accomodation_size:
+    accommodation_size:
       2017-01: 40
     housing_occupancy_status:
       2017-01: free_lodger

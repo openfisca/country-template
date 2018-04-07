@@ -11,7 +11,7 @@ from openfisca_country_template.entities import *
 
 
 # This variable is a pure input: it doesn't have a formula
-class accomodation_size(Variable):
+class accommodation_size(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
