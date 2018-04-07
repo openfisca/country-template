@@ -11,7 +11,7 @@
   output_variables:
     housing_tax: 400
 
-- name: Free_lodgers living in a 40 sq. metres accommodation
+- name: Free lodgers living in a 40 sq. metres accommodation
   period: 2017
   input_variables:
     accommodation_size:
