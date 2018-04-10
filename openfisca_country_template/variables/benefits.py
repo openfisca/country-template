@@ -34,7 +34,7 @@ class housing_allowance(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = "Housing allowange"
+    label = "Housing allowance"
     reference = "https://law.gov.example/housing_allowance"  # Always use the most official source
     end = '2016-11-30'  # This allowance was removed on the 1st of Dec 2016. Calculating it before this date will always return the variable default value, 0.
 
@@ -48,13 +48,14 @@ class pension(Variable):
     value_type = float
     entity = Person
     definition_period = MONTH
-    label = "Pension for the elderly. Pension attribuée aux personnes âgées."
+    label = "Pension for the elderly. Pension attribuée aux personnes âgées. تقاعد."
     reference = [u"https://fr.wikipedia.org/wiki/Retraite_(économie)", u"https://ar.wikipedia.org/wiki/تقاعد"]
 
     def formula(person, period):
         '''
-        A person's pension depends on its birth date.
-        In french : La pension d'une personne est attribuée d'après la date de naissance.
+        A person's pension depends on their birth date.
+        In French: retraite selon l'âge.
+        In Arabic: تقاعد.
         '''
         age_condition = person('age', period) >= parameters(period).general.age_of_retirement
         return age_condition

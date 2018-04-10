@@ -42,20 +42,20 @@ class housing_tax(Variable):
     value_type = float
     entity = Household
     definition_period = YEAR  # This housing tax is defined for a year.
-    label = u"Tax paid by each household proportionnally to the size of its accommodation"
+    label = u"Tax paid by each household proportionally to the size of its accommodation"
     reference = "https://law.gov.example/housing_tax"  # Always use the most official source
 
     def formula(household, period, parameters):
-        # The housing tax is defined for a year, but depends on the `accomodation_size` and `housing_occupancy_status` on the first month of the year.
+        # The housing tax is defined for a year, but depends on the `accommodation_size` and `housing_occupancy_status` on the first month of the year.
         # Here period is a year. We can get the first month of a year with the following shortcut.
         # To build different periods, see http://openfisca.org/doc/coding-the-legislation/35_periods.html#calculating-dependencies-for-a-specific-period
         january = period.first_month
-        accommodation_size = household('accomodation_size', january)
+        accommodation_size = household('accommodation_size', january)
 
         # `housing_occupancy_status` is an Enum variable
         occupancy_status = household('housing_occupancy_status', january)
         HousingOccupancyStatus = occupancy_status.possible_values  # Get the enum associated with the variable
-        # To access an enum element, we use the . notation.
+        # To access an enum element, we use the `.` notation.
         tenant = (occupancy_status == HousingOccupancyStatus.tenant)
         owner = (occupancy_status == HousingOccupancyStatus.owner)
 

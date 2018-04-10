@@ -11,11 +11,11 @@ from openfisca_country_template.entities import *
 
 
 # This variable is a pure input: it doesn't have a formula
-class accomodation_size(Variable):
+class accommodation_size(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = u"Size of the accomodation, in square metters"
+    label = u"Size of the accommodation, in square metres"
 
 
 # This variable is a pure input: it doesn't have a formula
@@ -31,7 +31,7 @@ class HousingOccupancyStatus(Enum):
     __order__ = "owner tenant free_lodger homeless"
     owner = u'Owner'
     tenant = u'Tenant'
-    free_lodger = u'Free logder'
+    free_lodger = u'Free lodger'
     homeless = u'Homeless'
 
 
