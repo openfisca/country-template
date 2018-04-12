@@ -128,7 +128,7 @@ pip install openfisca_country_template
 
 #### Next Steps
 
-- To learn how to use OpenFisca, follow our [tutorials](http://openfisca.org/doc/getting-started.html).
+- To learn how to use OpenFisca, follow our [tutorials](http://openfisca.org/doc/).
 - To serve this Country Package, serve the [OpenFisca web API](#serve-your-country-package-with-the-openFisca-web-api).
 
 Depending on what you want to do with OpenFisca, you may want to install yet other packages in your virtualenv:
