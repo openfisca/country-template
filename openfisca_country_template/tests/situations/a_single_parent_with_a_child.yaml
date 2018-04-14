@@ -1,4 +1,4 @@
-- name: "A single parent with a child scenario"
+- name: "A single parent with a child situation"
   description: A simple situation just to test
   period: 2017-01
   absolute_error_margin: 0
