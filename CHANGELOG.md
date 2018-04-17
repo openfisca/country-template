@@ -1,6 +1,6 @@
 # Changelog
 
-# 3.0.1 - []
+### 3.0.1 - [#39](https://github.com/openfisca/country-template/pull/39)
 
 * Declare package compatible with OpenFisca Core v22
 
