@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.2 - [#37](https://github.com/openfisca/country-template/pull/37)
+
+* Declare package compatible with OpenFisca Core v23
+
 ### 3.0.1 - [#39](https://github.com/openfisca/country-template/pull/39)
 
 * Declare package compatible with OpenFisca Core v22
@@ -19,7 +23,7 @@
 * Minor change.
 * Impacted areas: no functional impact.
 * Details:
-  - Improved spelling
+  - Improve spelling
 
 ## 2.1.0 - [#29](https://github.com/openfisca/country-template/pull/29) [#30](https://github.com/openfisca/country-template/pull/30)
 
