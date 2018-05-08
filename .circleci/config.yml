@@ -41,7 +41,7 @@ jobs:
           name: Check version number has been properly updated
           command: |
             git fetch
-            ./check-version-bump.sh
+            ./.circleci/check-version-bump.sh
 
   deploy:
     docker:
@@ -52,7 +52,7 @@ jobs:
     steps:
       - run:
           name: Upload package to Pypi if functional changes were made
-          command: ./deploy-if-version-bump.sh
+          command: ./.circleci/deploy-if-version-bump.sh
 
 
 workflows:
