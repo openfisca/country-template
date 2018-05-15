@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
+
+* Make package compatible with Python 3
+
 ### 3.0.2 - [#37](https://github.com/openfisca/country-template/pull/37)
 
 * Declare package compatible with OpenFisca Core v23
