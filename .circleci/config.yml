@@ -1,98 +1,46 @@
+# CircleCI 2.0 configuration file. See <https://circleci.com/docs/2.0/language-python/>.
 version: 2
-
 jobs:
-  checkout: &checkout
-    working_directory: ~/country-template
+  build_python2:
     docker:
       - image: python:2.7.14
 
     steps:
       - checkout
 
-      - run:
-          name: Fetch remote refs
-          command: git fetch
-
-      - save_cache:
-          key: v1-checkout-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - .
-            - ~/.ssh/known_hosts
-
-  dependencies: &dependencies
-    working_directory: ~/country-template
-    docker:
-      - image: python:2.7.14
-    environment:
-      CREATE_VENV: "virtualenv"
-
-    steps:
       - restore_cache:
-          keys:
-            - v1-checkout-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-py2-{{ checksum "setup.py" }}
 
       - run:
-          name: Create virtualenv
+          name: Create a virtualenv
           command: |
-            mkdir -p /tmp/venv/country-template
-            ${CREATE_VENV} /tmp/venv/country-template
+            mkdir -p /tmp/venv/country_template
+            virtualenv /tmp/venv/country_template
+            echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
 
-      # pip >= 8.0 needed to be compatible with "manylinux" wheels, used by numpy >= 1.11
       - run:
           name: Install dependencies
           command: |
-            . /tmp/venv/country-template/bin/activate
             pip install --upgrade pip twine wheel
-            pip install .[test] --upgrade
-
-      # Uncomment and adapt the next line to use a particular feature branch of OpenFisca-Core to run Circle CI tests
-      # - run:
-      #     name: Install a particular feature branch of OpenFisca-Core
-      #     command: |
-      #       . /tmp/venv/country-template/bin/activate
-      #       pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH_NAME#egg=OpenFisca-Core
+            pip install --editable .[test] --upgrade
+          #  pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH_NAME#egg=OpenFisca-Core  # use a specific branch of OpenFisca-Core
 
       - save_cache:
-          # PY_VERSION is set in the context
-          key: v1-{{ .Environment.PY_VERSION }}-dependencies-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-py2-{{ checksum "setup.py" }}
           paths:
-            - /tmp/venv/country-template
-
-  dependencies_python3:
-    <<: *dependencies
-    docker:
-      - image: python:3.6
-    environment:
-      CREATE_VENV: "python -m venv"
-
-  tests: &tests
-    working_directory: ~/country-template
-    docker:
-      - image: python:2.7.14
-
-    steps:
-      - restore_cache:
-          keys:
-            - v1-checkout-{{ .Environment.CIRCLE_SHA1 }}
-
-      - restore_cache:
-          keys:
-            - v1-{{ .Environment.PY_VERSION }}-dependencies-{{ .Environment.CIRCLE_SHA1 }}
+            - /tmp/venv/country_template
 
       - run:
           name: Run tests
+          command: make test
+
+      - run:
+          name: Check version number has been properly updated
           command: |
-            . /tmp/venv/country-template/bin/activate
-            make test
-            . check-version-bump.sh
+            git fetch
+            ./.circleci/check-version-bump.sh
 
-  tests_python3:
-    <<: *tests
-    docker:
-      - image: python:3.6
-
-  deploy: &deploy
-    working_directory: ~/country-template
+  deploy_python2:
     docker:
       - image: python:2.7.14
     environment:
@@ -100,59 +48,92 @@ jobs:
       # PYPI_PASSWORD: this value is set in CircleCI's web interface; do not set it here, it is a secret!
 
     steps:
-      - restore_cache:
-          keys:
-            - v1-checkout-{{ .Environment.CIRCLE_SHA1 }}
+      - checkout
 
       - restore_cache:
-          keys:
-            - v1-{{ .Environment.PY_VERSION }}-dependencies-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-py2-{{ checksum "setup.py" }}
 
       - run:
-          name: Deploy (if version bump)
+          name: Upload a Python 2 package to Pypi and publish a tag if functional changes were made
           command: |
-            . /tmp/venv/country-template/bin/activate
-            . deploy-if-version-bump.sh
+            source /tmp/venv/country_template/bin/activate
+            ./.circleci/deploy-python-2.sh
 
-  deploy_python3:
-    <<: *deploy
+  build_python3:
     docker:
       - image: python:3.6
 
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-py3-{{ checksum "setup.py" }}
+
+      - run:
+          name: Create a virtualenv
+          command: |
+            mkdir -p /tmp/venv/country_template
+            python -m venv /tmp/venv/country_template
+            echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
+
+      - run:
+          name: Install dependencies
+          command: |
+            pip install --upgrade pip twine wheel
+            pip install --editable .[test] --upgrade
+          #  pip install --editable git+https://github.com/openfisca/country-template.git@BRANCH_NAME#egg=OpenFisca-Country-Template  # use a specific branch of OpenFisca-Country-Template
+
+      - save_cache:
+          key: v1-py3-{{ checksum "setup.py" }}
+          paths:
+            - /tmp/venv/country_template
+
+      - run:
+          name: Run tests
+          command: make test
+
+      - run:
+          name: Check version number has been properly updated
+          command: |
+            git fetch
+            ./.circleci/check-version-bump.sh
+
+  deploy_python3:
+    docker:
+      - image: python:3.6
+    environment:
+      PYPI_USERNAME: openfisca-bot
+      # PYPI_PASSWORD: this value is set in CircleCI's web interface; do not set it here, it is a secret!
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-py3-{{ checksum "setup.py" }}
+
+      - run:
+          name: Upload a Python 3 package to Pypi
+          command: |
+            source /tmp/venv/country_template/bin/activate
+            ./.circleci/deploy-python-3.sh
+
 workflows:
   version: 2
-  country-template:
+  build_and_deploy:
     jobs:
-      - checkout
-      - dependencies:
-          context: Py2
+      - build_python2
+      - build_python3
+      - deploy_python2:
           requires:
-            - checkout
-      - tests:
-          context: Py2
-          requires:
-            - dependencies
-      - dependencies_python3:
-          context: Py3
-          requires:
-            - checkout
-      - tests_python3:
-          context: Py3
-          requires:
-            - dependencies_python3
-      - deploy:
-          context: Py2
-          requires:
-            - tests
-            - tests_python3
+            - build_python2
+            - build_python3
           filters:
             branches:
               only: master
       - deploy_python3:
-          context: Py3
           requires:
-            - tests
-            - tests_python3
+            - build_python2
+            - build_python3
           filters:
             branches:
               only: master
