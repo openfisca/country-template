@@ -3,7 +3,9 @@
 VERSION_CHANGE_TRIGGERS="setup.py MANIFEST.in openfisca_country_template"
 
 if git diff-index --quiet origin/master -- $VERSION_CHANGE_TRIGGERS ":(exclude)*.md"
-then exit 0  # there are no changes at all, the version is correct
+then
+    echo "No functional change. No need for a version update."
+    exit 0
 fi
 
 current_version=`python setup.py --version`
