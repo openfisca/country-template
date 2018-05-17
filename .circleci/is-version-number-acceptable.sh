@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 if ./detect-functional-changes.sh
+then
     echo "No need for a version update."
     exit 0
 fi
