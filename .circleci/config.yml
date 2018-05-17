@@ -38,7 +38,7 @@ jobs:
           name: Check version number has been properly updated
           command: |
             git fetch
-            ./.circleci/check-version-bump.sh
+            .circleci/is-version-number-acceptable.sh
 
   deploy_python2:
     docker:
@@ -96,7 +96,7 @@ jobs:
           name: Check version number has been properly updated
           command: |
             git fetch
-            ./.circleci/check-version-bump.sh
+            .circleci/is-version-number-acceptable.sh
 
   deploy_python3:
     docker:
