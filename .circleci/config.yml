@@ -57,7 +57,7 @@ jobs:
           name: Upload a Python 2 package to Pypi and publish a tag if functional changes were made
           command: |
             source /tmp/venv/country_template/bin/activate
-            ./.circleci/deploy-python-2.sh
+            .circleci/deploy-python-2.sh
 
   build_python3:
     docker:
@@ -115,7 +115,7 @@ jobs:
           name: Upload a Python 3 package to Pypi
           command: |
             source /tmp/venv/country_template/bin/activate
-            ./.circleci/deploy-python-3.sh
+            .circleci/deploy-python-3.sh
 
 workflows:
   version: 2
