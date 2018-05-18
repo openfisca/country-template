@@ -18,7 +18,7 @@ then
     exit 1
 fi
 
-if git diff-index --quiet origin/master CHANGELOG.md
+if git diff-index --quiet origin/python3 CHANGELOG.md
 then
     echo "CHANGELOG.md has not been modified, while functional changes were made."
     echo "Explain what you changed before merging this branch into master."
