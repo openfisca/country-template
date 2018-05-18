@@ -54,10 +54,18 @@ jobs:
           key: v1-py2-{{ checksum "setup.py" }}
 
       - run:
-          name: Upload a Python 2 package to Pypi and publish a tag if functional changes were made
+          name: Check for functional changes
+          command: if .circleci/detect-functional-changes.sh ; then circleci step halt ; fi
+
+      - run:
+          name: Upload a Python package to Pypi
           command: |
             source /tmp/venv/country_template/bin/activate
-            .circleci/deploy-python-2.sh
+            .circleci/publish-python-package.sh
+
+      - run:
+          name: Publish a git tag
+          command: .circleci/publish-git-tag.sh
 
   build_python3:
     docker:
@@ -112,10 +120,18 @@ jobs:
           key: v1-py3-{{ checksum "setup.py" }}
 
       - run:
-          name: Upload a Python 3 package to Pypi
+          name: Check for functional changes
+          command: if ./detect-functional-changes.sh ; then circleci step halt ; fi
+
+      - run:
+          name: Upload a Python package to Pypi
           command: |
             source /tmp/venv/country_template/bin/activate
-            .circleci/deploy-python-3.sh
+            .circleci/publish-python-package.sh
+
+      - run:
+          name: Publish a git tag
+          command: .circleci/publish-git-tag.sh
 
 workflows:
   version: 2
