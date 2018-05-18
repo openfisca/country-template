@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 VERSION_CHANGE_TRIGGERS="setup.py MANIFEST.in openfisca_country_template"
 CURRENT_BRANCH=`git symbolic-ref --short HEAD`
