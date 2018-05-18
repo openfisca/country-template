@@ -129,10 +129,6 @@ jobs:
             source /tmp/venv/country_template/bin/activate
             .circleci/publish-python-package.sh
 
-      - run:
-          name: Publish a git tag
-          command: .circleci/publish-git-tag.sh
-
 workflows:
   version: 2
   build_and_deploy:
