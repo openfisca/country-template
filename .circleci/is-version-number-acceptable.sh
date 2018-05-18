@@ -1,5 +1,11 @@
 #! /usr/bin/env bash
 
+if [[ "$CIRCLE_BRANCH" == "python3" ]]
+then
+    echo "No need for a version check on master."
+    exit 0
+fi
+
 if ./detect-functional-changes.sh
 then
     echo "No need for a version update."
