@@ -1,5 +1,5 @@
 # OpenFisca Country-Template
-
+COUCOU
 This repository is here to help you quickly bootstrap and use your own OpenFisca country package.
 
 ## Bootstrapping your Country Package
@@ -93,7 +93,7 @@ Additional information:
 
 :tada: You are now ready to install this OpenFisca Country Package!
 
-We offer 2 install procedures. Pick procedure A or B below depending on how you plan to use this Country Package. 
+We offer 2 install procedures. Pick procedure A or B below depending on how you plan to use this Country Package.
 
 ### A. Minimal Installation (Pip Install)
 
