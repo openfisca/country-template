@@ -2,12 +2,9 @@
 
 VERSION_CHANGE_TRIGGERS="setup.py MANIFEST.in openfisca_country_template"
 
-if [[ "$CIRCLE_BRANCH" == "master" ]]
-then LAST_MASTER_VERSION="HEAD^"
-else LAST_MASTER_VERSION="origin/master"
-fi
+last_tagged_commit=`git describe --tags --abbrev=0 --first-parent`  # --first-parent ensures we don't follow tags not published in master through an unlikely intermediary merge commit
 
-if git diff-index --quiet $LAST_MASTER_VERSION -- $VERSION_CHANGE_TRIGGERS ":(exclude)*.md"
+if git diff-index --quiet $last_tagged_commit -- $VERSION_CHANGE_TRIGGERS ":(exclude)*.md"
 then echo "No functional changes detected."
 else exit 1
 fi
