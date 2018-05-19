@@ -164,15 +164,11 @@ Clone this Country Package on your machine:
 ```sh
 git clone https://github.com/openfisca/openfisca-country-template.git
 cd openfisca-country-template
-pip install -e .
+pip install --editable .[test]
 ```
 
-You can make sure that everything is working by running the provided tests:
+You can make sure that everything is working by running the provided tests with `make test`.
 
-```sh
-pip install -e ".[test]"
-make test
-```
 > [Learn more about tests](http://openfisca.org/doc/coding-the-legislation/writing_yaml_tests.html)
 
 :tada: This OpenFisca Country Package is now installed and ready!
