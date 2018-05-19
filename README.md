@@ -1,10 +1,11 @@
 # OpenFisca Country-Template
 
-This repository is here to help you quickly bootstrap and use your own OpenFisca country package.
+This repository helps you quickly bootstrap and use your own OpenFisca country package.
+
 
 ## Bootstrapping your Country Package
 
-This set of instructions will create your own copy of this boilerplate directory and customise it to the country you want to work on:
+This set of instructions will create your own copy of this boilerplate directory and customise it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
 
 ```sh
 COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
@@ -49,51 +50,37 @@ Country packages are python distributions. To distribute your package via `pip`,
 
 ## Install Instructions for Users and Contributors
 
-This package requires [Python 2.7](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/) .
+This package requires [Python 2.7.9](https://www.python.org/downloads/release/python-2715/) or a more recent 2.7 version.
 
-Supported platforms:
-- GNU/Linux distributions (in particular Debian and Ubuntu);
-- Mac OS X;
-- Microsoft Windows (we recommend using [ConEmu](https://conemu.github.io/) instead of the default console).
-
-Other OS should work if they can execute Python and NumPy.
+All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows (in which case we recommend using [ConEmu](https://conemu.github.io/) instead of the default console).
 
 ### Setting-up a Virtual Environment with Pew
 
-We recommend using a [virtual environment](https://virtualenv.pypa.io/en/stable/) (abbreviated as "virtualenv") with a virtualenv manager such as [pew](https://github.com/berdario/pew).
+In order to limit dependencies conflicts, we recommend to use a [virtual environment](https://virtualenv.pypa.io/en/stable/) (abbreviated as “virtualenv”) with a virtualenv manager such as [pew](https://github.com/berdario/pew).
 
 - A [virtualenv](https://virtualenv.pypa.io/en/stable/) is a project specific environment created to suit the needs of the project you are working on.
-- A virtualenv manager, such as [pew](https://github.com/berdario/pew), lets you easily create, remove and toggle between several virtualenvs.
+- A virtualenv manager such as [pew](https://github.com/berdario/pew) lets you easily create, remove and toggle between several virtualenvs.
 
 To install pew, launch a terminal on your computer and follow these instructions:
 
 ```sh
-python --version # You should have python 2.7.9 or better installed on your computer.
-# If not, visit http://www.python.org to install it and install pip as well.
-```
-
-```sh
 pip install --upgrade pip
 pip install pew  # if asked, answer "Y" to the question about modifying your shell config file.
-```
-To set-up and create a new a virtualenv named **openfisca** running python2.7:
-
-```sh
-pew new openfisca --python=python2.7
+pew new openfisca --python=python2.7  # create a new virtualenv called “openfisca”
 ```
 
 The virtualenv you just created will be automatically activated. This means you will operate in the virtualenv immediately. You should see a prompt resembling this:
-```sh
+
+```
 Installing setuptools, pip, wheel...done.
 Launching subshell in virtual environment. Type 'exit' or 'Ctrl+D' to return.
 ```
-Additional information:
-- Exit the virtualenv with `exit` (or Ctrl-D).
-- Re-enter with `pew workon openfisca`.
+
+You can re-activate that virtualenv at any time with `pew workon openfisca`.
 
 :tada: You are now ready to install this OpenFisca Country Package!
 
-We offer 2 install procedures. Pick procedure A or B below depending on how you plan to use this Country Package.
+Two install procedures are available. Pick procedure A or B below depending on how you plan to use this Country Package.
 
 ### A. Minimal Installation (Pip Install)
 
