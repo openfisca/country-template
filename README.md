@@ -2,30 +2,26 @@
 
 This repository helps you quickly bootstrap and use your own OpenFisca country package.
 
+**You should NOT fork it but [download a copy](https://github.com/openfisca/country-template/archive/master.zip) of it** and follow the bootstrapping instructions below.
+
+> Otherwise, you will have to clean up all tags when you deploy your own country package.
+
 
 ## Bootstrapping your Country Package
 
 This set of instructions will create your own copy of this boilerplate directory and customise it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
 
+First, [download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
+
+Then, set up the two following variables and execute the `bootstrap.sh` script to initialise a new Git repository and replace all references to `openfisca_country_template` with references to your new country package in the code base:
+
 ```sh
-COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
-URL=https://github.com/openfisca/openfisca-france  # set here the URL of the repository where you will publish your code.
-
-lowercase_country_name=$(echo $COUNTRY_NAME | tr '[:upper:]' '[:lower:]')
-
-git clone https://github.com/openfisca/country-template.git  # download this template code
-
-# remove all references to `openfisca_country_template` in the code base:
-mv country-template openfisca-$lowercase_country_name
-cd openfisca-$lowercase_country_name
-git remote remove origin
-sed -i '' '3,28d' README.md  # Remove these instructions lines
-sed -i '' "s|country_template|$lowercase_country_name|g" README.md setup.py check-version-bump.sh Makefile `find openfisca_country_template -type f`
-sed -i '' "s|country-template|$lowercase_country_name|g" README.md
-sed -i '' "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py check-version-bump.sh .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md `find openfisca_country_template -type f`
-sed -i '' "s|https://github.com/openfisca/openfisca-country-template|$URL|g" setup.py
-mv openfisca_country_template openfisca_$lowercase_country_name
+export COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
+export URL=https://github.com/$YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository where you will publish your code.
+./bootstrap.sh
 ```
+
+That's it, you're all set!
 
 ## Writing the Legislation
 
