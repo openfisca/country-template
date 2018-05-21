@@ -9,7 +9,6 @@ from openfisca_core.model_api import *
 # Import the entities specifically defined for this tax and benefit system
 from openfisca_country_template.entities import *
 
-from numpy import datetime64
 
 
 class age(Variable):
@@ -21,7 +20,13 @@ class age(Variable):
     # A person's age is computed according to its birth date.
     def formula(person, period, parameters):
         birth = person('birth', period)
-        return (datetime64(period.date) - birth).astype('timedelta64[Y]')
+        birth_year = birth.astype('datetime64[Y]').astype(int) + 1970
+        birth_month = birth.astype('datetime64[M]').astype(int) % 12 + 1
+        birth_day = (birth - birth.astype('datetime64[M]') + 1).astype(int)
+
+        is_birthday_past = (birth_month <= period.start.month) + (birth_month == period.start.month) * (birth_day <= period.start.day)
+
+        return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)  # If the birthday is not passed this year, substract one year
 
 
 # This variable is a pure input: it doesn't have a formula
