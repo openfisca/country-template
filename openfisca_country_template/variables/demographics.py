@@ -10,6 +10,15 @@ from openfisca_core.model_api import *
 from openfisca_country_template.entities import *
 
 
+# This variable is a pure input: it doesn't have a formula
+class birth(Variable):
+    value_type = date
+    default_value = date(1970, 1, 1)  # By default, if no value is set for a simulation, we consider the people involved in a simulation to be born on the 1st of Jan 1970.
+    entity = Person
+    label = u"Birth date"
+    definition_period = ETERNITY  # This variable cannot change over time.
+    reference = u"https://en.wiktionary.org/wiki/birthdate"
+
 
 class age(Variable):
     value_type = int
@@ -26,14 +35,4 @@ class age(Variable):
 
         is_birthday_past = (birth_month < period.start.month) + (birth_month == period.start.month) * (birth_day <= period.start.day)
 
-        return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)  # If the birthday is not passed this year, substract one year
-
-
-# This variable is a pure input: it doesn't have a formula
-class birth(Variable):
-    value_type = date
-    default_value = date(1970, 1, 1)  # By default, is no value is set for a simulation, we consider the people involed in a simulation to be born on the 1st of Jan 1970.
-    entity = Person
-    label = u"Birth date"
-    definition_period = ETERNITY  # This variable cannot change over time.
-    reference = u"https://en.wiktionary.org/wiki/birthdate"
+        return (period.start.year - birth_year) - where(is_birthday_past, 0, 1)  # If the birthday is not passed this year, subtract one year
