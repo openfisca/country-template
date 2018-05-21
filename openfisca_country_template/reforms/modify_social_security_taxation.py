@@ -5,7 +5,7 @@
 # See https://openfisca.org/doc/reforms.html
 
 
-# Import from openfisca-core the common python objects used to code the legislation in OpenFisca
+# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 
 
