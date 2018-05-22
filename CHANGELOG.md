@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.1.1 - [#44](https://github.com/openfisca/country-template/pull/44)
+
+* Technical improvement.
+* Impacted areas: deployment.
+* Details:
+  - Continuously deploy Python3 package.
+
 ### 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
 
 * Make package compatible with Python 3
