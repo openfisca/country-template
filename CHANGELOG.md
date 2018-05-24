@@ -22,10 +22,6 @@
 
 * Declare package compatible with OpenFisca Core v22
 
-### 3.0.1 - [#37](https://github.com/openfisca/country-template/pull/37)
-
-* Declare package compatible with OpenFisca Core v19
-
 # 3.0.0 - [#34](https://github.com/openfisca/country-template/pull/34)
 
 #### Breaking change
