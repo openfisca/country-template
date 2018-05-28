@@ -8,14 +8,14 @@
       accommodation_size: 100
       housing_occupancy_status: tenant
   persons:
-   - id: Alicia
-     birth: 1961-01-15
-     salary:
-      2017-01: 2400
-   - id: Michael
-     birth: 2002-01-15
-     salary:
-      2016: 0
+    - id: Alicia
+      birth: 1961-01-15
+      salary:
+       2017-01: 2400
+    - id: Michael
+      birth: 2002-01-15
+      salary:
+       2016: 0
   output_variables:
     housing_tax:
       2017: 1000
