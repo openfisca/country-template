@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.1.2 - [#38](https://github.com/openfisca/country-template/pull/38)
+
+* Add situation example using YAML
+
 ### 3.1.1 - [#44](https://github.com/openfisca/country-template/pull/44)
 
 * Technical improvement.

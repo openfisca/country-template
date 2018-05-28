@@ -51,7 +51,7 @@ class pension(Variable):
     label = "Pension for the elderly. Pension attribuée aux personnes âgées. تقاعد."
     reference = [u"https://fr.wikipedia.org/wiki/Retraite_(économie)", u"https://ar.wikipedia.org/wiki/تقاعد"]
 
-    def formula(person, period):
+    def formula(person, period, parameters):
         '''
         A person's pension depends on their birth date.
         In French: retraite selon l'âge.
