@@ -1,3 +1,6 @@
+# You can also use test files to describe complex situations with different entities
+# We can run this test on our command line using `openfisca-run-test tests/situations/income_tax.yaml`
+
 - name: Income tax for a single parent and a child
   description: Income tax should get properly computed across all members of a household
   period: 2017-01
