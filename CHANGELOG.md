@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.2.1 - [#47](https://github.com/openfisca/country-template/pull/47)
+
+* Minor change.
+* Impacted areas: no functional impact.
+* Details:
+  - Fix boostrap script.
+
 ## 3.2.0 - [#43](https://github.com/openfisca/country-template/pull/43)
 
 * Tax and benefit system evolution.
