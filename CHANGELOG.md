@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.1.3 - [#37](https://github.com/openfisca/country-template/pull/37)
+
+* Minor change.
+* Impacted areas: no functional impact.
+* Details:
+  - Upgrade openfisca.org references to HTTPS.
+
 ### 3.1.2 - [#38](https://github.com/openfisca/country-template/pull/38)
 
 * Add situation example using YAML
@@ -11,7 +18,7 @@
 * Details:
   - Continuously deploy Python3 package.
 
-### 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
+## 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
 
 * Make package compatible with Python 3
 
