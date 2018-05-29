@@ -9,7 +9,10 @@
 
 ### 3.1.2 - [#38](https://github.com/openfisca/country-template/pull/38)
 
-* Add situation example using YAML
+* Minor change.
+* Impacted areas: no functional impact.
+* Details:
+  - Add situation example using YAML
 
 ### 3.1.1 - [#44](https://github.com/openfisca/country-template/pull/44)
 
@@ -20,7 +23,10 @@
 
 ## 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
 
-* Make package compatible with Python 3
+* Technical improvement.
+* Impacted areas: all.
+* Details:
+  - Make package compatible with Python 3
 
 ### 3.0.2 - [#37](https://github.com/openfisca/country-template/pull/37)
 
