@@ -5,7 +5,7 @@
 * Minor change.
 * Impacted areas: no functional impact.
 * Details:
-  - Fix boostrap script.
+  - Make boostrap script portable.
 
 ## 3.2.0 - [#43](https://github.com/openfisca/country-template/pull/43)
 
