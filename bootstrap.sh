@@ -2,9 +2,10 @@
 
 set -e
 
-if ! test $COUNTRY_NAME || ! test $URL
+if ! test $COUNTRY_NAME || ! test $REPOSITORY_URL
 then
-	echo 'You need to define COUNTRY_NAME and URL first  ;)'
+	echo 'You need to define COUNTRY_NAME and REPOSITORY_URL first  ;)'
+	echo 'Open README.md for more information.'
 	exit 1
 fi
 
@@ -49,7 +50,7 @@ git mv openfisca_country_template openfisca_$lowercase_country_name
 git rm bootstrap.sh
 git add .
 git commit --message 'Customise country-template through script' --author='OpenFisca Bot <bot@openfisca.org>'
-git remote add origin $URL.git
+git remote add origin $REPOSITORY_URL.git
 
 echo '************'
 echo '* All set! *'
