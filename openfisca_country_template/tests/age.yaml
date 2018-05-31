@@ -10,3 +10,12 @@
     age:
       2015-01: 34
       2015-02: 35
+
+- name: Person born on the 29th of Feb 1980
+  period: 2016-01
+  input_variables:
+    birth: 1980-02-29
+  output_variables:
+    age:
+      2015-02: 34
+      2015-03: 35
