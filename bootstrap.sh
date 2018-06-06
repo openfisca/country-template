@@ -4,7 +4,7 @@ set -e
 
 if ! test $COUNTRY_NAME || ! test $REPOSITORY_URL
 then
-	echo 'You need to define COUNTRY_NAME and REPOSITORY_URL first  ;)'
+	echo 'You need to define and export COUNTRY_NAME and REPOSITORY_URL first  ;)'
 	echo 'Open README.md for more information.'
 	exit 1
 fi
