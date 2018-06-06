@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.2.0 - [#43](https://github.com/openfisca/country-template/pull/43)
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `variables/demographics`
+* Details:
+  - Improve reliability and accuracy of `age` formula
+  - Improve variables comments
+
 ### 3.1.3 - [#37](https://github.com/openfisca/country-template/pull/37)
 
 * Minor change.

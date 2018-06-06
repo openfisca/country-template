@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the variables of our legislation.
-# A variable is property of a person, or an entity (e.g. a household).
+# This file defines variables for the modelled legislation.
+# A variable is a property of an Entity such as a Person, a Household…
 # See https://openfisca.org/doc/variables.html
 
-# Import from openfisca-core the common python objects used to code the legislation in OpenFisca
+# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
-# Import the entities specifically defined for this tax and benefit system
+# Import the Entities specifically defined for this tax and benefit system
 from openfisca_country_template.entities import *
 
 
@@ -25,7 +25,7 @@ class disposable_income(Variable):
     entity = Person
     definition_period = MONTH
     label = "Actual amount available to the person at the end of the month"
-    reference = "https://stats.gov.example/disposable_income"  # Some variables represent quantities used in economic models, and not defined by law. Always give the source of your definition.
+    reference = "https://stats.gov.example/disposable_income"  # Some variables represent quantities used in economic models, and not defined by law. Always give the source of your definitions.
 
     def formula(person, period, parameters):
         return (
