@@ -1,9 +1,8 @@
-
 # Test files describe situations and their expected outcomes
 # We can run this test on our command line using `openfisca-run-test age.yaml`
 
-- name: Person born on the 15th of Jan 1980
-  period: 2015-01
+- name: Birthday month is taken into consideration
+  period: 2016-01
   input_variables:
     birth: 1980-01-15
   output_variables:
@@ -11,7 +10,7 @@
       2015-01: 34
       2015-02: 35
 
-- name: Person born on the 29th of Feb 1980
+- name: Leap years are supported
   period: 2016-01
   input_variables:
     birth: 1980-02-29
