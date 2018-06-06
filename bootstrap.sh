@@ -35,12 +35,12 @@ all_module_files=`find openfisca_country_template -type f`
 
 set -x
 
-# Use intermediate backup files due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053
-sed -i '.template' "s|country_template|$lowercase_country_name|g" README.md setup.py .circleci/config.yml Makefile $all_module_files
-sed -i '.template' "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md $all_module_files
-sed -i '.template' -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
-sed -i '.template' "s|country-template|$lowercase_country_name|g" README.md
-sed -i '.template' "s|https://github.com/openfisca/openfisca-country-template|$URL|g" setup.py
+# Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
+sed -i.template "s|country_template|$lowercase_country_name|g" README.md setup.py .circleci/config.yml Makefile $all_module_files
+sed -i.template "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md $all_module_files
+sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
+sed -i.template "s|country-template|$lowercase_country_name|g" README.md
+sed -i.template "s|https://github.com/openfisca/openfisca-country-template|$URL|g" setup.py
 find . -name "*.template" -type f -delete
 
 set +x
