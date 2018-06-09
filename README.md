@@ -17,7 +17,7 @@ Then, set up the two following variables and execute the `bootstrap.sh` script t
 
 ```sh
 export COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
-export URL=https://github.com/$YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository where you will publish your code.
+export REPOSITORY_URL=https://github.com/YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository where you will publish your code.
 ./bootstrap.sh
 ```
 

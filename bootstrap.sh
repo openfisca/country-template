@@ -2,9 +2,10 @@
 
 set -e
 
-if ! test $COUNTRY_NAME || ! test $URL
+if ! test $COUNTRY_NAME || ! test $REPOSITORY_URL
 then
-	echo 'You need to define COUNTRY_NAME and URL first  ;)'
+	echo 'You need to define and export COUNTRY_NAME and REPOSITORY_URL first  ;)'
+	echo 'Open README.md for more information.'
 	exit 1
 fi
 
@@ -23,24 +24,33 @@ last_bootstrapping_line_number=$(grep --line-number '^## Writing the Legislation
 
 cd ..
 pwd
-mv country-template openfisca-$lowercase_country_name
+mv country-template-master openfisca-$lowercase_country_name
 cd openfisca-$lowercase_country_name
 
 git init
 git add .
-git commit --message 'Initial import from OpenFisca country-template' --author='OpenFisca Bot <bot@openfisca.org>'
+git commit --no-gpg-sign --message 'Initial import from OpenFisca country-template' --author='OpenFisca Bot <bot@openfisca.org>'
 
-sed -i '' "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
-sed -i '' "s|country_template|$lowercase_country_name|g" README.md setup.py check-version-bump.sh Makefile `find openfisca_country_template -type f`
-sed -i '' "s|country-template|$lowercase_country_name|g" README.md
-sed -i '' "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py check-version-bump.sh .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md `find openfisca_country_template -type f`
-sed -i '' "s|https://github.com/openfisca/openfisca-country-template|$URL|g" setup.py
+all_module_files=`find openfisca_country_template -type f`
+
+set -x
+
+# Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
+sed -i.template "s|country_template|$lowercase_country_name|g" README.md setup.py .circleci/config.yml Makefile $all_module_files
+sed -i.template "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md $all_module_files
+sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
+sed -i.template "s|country-template|$lowercase_country_name|g" README.md
+sed -i.template "s|https://github.com/openfisca/openfisca-country-template|$URL|g" setup.py
+find . -name "*.template" -type f -delete
+
+set +x
+
 git mv openfisca_country_template openfisca_$lowercase_country_name
 
 git rm bootstrap.sh
 git add .
-git commit --message 'Customise country-template through script' --author='OpenFisca Bot <bot@openfisca.org>'
-git remote add origin $URL.git
+git commit --no-gpg-sign --message 'Customise country-template through script' --author='OpenFisca Bot <bot@openfisca.org>'
+git remote add origin $REPOSITORY_URL.git
 
 echo '************'
 echo '* All set! *'

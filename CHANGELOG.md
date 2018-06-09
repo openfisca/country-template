@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.2.1 - [#47](https://github.com/openfisca/country-template/pull/47)
+
+* Minor change.
+* Details:
+  - Make boostrap script portable.
+
 ## 3.2.0 - [#43](https://github.com/openfisca/country-template/pull/43)
 
 * Tax and benefit system evolution.
@@ -12,43 +18,35 @@
 ### 3.1.3 - [#37](https://github.com/openfisca/country-template/pull/37)
 
 * Minor change.
-* Impacted areas: no functional impact.
 * Details:
   - Upgrade openfisca.org references to HTTPS.
 
 ### 3.1.2 - [#38](https://github.com/openfisca/country-template/pull/38)
 
 * Minor change.
-* Impacted areas: no functional impact.
 * Details:
   - Add situation example using YAML
 
 ### 3.1.1 - [#44](https://github.com/openfisca/country-template/pull/44)
 
 * Technical improvement.
-* Impacted areas: deployment.
 * Details:
   - Continuously deploy Python3 package.
 
 ## 3.1.0 - [#41](https://github.com/openfisca/country-template/pull/41)
 
 * Technical improvement.
-* Impacted areas: all.
 * Details:
   - Make package compatible with Python 3
 
 ### 3.0.2 - [#37](https://github.com/openfisca/country-template/pull/37)
 
 * Technical change.
-* Impacted periods: all.
-* Impacted areas: all.
 * Declare package compatible with OpenFisca Core v23
 
 ### 3.0.1 - [#39](https://github.com/openfisca/country-template/pull/39)
 
 * Technical change.
-* Impacted periods: all.
-* Impacted areas: all.
 * Declare package compatible with OpenFisca Core v22
 
 # 3.0.0 - [#34](https://github.com/openfisca/country-template/pull/34)
