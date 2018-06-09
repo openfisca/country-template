@@ -29,7 +29,7 @@ cd openfisca-$lowercase_country_name
 
 git init
 git add .
-git commit --message 'Initial import from OpenFisca country-template' --author='OpenFisca Bot <bot@openfisca.org>'
+git commit --no-gpg-sign --message 'Initial import from OpenFisca country-template' --author='OpenFisca Bot <bot@openfisca.org>'
 
 all_module_files=`find openfisca_country_template -type f`
 
@@ -49,7 +49,7 @@ git mv openfisca_country_template openfisca_$lowercase_country_name
 
 git rm bootstrap.sh
 git add .
-git commit --message 'Customise country-template through script' --author='OpenFisca Bot <bot@openfisca.org>'
+git commit --no-gpg-sign --message 'Customise country-template through script' --author='OpenFisca Bot <bot@openfisca.org>'
 git remote add origin $REPOSITORY_URL.git
 
 echo '************'
