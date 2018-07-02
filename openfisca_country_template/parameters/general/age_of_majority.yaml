@@ -1,4 +1,5 @@
 description: Age of majority (in years)
+unit: year
 values:
   # This parameter has last changed on the 1st of Jan 1971.
   1945-01-01:
