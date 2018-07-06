@@ -52,6 +52,9 @@ class housing_tax(Variable):
         january = period.first_month
         accommodation_size = household('accommodation_size', january)
 
+        tax_params = parameters(period).taxes.housing_tax
+        tax_amount = max_(accommodation_size * tax_params.rate, tax_params.minimal_amount)
+
         # `housing_occupancy_status` is an Enum variable
         occupancy_status = household('housing_occupancy_status', january)
         HousingOccupancyStatus = occupancy_status.possible_values  # Get the enum associated with the variable
@@ -60,4 +63,4 @@ class housing_tax(Variable):
         owner = (occupancy_status == HousingOccupancyStatus.owner)
 
         # The tax is applied only if the household owns or rents its main residency
-        return (owner + tenant) * accommodation_size * 10
+        return (owner + tenant) * tax_amount
