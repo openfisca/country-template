@@ -2,11 +2,11 @@
 description: Housing tax
 rate:
   description: Housing tax due per square meter.
-  unit: EUR/m2
+  unit: currency:EUR/m2
   values:
     2010-01-01: 10
 minimal_amount:
   description: Minimal amount due for the housing tax
-  unit: EUR
+  unit: currency:EUR
   values:
     2010-01-01: 200
