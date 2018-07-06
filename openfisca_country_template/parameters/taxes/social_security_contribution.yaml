@@ -1,6 +1,6 @@
 # The social_security_contribution is calculated with a marginal scale. Marginal scales are represented with a specific structure.
 description: Social security contribution tax scale
-unit: currency
+unit: EUR
 brackets:
 - rate:
     2013-01-01:
