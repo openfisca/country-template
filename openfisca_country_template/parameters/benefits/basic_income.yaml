@@ -1,8 +1,10 @@
 description: Amount of the basic income
-reference: https://law.gov.example/basic-income/amount
-unit: currency:EUR
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+  unit: currency:EUR
 values:
   # This parameter is only defined since the 1st of Dec 2015.
   2015-12-01:
     value: 600.0
-    reference: https://law.gov.example/basic-income/amount/2015-12
+    metadata:
+      reference: https://law.gov.example/basic-income/amount/2015-12
