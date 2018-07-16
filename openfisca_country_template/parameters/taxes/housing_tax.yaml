@@ -1,0 +1,14 @@
+#  One Yaml file can contain nested parameters
+description: Housing tax
+rate:
+  description: Housing tax due per square meter.
+  metadata:
+    unit: currency-EUR/m2
+  values:
+    2010-01-01: 10
+minimal_amount:
+  description: Minimal amount due for the housing tax
+  metadata:
+    unit: currency-EUR
+  values:
+    2010-01-01: 200

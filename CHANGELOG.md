@@ -1,5 +1,19 @@
 # Changelog
 
+### 3.2.2 - [#49](https://github.com/openfisca/country-template/pull/49)
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `taxes`
+* Details:
+  - Implement housing tax minimal amount
+
+<!-- -->
+
+* Minor change
+* Details:
+  - Add metadata to parameters
+
 ### 3.2.1 - [#47](https://github.com/openfisca/country-template/pull/47)
 
 * Minor change.
@@ -10,7 +24,7 @@
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `variables/demographics`
+* Impacted areas: `demographics`
 * Details:
   - Improve reliability and accuracy of `age` formula
   - Improve variables comments
@@ -55,7 +69,7 @@
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `variables/housing`
+* Impacted areas: `housing`
 * Details:
   - Fix spelling by renaming `accomodation_size` variable to `accommodation_size`
 
