@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.2.3 - [#50](https://github.com/openfisca/country-template/pull/50)
+
+* Minor change
+* Details:
+  - Fix repository URL in package metadata
+
 ### 3.2.2 - [#49](https://github.com/openfisca/country-template/pull/49)
 
 * Tax and benefit system evolution.
