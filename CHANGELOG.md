@@ -1,6 +1,6 @@
 # Changelog
 
-### 3.2.3 - [#???](https://github.com/openfisca/country-template/pull/???)
+### 3.2.3 - [#50](https://github.com/openfisca/country-template/pull/50)
 
 * Minor change
 * Details:
