@@ -7,13 +7,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='OpenFisca-Country-Template',
-    version='3.2.2',
+    version='3.2.3',
     author='OpenFisca Team',
     author_email='contact@openfisca.fr',
     description=u'OpenFisca tax and benefit system for Country-Template',
     keywords='benefit microsimulation social tax',
     license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
-    url='https://github.com/openfisca/openfisca-country-template',
+    url='https://github.com/openfisca/country-template',
     include_package_data = True,  # Will read MANIFEST.in
     install_requires=[
         'OpenFisca-Core >= 23.3, < 24.0',
