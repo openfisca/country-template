@@ -19,9 +19,6 @@ setup(
         'OpenFisca-Core >= 23.3, < 24.0',
         ],
     extras_require = {
-        'api': [
-            'OpenFisca-Web-API >= 4.0.0, < 7.0',
-            ],
         'test': [
             'flake8 >= 3.4.0, < 3.5.0',
             'flake8-print',
