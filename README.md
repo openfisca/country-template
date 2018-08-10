@@ -107,6 +107,12 @@ Install the Country Package:
 pip install openfisca_country_template
 ```
 
+Install the Country Package with the Web API dependencies:
+
+```sh
+pip install openfisca_country_template[web_api]
+```
+
 :tada: This OpenFisca Country Package is now installed and ready!
 
 #### Next Steps
@@ -147,7 +153,7 @@ Clone this Country Package on your machine:
 ```sh
 git clone https://github.com/openfisca/openfisca-country-template.git
 cd openfisca-country-template
-pip install --editable .[test]
+pip install --editable .[dev]
 ```
 
 You can make sure that everything is working by running the provided tests with `make test`.
@@ -165,10 +171,16 @@ You can make sure that everything is working by running the provided tests with 
 
 If you are considering building a web application, you can use the packaged OpenFisca Web API with your Country Package.
 
+To install the Country Package with the Web API dependencies, run:
+
+```sh
+pip install openfisca_country_template[web_api]
+```
+
 To serve the Openfisca Web API locally, run:
 
 ```sh
-openfisca serve --port 5000
+openfisca serve
 ```
 
 To read more about the `openfisca serve` command, check out its [documentation](https://openfisca.readthedocs.io/en/latest/openfisca_serve.html).
