@@ -1,10 +1,10 @@
 # Changelog
 
-
 ### 3.3.0 - [#51](https://github.com/openfisca/country-template/pull/51)
 
 * Technical change
   - Make package compatible with OpenFisca Core v24
+  - Rename development dependencies from `test` to `dev`:
 
 ### 3.2.3 - [#50](https://github.com/openfisca/country-template/pull/50)
 
