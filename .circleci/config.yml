@@ -22,8 +22,8 @@ jobs:
           name: Install dependencies
           command: |
             pip install --upgrade pip twine wheel
-            pip install --editable .[test] --upgrade
-          #  pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH_NAME#egg=OpenFisca-Core  # use a specific branch of OpenFisca-Core
+            # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
+            pip install --editable .[dev] --upgrade
 
       - save_cache:
           key: v1-py2-{{ checksum "setup.py" }}
@@ -88,8 +88,8 @@ jobs:
           name: Install dependencies
           command: |
             pip install --upgrade pip twine wheel
-            pip install --editable .[test] --upgrade
-          #  pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH_NAME#egg=OpenFisca-Core  # use a specific branch of OpenFisca-Core
+            # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
+            pip install --editable .[dev] --upgrade
 
       - save_cache:
           key: v1-py3-{{ checksum "setup.py" }}

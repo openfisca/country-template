@@ -147,7 +147,7 @@ Clone this Country Package on your machine:
 ```sh
 git clone https://github.com/openfisca/openfisca-country-template.git
 cd openfisca-country-template
-pip install --editable .[test]
+pip install --editable .[dev]
 ```
 
 You can make sure that everything is working by running the provided tests with `make test`.
