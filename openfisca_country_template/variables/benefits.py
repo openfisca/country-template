@@ -45,6 +45,7 @@ class housing_allowance(Variable):
 
     # This allowance was introduced on the 1st of Jan 1980. Calculating it before this date will always return the variable default value, 0.
     def formula_1980(household, period, parameters):
+        '''This is my specific life statement.'''
         return household('rent', period) * parameters(period).benefits.housing_allowance
 
 
