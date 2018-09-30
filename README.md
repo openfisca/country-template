@@ -46,7 +46,7 @@ Country packages are python distributions. To distribute your package via `pip`,
 
 ## Install Instructions for Users and Contributors
 
-This package requires [Python 2.7.9](https://www.python.org/downloads/release/python-2715/) or a more recent 2.7 version.
+This package requires [Python 3.7](https://www.python.org/downloads/release/python-370/). More recent versions should work, but are not tested.
 
 All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows (in which case we recommend using [ConEmu](https://conemu.github.io/) instead of the default console).
 
