@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.3.1 - [#53](https://github.com/openfisca/country-template/pull/53)
+
+* Minor change
+* Details:
+  - Add `documentation` to parameters: `benefits` node and `benefits/housing_allowance`
+  - Add documentation to `housing_allowance` variable and formula
+
 ### 3.3.0 - [#51](https://github.com/openfisca/country-template/pull/51)
 
 * Technical change

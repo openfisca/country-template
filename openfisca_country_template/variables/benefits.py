@@ -37,9 +37,17 @@ class housing_allowance(Variable):
     label = "Housing allowance"
     reference = "https://law.gov.example/housing_allowance"  # Always use the most official source
     end = '2016-11-30'  # This allowance was removed on the 1st of Dec 2016. Calculating it before this date will always return the variable default value, 0.
+    unit = 'currency-EUR'
+    documentation = '''
+    This allowance was introduced on the 1st of Jan 1980.
+    It disappeared in Dec 2016.
+    '''
 
     # This allowance was introduced on the 1st of Jan 1980. Calculating it before this date will always return the variable default value, 0.
     def formula_1980(household, period, parameters):
+        '''
+        To compute this allowance, the 'rent' value must be provided for the same month, but 'housing_occupancy_status' is not necessary.
+        '''
         return household('rent', period) * parameters(period).benefits.housing_allowance
 
 
