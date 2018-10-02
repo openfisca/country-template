@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.3.2
+
+* Minor change
+* Details:
+  - Update entities labels
+
 ### 3.3.1 - [#53](https://github.com/openfisca/country-template/pull/53)
 
 * Minor change
