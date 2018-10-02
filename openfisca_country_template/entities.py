@@ -42,12 +42,10 @@ Household = build_entity(
 Person = build_entity(
     key = "person",
     plural = "persons",
-    label = u'A Person represents an individual, the minimal legal entity on which a legislation might be applied.',
+    label = u'An individual. The minimal legal entity on which a legislation might be applied.',
     doc = '''
-    A Person represents an individual, the minimal legal entity on which a legislation might be applied.
 
-    Example:
-    The 'salary' and 'income_tax' variables are usually defined for the entity 'Person'.
+    Variables like 'salary' and 'income_tax' are usually defined for the entity 'Person'.
 
     Usage:
     Calculate a variable applied to a 'Person' (e.g. access the 'salary' of a specific month with person('salary', "2017-05")).
