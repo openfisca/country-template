@@ -6,7 +6,7 @@ from openfisca_core.entities import build_entity
 Household = build_entity(
     key = "household",
     plural = "households",
-    label = u'Household',
+    label = u'All the people in a family or group who live together in the same place.',
     doc = '''
     Household is an example of a group entity.
     A group entity contains one or more individual·s.
@@ -42,7 +42,7 @@ Household = build_entity(
 Person = build_entity(
     key = "person",
     plural = "persons",
-    label = u'Person',
+    label = u'A Person represents an individual, the minimal legal entity on which a legislation might be applied.',
     doc = '''
     A Person represents an individual, the minimal legal entity on which a legislation might be applied.
 
