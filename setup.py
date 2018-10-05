@@ -3,6 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
+<<<<<<< HEAD
     name = "OpenFisca-Country-Template",
     version = "3.5.1",
     author = "OpenFisca Team",
@@ -18,6 +19,16 @@ setup(
     keywords = "benefit microsimulation social tax",
     license ="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
     url = "https://github.com/openfisca/country-template",
+=======
+    name='OpenFisca-Country-Template',
+    version='3.3.3',
+    author='OpenFisca Team',
+    author_email='contact@openfisca.fr',
+    description=u'OpenFisca tax and benefit system for Country-Template',
+    keywords='benefit microsimulation social tax',
+    license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
+    url='https://github.com/openfisca/country-template',
+>>>>>>> Bump version to 3.3.3
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
         ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),

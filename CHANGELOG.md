@@ -1,5 +1,6 @@
 # Changelog
 
+<<<<<<< HEAD
 ### 3.5.1 - [#59](https://github.com/openfisca/country-template/pull/59)
 
 * Technical change
@@ -21,6 +22,17 @@
   - Introduce `code_postal` variable
 
 ### 3.3.2
+=======
+### 3.3.3 - [#56](https://github.com/openfisca/country-template/pull/56)
+
+* Minor change
+* Impacted areas: `setup.cfg`
+* Details:
+  - Sync style check with openfisca-core
+
+
+### 3.3.2 - [#55](https://github.com/openfisca/country-template/pull/55)
+>>>>>>> Bump version to 3.3.3
 
 * Minor change
 * Details:
