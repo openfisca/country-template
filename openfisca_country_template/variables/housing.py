@@ -43,3 +43,11 @@ class housing_occupancy_status(Variable):
     entity = Household
     definition_period = MONTH
     label = u"Legal housing situation of the household concerning their main residence"
+
+
+class postal_code(Variable):
+    value_type = str
+    max_length = 5
+    entity = Household
+    definition_period = MONTH
+    label = "Postal code of the household"

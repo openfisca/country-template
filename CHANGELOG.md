@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.0
+
+* Introduce `code_postal` variable
+
 ### 3.3.2
 
 * Minor change
