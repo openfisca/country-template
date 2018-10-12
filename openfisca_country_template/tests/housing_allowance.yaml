@@ -3,14 +3,14 @@
 
 - name: In january 2016, a household paying 400 of rent gets an allowance of 100
   period: 2016-01
-  input_variables:
+  input:
     rent: 400
-  output_variables:
+  output:
     housing_allowance: 100
 
 - name: The housing_allowance disappeared in Dec 2016
   period: 2016-12
-  input_variables:
+  input:
     rent: 400
-  output_variables:
+  output:
     housing_allowance: 0

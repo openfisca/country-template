@@ -5,21 +5,22 @@
   description: Income tax should get properly computed across all members of a household
   period: 2017-01
   absolute_error_margin: 0
-  households:
-    - parents: [ Alicia ]
+  input:
+    household:
+      parents: [ Alicia ]
       children: [ Michael ]
       accommodation_size: 100
       housing_occupancy_status: tenant
-  persons:
-    - id: Alicia
-      birth: 1961-01-15
-      salary:
-       2017-01: 2400
-    - id: Michael
-      birth: 2002-01-15
-      salary:
-       2016: 0
-  output_variables:
+    persons:
+      Alicia:
+        birth: 1961-01-15
+        salary:
+         2017-01: 2400
+      Michael:
+        birth: 2002-01-15
+        salary:
+         2016: 0
+  output:
     housing_tax:
       2017: 1000
     income_tax: [ 360, 0 ]

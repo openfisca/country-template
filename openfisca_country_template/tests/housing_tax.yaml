@@ -3,30 +3,30 @@
 
 - name: Tenant living in a 40 sq. metres accommodation
   period: 2017
-  input_variables:
+  input:
     accommodation_size:
       2017-01: 40
     housing_occupancy_status:
       2017-01: tenant
-  output_variables:
+  output:
     housing_tax: 400
 
 - name: Free lodgers living in a 40 sq. metres accommodation
   period: 2017
-  input_variables:
+  input:
     accommodation_size:
       2017-01: 40
     housing_occupancy_status:
       2017-01: free_lodger
-  output_variables:
+  output:
     housing_tax: 0
 
 - name: Household living in a 100 sq. metres accommodation
   period: 2017
-  input_variables:
+  input:
     accommodation_size:
       2017-01: 100
-  output_variables:
+  output:
     housing_tax: 1000
     housing_occupancy_status:
       2017-01: tenant
