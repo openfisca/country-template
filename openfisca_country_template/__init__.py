@@ -4,7 +4,8 @@ import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
 
-from . import entities
+from openfisca_country_template import entities
+from openfisca_country_template.situation_examples import couple
 
 
 COUNTRY_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -23,3 +24,10 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         # We add to our tax and benefit system all the legislation parameters defined in the  parameters files
         param_path = os.path.join(COUNTRY_DIR, 'parameters')
         self.load_parameters(param_path)
+
+        # We define which variable, parameter and simulation example will be used in the OpenAPI specification
+        self.open_api_config = {
+            "variable_example": "disposable_income",
+            "parameter_example": "taxes.income_tax_rate",
+            "simulation_example": couple,
+            }
