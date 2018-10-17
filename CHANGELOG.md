@@ -1,8 +1,17 @@
 # Changelog
 
+## 3.5.0
+
+* Technical change
+  - In the `/spec` Web API route, use examples that apply to this country package
+
 ## 3.4.0
 
-* Introduce `code_postal` variable
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `housing`
+* Details:
+  - Introduce `code_postal` variable
 
 ### 3.3.2
 
