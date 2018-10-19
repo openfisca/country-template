@@ -28,6 +28,7 @@ jobs:
           key: v1-py2-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
+            - dist
 
       - save_cache:
           key: v1-py2-{{ .Revision }}
@@ -101,6 +102,7 @@ jobs:
           key: v1-py3-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
+            - dist
 
       - save_cache:
           key: v1-py3-{{ .Revision }}
