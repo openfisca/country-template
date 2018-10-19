@@ -1,30 +1,37 @@
-#! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
 
 from setuptools import setup, find_packages
 
-
 setup(
-    name='OpenFisca-Country-Template',
-    version='3.5.0',
-    author='OpenFisca Team',
-    author_email='contact@openfisca.fr',
-    description=u'OpenFisca tax and benefit system for Country-Template',
-    keywords='benefit microsimulation social tax',
-    license='http://www.fsf.org/licensing/licenses/agpl-3.0.html',
-    url='https://github.com/openfisca/country-template',
+    name = "OpenFisca-Country-Template",
+    version = "3.5.0",
+    author = "OpenFisca Team",
+    author_email = "contact@openfisca.org",
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
+        "Operating System :: POSIX",
+        "Programming Language :: Python",
+        "Topic :: Scientific/Engineering :: Information Analysis",
+        ],
+    description = "OpenFisca tax and benefit system for Country-Template",
+    keywords = "benefit microsimulation social tax",
+    license ="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
+    url = "https://github.com/openfisca/country-template",
     include_package_data = True,  # Will read MANIFEST.in
-    install_requires=[
-        'OpenFisca-Core[web-api] >= 24.6, < 25.0',
+    data_files = [
+        ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        ],
+    install_requires = [
+        "OpenFisca-Core[web-api] >= 24.6, < 25.0",
         ],
     extras_require = {
-        'dev': [
-            'flake8 >= 3.4.0, < 3.5.0',
-            'flake8-print',
-            'nose',
+        "dev": [
+            "autopep8 == 1.4.0",
+            "flake8 >= 3.5.0, < 3.6.0",
+            "flake8-print",
+            "pycodestyle >= 2.3.0, < 2.4.0",  # To avoid incompatibility with flake
             ]
         },
     packages=find_packages(),
-    test_suite='nose.collector',
     )
