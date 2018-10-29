@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.5.1 - [#59](https://github.com/openfisca/country-template/pull/59)
+
+* Technical change
+* Details:
+  - Tests library against its packaged version
+  - By doing so, we prevent some hideous bugs
+
 ## 3.5.0
 
 * Technical change
