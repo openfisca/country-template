@@ -1,5 +1,7 @@
 # Changelog
 
+#
+
 ### 3.5.1 - [#59](https://github.com/openfisca/country-template/pull/59)
 
 * Technical change
