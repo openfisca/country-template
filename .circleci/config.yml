@@ -9,7 +9,8 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py2-{{ checksum "setup.py" }}
+          keys:
+            - v1-py2-deps-{{ checksum "setup.py" }}
 
       - run:
           name: Create a virtualenv
@@ -25,13 +26,12 @@ jobs:
             # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
 
       - save_cache:
-          key: v1-py2-{{ checksum "setup.py" }}
+          key: v1-py2-deps-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
-            - dist
 
       - save_cache:
-          key: v1-py2-{{ .Revision }}
+          key: v1-py2-build-{{ .Revision }}
           paths:
             - dist
 
@@ -56,10 +56,9 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py2-{{ checksum "setup.py" }}
-
-      - restore_cache:
-          key: v1-py2-{{ .Revision }}
+          keys:
+            - v1-py2-deps-{{ checksum "setup.py" }}
+            - v1-py2-build-{{ .Revision }}
 
       - run:
           name: Check for functional changes
@@ -69,7 +68,7 @@ jobs:
           name: Upload a Python package to Pypi
           command: |
             source /tmp/venv/country_template/bin/activate
-            .circleci/publish-python-package.sh
+            twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
 
       - run:
           name: Publish a git tag
@@ -83,7 +82,8 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
+          keys:
+            - v1-py3-deps-{{ checksum "setup.py" }}
 
       - run:
           name: Create a virtualenv
@@ -99,13 +99,12 @@ jobs:
             # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
 
       - save_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
+          key: v1-py3-deps-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
-            - dist
 
       - save_cache:
-          key: v1-py3-{{ .Revision }}
+          key: v1-py3-build-{{ .Revision }}
           paths:
             - dist
 
@@ -130,10 +129,9 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py3-{{ checksum "setup.py" }}
-
-      - restore_cache:
-          key: v1-py3-{{ .Revision }}
+          keys:
+            - v1-py3-deps-{{ checksum "setup.py" }}
+            - v1-py3-build-{{ .Revision }}
 
       - run:
           name: Check for functional changes
@@ -143,7 +141,7 @@ jobs:
           name: Upload a Python package to Pypi
           command: |
             source /tmp/venv/country_template/bin/activate
-            .circleci/publish-python-package.sh
+            twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
 
 workflows:
   version: 2
