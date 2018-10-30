@@ -128,10 +128,10 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v1-py2-deps-{{ checksum "setup.py" }}
+          key: v1-py3-deps-{{ checksum "setup.py" }}
 
       - restore_cache:
-          key: v1-py2-build-{{ .Revision }}
+          key: v1-py3-build-{{ .Revision }}
 
       - run:
           name: Check for functional changes
