@@ -28,6 +28,10 @@ jobs:
           key: v1-py2-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
+
+      - save_cache:
+          key: v1-py2-{{ .Revision }}
+          paths:
             - dist
 
       - run:
@@ -52,6 +56,9 @@ jobs:
 
       - restore_cache:
           key: v1-py2-{{ checksum "setup.py" }}
+
+      - restore_cache:
+          key: v1-py2-{{ .Revision }}
 
       - run:
           name: Check for functional changes
@@ -94,6 +101,10 @@ jobs:
           key: v1-py3-{{ checksum "setup.py" }}
           paths:
             - /tmp/venv/country_template
+
+      - save_cache:
+          key: v1-py3-{{ .Revision }}
+          paths:
             - dist
 
       - run:
@@ -118,6 +129,9 @@ jobs:
 
       - restore_cache:
           key: v1-py3-{{ checksum "setup.py" }}
+
+      - restore_cache:
+          key: v1-py3-{{ .Revision }}
 
       - run:
           name: Check for functional changes
