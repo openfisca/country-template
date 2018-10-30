@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.5.2 - [#61](https://github.com/openfisca/country-template/pull/61)
+
+* Bug fix
+* Details:
+  - Fix MANIFEST's generation that was broken by previous commit
+
 ### 3.5.1 - [#59](https://github.com/openfisca/country-template/pull/59)
 
 * Technical change
