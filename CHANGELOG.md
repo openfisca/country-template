@@ -1,13 +1,15 @@
 # Changelog
 
-### 3.5.1 - [#59](https://github.com/openfisca/country-template/pull/59)
+### 3.5.2 - [#59](https://github.com/openfisca/country-template/pull/59) [#62](https://github.com/openfisca/country-template/pull/62) [#63](https://github.com/openfisca/country-template/pull/63)
 
 * Technical change
 * Details:
   - Tests library against its packaged version
   - By doing so, we prevent some hideous bugs
 
-## 3.5.0
+> Note: Version `3.5.1` has been unpublished as it accidentally introduced a bug. Please use version `3.5.2` or more recent.
+
+## 3.5.0 - [#58](https://github.com/openfisca/country-template/pull/58)
 
 * Technical change
   - In the `/spec` Web API route, use examples that apply to this country package
