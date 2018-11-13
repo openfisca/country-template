@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.5.3 - [#64](https://github.com/openfisca/country-template/pull/64)
+
+* Minor change
+* Details:
+  - Document housing tax
+
 ### 3.5.2 - [#59](https://github.com/openfisca/country-template/pull/59) [#62](https://github.com/openfisca/country-template/pull/62) [#63](https://github.com/openfisca/country-template/pull/63)
 
 * Technical change
