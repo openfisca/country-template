@@ -2,7 +2,7 @@
 
 # This file defines variables for the modelled legislation.
 # A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/variables.html
+# See https://openfisca.org/doc/key-concepts/variables.html
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
@@ -48,7 +48,7 @@ class housing_tax(Variable):
     def formula(household, period, parameters):
         # The housing tax is defined for a year, but depends on the `accommodation_size` and `housing_occupancy_status` on the first month of the year.
         # Here period is a year. We can get the first month of a year with the following shortcut.
-        # To build different periods, see https://openfisca.org/doc/coding-the-legislation/35_periods.html#calculating-dependencies-for-a-specific-period
+        # To build different periods, see https://openfisca.org/doc/coding-the-legislation/35_periods.html#calculate-dependencies-for-a-specific-period
         january = period.first_month
         accommodation_size = household('accommodation_size', january)
 
