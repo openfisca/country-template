@@ -171,7 +171,7 @@ To serve the Openfisca Web API locally, run:
 openfisca serve --port 5000
 ```
 
-To read more about the `openfisca serve` command, check out its [documentation](https://openfisca.readthedocs.io/en/latest/openfisca_serve.html).
+To read more about the `openfisca serve` command, check out its [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html).
 
 You can make sure that your instance of the API is working by requesting:
 

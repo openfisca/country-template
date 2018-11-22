@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.5.4 - [#65](https://github.com/openfisca/country-template/pull/65)
+
+* Minor change
+* Details:
+  - Update links to the doc
+
 ### 3.5.3 - [#64](https://github.com/openfisca/country-template/pull/64)
 
 * Minor change
@@ -215,7 +221,7 @@ name: Household living in a 40 sq. metres accommodation while being free lodgers
 
 #### Python API
 
-When calculating an enum variable in Python, the output will be an [EnumArray](http://openfisca.readthedocs.io/en/latest/enum_array.html#module-openfisca_core.indexed_enums).
+When calculating an enum variable in Python, the output will be an [EnumArray](https://openfisca.org/doc/openfisca-python-api/enum_array.html).
 
 See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisca-core/blob/enums-perfs/CHANGELOG.md#2102-589-600-605).
 
