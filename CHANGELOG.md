@@ -1,5 +1,71 @@
 # Changelog
 
+### 3.6.O - [#66](https://github.com/openfisca/country-template/pull/66)
+
+* Minor change
+* Details:
+  - Adapt to OpenFisca Core v25
+  - Change the syntax of OpenFisca YAML tests
+
+For instance, a test that was using the `input_variables` and the `output_variables` keywords like:
+
+```yaml
+- name: Basic income
+  period: 2016-12
+  input_variables:
+    salary: 1200
+  output_variables:
+    basic_income: 600
+```
+
+becomes:
+
+```yaml
+- name: Basic income
+  period: 2016-12
+  input:
+    salary: 1200
+  output:
+    basic_income: 600
+```
+
+A test that was fully specifying its entities like:
+
+```yaml
+name: Housing tax
+  period: 2017-01
+  households:
+    - parents: [ Alicia ]
+      children: [ Michael ]
+  persons:
+    - id: Alicia
+        birth: 1961-01-15
+    - id: Michael
+        birth: 2002-01-15
+  output_variables:
+    housing_tax:
+      2017: 1000
+```
+
+becomes:
+
+```yaml
+name: Housing tax
+  period: 2017-01
+  input:
+    household:
+      parents: [ Alicia ]
+      children: [ Michael ]
+    persons:
+      Alicia:
+        birth: 1961-01-15
+      Michael:
+        birth: 2002-01-15
+  output:
+    housing_tax:
+      2017: 1000
+```
+
 ### 3.5.4 - [#65](https://github.com/openfisca/country-template/pull/65)
 
 * Minor change

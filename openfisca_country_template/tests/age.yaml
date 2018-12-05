@@ -3,27 +3,27 @@
 
 - name: Birthday month is taken into consideration
   period: 2016-01
-  input_variables:
+  input:
     birth: 1980-02-15
-  output_variables:
+  output:
     age:
       2015-02: 34
       2015-03: 35
 
 - name: Years are taken into consideration
   period: 2016-01
-  input_variables:
+  input:
     birth: 1980-12-31
-  output_variables:
+  output:
     age:
       2015-12: 34
       2016-01: 35
 
 - name: The first year is considered of age 0
   period: 2016-01
-  input_variables:
+  input:
     birth: 1980-02-01
-  output_variables:
+  output:
     age:
       1980-02: 0
       1980-03: 0
@@ -31,9 +31,9 @@
 
 - name: Leap years are supported
   period: 2016-01
-  input_variables:
+  input:
     birth: 1980-02-29
-  output_variables:
+  output:
     age:
       2015-02: 34
       2015-03: 35
