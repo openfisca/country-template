@@ -62,7 +62,7 @@ To install pew, launch a terminal on your computer and follow these instructions
 ```sh
 pip install --upgrade pip
 pip install pew  # if asked, answer "Y" to the question about modifying your shell config file.
-pew new openfisca --python=python2.7  # create a new virtualenv called “openfisca”
+pew new openfisca --python=python3.7  # create a new virtualenv called “openfisca”
 ```
 
 The virtualenv you just created will be automatically activated. This means you will operate in the virtualenv immediately. You should see a prompt resembling this:
