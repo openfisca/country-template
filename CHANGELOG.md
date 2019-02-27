@@ -1,6 +1,13 @@
 # Changelog
 
-### 3.6.O - [#66](https://github.com/openfisca/country-template/pull/66)
+## 3.7.0 - [#68](https://github.com/openfisca/country-template/pull/68)
+
+* Technical change
+* Details:
+  - Declare package compatible with Core v26
+  - Remove Python 2 checks from continuous integration
+
+## 3.6.O - [#66](https://github.com/openfisca/country-template/pull/66)
 
 * Minor change
 * Details:
