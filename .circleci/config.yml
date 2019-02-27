@@ -1,7 +1,7 @@
 # CircleCI 2.0 configuration file. See <https://circleci.com/docs/2.0/language-python/>.
 version: 2
 jobs:
-  build_python3:
+  build:
     docker:
       - image: python:3.7
 
@@ -44,7 +44,7 @@ jobs:
             git fetch
             .circleci/is-version-number-acceptable.sh
 
-  deploy_python3:
+  deploy:
     docker:
       - image: python:3.7
     environment:
@@ -78,10 +78,10 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build_python3
-      - deploy_python3:
+      - build
+      - deploy:
           requires:
-            - build_python3
+            - build
           filters:
             branches:
               only: master
