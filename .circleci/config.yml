@@ -1,49 +1,6 @@
 # CircleCI 2.0 configuration file. See <https://circleci.com/docs/2.0/language-python/>.
 version: 2
 jobs:
-  build_python2:
-    docker:
-      - image: python:2.7.15
-
-    steps:
-      - checkout
-
-      - restore_cache:
-          key: v1-py2-deps-{{ checksum "setup.py" }}
-
-      - run:
-          name: Create a virtualenv
-          command: |
-            mkdir -p /tmp/venv/country_template
-            virtualenv /tmp/venv/country_template
-            echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
-
-      - run:
-          name: Install dependencies
-          command: |
-            make build
-            # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
-
-      - save_cache:
-          key: v1-py2-deps-{{ checksum "setup.py" }}
-          paths:
-            - /tmp/venv/country_template
-
-      - save_cache:
-          key: v1-py2-build-{{ .Revision }}
-          paths:
-            - dist
-
-      - run:
-          name: Run tests
-          command: make test
-
-      - run:
-          name: Check version number has been properly updated
-          command: |
-            git fetch
-            .circleci/is-version-number-acceptable.sh
-
   deploy_python2:
     docker:
       - image: python:2.7.15
@@ -147,18 +104,15 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build_python2
       - build_python3
       - deploy_python2:
           requires:
-            - build_python2
             - build_python3
           filters:
             branches:
               only: master
       - deploy_python3:
           requires:
-            - build_python2
             - build_python3
           filters:
             branches:
