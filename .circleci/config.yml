@@ -38,6 +38,13 @@ jobs:
           name: Run tests
           command: make test
 
+  check_version:
+    docker:
+      - image: python:3.7
+
+    steps:
+      - checkout
+
       - run:
           name: Check version number has been properly updated
           command: |
@@ -79,9 +86,11 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+      - check_version
       - deploy:
           requires:
             - build
+            - check_version
           filters:
             branches:
               only: master
