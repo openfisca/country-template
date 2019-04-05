@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.9.1 - [#74](https://github.com/openfisca/country-template/pull/74)
+
+* Minor change.
+* Details:
+  - Explicit expected test output
+
 ## 3.9.0 - [#72](https://github.com/openfisca/country-template/pull/72)
 
 * Technical change

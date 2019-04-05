@@ -21,6 +21,11 @@
         salary:
          2016: 0
   output:
-    housing_tax:
-      2017: 1000
-    income_tax: [ 360, 0 ]
+    persons:
+      Alicia:
+        income_tax: 360
+      Michael:
+        income_tax: 0
+    household:
+      housing_tax:
+        2017: 1000
