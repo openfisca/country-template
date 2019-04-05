@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.9.0 - [#72](https://github.com/openfisca/country-template/pull/72)
+
+* Technical change
+* Details:
+  - Declare package compatible with Core v31
+
 ## 3.8.0 - [#69](https://github.com/openfisca/country-template/pull/69)
 
 * Technical change
