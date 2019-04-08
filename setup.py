@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.9.1",
+    version = "3.9.2",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers=[
@@ -28,9 +28,9 @@ setup(
     extras_require = {
         "dev": [
             "autopep8 == 1.4.0",
-            "flake8 >= 3.5.0, < 3.6.0",
+            "flake8 >=3.5.0,<3.8.0",
             "flake8-print",
-            "pycodestyle >= 2.3.0, < 2.4.0",  # To avoid incompatibility with flake
+            "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             ]
         },
     packages=find_packages(),
