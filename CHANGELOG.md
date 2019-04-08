@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.9.3 - [#73](https://github.com/openfisca/country-template/pull/73)
+
+* Minor change.
+* Details:
+  - Upgrade `autopep8`
+
 ### 3.9.2 - [#71](https://github.com/openfisca/country-template/pull/71)
 
 * Minor change.
