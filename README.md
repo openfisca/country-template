@@ -11,13 +11,15 @@ This repository helps you quickly bootstrap and use your own OpenFisca country p
 
 This set of instructions will create your own copy of this boilerplate directory and customise it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
 
-First, [download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
+1. [download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
 
-Then, set up the two following variables and execute the `bootstrap.sh` script to initialise a new Git repository and replace all references to `openfisca_country_template` with references to your new country package in the code base:
+2. reate a git repository where you will publish your code, as the bootstrapping script will need it to properly setup your new and shiny OpenFisca country (Github, BitBucket, GitLab, etc.).
+
+3. Set up the two following variables and execute the `bootstrap.sh` script to initialise a new Git repository and replace all references to `openfisca_country_template` with references to your new country package in the code base:
 
 ```sh
 export COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
-export REPOSITORY_URL=https://github.com/YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository where you will publish your code.
+export REPOSITORY_URL=https://github.com/YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository you created in step 2.
 ./bootstrap.sh
 ```
 
