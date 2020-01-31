@@ -181,4 +181,14 @@ curl "http://localhost:5000/spec"
 
 This endpoint returns the [Open API specification](https://www.openapis.org/) of your API.
 
-:tada: This OpenFisca Country Package is now served by the OpenFisca Web API! To learn more, go to the [OpenFisca Web API documentation](https://openfisca.org/doc/openfisca-web-api/index.html)
+:tada: This OpenFisca Country Package is now served by the OpenFisca Web API! To learn more, go to the [OpenFisca Web API documentation](https://openfisca.org/doc/openfisca-web-api/index.html).
+
+You can test your new Web API by sending it example JSON data located in the `situation_examples` folder.
+
+Substitute your package's country name for `openfisca_country_template` below:
+
+```sh
+curl -X POST -H "Content-Type: application/json" \
+  -d @./openfisca_country_template/situation_examples/couple.json \
+  http://localhost:5000/calculate
+```
