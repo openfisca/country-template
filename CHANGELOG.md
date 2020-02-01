@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.9.8 - [#83](https://github.com/openfisca/country-template/pull/83)
+
+* Minor change.
+* Details:
+  - Add additional example JSON file; add to README.
+
 ### 3.9.7 - [#80](https://github.com/openfisca/country-template/pull/80)
 
 * Minor change.
