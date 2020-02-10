@@ -1,5 +1,12 @@
 # Changelog
 
+
+### 3.9.9 - [#85](https://github.com/openfisca/country-template/pull/85)
+
+* Minor change.
+* Details:
+  - Add `make serve-local` command to Makefile.
+
 ### 3.9.8 - [#83](https://github.com/openfisca/country-template/pull/83)
 
 * Minor change.
