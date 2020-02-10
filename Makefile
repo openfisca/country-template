@@ -38,3 +38,6 @@ check-style:
 
 test: clean check-syntax-errors check-style
 	openfisca-run-test --country-package openfisca_country_template openfisca_country_template/tests
+
+serve-local: build
+	openfisca serve --country-package openfisca_country_template
