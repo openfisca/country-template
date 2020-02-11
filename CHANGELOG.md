@@ -1,5 +1,10 @@
 # Changelog
 
+### 3.9.10 - [#86](https://github.com/openfisca/country-template/pull/86)
+
+* Technical change.
+* Details:
+  - Fix bootstrap script bug.
 
 ### 3.9.9 - [#85](https://github.com/openfisca/country-template/pull/85)
 
