@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.9.11 - [#94](https://github.com/openfisca/country-template/pull/94)
+
+* Minor change.
+* Details:
+  - Fix `make test` warning by updating OpenFisca test command.
+
 ### 3.9.10 - [#86](https://github.com/openfisca/country-template/pull/86)
 
 * Technical change.
