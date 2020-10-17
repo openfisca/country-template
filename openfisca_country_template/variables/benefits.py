@@ -9,7 +9,7 @@ from openfisca_core.periods import MONTH
 from openfisca_core.variables import Variable
 
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_country_template.entities import Person, Household
+from openfisca_country_template.entities import Household, Person
 
 
 class basic_income(Variable):
