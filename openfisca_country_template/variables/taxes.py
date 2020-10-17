@@ -4,10 +4,15 @@
 # A variable is a property of an Entity such as a Person, a Household…
 # See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
+# Import from numpy the operations you need to apply on OpenFisca's population vectors
+from numpy import maximum as max_
+
+# Import from openfisca-core the Python objects used to code the legislation in OpenFisca
+from openfisca_core.periods import MONTH, YEAR
+from openfisca_core.variables import Variable
+
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_country_template.entities import *
+from openfisca_country_template.entities import Household, Person
 
 
 class income_tax(Variable):

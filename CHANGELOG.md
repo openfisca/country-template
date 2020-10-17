@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.9.13 - [#96](https://github.com/openfisca/country-template/pull/96)
+
+* Technical improvement.
+* Impacted areas: `**/*`
+* Details:
+  - Remove wildcard imports as they're considered and [anti-pattern](https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html)
+
 ### 3.9.12 - [#93](https://github.com/openfisca/country-template/pull/93)
 
 * Minor change.

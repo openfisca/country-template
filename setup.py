@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.9.12",
+    version = "3.9.13",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers=[
@@ -32,6 +32,7 @@ setup(
         "dev": [
             "autopep8 ==1.5.4",
             "flake8 >=3.8.0,<3.9.0",
+            "flake8-import-order",
             "flake8-print",
             "pycodestyle >=2.6.0",
             ]
