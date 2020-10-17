@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.9.11",
+    version = "3.9.12",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers=[
@@ -20,7 +20,10 @@ setup(
     url = "https://github.com/openfisca/country-template",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
-        ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        (
+            "share/openfisca/openfisca-country-template",
+            ["CHANGELOG.md", "LICENSE", "README.md"],
+            ),
         ],
     install_requires = [
         "OpenFisca-Core[web-api] >=27.0,<35.0",

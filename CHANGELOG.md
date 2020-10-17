@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.9.12 - [#93](https://github.com/openfisca/country-template/pull/93)
+
+* Minor change.
+* Details:
+  - Upgrade `autopep8`, `flake8` & `pycodestyle`
+
 ### 3.9.11 - [#94](https://github.com/openfisca/country-template/pull/94)
 
 * Minor change.
