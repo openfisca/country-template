@@ -14,20 +14,28 @@ from openfisca_core.reforms import Reform
 
 
 class modify_social_security_taxation(Reform):
-    # A reform always defines an `apply` method that builds the reformed tax and benefit system from the reference one.
-    # See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
     def apply(self):
-        # Our reform modifies the `social_security_contribution` parameter, which is a scale.
-        # This parameter is declared in `parameters/taxes/social_security_contribution.yaml`.
-        #
-        # See https://openfisca.org/doc/coding-the-legislation/legislation_parameters.html
+        """
+        Apply reform.
+
+        A reform always defines an `apply` method that builds the reformed tax and benefit system from the reference one.
+        See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
+
+        Our reform modifies the `social_security_contribution` parameter, which is a scale.
+        This parameter is declared in `parameters/taxes/social_security_contribution.yaml`.
+
+        See https://openfisca.org/doc/coding-the-legislation/legislation_parameters.html
+        """
         self.modify_parameters(modifier_function = self.modify_brackets)
 
     @staticmethod
     def modify_brackets(parameters):
-        # This function takes an argument `parameters` which is a in-memory representation
-        # of the YAML parameters. It can be modified and must be returned.
+        """
+        Social security taxation reform.
 
+        This function takes an argument `parameters` which is a in-memory representation
+        of the YAML parameters. It can be modified and must be returned.
+        """
         # Access the right parameter node:
         brackets = parameters.taxes.social_security_contribution.brackets
 

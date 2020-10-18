@@ -13,16 +13,24 @@ from openfisca_core.reforms import Reform
 from openfisca_core.variables import Variable
 
 
-# Our reform replace `social_security_contribution` (the "reference" variable) by the following variable.
 class social_security_contribution(Variable):
     # Variable metadata don't need to be redefined. By default, the reference variable metadatas will be used.
 
     def formula(person, period, _parameters):
+        """
+        Social security contribution reform.
+
+        Our reform replaces `social_security_contribution` (the "reference" variable) by the following variable.
+        """
         return person('salary', period) * 0.03
 
 
 class flat_social_security_contribution(Reform):
-    # A reform always defines an `apply` method that builds the reformed tax and benefit system from the reference one.
-    # See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
     def apply(self):
+        """
+        Apply reform.
+
+        A reform always defines an `apply` method that builds the reformed tax and benefit system from the reference one.
+        See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
+        """
         self.update_variable(social_security_contribution)

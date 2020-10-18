@@ -37,8 +37,12 @@ class age(Variable):
     definition_period = MONTH
     label = u"Person's age (in years)"
 
-    # A person's age is computed according to its birth date.
     def formula(person, period, _parameters):
+        """
+        Person's age (in years).
+
+        A person's age is computed according to its birth date.
+        """
         birth = person('birth', period)
         birth_year = birth.astype('datetime64[Y]').astype(int) + 1970
         birth_month = birth.astype('datetime64[M]').astype(int) % 12 + 1

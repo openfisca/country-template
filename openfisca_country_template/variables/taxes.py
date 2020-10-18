@@ -26,8 +26,12 @@ class income_tax(Variable):
     label = u"Income tax"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
-    # The formula to compute the income tax for a given person at a given period
     def formula(person, period, parameters):
+        """
+        Income tax.
+
+        The formula to compute the income tax for a given person at a given period
+        """
         return person('salary', period) * parameters(period).taxes.income_tax_rate
 
 
@@ -39,9 +43,12 @@ class social_security_contribution(Variable):
     reference = "https://law.gov.example/social_security_contribution"  # Always use the most official source
 
     def formula(person, period, parameters):
-        salary = person('salary', period)
+        """
+        Social security contribution.
 
-        # The social_security_contribution is computed according to a marginal scale.
+        The social_security_contribution is computed according to a marginal scale.
+        """
+        salary = person('salary', period)
         scale = parameters(period).taxes.social_security_contribution
 
         return scale.calc(salary)
@@ -55,9 +62,13 @@ class housing_tax(Variable):
     reference = "https://law.gov.example/housing_tax"  # Always use the most official source
 
     def formula(household, period, parameters):
-        # The housing tax is defined for a year, but depends on the `accommodation_size` and `housing_occupancy_status` on the first month of the year.
-        # Here period is a year. We can get the first month of a year with the following shortcut.
-        # To build different periods, see https://openfisca.org/doc/coding-the-legislation/35_periods.html#calculate-dependencies-for-a-specific-period
+        """
+        Housing tax.
+
+        The housing tax is defined for a year, but depends on the `accommodation_size` and `housing_occupancy_status` on the first month of the year.
+        Here period is a year. We can get the first month of a year with the following shortcut.
+        To build different periods, see https://openfisca.org/doc/coding-the-legislation/35_periods.html#calculate-dependencies-for-a-specific-period
+        """
         january = period.first_month
         accommodation_size = household('accommodation_size', january)
 
