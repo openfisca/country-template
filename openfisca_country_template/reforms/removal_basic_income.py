@@ -20,4 +20,4 @@ class removal_basic_income(Reform):
 
         Our reform neutralizes the `basic_income` variable. When this reform is applied, calculating `basic_income` will always return its default value, 0.
         """
-        self.neutralize_variable('basic_income')
+        self.neutralize_variable("basic_income")

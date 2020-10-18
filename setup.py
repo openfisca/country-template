@@ -39,6 +39,7 @@ setup(
             "flake8-docstrings >= 1.5.0, < 2.0.0",
             "flake8-import-order >= 0.18.0, < 1.0.0",
             "flake8-print >= 3.1.0, < 4.0.0",
+            "flake8-quotes >= 3.2.0, < 4.0.0",
             "pylint >= 2.6.0, < 3.0.0",
             "pycodestyle >= 2.6.0, < 3.0.0",
             ],

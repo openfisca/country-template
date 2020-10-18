@@ -35,8 +35,8 @@ class disposable_income(Variable):
     def formula(person, period, _parameters):
         """Disposable income."""
         return (
-            + person('salary', period)
-            + person('basic_income', period)
-            - person('income_tax', period)
-            - person('social_security_contribution', period)
+            + person("salary", period)
+            + person("basic_income", period)
+            - person("income_tax", period)
+            - person("social_security_contribution", period)
             )

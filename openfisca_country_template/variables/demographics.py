@@ -24,16 +24,16 @@ class birth(Variable):
     value_type = date
     default_value = date(1970, 1, 1)  # By default, if no value is set for a simulation, we consider the people involved in a simulation to be born on the 1st of Jan 1970.
     entity = Person
-    label = u"Birth date"
+    label = "Birth date"
     definition_period = ETERNITY  # This variable cannot change over time.
-    reference = u"https://en.wiktionary.org/wiki/birthdate"
+    reference = "https://en.wiktionary.org/wiki/birthdate"
 
 
 class age(Variable):
     value_type = int
     entity = Person
     definition_period = MONTH
-    label = u"Person's age (in years)"
+    label = "Person's age (in years)"
 
     def formula(person, period, _parameters):
         """
@@ -41,10 +41,10 @@ class age(Variable):
 
         A person's age is computed according to its birth date.
         """
-        birth = person('birth', period)
-        birth_year = birth.astype('datetime64[Y]').astype(int) + 1970
-        birth_month = birth.astype('datetime64[M]').astype(int) % 12 + 1
-        birth_day = (birth - birth.astype('datetime64[M]') + 1).astype(int)
+        birth = person("birth", period)
+        birth_year = birth.astype("datetime64[Y]").astype(int) + 1970
+        birth_month = birth.astype("datetime64[M]").astype(int) % 12 + 1
+        birth_day = (birth - birth.astype("datetime64[M]") + 1).astype(int)
 
         is_birthday_past = (birth_month < period.start.month) + (birth_month == period.start.month) * (birth_day <= period.start.day)
 

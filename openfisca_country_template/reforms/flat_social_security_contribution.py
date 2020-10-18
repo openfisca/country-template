@@ -20,7 +20,7 @@ class social_security_contribution(Variable):
 
         Our reform replaces `social_security_contribution` (the "reference" variable) by the following variable.
         """
-        return person('salary', period) * 0.03
+        return person("salary", period) * 0.03
 
 
 class flat_social_security_contribution(Reform):

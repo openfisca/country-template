@@ -20,7 +20,7 @@ class accommodation_size(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = u"Size of the accommodation, in square metres"
+    label = "Size of the accommodation, in square metres"
 
 
 # This variable is a pure input: it doesn't have a formula
@@ -28,17 +28,17 @@ class rent(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = u"Rent paid by the household"
+    label = "Rent paid by the household"
 
 
 # Possible values for the housing_occupancy_status variable, defined further down
 # See more at <https://openfisca.org/doc/coding-the-legislation/20_input_variables.html#advanced-example-enumerations-enum>
 class HousingOccupancyStatus(Enum):
     __order__ = "owner tenant free_lodger homeless"
-    owner = u'Owner'
-    tenant = u'Tenant'
-    free_lodger = u'Free lodger'
-    homeless = u'Homeless'
+    owner = "Owner"
+    tenant = "Tenant"
+    free_lodger = "Free lodger"
+    homeless = "Homeless"
 
 
 class housing_occupancy_status(Variable):
@@ -47,7 +47,7 @@ class housing_occupancy_status(Variable):
     default_value = HousingOccupancyStatus.tenant
     entity = Household
     definition_period = MONTH
-    label = u"Legal housing situation of the household concerning their main residence"
+    label = "Legal housing situation of the household concerning their main residence"
 
 
 class postal_code(Variable):
