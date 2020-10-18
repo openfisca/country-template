@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
+"""
+This file defines variables for the modelled legislation.
+
+A variable is a property of an Entity such as a Person, a Household…
+
+See https://openfisca.org/doc/key-concepts/variables.html
+"""
 
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
 from openfisca_core.holders import set_input_divide_by_period

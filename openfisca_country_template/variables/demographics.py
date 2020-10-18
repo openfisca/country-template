@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
+"""
+This file defines variables for the modelled legislation.
+
+A variable is a property of an Entity such as a Person, a Household…
+
+See https://openfisca.org/doc/key-concepts/variables.html
+"""
 
 from datetime import date
 

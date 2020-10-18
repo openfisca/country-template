@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+"""
+This file contains your country package's metadata and dependencies.
+"""
+
 from setuptools import find_packages, setup
 
 setup(

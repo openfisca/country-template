@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the entities needed by our legislation.
+"""
+This file defines the entities needed by our legislation.
+
+Taxes and benefits can be calculated for different entities: persons, household, companies, etc.
+
+See https://openfisca.org/doc/key-concepts/person,_entities,_role.html
+"""
+
 from openfisca_core.entities import build_entity
 
 Household = build_entity(

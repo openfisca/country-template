@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+"""
+This file provides a function to load json example situations.
+"""
+
 import json
 import os
 
