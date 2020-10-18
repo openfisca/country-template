@@ -7,9 +7,8 @@ See https://openfisca.org/doc/key-concepts/variables.html
 """
 
 # Import from numpy the operations you need to apply on OpenFisca's population vectors
-from numpy import maximum as max_
-
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
+from numpy import maximum as max_
 from openfisca_core.periods import MONTH, YEAR
 from openfisca_core.variables import Variable
 
