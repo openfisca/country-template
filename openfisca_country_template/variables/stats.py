@@ -19,7 +19,7 @@ class total_benefits(Variable):
     label = "Sum of the benefits perceived by a household"
     reference = "https://stats.gov.example/benefits"
 
-    def formula(household, period, parameters):
+    def formula(household, period, _parameters):
         basic_income_i = household.members('basic_income', period)  # Calculates the value of basic_income for each member of the household
 
         return (
@@ -35,7 +35,7 @@ class total_taxes(Variable):
     label = "Sum of the taxes paid by a household"
     reference = "https://stats.gov.example/taxes"
 
-    def formula(household, period, parameters):
+    def formula(household, period, _parameters):
         income_tax_i = household.members('income_tax', period)
         social_security_contribution_i = household.members('social_security_contribution', period)
 
