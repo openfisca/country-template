@@ -7,7 +7,7 @@ setup(
     version = "3.12.2",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
-    classifiers=[
+    classifiers = [
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: POSIX",
@@ -26,16 +26,16 @@ setup(
             ),
         ],
     install_requires = [
-        "OpenFisca-Core[web-api] >=27.0,<36.0",
+        "OpenFisca-Core[web-api] >= 35.0.0, < 36.0.0",
         ],
     extras_require = {
         "dev": [
-            "autopep8 ==1.5.4",
-            "flake8 >=3.8.0,<3.9.0",
-            "flake8-import-order",
-            "flake8-print",
-            "pycodestyle >=2.6.0",
-            ]
+            "autopep8 >= 1.5.4, < 2.0.0",
+            "flake8 >= 3.8.0, < 4.0.0",
+            "flake8-import-order >= 0.18.0, < 1.0.0",
+            "flake8-print >= 3.1.0, < 4.0.0",
+            "pycodestyle >= 2.6.0, < 3.0.0",
+            ],
         },
-    packages=find_packages(),
+    packages = find_packages(),
     )
