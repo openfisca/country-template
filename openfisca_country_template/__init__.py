@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 This file defines our country's tax and benefit system.
 

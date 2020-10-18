@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 This file defines a reform.
 

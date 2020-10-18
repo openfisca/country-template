@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 This file defines variables for the modelled legislation.
 
