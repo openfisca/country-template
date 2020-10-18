@@ -18,9 +18,10 @@ class modify_social_security_taxation(Reform):
         # This parameter is declared in `parameters/taxes/social_security_contribution.yaml`.
         #
         # See https://openfisca.org/doc/coding-the-legislation/legislation_parameters.html
-        self.modify_parameters(modifier_function=self.modify_brackets)
+        self.modify_parameters(modifier_function = self.modify_brackets)
 
-    def modify_brackets(self, parameters):
+    @staticmethod
+    def modify_brackets(parameters):
         # This function takes an argument `parameters` which is a in-memory representation
         # of the YAML parameters. It can be modified and must be returned.
 
