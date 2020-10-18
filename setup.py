@@ -33,6 +33,7 @@ setup(
             "autopep8 >= 1.5.4, < 2.0.0",
             "flake8 >= 3.8.0, < 4.0.0",
             "flake8-bugbear >= 20.1.0, < 21.0.0",
+            "flake8-builtins >= 1.5.0, < 2.0.0",
             "flake8-coding >= 1.3.0, < 2.0.0",
             "flake8-commas >= 2.0.0, < 3.0.0",
             "flake8-comprehensions >= 3.2.0, < 4.0.0",
