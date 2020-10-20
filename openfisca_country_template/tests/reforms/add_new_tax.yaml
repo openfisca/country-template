@@ -1,0 +1,15 @@
+# Test files describe situations and their expected outcomes
+#
+# We can run this test on our command line using
+# `openfisca-run-test modify_social_security_taxation.yaml`
+#
+# Note the `reforms: ` key in the below YAML blocks.
+
+- name: The new tax adds a fixed 100.0 of the country's currency to income tax
+  reforms: openfisca_country_template.reforms.add_new_tax.add_new_tax
+  period: 2017-01
+  input:
+    salary: 2000
+  output:
+    income_tax: 300
+    new_tax: 400
