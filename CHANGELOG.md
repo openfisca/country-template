@@ -1,5 +1,14 @@
 # Changelog
 
+### 3.10.0 - [#98](https://github.com/openfisca/country-template/pull/98)
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `reforms/add_new_tax.py`
+* Details:
+  - Add a new reform example creating a variable (there was none prior)
+  - The example is a new tax that adds a fixed 100.0 of the country's currency to the actual income tax
+
 ### 3.9.13 - [#96](https://github.com/openfisca/country-template/pull/96)
 
 * Technical improvement.
