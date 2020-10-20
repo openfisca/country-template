@@ -15,6 +15,15 @@ from openfisca_core.variables import Variable
 from openfisca_country_template.entities import Person
 
 
+class has_car(Variable):
+    value_type = bool
+    entity = Person
+    default_value = True
+    definition_period = MONTH
+    label = "The person has a car"
+    reference = "https://law.gov.example/new_tax"  # Always use the most official source
+
+
 class new_tax(Variable):
     value_type = float
     entity = Person
@@ -27,9 +36,12 @@ class new_tax(Variable):
         New tax reform.
 
         Our reform adds a new variable `new_tax` that is calculated based on
-        the current `income_tax`.
+        the current `income_tax`, if the person has a car.
         """
-        return person("income_tax", period) + 100.0
+        income_tax = person("income_tax", period)
+        has_car = person("has_car", period)
+
+        return (income_tax + 100.0) * has_car
 
 
 class add_new_tax(Reform):
@@ -42,4 +54,5 @@ class add_new_tax(Reform):
 
         See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
         """
+        self.add_variable(has_car)
         self.add_variable(new_tax)
