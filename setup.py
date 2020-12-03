@@ -26,7 +26,7 @@ setup(
             ),
         ],
     install_requires = [
-        "OpenFisca-Core[web-api] >=27.0,<35.0",
+        "OpenFisca-Core[web-api] >=27.0,<36.0",
         ],
     extras_require = {
         "dev": [
