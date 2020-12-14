@@ -1,6 +1,12 @@
 # Changelog
 
-### 3.10.0 - [#98](https://github.com/openfisca/country-template/pull/98)
+## 3.11.0 - [#90](https://github.com/openfisca/country-template/pull/90)
+
+* Technical change
+* Details:
+  - Declare package compatible with OpenFisca-Core v35 that updates `numpy` dependency.
+
+## 3.10.0 - [#98](https://github.com/openfisca/country-template/pull/98)
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
