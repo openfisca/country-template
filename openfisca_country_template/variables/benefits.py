@@ -69,3 +69,61 @@ class pension(Variable):
         '''
         age_condition = person('age', period) >= parameters(period).general.age_of_retirement
         return age_condition
+
+
+class parenting_allowance(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = ''' Allowance for low income people with children to care for.
+                Loosely based on the Australian parenting pension'''
+    reference = \
+        [u"https://www.servicesaustralia.gov.au/individuals/services/centrelink/parenting-payment/who-can-get-it"]
+
+    def formula(household, period, parameters):
+        '''
+        A person's parenting allowance depends on how many dependents they have,
+        How much they, and their partner, earn
+        if they are single with a child under 8
+        or if they are partnered with a child under 6.
+        '''
+        family_income = household('income', period)
+        income_threshold = 500
+        age_of_youngest_child = household('age_of_youngest_child', period)
+        is_single = len(household('parents', period)) == 1
+        is_eligible = (is_single and (age_of_youngest_child < 8)) or\
+            (age_of_youngest_child < 6) and family_income <= income_threshold
+        if is_eligible:
+            return parameters(period).benefits.parenting_payment
+        else:
+            return 0
+
+
+class household_income(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = "The sum of the incomes of those living in a household"
+
+    def formula(household, period, parameters):
+        adults = household('parents', period)
+        income = 0
+        for adult in adults:
+            income += adult('salary', period)
+        return income
+
+
+class age_of_youngest_child(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = "age of youngest child"
+
+    def formula(household, period, parameters):
+        children = household('children', period)
+        min_age_in_years = 200  # nobody gets this old!
+        for child in children:
+            age = child('age', period)
+            if age < min_age_in_years:
+                min_age_in_years = age
+        return age
