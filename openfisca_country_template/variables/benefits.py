@@ -87,14 +87,16 @@ class parenting_allowance(Variable):
         if they are single with a child under 8
         or if they are partnered with a child under 6.
         '''
-        family_income = household('income', period)
+        family_income = household('household_income', period)
         income_threshold = 500
-        age_of_youngest_child = household('age_of_youngest_child', period)
-        is_single = len(household('parents', period)) == 1
-        is_eligible = (is_single and (age_of_youngest_child < 8)) or\
-            (age_of_youngest_child < 6) and family_income <= income_threshold
-        if is_eligible:
-            return parameters(period).benefits.parenting_payment
+        if family_income > income_threshold:
+            return 0
+        is_single = household.nb_persons(Household.PARENT)
+        ages = household.members('age', period)
+        under_8 = household.any(ages < 8)
+        under_6 = household.any(ages < 6)
+        if (is_single and under_8) or under_6:
+            return parameters(period).benefits.parenting_allowance
         else:
             return 0
 
@@ -106,24 +108,6 @@ class household_income(Variable):
     label = "The sum of the incomes of those living in a household"
 
     def formula(household, period, parameters):
-        adults = household('parents', period)
-        income = 0
-        for adult in adults:
-            income += adult('salary', period)
-        return income
-
-
-class age_of_youngest_child(Variable):
-    value_type = float
-    entity = Household
-    definition_period = MONTH
-    label = "age of youngest child"
-
-    def formula(household, period, parameters):
-        children = household('children', period)
-        min_age_in_years = 200  # nobody gets this old!
-        for child in children:
-            age = child('age', period)
-            if age < min_age_in_years:
-                min_age_in_years = age
-        return age
+        salaries = household.members('salary', period)
+        sum_salaries = household.sum(salaries)
+        return sum_salaries
