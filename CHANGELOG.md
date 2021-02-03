@@ -2,16 +2,17 @@
 
 ## 3.12.2 - [#99](https://github.com/openfisca/country-template/pull/99)
 
-* I wanted to have an example to test the new dependencies endpoint in
-  openfisca-core. I wrote the parenting payment variable. There wasn't an
-  example that used group entities/group populations there already, so I wrote
-  this one.
+Added a new variable to demonstrate features and test /dependencies endpoint
+in openfisca-core
 
-  Hopefully it'll be useful for people implementing variables that reference
-  more than one entity as well. :-)
+ * Technical improvement.
+ * Impacted periods: none
+ * Imapcted areas: tests/variables and parameters
 
-  I have updated openfisca-core so the tests pass with the new parameters. 
-  This is the PR: openfisca/openfisca-core#964
+ Details:
+   - Add a new variable called parenting_allowance to show how group
+     entities and single entities can be used together.
+   - This variable calls the household_income variable
 
 ## 3.11.0 - [#90](https://github.com/openfisca/country-template/pull/90)
 
