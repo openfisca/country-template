@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.12.2 - [#99](https://github.com/openfisca/country-template/pull/99)
+
+Added a new variable to demonstrate features and test /dependencies endpoint
+in openfisca-core
+
+ * Technical improvement.
+ * Impacted periods: none
+ * Imapcted areas: tests/variables and parameters
+
+ Details:
+   - Add a new variable called parenting_allowance to show how group
+     entities and single entities can be used together.
+   - This variable calls the household_income variable
+
 ## 3.11.0 - [#90](https://github.com/openfisca/country-template/pull/90)
 
 * Technical change

@@ -1,0 +1,10 @@
+description: parameters relating to parenting payment
+metadata:
+  reference: https://law.gov.example/parenting_payment/amount
+  unit: currency-EUR
+values:
+  # This parameter is only defined since the 1st of Dec 2015.
+  2015-12-01:
+    value: 600.0
+    metadata:
+      reference: https://law.gov.example/parenting-income/amount/2015-12

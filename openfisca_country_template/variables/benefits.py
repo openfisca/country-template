@@ -69,3 +69,45 @@ class pension(Variable):
         '''
         age_condition = person('age', period) >= parameters(period).general.age_of_retirement
         return age_condition
+
+
+class parenting_allowance(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = ''' Allowance for low income people with children to care for.
+                Loosely based on the Australian parenting pension'''
+    reference = \
+        [u"https://www.servicesaustralia.gov.au/individuals/services/centrelink/parenting-payment/who-can-get-it"]
+
+    def formula(household, period, parameters):
+        '''
+        A person's parenting allowance depends on how many dependents they have,
+        How much they, and their partner, earn
+        if they are single with a child under 8
+        or if they are partnered with a child under 6.
+        '''
+        family_income = household('household_income', period)
+        income_threshold = 500
+        if family_income > income_threshold:
+            return 0
+        is_single = household.nb_persons(Household.PARENT)
+        ages = household.members('age', period)
+        under_8 = household.any(ages < 8)
+        under_6 = household.any(ages < 6)
+        if (is_single and under_8) or under_6:
+            return parameters(period).benefits.parenting_allowance
+        else:
+            return 0
+
+
+class household_income(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = "The sum of the incomes of those living in a household"
+
+    def formula(household, period, parameters):
+        salaries = household.members('salary', period)
+        sum_salaries = household.sum(salaries)
+        return sum_salaries
