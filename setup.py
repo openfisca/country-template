@@ -30,7 +30,7 @@ setup(
         ],
     extras_require = {
         "dev": [
-            "autopep8 ==1.5.4",
+            "autopep8 ==1.5.5",
             "flake8 >=3.8.0,<3.9.0",
             "flake8-import-order",
             "flake8-print",
