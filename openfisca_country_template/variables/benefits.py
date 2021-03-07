@@ -126,10 +126,9 @@ class household_income(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = "The sum of the incomes of those living in a household"
+    label = "The sum of the salaries of those living in a household"
 
     def formula(household, period, _parameters):
-        """The sum of the incomes of those living in a household."""
+        """A household's income."""
         salaries = household.members("salary", period)
-        sum_salaries = household.sum(salaries)
-        return sum_salaries
+        return household.sum(salaries)
