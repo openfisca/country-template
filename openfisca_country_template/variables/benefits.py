@@ -105,8 +105,8 @@ class parenting_allowance(Variable):
         if they are single with a child under 8
         or if they are partnered with a child under 6.
         """
-        household_income = household('household_income', period)
-        income_threshold = 500
+        household_income = household("household_income", period)
+        income_threshold = household("household_income_threshold", period)
         income_condition = household_income < income_threshold
 
         is_single = household.nb_persons(Household.PARENT) == 1
