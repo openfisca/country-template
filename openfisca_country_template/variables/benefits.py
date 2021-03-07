@@ -105,8 +105,10 @@ class parenting_allowance(Variable):
         if they are single with a child under 8
         or if they are partnered with a child under 6.
         """
+        parenting_allowance = parameters(period).benefits.parenting_allowance
+
         household_income = household("household_income", period)
-        income_threshold = household("household_income_threshold", period)
+        income_threshold = parenting_allowance.income_threshold
         income_condition = household_income < income_threshold
 
         is_single = household.nb_persons(Household.PARENT) == 1
@@ -115,8 +117,9 @@ class parenting_allowance(Variable):
         under_6 = household.any(ages < 6)
 
         allowance_condition = income_condition * ((is_single * under_8) + under_6)
+        allowance_amount = parenting_allowance.amount
 
-        return allowance_condition * parameters(period).benefits.parenting_allowance
+        return allowance_condition * allowance_amount
 
 
 class household_income(Variable):
