@@ -15,24 +15,15 @@ from openfisca_core.variables import Variable
 from openfisca_country_template.entities import Person
 
 
-def create_dynamic_variable(
-        name,
-        value_type,
-        entity,
-        default_value,
-        definition_period,
-        label,
-        reference,
-        ):
+def create_dynamic_variable(name, **variable):
     """Create new variable dynamically."""
-
     NewVariable = type(name, (Variable,), {
-        "value_type": value_type,
-        "entity": entity,
-        "default_value": default_value,
-        "definition_period": definition_period,
-        "label": label,
-        "reference": reference,
+        "value_type": variable["value_type"],
+        "entity": variable["entity"],
+        "default_value": variable["default_value"],
+        "definition_period": variable["definition_period"],
+        "label": variable["label"],
+        "reference": variable["reference"],
         })
 
     return NewVariable
