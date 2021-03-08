@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.13.0 - [#97](https://github.com/openfisca/country-template/pull/97)
+### 3.12.3 - [#97](https://github.com/openfisca/country-template/pull/97)
 
 * Technical improvement.
 * Impacted areas: `**/*`
@@ -20,6 +20,14 @@ in openfisca-core
    - Add a new variable called parenting_allowance to show how group
      entities and single entities can be used together.
    - This variable calls the household_income variable
+
+### 3.12.1 -
+
+> Note: Version `3.12.1` wasn't unpublished by mistake. Please use version `3.12.2` or more recent.
+
+## 3.12.0 -
+
+> Note: Version `3.12.0` wasn't unpublished by mistake. Please use version `3.12.2` or more recent.
 
 ## 3.11.0 - [#90](https://github.com/openfisca/country-template/pull/90)
 
