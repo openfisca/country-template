@@ -1,5 +1,13 @@
 # Changelog
 
+### 3.12.4 - [#103](https://github.com/openfisca/country-template/pull/103)
+
+* Minor change.
+* Details:
+  - Fix CHANGELOG versions:
+    - `3.13.0` was supposed to be `3.12.3`
+    - `3.12.0` and `3.12.1` are unpublished
+
 ### 3.12.3 - [#97](https://github.com/openfisca/country-template/pull/97)
 
 * Technical improvement.
