@@ -7,7 +7,7 @@ See https://openfisca.org/doc/key-concepts/variables.html
 """
 
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
-from openfisca_core.periods import MONTH
+from openfisca_core.periods import MONTH, WEEK
 from openfisca_core.variables import Variable
 
 # Import the Entities specifically defined for this tax and benefit system
@@ -91,7 +91,7 @@ class pension(Variable):
 class parenting_allowance(Variable):
     value_type = float
     entity = Household
-    definition_period = MONTH
+    definition_period = WEEK
     label = "Allowance for low income people with children to care for."
     documentation = "Loosely based on the Australian parenting pension."
     reference = "https://www.servicesaustralia.gov.au/individuals/services/centrelink/parenting-payment/who-can-get-it"
