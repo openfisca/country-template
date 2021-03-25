@@ -1,5 +1,15 @@
 # Changelog
 
+### 3.12.5 - [#107](https://github.com/openfisca/country-template/pull/107)
+
+* Technical improvement.
+* Details:
+  - Forces the installation of the new build each time `make build` is run
+  - CircleCI tests against the packaged version of this library
+    - When a branch is pushed first time, CircleCI creates a build and caches dependencies
+    - Subsequent pushes do not reinstall the build as it is already in cache
+    - If the code has been modified in between, changes will be ignored, and tests will fail
+
 ### 3.12.4 - [#103](https://github.com/openfisca/country-template/pull/103)
 
 * Minor change.
