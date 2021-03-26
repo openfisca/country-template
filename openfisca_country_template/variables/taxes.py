@@ -21,7 +21,9 @@ class income_tax(Variable):
     entity = Person
     definition_period = MONTH
     label = "Income tax"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = (
+        "https://law.gov.example/income_tax"  # Always use the most official source
+    )
 
     def formula(person, period, parameters):
         """
@@ -56,7 +58,9 @@ class housing_tax(Variable):
     entity = Household
     definition_period = YEAR  # This housing tax is defined for a year.
     label = "Tax paid by each household proportionally to the size of its accommodation"
-    reference = "https://law.gov.example/housing_tax"  # Always use the most official source
+    reference = (
+        "https://law.gov.example/housing_tax"  # Always use the most official source
+    )
 
     def formula(household, period, parameters):
         """
@@ -70,14 +74,18 @@ class housing_tax(Variable):
         accommodation_size = household("accommodation_size", january)
 
         tax_params = parameters(period).taxes.housing_tax
-        tax_amount = max_(accommodation_size * tax_params.rate, tax_params.minimal_amount)
+        tax_amount = max_(
+            accommodation_size * tax_params.rate, tax_params.minimal_amount
+        )
 
         # `housing_occupancy_status` is an Enum variable
         occupancy_status = household("housing_occupancy_status", january)
-        HousingOccupancyStatus = occupancy_status.possible_values  # Get the enum associated with the variable
+        HousingOccupancyStatus = (
+            occupancy_status.possible_values
+        )  # Get the enum associated with the variable
         # To access an enum element, we use the `.` notation.
-        tenant = (occupancy_status == HousingOccupancyStatus.tenant)
-        owner = (occupancy_status == HousingOccupancyStatus.owner)
+        tenant = occupancy_status == HousingOccupancyStatus.tenant
+        owner = occupancy_status == HousingOccupancyStatus.owner
 
         # The tax is applied only if the household owns or rents its main residency
         return (owner + tenant) * tax_amount

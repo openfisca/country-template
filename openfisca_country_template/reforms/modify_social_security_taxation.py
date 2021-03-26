@@ -24,7 +24,7 @@ class modify_social_security_taxation(Reform):
 
         See https://openfisca.org/doc/coding-the-legislation/legislation_parameters.html
         """
-        self.modify_parameters(modifier_function = self.modify_brackets)
+        self.modify_parameters(modifier_function=self.modify_brackets)
 
     @staticmethod
     def modify_brackets(parameters):
@@ -47,11 +47,11 @@ class modify_social_security_taxation(Reform):
         # Add a new bracket with a higher tax rate for rich people:
         new_bracket = Bracket(
             "new_bracket",
-            data = {
+            data={
                 "rate": {"2017-01-01": {"value": 0.4}},
                 "threshold": {"2017-01-01": {"value": 40000}},
-                },
-            )
+            },
+        )
         brackets.append(new_bracket)
 
         return parameters

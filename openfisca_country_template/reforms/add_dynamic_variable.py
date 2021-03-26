@@ -17,14 +17,18 @@ from openfisca_country_template.entities import Person
 
 def create_dynamic_variable(name, **variable):
     """Create new variable dynamically."""
-    NewVariable = type(name, (Variable,), {
-        "value_type": variable["value_type"],
-        "entity": variable["entity"],
-        "default_value": variable["default_value"],
-        "definition_period": variable["definition_period"],
-        "label": variable["label"],
-        "reference": variable["reference"],
-        })
+    NewVariable = type(
+        name,
+        (Variable,),
+        {
+            "value_type": variable["value_type"],
+            "entity": variable["entity"],
+            "default_value": variable["default_value"],
+            "definition_period": variable["definition_period"],
+            "label": variable["label"],
+            "reference": variable["reference"],
+        },
+    )
 
     return NewVariable
 
@@ -40,13 +44,13 @@ class add_dynamic_variable(Reform):
         See https://openfisca.org/doc/coding-the-legislation/reforms.html#writing-a-reform
         """
         NewVariable = create_dynamic_variable(
-            name = "goes_to_school",
-            value_type = bool,
-            entity = Person,
-            default_value = True,
-            definition_period = MONTH,
-            label = "The person goes to school (only relevant for children)",
-            reference = "https://law.gov.example/goes_to_school",
-            )
+            name="goes_to_school",
+            value_type=bool,
+            entity=Person,
+            default_value=True,
+            definition_period=MONTH,
+            label="The person goes to school (only relevant for children)",
+            reference="https://law.gov.example/goes_to_school",
+        )
 
         self.add_variable(NewVariable)
