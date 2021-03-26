@@ -206,3 +206,33 @@ curl -X POST -H "Content-Type: application/json" \
   -d @./openfisca_country_template/situation_examples/couple.json \
   http://localhost:5000/calculate
 ```
+
+## Style
+
+This repository adheres to a certain coding style, and we invite you to follow it for your contributions to be integrated promptly.
+
+Style checking is already run with `make test`. To run the style checker alone:
+
+```sh
+make check-style
+```
+
+To automatically style-format your code changes:
+
+```sh
+make format-style
+```
+
+To automatically style-format your code changes each time you commit:
+
+```sh
+touch .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+
+tee -a .git/hooks/pre-commit << END
+#!/bin/sh
+#
+# Automatically format your code before committing.
+exec make format-style
+END
+```
