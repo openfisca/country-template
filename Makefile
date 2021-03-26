@@ -30,7 +30,6 @@ format-style:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
 	black `git ls-files | grep "\.py$$"`
-	autopep8 `git ls-files | grep "\.py$$"`
 
 check-style:
 	@# Do not analyse .gitignored files.
