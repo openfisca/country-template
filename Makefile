@@ -26,6 +26,9 @@ build: clean deps
 check-syntax-errors:
 	python -m compileall -q .
 
+check-safety:
+	pip check
+
 check-style:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
@@ -38,7 +41,7 @@ format-style:
 	pyupgrade --py37-plus `git ls-files | grep "\.py$$"`
 	autopep8 `git ls-files | grep "\.py$$"`
 
-test: clean check-syntax-errors check-style
+test: clean check-syntax-errors check-safety check-style
 	openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 
 serve-local: build
