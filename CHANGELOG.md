@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.12.6 - [#XXX](https://github.com/openfisca/country-template/pull/XXX)
+
+* Technical improvement.
+* Details:
+  - Add `pyupgrade` for automatic code formatting
+
 ### 3.12.5 - [#107](https://github.com/openfisca/country-template/pull/107)
 
 * Technical improvement.
