@@ -15,6 +15,16 @@
 - Add long description to package distribution
 - Update distribution keywords
 
+# Minor changes
+
+- Relax upper-bound support for OpenFisca-Core
+  - This package and OpenFisca-Core are mutually dependent, which breaks `pip`
+  - The least astonishing is to assume this package to always be compatible with core
+  - This is also easily enforceable thanks to regular dependabot checks that will run in CircleCI
+  - Finally, it is the responsibility of the OpenFisca-Core integrity checks workflow to ensure this package to always be compatible
+    - Every new version of core has to ensure all of the tests included in and distributed by this package pass
+    - Also, every breaking change to OpenFisca-Core has to be phased out to help adapting this package to those changes
+
 ### Major changes
 
 - Drop support for Python < 3.7
