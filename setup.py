@@ -1,8 +1,14 @@
 """This file contains your country package's metadata and dependencies."""
 
-from setuptools import find_packages, setup
+import setuptools
 
-setup(
+with open("README.md") as file:
+    readme = file.read()
+
+with open("CHANGELOG.md") as file:
+    changelog = file.read()
+
+setuptools.setup(
     name = "OpenFisca-Country-Template",
     version = "3.12.8",
     author = "OpenFisca Team",
@@ -18,6 +24,8 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
     description = "OpenFisca tax and benefit system for Country-Template",
+    long_description = "\n".join((readme, changelog)),
+    long_description_content_type="text/markdown",
     keywords = "benefit microsimulation social tax",
     license = "http://www.fsf.org/licensing/licenses/agpl-3.0.html",
     url = "https://github.com/openfisca/country-template",
@@ -53,5 +61,5 @@ setup(
             "pyupgrade == 2.14.0",
             ],
         },
-    packages = find_packages(),
+    packages = setuptools.find_packages(),
     )

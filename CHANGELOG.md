@@ -12,6 +12,7 @@
   - Add `pre-commit` for automatic style checks & formatting
     - Git hooks are optional, as they may not suit everybody
     - To enable them, run `pre-commit install`
+  - Add long description to package distribution
 
 ### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
 
