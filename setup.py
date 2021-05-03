@@ -26,7 +26,7 @@ setuptools.setup(
     description = "OpenFisca tax and benefit system for Country-Template",
     long_description = "\n".join((readme, changelog)),
     long_description_content_type="text/markdown",
-    keywords = "benefit microsimulation social tax",
+    keywords = "microsimulation tax and benefit system rules as code",
     license = "http://www.fsf.org/licensing/licenses/agpl-3.0.html",
     url = "https://github.com/openfisca/country-template",
     include_package_data = True,  # Will read MANIFEST.in
