@@ -7,6 +7,7 @@
   - Improve `pytest` support for `doctest`
   - Use `pip check` for dependency conflicts
   - Add `pyupgrade` for automatic code formatting
+  - Add `darglint` for improved docstring linting
 
 ### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
 
