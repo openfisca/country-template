@@ -13,6 +13,7 @@
   - Git hooks are optional, as they may not suit everybody
   - To enable them, run `pre-commit install`
 - Add long description to package distribution
+- Update distribution keywords
 
 ### Major changes
 
