@@ -18,9 +18,9 @@ setuptools.setup(
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: POSIX",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
     description = "OpenFisca tax and benefit system for Country-Template",
@@ -36,6 +36,7 @@ setuptools.setup(
             ["CHANGELOG.md", "LICENSE", "README.md"],
             ),
         ],
+    python_requires = ">= 3.7",
     install_requires = [
         "OpenFisca-Core[web-api] >= 35.0.0, < 36.0.0",
         ],

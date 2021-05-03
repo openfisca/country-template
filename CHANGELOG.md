@@ -1,18 +1,22 @@
 # Changelog
 
-### 3.12.6 - [#XXX](https://github.com/openfisca/country-template/pull/XXX)
+### 4.0.0 - [#XXX](https://github.com/openfisca/country-template/pull/XXX)
 
-* Technical improvement.
-* Details:
-  - Improve `pytest` support for `doctest`
-  - Use `pip check` for dependency conflicts
-  - Add `pyupgrade` for automatic code formatting
-  - Add `darglint` for improved docstring linting
-  - Add `.editorconfig` for shared editor configuration
-  - Add `pre-commit` for automatic style checks & formatting
-    - Git hooks are optional, as they may not suit everybody
-    - To enable them, run `pre-commit install`
-  - Add long description to package distribution
+### Patch changes
+
+- Improve `pytest` support for `doctest`
+- Use `pip check` for dependency conflicts
+- Add `pyupgrade` for automatic code formatting
+- Add `darglint` for improved docstring linting
+- Add `.editorconfig` for shared editor configuration
+- Add `pre-commit` for automatic style checks & formatting
+  - Git hooks are optional, as they may not suit everybody
+  - To enable them, run `pre-commit install`
+- Add long description to package distribution
+
+### Major changes
+
+- Drop support for Python < 3.7
 
 ### 3.12.5 - [#107](https://github.com/openfisca/country-template/pull/107)
 
