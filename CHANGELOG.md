@@ -2,7 +2,7 @@
 
 ### 4.0.0 - [#111](https://github.com/openfisca/country-template/pull/111)
 
-### Patch changes
+#### Patch changes
 
 - Improve `pytest` support for `doctest`
 - Use `pip check` for dependency conflicts
@@ -15,7 +15,7 @@
 - Add long description to package distribution
 - Update distribution keywords
 
-# Minor changes
+#### Minor changes
 
 - Relax upper-bound support for OpenFisca-Core
   - This package and OpenFisca-Core are mutually dependent, which breaks `pip`
@@ -25,7 +25,7 @@
     - Every new version of core has to ensure all of the tests included in and distributed by this package pass
     - Also, every breaking change to OpenFisca-Core has to be phased out to help adapting this package to those changes
 
-### Major changes
+#### Major changes
 
 - Drop support for Python < 3.7
 

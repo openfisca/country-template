@@ -10,7 +10,7 @@ with open("CHANGELOG.md") as file:
 
 setuptools.setup(
     name = "OpenFisca-Country-Template",
-    version = "3.12.8",
+    version = "4.0.0",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers = [
