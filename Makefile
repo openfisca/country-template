@@ -1,11 +1,8 @@
 all: test
+test: clean check-syntax-errors check-safety check-style run-tests
 
 uninstall:
 	pip freeze | grep -v "^-e" | xargs pip uninstall -y
-
-clean:
-	rm -rf build dist
-	find . -name '*.pyc' -exec rm \{\} \;
 
 deps:
 	pip install --upgrade pip twine wheel
@@ -23,6 +20,16 @@ build: clean deps
 	python setup.py bdist_wheel
 	find dist -name "*.whl" -exec pip install --force-reinstall {}[dev] \;
 
+format-style:
+	@# Do not analyse .gitignored files.
+	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
+	pyupgrade --py37-plus `git ls-files | grep "\.py$$"`
+	autopep8 `git ls-files | grep "\.py$$"`
+
+clean:
+	rm -rf build dist
+	find . -name '*.pyc' -exec rm \{\} \;
+
 check-syntax-errors:
 	python -m compileall -q .
 
@@ -35,13 +42,7 @@ check-style:
 	pylint `git ls-files | grep "\.py$$"`
 	flake8 `git ls-files | grep "\.py$$"`
 
-format-style:
-	@# Do not analyse .gitignored files.
-	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
-	pyupgrade --py37-plus `git ls-files | grep "\.py$$"`
-	autopep8 `git ls-files | grep "\.py$$"`
-
-test: clean check-syntax-errors check-safety check-style
+run-tests:
 	openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 
 serve-local: build

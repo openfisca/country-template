@@ -47,6 +47,7 @@ setup(
             "flake8-quotes >= 3.2.0, < 4.0.0",
             "flake8-simplify >= 0.9.0, < 1.0.0",
             "flake8-use-fstring >= 1.1.0, < 2.0.0",
+            "pre-commit == 2.12.1",
             "pylint >= 2.6.0, < 3.0.0",
             "pycodestyle >= 2.6.0, < 3.0.0",
             "pyupgrade == 2.14.0",
