@@ -4,6 +4,7 @@
 
 * Technical improvement.
 * Details:
+  - Improve `pytest` support for `doctest`
   - Use `pip check` for dependency conflicts
   - Add `pyupgrade` for automatic code formatting
 
