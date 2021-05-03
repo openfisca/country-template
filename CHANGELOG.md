@@ -9,6 +9,9 @@
   - Add `pyupgrade` for automatic code formatting
   - Add `darglint` for improved docstring linting
   - Add `.editorconfig` for shared editor configuration
+  - Add `pre-commit` for automatic style checks & formatting
+    - Git hooks are optional, as they may not suit everybody
+    - To enable them, run `pre-commit install`
 
 ### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
 
