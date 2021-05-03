@@ -8,6 +8,7 @@
   - Use `pip check` for dependency conflicts
   - Add `pyupgrade` for automatic code formatting
   - Add `darglint` for improved docstring linting
+  - Add `.editorconfig` for shared editor configuration
 
 ### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
 
