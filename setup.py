@@ -38,7 +38,7 @@ setuptools.setup(
         ],
     python_requires = ">= 3.7",
     install_requires = [
-        "OpenFisca-Core[web-api] >= 35.0.0, < 36.0.0",
+        "OpenFisca-Core[web-api] >= 35.0.0",
         ],
     extras_require = {
         "dev": [
