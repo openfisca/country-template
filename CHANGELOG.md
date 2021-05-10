@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.12.7 - [#104](https://github.com/openfisca/country-template/pull/104)
+
+* Minor change.
+* Details:
+  - Upgrade `flake8-bugbear`
+
 ### 3.12.6 - [#102](https://github.com/openfisca/country-template/pull/102)
 
 * Bug fix.
