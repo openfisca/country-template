@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.12.6",
+    version = "3.12.7",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers = [
