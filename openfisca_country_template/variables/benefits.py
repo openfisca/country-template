@@ -105,31 +105,30 @@ class parenting_allowance(Variable):
         if they are single with a child under 8
         or if they are partnered with a child under 6.
         """
-        family_income = household("household_income", period)
-        income_threshold = 500
+        parenting_allowance = parameters(period).benefits.parenting_allowance
 
-        if family_income > income_threshold:
-            return 0
+        household_income = household("household_income", period)
+        income_threshold = parenting_allowance.income_threshold
+        income_condition = household_income <= income_threshold
 
-        is_single = household.nb_persons(Household.PARENT)
+        is_single = household.nb_persons(Household.PARENT) == 1
         ages = household.members("age", period)
         under_8 = household.any(ages < 8)
         under_6 = household.any(ages < 6)
 
-        if (is_single and under_8) or under_6:
-            return parameters(period).benefits.parenting_allowance
+        allowance_condition = income_condition * ((is_single * under_8) + under_6)
+        allowance_amount = parenting_allowance.amount
 
-        return 0
+        return allowance_condition * allowance_amount
 
 
 class household_income(Variable):
     value_type = float
     entity = Household
     definition_period = MONTH
-    label = "The sum of the incomes of those living in a household"
+    label = "The sum of the salaries of those living in a household"
 
     def formula(household, period, _parameters):
-        """The sum of the incomes of those living in a household."""
+        """A household's income."""
         salaries = household.members("salary", period)
-        sum_salaries = household.sum(salaries)
-        return sum_salaries
+        return household.sum(salaries)
