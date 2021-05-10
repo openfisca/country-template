@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
+
+* Minor change.
+* Details:
+  - Upgrade `flake8-print`
+
 ### 3.12.7 - [#104](https://github.com/openfisca/country-template/pull/104)
 
 * Minor change.

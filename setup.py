@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.12.7",
+    version = "3.12.8",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers = [
@@ -42,7 +42,7 @@ setup(
             "flake8-comprehensions >= 3.2.0, < 4.0.0",
             "flake8-docstrings >= 1.5.0, < 2.0.0",
             "flake8-import-order >= 0.18.0, < 1.0.0",
-            "flake8-print >= 3.1.0, < 4.0.0",
+            "flake8-print >= 3.1.0, < 5.0.0",
             "flake8-quotes >= 3.2.0, < 4.0.0",
             "flake8-simplify >= 0.9.0, < 1.0.0",
             "flake8-use-fstring >= 1.1.0, < 2.0.0",
