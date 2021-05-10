@@ -1,43 +1,46 @@
 # Changelog
 
+### 3.12.6 - [#102](https://github.com/openfisca/country-template/pull/102)
+
+* Bug fix.
+* Impacted periods: all.
+* Impacted areas: `openfisca_country_template/variables/benefits.py`.
+* Details:
+  - Fixes `parenting_allowance` formula syntax.
+  - Uses vectorial computing to return a `parenting_allowance` amount per household.
+
 ### 3.12.5 - [#107](https://github.com/openfisca/country-template/pull/107)
 
 * Technical improvement.
 * Details:
-  - Forces the installation of the new build each time `make build` is run
-  - CircleCI tests against the packaged version of this library
-    - When a branch is pushed first time, CircleCI creates a build and caches dependencies
-    - Subsequent pushes do not reinstall the build as it is already in cache
-    - If the code has been modified in between, changes will be ignored, and tests will fail
+  - Forces the installation of the new build each time `make build` is run.
+  - CircleCI tests against the packaged version of this library.
+    - When a branch is pushed first time, CircleCI creates a build and caches dependencies.
+    - Subsequent pushes do not reinstall the build as it is already in cache.
+    - If the code has been modified in between, changes will be ignored, and tests will fail.
 
 ### 3.12.4 - [#103](https://github.com/openfisca/country-template/pull/103)
 
 * Minor change.
 * Details:
   - Fix CHANGELOG versions:
-    - `3.13.0` was supposed to be `3.12.3`
-    - `3.12.0` and `3.12.1` are unpublished
+    - `3.13.0` was supposed to be `3.12.3`.
+    - `3.12.0` and `3.12.1` are unpublished.
 
 ### 3.12.3 - [#97](https://github.com/openfisca/country-template/pull/97)
 
 * Technical improvement.
-* Impacted areas: `**/*`
+* Impacted areas: `**/*`.
 * Details:
-  - Make style checks stricter and clearer to help country package developers get started
+  - Make style checks stricter and clearer to help country package developers get started.
 
 ### 3.12.2 - [#99](https://github.com/openfisca/country-template/pull/99)
 
-Added a new variable to demonstrate features and test /dependencies endpoint
-in openfisca-core
-
  * Technical improvement.
- * Impacted periods: none
- * Imapcted areas: tests/variables and parameters
-
- Details:
-   - Add a new variable called parenting_allowance to show how group
-     entities and single entities can be used together.
-   - This variable calls the household_income variable
+ * Impacted areas: tests/variables and parameters.
+ * Details:
+   - Add a new variable called parenting_allowance to show how group entities and single entities can be used together.
+   - This variable calls the household_income variable.
 
 ### 3.12.1 -
 
@@ -57,23 +60,23 @@ in openfisca-core
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `reforms/add_new_tax.py`
+* Impacted areas: `reforms/add_new_tax.py`.
 * Details:
-  - Add a new reform example creating a variable (there was none prior)
-  - The example is a new tax that adds a fixed 100.0 of the country's currency to the actual income tax
+  - Add a new reform example creating a variable (there was none prior).
+  - The example is a new tax that adds a fixed 100.0 of the country's currency to the actual income tax.
 
 ### 3.9.13 - [#96](https://github.com/openfisca/country-template/pull/96)
 
 * Technical improvement.
-* Impacted areas: `**/*`
+* Impacted areas: `**/*`.
 * Details:
-  - Remove wildcard imports as they're considered and [anti-pattern](https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html)
+  - Remove wildcard imports as they're considered and [anti-pattern](https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html).
 
 ### 3.9.12 - [#93](https://github.com/openfisca/country-template/pull/93)
 
 * Minor change.
 * Details:
-  - Upgrade `autopep8`, `flake8` & `pycodestyle`
+  - Upgrade `autopep8`, `flake8` & `pycodestyle`.
 
 ### 3.9.11 - [#94](https://github.com/openfisca/country-template/pull/94)
 
@@ -103,69 +106,69 @@ in openfisca-core
 
 * Minor change.
 * Details:
-  - Upgrade `autopep8`
+  - Upgrade `autopep8`.
 
 ### 3.9.6 - [#78](https://github.com/openfisca/country-template/pull/78)
 
 * Minor change.
 * Details:
-  - Declare package compatible with Core v34
+  - Declare package compatible with Core v34.
 
 ### 3.9.5 - [#76](https://github.com/openfisca/country-template/pull/76)
 
 * Minor change.
 * Details:
-  - Declare package compatible with Core v32
+  - Declare package compatible with Core v32.
 
 ### 3.9.4 - [#75](https://github.com/openfisca/country-template/pull/75)
 
 * Minor change.
 * Details:
-  - Upgrade `autopep8`
+  - Upgrade `autopep8`.
 
 ### 3.9.3 - [#73](https://github.com/openfisca/country-template/pull/73)
 
 * Minor change.
 * Details:
-  - Upgrade `autopep8`
+  - Upgrade `autopep8`.
 
 ### 3.9.2 - [#71](https://github.com/openfisca/country-template/pull/71)
 
 * Minor change.
 * Details:
-  - Upgrade `flake8` and `pycodestyle`
+  - Upgrade `flake8` and `pycodestyle`.
 
 ### 3.9.1 - [#74](https://github.com/openfisca/country-template/pull/74)
 
 * Minor change.
 * Details:
-  - Explicit expected test output
+  - Explicit expected test output.
 
 ## 3.9.0 - [#72](https://github.com/openfisca/country-template/pull/72)
 
-* Technical change
+* Technical change.
 * Details:
-  - Declare package compatible with Core v31
+  - Declare package compatible with Core v31.
 
 ## 3.8.0 - [#69](https://github.com/openfisca/country-template/pull/69)
 
-* Technical change
+* Technical change.
 * Details:
-  - Declare package compatible with Core v27
+  - Declare package compatible with Core v27.
 
 ## 3.7.0 - [#68](https://github.com/openfisca/country-template/pull/68)
 
-* Technical change
+* Technical change.
 * Details:
-  - Declare package compatible with Core v26
-  - Remove Python 2 checks from continuous integration
+  - Declare package compatible with Core v26.
+  - Remove Python 2 checks from continuous integration.
 
 ## 3.6.O - [#66](https://github.com/openfisca/country-template/pull/66)
 
-* Minor change
+* Minor change.
 * Details:
-  - Adapt to OpenFisca Core v25
-  - Change the syntax of OpenFisca YAML tests
+  - Adapt to OpenFisca Core v25.
+  - Change the syntax of OpenFisca YAML tests.
 
 For instance, a test that was using the `input_variables` and the `output_variables` keywords like:
 
@@ -178,7 +181,7 @@ For instance, a test that was using the `input_variables` and the `output_variab
     basic_income: 600
 ```
 
-becomes:
+Becomes:
 
 ```yaml
 - name: Basic income
@@ -207,7 +210,7 @@ name: Housing tax
       2017: 1000
 ```
 
-becomes:
+Becomes:
 
 ```yaml
 name: Housing tax
@@ -228,76 +231,76 @@ name: Housing tax
 
 ### 3.5.4 - [#65](https://github.com/openfisca/country-template/pull/65)
 
-* Minor change
+* Minor change.
 * Details:
-  - Update links to the doc
+  - Update links to the doc.
 
 ### 3.5.3 - [#64](https://github.com/openfisca/country-template/pull/64)
 
-* Minor change
+* Minor change.
 * Details:
-  - Document housing tax
+  - Document housing tax.
 
 ### 3.5.2 - [#59](https://github.com/openfisca/country-template/pull/59) [#62](https://github.com/openfisca/country-template/pull/62) [#63](https://github.com/openfisca/country-template/pull/63)
 
-* Technical change
+* Technical change.
 * Details:
-  - Tests library against its packaged version
-  - By doing so, we prevent some hideous bugs
+  - Tests library against its packaged version.
+  - By doing so, we prevent some hideous bugs.
 
 > Note: Version `3.5.1` has been unpublished as it accidentally introduced a bug. Please use version `3.5.2` or more recent.
 
 ## 3.5.0 - [#58](https://github.com/openfisca/country-template/pull/58)
 
-* Technical change
-  - In the `/spec` Web API route, use examples that apply to this country package
+* Technical change.
+  - In the `/spec` Web API route, use examples that apply to this country package.
 
 ## 3.4.0
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `housing`
+* Impacted areas: `housing`.
 * Details:
-  - Introduce `code_postal` variable
+  - Introduce `code_postal` variable.
 
 ### 3.3.2
 
-* Minor change
+* Minor change.
 * Details:
-  - Update entities labels
+  - Update entities labels.
 
 ### 3.3.1 - [#53](https://github.com/openfisca/country-template/pull/53)
 
-* Minor change
+* Minor change.
 * Details:
-  - Add `documentation` to parameters: `benefits` node and `benefits/housing_allowance`
-  - Add documentation to `housing_allowance` variable and formula
+  - Add `documentation` to parameters: `benefits` node and `benefits/housing_allowance`.
+  - Add documentation to `housing_allowance` variable and formula.
 
 ## 3.3.0 - [#51](https://github.com/openfisca/country-template/pull/51)
 
-* Technical change
-  - Make package compatible with OpenFisca Core v24
-  - Rename development dependencies from `test` to `dev`:
+* Technical change.
+  - Make package compatible with OpenFisca Core v24.
+  - Rename development dependencies from `test` to `dev`.
 
 ### 3.2.3 - [#50](https://github.com/openfisca/country-template/pull/50)
 
-* Minor change
+* Minor change.
 * Details:
-  - Fix repository URL in package metadata
+  - Fix repository URL in package metadata.
 
 ### 3.2.2 - [#49](https://github.com/openfisca/country-template/pull/49)
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `taxes`
+* Impacted areas: `taxes`.
 * Details:
-  - Implement housing tax minimal amount
+  - Implement housing tax minimal amount.
 
 <!-- -->
 
-* Minor change
+* Minor change.
 * Details:
-  - Add metadata to parameters
+  - Add metadata to parameters.
 
 ### 3.2.1 - [#47](https://github.com/openfisca/country-template/pull/47)
 
@@ -309,10 +312,10 @@ name: Housing tax
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `demographics`
+* Impacted areas: `demographics`.
 * Details:
-  - Improve reliability and accuracy of `age` formula
-  - Improve variables comments
+  - Improve reliability and accuracy of `age` formula.
+  - Improve variables comments.
 
 ### 3.1.3 - [#37](https://github.com/openfisca/country-template/pull/37)
 
@@ -324,7 +327,7 @@ name: Housing tax
 
 * Minor change.
 * Details:
-  - Add situation example using YAML
+  - Add situation example using YAML.
 
 ### 3.1.1 - [#44](https://github.com/openfisca/country-template/pull/44)
 
@@ -336,17 +339,19 @@ name: Housing tax
 
 * Technical improvement.
 * Details:
-  - Make package compatible with Python 3
+  - Make package compatible with Python 3.
 
 ### 3.0.2 - [#37](https://github.com/openfisca/country-template/pull/37)
 
 * Technical change.
-* Declare package compatible with OpenFisca Core v23
+* Details:
+  - Declare package compatible with OpenFisca Core v23.
 
 ### 3.0.1 - [#39](https://github.com/openfisca/country-template/pull/39)
 
 * Technical change.
-* Declare package compatible with OpenFisca Core v22
+* Details:
+  - Declare package compatible with OpenFisca Core v22.
 
 # 3.0.0 - [#34](https://github.com/openfisca/country-template/pull/34)
 
@@ -354,36 +359,36 @@ name: Housing tax
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
-* Impacted areas: `housing`
+* Impacted areas: `housing`.
 * Details:
-  - Fix spelling by renaming `accomodation_size` variable to `accommodation_size`
+  - Fix spelling by renaming `accomodation_size` variable to `accommodation_size`.
 
 #### Other changes
 
 * Minor change.
 * Impacted areas: no functional impact.
 * Details:
-  - Improve spelling
+  - Improve spelling.
 
 ## 2.1.0 - [#29](https://github.com/openfisca/country-template/pull/29) [#30](https://github.com/openfisca/country-template/pull/30)
 
-* Tax and benefit system evolution
+* Tax and benefit system evolution.
 * Impacted areas:
-  - Parameters `general`
-  - Variables `benefits`
+  - Parameters `general`.
+  - Variables `benefits`.
 * Details:
-  - Add a parameter and a variable with non ascii characters
-    - Introduce `age_of_retirement` parameter
-    - Introduce `pension` variable
+  - Add a parameter and a variable with non ascii characters:
+    - Introduce `age_of_retirement` parameter.
+    - Introduce `pension` variable.
 
 ### 2.0.1 - [#24](https://github.com/openfisca/country-template/pull/24) [#27](https://github.com/openfisca/country-template/pull/27)
 
-_Note: the 2.0.0 version has been unpublished due to performance issues_
+_Note: the 2.0.0 version has been unpublished due to performance issues._
 
 #### Breaking change
 
 * Details:
-  - Upgrade to Core v21
+  - Upgrade to Core v21.
   - Introduce the use of a string identifier to reference Enum items.
   - When setting an Enum (e.g. housing_occupancy_status), set the relevant string identifier (e.g. `free_lodger`). Indexes (e.g.`2`) and phrases (e.g. `Free Lodgers`) cannot be used anymore.
   - The default value is indicated for each Enum variable instead of being implicitly the first item of the enum.
@@ -403,6 +408,7 @@ Before:
     }
 }
 ```
+
 Now:
 
 ```
@@ -418,6 +424,7 @@ Now:
 ```
 
 #### YAML testing
+
 Before:
 
 ```
@@ -431,6 +438,7 @@ name: Household living in a 40 sq. metres accommodation while being free lodgers
   output_variables:
     housing_tax: 0
 ```
+
 Now:
 
 ```
@@ -453,96 +461,101 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
 
 ## 1.4.0 - [#26](https://github.com/openfisca/country-template/pull/26)
 
-* Technical improvement
+* Technical improvement.
 * Details:
-  - Upgrade to Core v20
+  - Upgrade to Core v20.
 
 ### 1.3.2 - [#25](https://github.com/openfisca/country-template/pull/25)
 
-* Declare package compatible with OpenFisca Core v19
+* Technical improvement.
+* Details:
+  - Declare package compatible with OpenFisca Core v19.
 
 ### 1.3.1 - [#23](https://github.com/openfisca/country-template/pull/23)
 
-* Technical improvement
+* Technical improvement.
 * Details:
-  - Declare package compatible with OpenFisca Core v18
+  - Declare package compatible with OpenFisca Core v18.
 
 ## 1.3.0 - [#22](https://github.com/openfisca/country-template/pull/22)
 
-* Tax and benefit system evolution
-* Impacted periods: all
-* Impacted areas: `stats`
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `stats`.
 * Details:
-  - Introduce `total_benefits`
-  - Introduce `total_taxes`
+  - Introduce `total_benefits`.
+  - Introduce `total_taxes`.
 
 <!-- -->
 
-* Minor change
+* Minor change.
 * Details:
-  - Introduce situation examples
-    - These examples can be imported with: `from openfisca_country_template.situation_examples import single, couple`
+  - Introduce situation examples:
+    - These examples can be imported with: `from openfisca_country_template.situation_examples import single, couple`.
 
 ### 1.2.7 - [#21](https://github.com/openfisca/country-template/pull/21)
 
-* Minor change
-  - Use the technical documentation new address
+* Minor change.
+* Details:
+  - Use the technical documentation new address.
 
 ### 1.2.6 - [#20](https://github.com/openfisca/country-template/pull/20)
 
-* Minor change
-  - Document entities
+* Minor change.
+* Details:
+  - Document entities.
 
 ### 1.2.5 - [#17](https://github.com/openfisca/country-template/pull/17)
 
-* Technical improvement
+* Technical improvement.
 * Details:
-  - Adapt to version `17.0.0` of Openfisca-Core
+  - Adapt to version `17.0.0` of Openfisca-Core.
   - Transform XML parameter files to YAML parameter files.
 
 ### 1.2.4 - [#16](https://github.com/openfisca/country-template/pull/16)
 
-* Tax and benefit system evolution
-* Details
-  - Introduce `housing_occupancy_status`
-  - Take the housing occupancy status into account in the housing tax
+* Tax and benefit system evolution.
+* Details:
+  - Introduce `housing_occupancy_status`.
+  - Take the housing occupancy status into account in the housing tax.
 
 ### 1.2.3 - [#9](https://github.com/openfisca/country-template/pull/9)
 
-* Technical improvement: adapt to version `15.0.0` of Openfisca-Core
+* Technical improvement
 * Details:
-  - Rename Variable attribute `url` to `reference`
+  - Adapt to version `15.0.0` of Openfisca-Core.
+  - Rename Variable attribute `url` to `reference`.
 
 ### 1.2.2 - [#12](https://github.com/openfisca/country-template/pull/12)
 
-* Tax and benefit system evolution
-* Details
+* Tax and benefit system evolution.
+* Details:
   - Allow to declare a yearly amount for `salary`.
-  - The yearly amount will be spread over the months contained in the year
+  - The yearly amount will be spread over the months contained in the year.
 
 ### 1.2.1 - [#11](https://github.com/openfisca/country-template/pull/11)
 
-* Technical improvement
+* Technical improvement.
 * Details:
   - Make `make test` command not ignore failing tests.
 
 ## 1.2.0 - [#10](https://github.com/openfisca/country-template/pull/10)
 
-* Technical improvement
+* Technical improvement.
 * Details:
-  - Upgrade OpenFisca-Core
+  - Upgrade OpenFisca-Core:
     - Update the way we define formulas start dates and variables stop dates.
     - Update the naming conventions for variable formulas.
     - See the [OpenFisca-Core Changelog](https://github.com/openfisca/openfisca-core/blob/master/CHANGELOG.md#1400---522).
 
 ## 1.1.0 - [#7](https://github.com/openfisca/country-template/pull/7)
 
-* Tax and benefit system evolution
-* Impacted periods: from 2013-01-01
+* Tax and benefit system evolution.
+* Impacted periods: from 2013-01-01.
 * Impacted areas:
-   - Reform: `modify_social_security_taxation`
+   - Reform: `modify_social_security_taxation`.
 * Details:
-  - Add a reform modifying the brackets of a scale
+  - Add a reform modifying the brackets of a scale:
       - Show how to add, modify and remove a bracket.
       - Add corresponding tests.
 
@@ -551,10 +564,10 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
 * Tax and benefit system evolution.
 * Impacted periods: all.
 * Impacted areas:
-  - `benefits`
-  - `demographics`
-  - `housing`
-  - `income`
-  - `taxes`
+  - `benefits`.
+  - `demographics`.
+  - `housing`.
+  - `income`.
+  - `taxes`.
 * Details:
-  - Build the skeleton of the tax and benefit system
+  - Build the skeleton of the tax and benefit system.
