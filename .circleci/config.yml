@@ -54,12 +54,10 @@ jobs:
   test_api:
     docker:
       - image: python:3.7
+
     steps:
       - checkout
-
-      - restore_cache:
-          key: v1-py3-deps-{{ checksum "setup.py" }}
-
+      
       - run:
           name: Test the Web API
           command: .circleci/test-api.sh
