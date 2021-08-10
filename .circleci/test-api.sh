@@ -3,7 +3,7 @@
 apt-get update
 apt-get install -y jq
 
-make serve-local &
+openfisca serve --country-package openfisca_country_template &
 
 PORT=5000
 ENDPOINT=spec
