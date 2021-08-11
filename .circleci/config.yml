@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - checkout
-      
+
       - run:
           name: Test the Web API
           command: .circleci/test-api.sh
