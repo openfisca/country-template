@@ -63,13 +63,11 @@ jobs:
 
       - run:
           name: Avtivate virtualenv
-          command: |
-            echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
+          command: echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
 
       - run:
           name: Test the Web API
-          command: |
-            .circleci/test-api.sh
+          command: .circleci/test-api.sh
 
   deploy:
     docker:
