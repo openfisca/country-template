@@ -58,15 +58,14 @@ jobs:
     steps:
       - checkout
 
-      - run:
-         name: Install dependencies
-         command: |
-            make build
-            # pip install --editable git+https://github.com/openfisca/openfisca-core.git@BRANCH#egg=OpenFisca-Core[web-api]  # use a specific branch of OpenFisca-Core
+      - restore_cache:
+          key: v1-py3-deps-{{ checksum "setup.py" }}
 
       - run:
           name: Test the Web API
-          command: .circleci/test-api.sh
+          command: |
+            source /tmp/venv/country_template/bin/activate
+            .circleci/test-api.sh
 
   deploy:
     docker:
