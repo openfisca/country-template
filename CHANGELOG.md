@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.12.9 - [#113](https://github.com/openfisca/country-template/pull/113)
+
+* Technical improvement.
+* Details:
+  - Add a Web API smoke test to the CI.
+
 ### 3.12.8 - [#105](https://github.com/openfisca/country-template/pull/105)
 
 * Minor change.

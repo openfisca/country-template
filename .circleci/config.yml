@@ -51,6 +51,24 @@ jobs:
             git fetch
             .circleci/is-version-number-acceptable.sh
 
+  test_api:
+    docker:
+      - image: python:3.7
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: v1-py3-deps-{{ checksum "setup.py" }}
+
+      - run:
+          name: Activate virtualenv
+          command: echo "source /tmp/venv/country_template/bin/activate" >> $BASH_ENV
+
+      - run:
+          name: Test the Web API
+          command: .circleci/test-api.sh
+
   deploy:
     docker:
       - image: python:3.7
@@ -86,6 +104,9 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+      - test_api:
+          requires:
+            - build
       - check_version
       - deploy:
           requires:
