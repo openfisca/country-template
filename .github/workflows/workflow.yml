@@ -33,6 +33,7 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false # Only new or edited files
           IGNORE_GITIGNORED_FILES: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
@@ -88,7 +89,7 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: ${{ env.pythonLocation }}-build-${{ hashFiles('setup.py') }}
       - name: Test the Web API
-        run: "${GITHUB_WORKSPACE}/.github/test-api.sh"
+        run: $"{GITHUB_WORKSPACE}/.github/test-api.sh"
 
   check-version-and-changelog:
     runs-on: ubuntu-latest
@@ -102,7 +103,7 @@ jobs:
         with:
           python-version: 3.7
       - name: Check version number has been properly updated
-        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
+        run: $"{GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
 
   # GitHub Actions does not have a halt job option, to stop from deploying if no functional changes were found.
   # We build a separate job to substitute the halt option.
@@ -146,6 +147,6 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: ${{ env.pythonLocation }}-build-${{ hashFiles('setup.py') }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
+        run: twine upload dist/* --username "$PYPI_USERNAME" --password "$PYPI_PASSWORD"
       - name: Publish a git tag
-        run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
+        run: $"{GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
