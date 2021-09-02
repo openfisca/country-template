@@ -70,7 +70,7 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: ${{ env.pythonLocation }}-build-${{ hashFiles('setup.py') }}
       - run: |
-          openfisca test
+          openfisca test tests
 
   test-api:
     runs-on: ubuntu-latest
