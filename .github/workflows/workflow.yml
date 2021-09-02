@@ -114,7 +114,7 @@ jobs:
         with:
           python-version: 3.7
       - name: Check version number has been properly updated
-        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh" #
+        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
 
   # GitHub Actions does not have a halt job option, to stop from deploying if no functional changes were found.
   # We build a separate job to substitute the halt option.
