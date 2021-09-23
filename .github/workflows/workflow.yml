@@ -148,8 +148,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: dist
-          key: ${{ env.pythonLocation }}-build-release-${{ hashFiles('setup.py') }}
+          key: ${{ github.ref }}${{ env.pythonLocation }}-build-release-${{ hashFiles('setup.py') }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username "$PYPI_USERNAME" --password "$PYPI_PASSWORD"
+        run: twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
