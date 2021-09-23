@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.12.10-beta.1 - [#115](https://github.com/openfisca/country-template/pull/115)
+
+* Technical improvement.
+* Details:
+  - Switch CI from CircleCI to GitHub Actions 
+
 ### 3.12.9 - [#113](https://github.com/openfisca/country-template/pull/113)
 
 * Technical improvement.
