@@ -67,8 +67,7 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: ${{ github.ref }}${{ env.pythonLocation }}-build-${{ hashFiles('setup.py') }}
-      - run: |
-          openfisca test --country-package openfisca_country_template openfisca_country_template/tests
+      - run: openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 
   test-api:
     runs-on: ubuntu-latest
