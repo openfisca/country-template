@@ -1,6 +1,6 @@
 # Changelog
 
-### 3.12.10-beta.1 - [#115](https://github.com/openfisca/country-template/pull/115)
+### 3.12.10-beta.2 - [#115](https://github.com/openfisca/country-template/pull/115)
 
 * Technical improvement.
 * Details:
