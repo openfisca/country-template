@@ -126,7 +126,7 @@ jobs:
     needs: [ check-for-functional-changes ]
     env:
       PYPI_USERNAME: openfisca-bot
-      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }} # PYPI_PASSWORD: this value should be set in GitHub secrets!
+      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
         with:
