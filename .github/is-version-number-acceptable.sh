@@ -14,10 +14,10 @@ fi
 
 current_version=$(python setup.py --version)
 
-if git rev-parse --verify --quiet "$current_version"
+if git rev-parse --verify --quiet $current_version
 then
     echo "Version $current_version already exists in commit:"
-    git --no-pager log -1 "$current_version"
+    git --no-pager log -1 $current_version
     echo
     echo "Update the version number in setup.py before merging this branch into master."
     echo "Look at the CONTRIBUTING.md file to learn how the version number should be updated."
