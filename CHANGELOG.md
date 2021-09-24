@@ -1,6 +1,6 @@
 # Changelog
 
-### 3.12.10 - [#115](https://github.com/openfisca/country-template/pull/115)
+### 3.12.10 - [#119](https://github.com/openfisca/country-template/pull/119)
 
 * Technical improvement.
 * Details:
