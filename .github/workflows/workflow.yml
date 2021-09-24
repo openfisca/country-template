@@ -1,4 +1,4 @@
-name: Country Template
+name: Country-Template
 
 on: [ push ]
 
