@@ -4,6 +4,7 @@
 *.pyc
 build
 dist
+.venv
 
 # Editors
 
