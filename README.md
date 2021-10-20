@@ -99,7 +99,7 @@ python --version  # should print "Python 3.7.xx".
 
 ```sh
 pip --version  # should print at least 9.0.
-#if not, run "pip install --upgrade pip"
+# if not, run "pip install --upgrade pip"
 ```
 Install the Country Package:
 
@@ -141,7 +141,7 @@ python --version  # should print "Python 3.7.xx".
 
 ```sh
 pip --version  # should print at least 9.0.
-#if not, run "pip install --upgrade pip"
+# if not, run "pip install --upgrade pip"
 ```
 Clone this Country Package on your machine:
 
