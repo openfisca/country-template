@@ -64,11 +64,11 @@ In order to limit dependencies conflicts, we recommend using a [virtual environm
 
 - A [venv](https://docs.python.org/3/library/venv.html) is a project specific environment created to suit the needs of the project you are working on.
 
-To create a virtual environment, launch a terminal on your computer `cd` into your directory and follow these instructions:
+To create a virtual environment, launch a terminal on your computer, `cd` into your directory and follow these instructions:
 
 ```sh
-python3 -m venv openfisca # create a new virtual environment called “openfisca”
-source openfisca/bin/activate # activate the virtual environment
+python3 -m venv openfisca # create a new venv called “openfisca”
+source openfisca/bin/activate # activate the venv
 ```
 
 You can now operate in the venv you just created.
