@@ -107,6 +107,8 @@ Install the Country Package:
 pip install openfisca_country_template
 ```
 
+:warning: Please beware that installing the Country Package with `pip` is dependent on its maintainers publishing said package.
+
 :tada: This OpenFisca Country Package is now installed and ready!
 
 #### Next Steps
