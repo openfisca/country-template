@@ -58,29 +58,22 @@ This package requires [Python 3.7](https://www.python.org/downloads/release/pyth
 
 All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows (in which case we recommend using [ConEmu](https://conemu.github.io/) instead of the default console).
 
-### Setting-up a Virtual Environment with Pew
+### Setting-up a Virtual Environment with venv
 
-In order to limit dependencies conflicts, we recommend to use a [virtual environment](https://virtualenv.pypa.io/en/stable/) (abbreviated as “virtualenv”) with a virtualenv manager such as [pew](https://github.com/berdario/pew).
+In order to limit dependencies conflicts, we recommend using a [virtual environment](https://www.python.org/dev/peps/pep-0405/) with [venv](https://docs.python.org/3/library/venv.html).
 
-- A [virtualenv](https://virtualenv.pypa.io/en/stable/) is a project specific environment created to suit the needs of the project you are working on.
-- A virtualenv manager such as [pew](https://github.com/berdario/pew) lets you easily create, remove and toggle between several virtualenvs.
+- A [venv](https://docs.python.org/3/library/venv.html) is a project specific environment created to suit the needs of the project you are working on.
 
-To install pew, launch a terminal on your computer and follow these instructions:
+To create a virtual environment, launch a terminal on your computer `cd` into your directory and follow these instructions:
 
 ```sh
-pip install --upgrade pip
-pip install pew  # if asked, answer "Y" to the question about modifying your shell config file.
-pew new openfisca --python=python3.7  # create a new virtualenv called “openfisca”
+python3 -m venv openfisca # create a new virtual environment called “openfisca”
+source openfisca/bin/activate # activate the virtual environment
 ```
 
-The virtualenv you just created will be automatically activated. This means you will operate in the virtualenv immediately. You should see a prompt resembling this:
+You can now operate in the venv you just created.
 
-```
-Installing setuptools, pip, wheel...done.
-Launching subshell in virtual environment. Type 'exit' or 'Ctrl+D' to return.
-```
-
-You can re-activate that virtualenv at any time with `pew workon openfisca`.
+You can deactivate that venv at any time with `deactivate`.
 
 :tada: You are now ready to install this OpenFisca Country Package!
 
@@ -98,11 +91,10 @@ For more advanced uses, head to the [Advanced Installation](#advanced-installati
 
 #### Install this Country Package with Pip Install
 
-Inside your virtualenv, check the prerequisites:
+Inside your venv, check the prerequisites:
 
 ```sh
 python --version  # should print "Python 2.7.xx".
-#if not, make sure you pass the python version as an argument when creating your virtualenv
 ```
 
 ```sh
@@ -122,7 +114,7 @@ pip install openfisca_country_template
 - To learn how to use OpenFisca, follow our [tutorials](https://openfisca.org/doc/).
 - To serve this Country Package, serve the [OpenFisca web API](#serve-your-country-package-with-the-openFisca-web-api).
 
-Depending on what you want to do with OpenFisca, you may want to install yet other packages in your virtualenv:
+Depending on what you want to do with OpenFisca, you may want to install yet other packages in your venv:
 - To install extensions or write on top of this Country Package, head to the [Extensions documentation](https://openfisca.org/doc/contribute/extensions.html).
 - To plot simulation results, try [matplotlib](http://matplotlib.org/).
 - To manage data, check out [pandas](http://pandas.pydata.org/).
@@ -139,7 +131,7 @@ First of all, make sure [Git](https://www.git-scm.com/) is installed on your mac
 
 Set your working directory to the location where you want this OpenFisca Country Package cloned.
 
-Inside your virtualenv, check the prerequisites:
+Inside your venv, check the prerequisites:
 
 ```sh
 python --version  # should print "Python 2.7.xx".
