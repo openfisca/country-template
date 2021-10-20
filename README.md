@@ -94,7 +94,7 @@ For more advanced uses, head to the [Advanced Installation](#advanced-installati
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 2.7.xx".
+python --version  # should print "Python 3.7.xx".
 ```
 
 ```sh
@@ -127,15 +127,14 @@ Follow this tutorial if you wish to:
 
 #### Clone this Country Package with Git
 
-First of all, make sure [Git](https://www.git-scm.com/) is installed on your machine.
+First, make sure [Git](https://www.git-scm.com/) is installed on your machine.
 
 Set your working directory to the location where you want this OpenFisca Country Package cloned.
 
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 2.7.xx".
-#if not, make sure you pass the python version as an argument when creating your virtualenv
+python --version  # should print "Python 3.7.xx".
 ```
 
 ```sh
