@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.13.1 - [#120](https://github.com/openfisca/country-template/pull/120)
+
+* Technical improvement.
+* Details:
+  - Fix illegal byte sequence bug in bootstrap script on macOS
+
 ## 3.13.0 - [#115](https://github.com/openfisca/country-template/pull/115)
 
 * Technical improvement.
