@@ -1,5 +1,12 @@
 # Changelog
 
+### 3.12.10 - [#115](https://github.com/openfisca/country-template/pull/115)
+
+* Technical improvement.
+* Details:
+  - Update README
+  - Add encoding to open json files
+
 ### 3.12.9 - [#113](https://github.com/openfisca/country-template/pull/113)
 
 * Technical improvement.
