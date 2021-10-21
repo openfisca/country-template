@@ -1,6 +1,12 @@
 # Changelog
 
-### 3.12.10 - [#115](https://github.com/openfisca/country-template/pull/115)
+## 3.13.0 - [#115](https://github.com/openfisca/country-template/pull/115)
+
+* Technical improvement.
+* Details:
+  - Switch continuous integration pipeline from CircleCI to GitHub Actions 
+
+### 3.12.10 - [#119](https://github.com/openfisca/country-template/pull/119)
 
 * Technical improvement.
 * Details:
