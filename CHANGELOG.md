@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.13.1 - [#120](https://github.com/openfisca/country-template/pull/120)
+
+* Minor change
+* Details:
+  - Delete macOS related comment in bootstrap script
+
 ## 3.13.0 - [#115](https://github.com/openfisca/country-template/pull/115)
 
 * Technical improvement.

@@ -36,7 +36,6 @@ all_module_files=`find openfisca_country_template -type f`
 set -x
 
 # Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
-# If you're using MacOS, add LC_ALL=C before sed https://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x/19770395#19770395
 sed -i.template "s|country_template|$lowercase_country_name|g" README.md setup.py .github/workflows/workflow.yml Makefile MANIFEST.in $all_module_files
 sed -i.template "s|Country-Template|$COUNTRY_NAME|g" README.md setup.py .github/workflows/workflow.yml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md $all_module_files
 sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
