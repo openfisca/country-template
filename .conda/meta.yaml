@@ -1,0 +1,101 @@
+###############################################################################
+## Package description for Anaconda.org
+## Warning : string PYPI_VERSION, PYPI_URL and PYPI_SHA256 are replaced by CI
+## Keep them as is.
+###############################################################################
+
+{% set name = "OpenFisca-Country-Template" %}
+{% set version = "PYPI_VERSION" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: PYPI_URL
+  sha256: PYPI_SHA256
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python >=3.6,<4.0
+    - chardet >=4.0,<5.0
+    - configparser
+    - humanize
+    - openfisca-core >=35.0.0,<36.0.0
+    - pandas >=0.22
+    - pyxdg
+    - PyYAML
+    - pytables >=3.5.1, <4.0.0
+    - tabulate
+    - weightedcalcs
+    - wquantiles>=0.3
+
+
+test:
+  imports:
+    - openfisca_survey_manager
+  requires:
+    - pip
+  commands:
+    - pip check
+
+outputs:
+  - name: openfisca-survey-manager
+
+  - name: openfisca-survey-manager-matching
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - feather
+        - rpy2
+        - {{ pin_subpackage('openfisca-survey-manager', exact=True) }}
+
+  - name: openfisca-survey-manager-dev
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - autopep8 >=1.4.0,<=1.5.7
+        - coveralls >=1.5.0,<3.4.0
+        - flake8 >=3.8.0,<3.10.0
+        - openfisca-country-template >=3.6.0,<4.0.0
+        - pytest >=4.0.0,<7.0.0
+        - pytest-cov >=2.0.0, <3.0.0
+        - scipy >=1.2.1, <2.0.0
+        - {{ pin_subpackage('openfisca-survey-manager', exact=True) }}
+
+  - name: openfisca-survey-manager-sas
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - pyreadstat >=1.1.4, <2.0.0
+        - SAS7BDAT >=2.2.2, <3.0.0
+        - {{ pin_subpackage('openfisca-survey-manager', exact=True) }}
+
+about:
+  home: https://fr.openfisca.org/
+  license_family: AGPL
+  license: AGPL-3.0-only
+  license_file: LICENSE.AGPL.txt
+  summary: "Survey-Manager module, to work with OpenFisca and survey data."
+  description: |
+    OpenFisca is a versatile microsimulation free software.
+    This repository contains the Survey-Manager module, to work with OpenFisca and survey data.
+  doc_url: https://fr.openfisca.org/
+  dev_url: https://github.com/openfisca/openfisca-survey-manager/
