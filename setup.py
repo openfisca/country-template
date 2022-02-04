@@ -1,10 +1,16 @@
 """This file contains your country package's metadata and dependencies."""
 
+from pathlib import Path
+
 from setuptools import find_packages, setup
+
+# Read the contents of our README file for PyPi
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()  # pylint: disable=W1514
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "3.13.1",
+    version = "3.13.2",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers = [
@@ -18,14 +24,17 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
     description = "OpenFisca tax and benefit system for Country-Template",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     keywords = "benefit microsimulation social tax",
     license = "http://www.fsf.org/licensing/licenses/agpl-3.0.html",
+    license_files = ("LICENSE",),
     url = "https://github.com/openfisca/country-template",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
         (
             "share/openfisca/openfisca-country-template",
-            ["CHANGELOG.md", "LICENSE", "README.md"],
+            ["CHANGELOG.md", "README.md"],
             ),
         ],
     install_requires = [

@@ -8,7 +8,7 @@ clean:
 	find . -name '*.pyc' -exec rm \{\} \;
 
 deps:
-	pip install --upgrade pip twine wheel
+	pip install --upgrade pip build twine
 
 install: deps
 	@# Install OpenFisca-Extension-Template for development.
@@ -20,7 +20,7 @@ build: clean deps
 	@# Install OpenFisca-Extension-Template for deployment and publishing.
 	@# `make build` allows us to be be sure tests are run against the packaged version
 	@# of OpenFisca-Extension-Template, the same we put in the hands of users and reusers.
-	python setup.py bdist_wheel
+	python -m build
 	find dist -name "*.whl" -exec pip install --force-reinstall {}[dev] \;
 
 check-syntax-errors:
