@@ -1,4 +1,5 @@
 """Script to get information needed by .conda/meta.yaml from PyPi JSON API.
+
 This script use get_info to get the info (yes !) and replace_in_file to
 write them into .conda/meta.yaml.
 Sample call:
@@ -12,6 +13,7 @@ import requests
 
 def get_info(package_name: str = "") -> dict:
     """Get minimal information needed by .conda/meta.yaml from PyPi JSON API.
+
     ::package_name:: Name of package to get infos from.
     ::return:: A dict with last_version, url and sha256
     """
@@ -29,7 +31,8 @@ def get_info(package_name: str = "") -> dict:
 
 
 def replace_in_file(filepath: str, info: dict):
-    """ Replace placeholder in meta.yaml by their values.
+    """Replace placeholder in meta.yaml by their values.
+
     ::filepath:: Path to meta.yaml, with filename.
     ::info:: Dict with information to populate.
     """
