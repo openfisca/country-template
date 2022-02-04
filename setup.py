@@ -1,7 +1,8 @@
 """This file contains your country package's metadata and dependencies."""
 
-from setuptools import find_packages, setup
 from pathlib import Path
+
+from setuptools import find_packages, setup
 
 # Read the contents of our README file for PyPi
 this_directory = Path(__file__).parent
@@ -24,7 +25,7 @@ setup(
         ],
     description = "OpenFisca tax and benefit system for Country-Template",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     keywords = "benefit microsimulation social tax",
     license = "http://www.fsf.org/licensing/licenses/agpl-3.0.html",
     license_files = ("LICENSE",),
