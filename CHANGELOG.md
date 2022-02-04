@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.13.2 - [#123](https://github.com/openfisca/country-template/pull/123)
+
+* Technical improvement.
+* Details:
+  - Add tar.gz to PyPi to be used by conda to build conda package.
+
 ### 3.13.1 - [#120](https://github.com/openfisca/country-template/pull/120)
 
 * Minor change
@@ -10,7 +16,7 @@
 
 * Technical improvement.
 * Details:
-  - Switch continuous integration pipeline from CircleCI to GitHub Actions 
+  - Switch continuous integration pipeline from CircleCI to GitHub Actions
 
 ### 3.12.10 - [#119](https://github.com/openfisca/country-template/pull/119)
 
