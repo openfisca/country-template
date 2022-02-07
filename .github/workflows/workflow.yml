@@ -161,7 +161,7 @@ jobs:
 
   publish-to-conda:
     runs-on: "ubuntu-latest"
-    needs: [ build ]  # TODO: Replace with deploy
+    needs: [ deploy ]
     strategy:
       fail-fast: false
     steps:
