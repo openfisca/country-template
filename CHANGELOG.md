@@ -73,7 +73,6 @@
   - Add an example entry to the changelog ([#116](https://github.com/openfisca/country-template/issues/116)
   - Relax Python version constraint
 
-
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
 * Technical improvement.
