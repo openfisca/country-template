@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.0.1 - [#124](https://github.com/openfisca/country-template/pull/124)
+
+* Technical improvement.
+* Details:
+  - Add the build and publish of a conda package to the CI.
+
 # 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
 
 * Technical improvement
@@ -13,7 +19,6 @@
   - Lint files
   - Add an example entry to the changelog ([#116](https://github.com/openfisca/country-template/issues/116)
   - Relax Python version constraint
-
 
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
