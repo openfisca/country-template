@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.13.3 - [#124](https://github.com/openfisca/country-template/pull/124)
+
+* Technical improvement.
+* Details:
+  - Add the build and publish of a conda package to the CI.
+
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
 * Technical improvement.
