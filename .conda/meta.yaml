@@ -56,7 +56,7 @@ about:
   home: https://fr.openfisca.org/
   license_family: AGPL
   license: AGPL-3.0-only
-  license_file: LICENSE.AGPL.txt
+  license_file: LICENSE
   summary: "OpenFisca tax and benefit system for Country-Template."
   description: |
     OpenFisca is a versatile microsimulation free software.
