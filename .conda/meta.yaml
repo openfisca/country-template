@@ -30,7 +30,7 @@ requirements:
 
 test:
   imports:
-    - country_template
+    - openfisca_country_template
   requires:
     - pip
   commands:
