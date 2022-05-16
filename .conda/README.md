@@ -1,6 +1,7 @@
 # Publish to conda
 
-There is two way of publishing to conda:
+There are two ways to publish to conda:
+
 - A fully automatic in CI that publish to an "openfisca" channel. See below for more information.
 - A more complex for Conda-Forge.
 
