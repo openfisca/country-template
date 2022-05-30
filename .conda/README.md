@@ -26,8 +26,10 @@ To create the package you can do the following in the project root folder:
     - Hash SHA256
     - Package URL on PyPi
 
-- Build & Upload package:
+- Install `conda-build` to build the package and [anaconda-client](https://github.com/Anaconda-Platform/anaconda-client) to push the package to anaconda.org:
     - `conda install -c anaconda conda-build anaconda-client`
+
+- Build & Upload package:
     - `conda build .conda`
     - `anaconda login`
     - `anaconda upload openfisca-country-template-<VERSION>-py_0.tar.bz2`
