@@ -3,7 +3,7 @@
 
 - name: Parenting allowance for a two parent household with little income
   description: Parenting allowance relies on the fortnight incomes of the parents and ages of the children
-  period: 2018-W3
+  period: 2022-W5
   absolute_error_margin: 0
   input:
     household:
@@ -13,17 +13,13 @@
       Phil:
         birth: 1981-01-15
         salary:
-          2017-W1: 125
-          2017-W2: 125
-          2018-W1: 125
-          2018-W2: 125
+          week:2022-W1:2: 300
+          week:2022-W3:2: 300
       Saz:
         birth: 1982-01-15
         salary:
-          2017-W1: 125
-          2017-W2: 125
-          2018-W1: 125
-          2018-W2: 126
+          week:2022-W1:2: 300
+          week:2022-W3:2: 301
       Caz:
         birth: 2010-01-15
       Eille:
@@ -33,5 +29,5 @@
   output:
     household:
       parenting_allowance:
-        2017-W2: 600
-        2018-W2: 0
+        week:2022-W1:2: 600
+        week:2022-W3:2: 0
