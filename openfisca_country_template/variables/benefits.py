@@ -97,8 +97,7 @@ class parenting_allowance(Variable):
     reference = "https://www.servicesaustralia.gov.au/individuals/services/centrelink/parenting-payment/who-can-get-it"
 
     def formula(household, period, parameters):
-        """
-        Parenting allowance for households.
+        """Parenting allowance for households.
 
         A person's parenting allowance depends on how many dependents they have,
         how much they, and their partner, earn
@@ -107,12 +106,14 @@ class parenting_allowance(Variable):
         """
         parenting_allowance = parameters(period).benefits.parenting_allowance
 
-        household_income = household("household_income", period)
+        income_last_fortnight = household("household_weekly_income", period.last_fortnight)
+        income_last_week = household("household_weekly_income", period.last_week)
+        household_income = income_last_fortnight + income_last_week
         income_threshold = parenting_allowance.income_threshold
         income_condition = household_income <= income_threshold
 
         is_single = household.nb_persons(Household.PARENT) == 1
-        ages = household.members("age", period)
+        ages = household.members("age", period.first_month)
         under_8 = household.any(ages < 8)
         under_6 = household.any(ages < 6)
 
@@ -131,4 +132,16 @@ class household_income(Variable):
     def formula(household, period, _parameters):
         """A household's income."""
         salaries = household.members("salary", period)
+        return household.sum(salaries)
+
+
+class household_weekly_income(Variable):
+    value_type = float
+    entity = Household
+    definition_period = WEEK
+    label = "The sum of the salaries of those living in a household"
+
+    def formula(household, period, _parameters):
+        """A household's income."""
+        salaries = household.members("weekly_salary", period)
         return household.sum(salaries)
