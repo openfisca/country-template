@@ -106,9 +106,7 @@ class parenting_allowance(Variable):
         """
         parenting_allowance = parameters(period).benefits.parenting_allowance
 
-        income_last_fortnight = household("household_weekly_income", period.last_fortnight)
-        income_last_week = household("household_weekly_income", period.last_week)
-        household_income = income_last_fortnight + income_last_week
+        household_income = household("household_weekly_income", period.last_2_weeks, options = ["add"])
         income_threshold = parenting_allowance.income_threshold
         income_condition = household_income <= income_threshold
 
