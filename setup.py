@@ -38,7 +38,8 @@ setup(
             ),
         ],
     install_requires = [
-        "OpenFisca-Core[web-api] >= 35.0.0, < 36.0.0",
+        "OpenFisca-Core @ git+https://github.com/openfisca/openfisca-core@deprecate-instant-period#egg=openfisca-core",
+        # "OpenFisca-Core[web-api] >= 35.0.0, < 36.0.0",
         ],
     extras_require = {
         "dev": [
