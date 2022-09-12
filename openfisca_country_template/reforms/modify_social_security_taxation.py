@@ -7,7 +7,7 @@ See https://openfisca.org/doc/key-concepts/reforms.html
 """
 
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
-from openfisca_core.parameters import Bracket
+from openfisca_core.parameters import ParameterScaleBracket
 from openfisca_core.reforms import Reform
 
 
@@ -45,7 +45,7 @@ class modify_social_security_taxation(Reform):
         del brackets[0]
 
         # Add a new bracket with a higher tax rate for rich people:
-        new_bracket = Bracket(
+        new_bracket = ParameterScaleBracket(
             "new_bracket",
             data = {
                 "rate": {"2017-01-01": {"value": 0.4}},
