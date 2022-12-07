@@ -1,6 +1,11 @@
 name: Country-Template
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ assigned, opened, reopened, synchronize, ready_for_review ]
+  workflow_dispatch:
 
 jobs:
   build:
