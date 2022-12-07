@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.13.3 - [#122](https://github.com/openfisca/country-template/pull/122)
+
+* Technical improvement. 
+* Details:
+  - Add pull request as GitHub Actions workflow trigger
+
 ### 3.13.2 - [#123](https://github.com/openfisca/country-template/pull/123)
 
 * Technical improvement.

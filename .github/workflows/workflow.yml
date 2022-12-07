@@ -1,10 +1,15 @@
 name: Country-Template
 
-on: [ push ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ assigned, opened, reopened, synchronize, ready_for_review ]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,7 +36,7 @@ jobs:
           key: release-${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ github.sha }}
 
   lint-files:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -55,7 +60,7 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/lint-changed-yaml-tests.sh"
 
   test-yaml:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -72,7 +77,7 @@ jobs:
       - run: openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 
   test-api:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -90,7 +95,7 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/test-api.sh"
 
   check-version-and-changelog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [ lint-files, test-yaml, test-api ] # Last job to run
     steps:
       - uses: actions/checkout@v2
@@ -107,7 +112,7 @@ jobs:
   # We build a separate job to substitute the halt option.
   # The `deploy` job is dependent on the output of the `check-for-functional-changes`job.
   check-for-functional-changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: github.ref == 'refs/heads/master' # Only triggered for the `master` branch
     needs: [ check-version-and-changelog ]
     outputs:
@@ -124,7 +129,7 @@ jobs:
         run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [ check-for-functional-changes ]
     if: needs.check-for-functional-changes.outputs.status == 'success'
     env:
