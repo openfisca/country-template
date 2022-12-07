@@ -1,5 +1,14 @@
 # Changelog
 
+# 4.0.0 - [#127](https://github.com/openfisca/country-template/pull/127)
+
+#### Breaking change
+
+* Technical improvement.
+* Details:
+  - Expire deprecated class `Bracket`.
+  - Functionality is now provided by `ParameterScaleBracket`
+
 ### 3.13.3 - [#122](https://github.com/openfisca/country-template/pull/122)
 
 * Technical improvement. 
