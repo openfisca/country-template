@@ -1,5 +1,16 @@
 # Changelog
 
+# 5.0.0 [#128](https://github.com/openfisca/country-template/pull/128)
+
+#### New features
+
+- Upgrade Web API specification to OpenAPI v3.
+
+#### Breaking changes
+
+- Drop support for OpenAPI specification v2 and prior.
+  - Users relying on OpenAPI v2 can use [Swagger Converter](https://converter.swagger.io/api/convert?url=OAS2_YAML_OR_JSON_URL) to migrate ([example](https://web.archive.org/web/20221103230822/https://converter.swagger.io/api/convert?url=https://api.demo.openfisca.org/latest/spec)).
+
 # 4.0.0 - [#127](https://github.com/openfisca/country-template/pull/127)
 
 #### Breaking change
