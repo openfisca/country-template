@@ -39,7 +39,7 @@ setup(
         ],
     install_requires = [
         # "openfisca-core[web-api] >= 38.0.0, < 39.0.0",
-        "OpenFisca-Core @ git+https://github.com/openfisca/openfisca-core.git@version_leap",
+        "OpenFisca-Core[web-api] @ git+https://github.com/openfisca/openfisca-core.git@version_leap",
         ],
     extras_require = {
         "dev": [
