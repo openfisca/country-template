@@ -11,7 +11,6 @@ See https://openfisca.org/doc/key-concepts/variables.html
 from numpy import maximum as max_
 from openfisca_core.periods import MONTH, YEAR
 from openfisca_core.variables import Variable
-
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_country_template.entities import Household, Person
 
@@ -76,8 +75,8 @@ class housing_tax(Variable):
         occupancy_status = household("housing_occupancy_status", january)
         HousingOccupancyStatus = occupancy_status.possible_values  # Get the enum associated with the variable
         # To access an enum element, we use the `.` notation.
-        tenant = (occupancy_status == HousingOccupancyStatus.tenant)
-        owner = (occupancy_status == HousingOccupancyStatus.owner)
+        tenant = occupancy_status == HousingOccupancyStatus.tenant
+        owner = occupancy_status == HousingOccupancyStatus.owner
 
         # The tax is applied only if the household owns or rents its main residency
         return (owner + tenant) * tax_amount

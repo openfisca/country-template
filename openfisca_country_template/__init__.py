@@ -11,7 +11,6 @@ See https://openfisca.org/doc/key-concepts/tax_and_benefit_system.html
 import os
 
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
-
 from openfisca_country_template import entities
 from openfisca_country_template.situation_examples import couple
 

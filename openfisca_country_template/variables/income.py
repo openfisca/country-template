@@ -10,7 +10,6 @@ See https://openfisca.org/doc/key-concepts/variables.html
 from openfisca_core.holders import set_input_divide_by_period
 from openfisca_core.periods import MONTH
 from openfisca_core.variables import Variable
-
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_country_template.entities import Person
 
