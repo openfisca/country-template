@@ -54,9 +54,9 @@ Country packages are python distributions. To distribute your package via `pip`,
 
 ## Install Instructions for Users and Contributors
 
-This package requires [Python 3.7](https://www.python.org/downloads/release/python-370/). More recent versions should work, but are not tested.
+This package requires [Python 3.9](https://www.python.org/downloads/release/python-390/). More recent versions should work, but are not tested.
 
-All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows (in which case we recommend using [ConEmu](https://conemu.github.io/) instead of the default console).
+All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows.
 
 ### Setting-up a Virtual Environment with venv
 
@@ -94,7 +94,7 @@ For more advanced uses, head to the [Advanced Installation](#advanced-installati
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 3.7.xx".
+python --version  # should print "Python 3.9.xx".
 ```
 
 ```sh
@@ -136,7 +136,7 @@ Set your working directory to the location where you want this OpenFisca Country
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 3.7.xx".
+python --version  # should print "Python 3.9.xx".
 ```
 
 ```sh
