@@ -1,5 +1,20 @@
 # Changelog
 
+### 6.0.1 [#134](https://github.com/openfisca/country-template/pull/134)
+
+* Technical improvement.
+* Impacted areas: template replacement script
+* Details:
+  - Avoid `sed: RE error: illegal byte sequence` error when template contains `.DS_Store` files after GUI navigation in macOS
+
+# 6.0.0 [#129](https://github.com/openfisca/country-template/pull/129)
+
+* Technical improvement.
+* Impacted periods: all.
+* Impacted areas: all.
+* Details:
+  - Upgrade every dependencies & use their latest versions to use Python 3.9 and 3.10 and drop support of Python versions < 3.9 .
+
 # 5.0.0 [#128](https://github.com/openfisca/country-template/pull/128)
 
 #### New features
@@ -22,7 +37,7 @@
 
 ### 3.13.3 - [#122](https://github.com/openfisca/country-template/pull/122)
 
-* Technical improvement. 
+* Technical improvement.
 * Details:
   - Add pull request as GitHub Actions workflow trigger
 
