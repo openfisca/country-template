@@ -31,7 +31,7 @@ git init
 git add .
 git commit --no-gpg-sign --message 'Initial import from OpenFisca country-template' --author='OpenFisca Bot <bot@openfisca.org>'
 
-all_module_files=`find openfisca_country_template -type f`
+all_module_files=`find openfisca_country_template -type f ! -name "*.DS_Store"`
 
 set -x
 
