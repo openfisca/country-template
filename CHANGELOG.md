@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.0.1 [#134](https://github.com/openfisca/country-template/pull/134)
+
+* Technical improvement.
+* Impacted areas: template replacement script
+* Details:
+  - Avoid `sed: RE error: illegal byte sequence` error when template contains `.DS_Store` files after GUI navigation in macOS
+
 # 6.0.0 [#129](https://github.com/openfisca/country-template/pull/129)
 
 * Technical improvement.
