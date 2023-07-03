@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.0.2 [#132](https://github.com/openfisca/country-template/pull/132)
+
+* Technical improvement.
+* Impacted areas: template setup script
+* Details:
+  - Allows country-template to pass `check-style` makefile command
+
 ### 6.0.1 [#134](https://github.com/openfisca/country-template/pull/134)
 
 * Technical improvement.
