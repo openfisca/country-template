@@ -1,6 +1,6 @@
 # Changelog
 
-### 6.0.3 [#133](https://github.com/openfisca/country-template/pull/133)
+### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
 * Technical improvement.
 * Details:
