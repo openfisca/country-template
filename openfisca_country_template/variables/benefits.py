@@ -7,7 +7,7 @@ See https://openfisca.org/doc/key-concepts/variables.html
 """
 
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
-from openfisca_core.periods import MONTH
+from openfisca_core.periods import MONTH, WEEK
 from openfisca_core.variables import Variable
 
 # Import the Entities specifically defined for this tax and benefit system
@@ -91,14 +91,13 @@ class pension(Variable):
 class parenting_allowance(Variable):
     value_type = float
     entity = Household
-    definition_period = MONTH
+    definition_period = WEEK
     label = "Allowance for low income people with children to care for."
     documentation = "Loosely based on the Australian parenting pension."
     reference = "https://www.servicesaustralia.gov.au/individuals/services/centrelink/parenting-payment/who-can-get-it"
 
     def formula(household, period, parameters):
-        """
-        Parenting allowance for households.
+        """Parenting allowance for households.
 
         A person's parenting allowance depends on how many dependents they have,
         how much they, and their partner, earn
@@ -107,12 +106,12 @@ class parenting_allowance(Variable):
         """
         parenting_allowance = parameters(period).benefits.parenting_allowance
 
-        household_income = household("household_income", period)
+        household_income = household("household_weekly_income", period.last_2_weeks, options = ["add"])
         income_threshold = parenting_allowance.income_threshold
         income_condition = household_income <= income_threshold
 
         is_single = household.nb_persons(Household.PARENT) == 1
-        ages = household.members("age", period)
+        ages = household.members("age", period.first_month)
         under_8 = household.any(ages < 8)
         under_6 = household.any(ages < 6)
 
@@ -131,4 +130,16 @@ class household_income(Variable):
     def formula(household, period, _parameters):
         """A household's income."""
         salaries = household.members("salary", period)
+        return household.sum(salaries)
+
+
+class household_weekly_income(Variable):
+    value_type = float
+    entity = Household
+    definition_period = WEEK
+    label = "The sum of the salaries of those living in a household"
+
+    def formula(household, period, _parameters):
+        """A household's income."""
+        salaries = household.members("weekly_salary", period)
         return household.sum(salaries)
