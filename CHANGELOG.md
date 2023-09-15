@@ -1,5 +1,12 @@
 # Changelog
 
+### 6.0.3 [#133](https://github.com/openfisca/country-template/pull/133)
+
+* Technical improvement.
+* Details:
+  - Update openfisca-core version >= 41.0
+
+
 ### 6.0.2 [#132](https://github.com/openfisca/country-template/pull/132)
 
 * Technical improvement.
