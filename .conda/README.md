@@ -2,10 +2,10 @@
 
 There are two ways to publish to conda:
 
-- A fully automatic in CI that publish to an "openfisca" channel. See below for more information.
-- A more complex for Conda-Forge.
+- A fully automatic way applied in CI that publishes to an `openfisca` channel. See below for more information.
+- A more complex way to publish on default [Conda-Forge](https://anaconda.org/conda-forge) channel. This repository is not published on Conda-Forge.
 
-We use both for openfisca-core but only _openfisca channel_ for _country-template_.
+We use both for `openfisca-core` but only the `openfisca` channel for the `country-template`.
 
 ## Automatic upload
 
@@ -15,13 +15,13 @@ The CI automaticaly upload the PyPi package, see the `.github/workflow.yml`, ste
 
 - Create an account on https://anaconda.org.
 - Create a token on https://anaconda.org/openfisca/settings/access with _Allow write access to the API site_. Warning, it expire on 2023/01/13.
-- Put the token in a CI env variable ANACONDA_TOKEN.
+- Put the token in a CI env variable `ANACONDA_TOKEN`.
 
 ## Manual actions before CI exists
 
 To create the package you can do the following in the project root folder:
 
-- Edit `.conda/meta.yaml` and update it if needed:
+- Edit `.conda/meta.yaml` and update it if needed with:
     - Version number
     - Hash SHA256
     - Package URL on PyPi
