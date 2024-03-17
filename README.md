@@ -18,15 +18,14 @@ This set of instructions will create your own copy of this boilerplate directory
 3. Set up the two following variables and execute the `bootstrap.sh` script to initialise the git repository and replace all references to `openfisca_country_template` with references to your new country package in the code base:
 
 ```sh
-export COUNTRY_NAME=France  # set the name of your country here; you should keep all capitals, and replace any spaces in the name by underscores
-export REPOSITORY_URL=https://github.com/YOUR_ORGANISATION/OpenFisca-$COUNTRY_NAME  # set here the URL of the repository you created in step 2.
 ./bootstrap.sh
 ```
+(Note: you may need to first run `chmod +x ./bootstrap.sh` to grant execute permission)
 
 4. Push your changes to your git host:
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 That's it, you're all set!
@@ -67,8 +66,8 @@ In order to limit dependencies conflicts, we recommend using a [virtual environm
 To create a virtual environment, launch a terminal on your computer, `cd` into your directory and follow these instructions:
 
 ```sh
-python3 -m venv openfisca # create a new venv called “openfisca”
-source openfisca/bin/activate # activate the venv
+python3 -m venv .venv # create a new venv called “.venv”
+source .venv/bin/activate # activate the venv
 ```
 
 You can now operate in the venv you just created.
@@ -104,7 +103,7 @@ pip --version  # should print at least 9.0.
 Install the Country Package:
 
 ```sh
-pip install openfisca_country_template
+pip install openfisca-country_template
 ```
 
 :warning: Please beware that installing the Country Package with `pip` is dependent on its maintainers publishing said package.
@@ -114,7 +113,7 @@ pip install openfisca_country_template
 #### Next Steps
 
 - To learn how to use OpenFisca, follow our [tutorials](https://openfisca.org/doc/).
-- To serve this Country Package, serve the [OpenFisca web API](#serve-your-country-package-with-the-openFisca-web-api).
+- To serve this Country Package, serve the [OpenFisca Web API](#serve-your-country-package-with-the-openFisca-web-api).
 
 Depending on what you want to do with OpenFisca, you may want to install yet other packages in your venv:
 - To install extensions or write on top of this Country Package, head to the [Extensions documentation](https://openfisca.org/doc/contribute/extensions.html).
@@ -141,14 +140,14 @@ python --version  # should print "Python 3.9.xx".
 
 ```sh
 pip --version  # should print at least 9.0.
-# if not, run "pip install --upgrade pip"
+# if not, run "pip install --upgrade pip build twine"
 ```
 Clone this Country Package on your machine:
 
 ```sh
-git clone https://github.com/openfisca/openfisca-country-template.git
-cd openfisca-country-template
-pip install --editable .[dev]
+git clone https://example.com/repository.git
+cd repository_folder
+pip install --editable .[dev] --upgrade
 ```
 
 You can make sure that everything is working by running the provided tests with `make test`.
@@ -191,8 +190,6 @@ This endpoint returns the [Open API specification](https://www.openapis.org/) of
 :tada: This OpenFisca Country Package is now served by the OpenFisca Web API! To learn more, go to the [OpenFisca Web API documentation](https://openfisca.org/doc/openfisca-web-api/index.html).
 
 You can test your new Web API by sending it example JSON data located in the `situation_examples` folder.
-
-Substitute your package's country name for `openfisca_country_template` below:
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
