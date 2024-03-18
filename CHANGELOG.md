@@ -1,11 +1,16 @@
 # Changelog
 
+### 6.0.4 - [#137](https://github.com/openfisca/country-template/pull/137)
+
+* Technical improvement.
+* Details:
+  - Fix redundant parens.
+
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
 * Technical improvement.
 * Details:
   - Update openfisca-core version >= 41.0
-
 
 ### 6.0.2 [#132](https://github.com/openfisca/country-template/pull/132)
 
