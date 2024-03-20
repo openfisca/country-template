@@ -90,7 +90,8 @@ sed -i.template "s|openfisca-country_template|openfisca-$NO_SPACES_JURISDICTION_
 sed -i.template "s|country_template|$CODE_JURISDICTION_LABEL|g" README.md pyproject.toml .flake8 .github/workflows/workflow.yml Makefile MANIFEST.in $all_module_files
 sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/workflows/workflow.yml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
 sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
-sed -i.template "s|https://example.com/repository|$REPOSITORY_URL|g" README.md pyproject.toml CONTRIBUTING.md
+sed -i.template "s|https://example.com/repository|$REPOSITORY_URL|g" README.md CONTRIBUTING.md
+sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL|g" pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete
 

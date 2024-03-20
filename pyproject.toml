@@ -20,11 +20,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/repository"
-Repository = "https://example.com/repository"
+Homepage = "https://github.com/openfisca/country-template"
+Repository = "https://github.com/openfisca/country-template"
 Documentation = "https://openfisca.org/doc"
-Issues = "https://example.com/repository/issues"
-Changelog = "https://example.com/repository/blob/main/CHANGELOG.md"
+Issues = "https://github.com/openfisca/country-template/issues"
+Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [
