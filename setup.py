@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()  # pylint: disable
 
 setup(
     name = "OpenFisca-Country-Template",
-    version = "6.0.2",
+    version = "6.0.3",
     author = "OpenFisca Team",
     author_email = "contact@openfisca.org",
     classifiers = [
@@ -38,7 +38,7 @@ setup(
             ),
         ],
     install_requires = [
-        "openfisca-core[web-api] >= 40.0.0, < 41.0.0",
+        "openfisca-core[web-api] >= 41.0.0, < 42.0.0",
         ],
     extras_require = {
         "dev": [
