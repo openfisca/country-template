@@ -15,11 +15,11 @@
       Alicia:
         birth: 1961-01-15
         salary:
-         2017-01: 2400
+          2017-01: 2400
       Michael:
         birth: 2002-01-15
         salary:
-         2016: 0
+          2016: 0
   output:
     persons:
       Alicia:
