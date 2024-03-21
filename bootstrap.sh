@@ -63,6 +63,8 @@ esac
 parent_folder=${PWD##*/} 
 
 last_bootstrapping_line_number=$(grep --line-number '^## Writing the Legislation' README.md | cut -d ':' -f 1)
+last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut -d ':' -f 1)
+
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
@@ -91,6 +93,7 @@ sed -i.template "s|country_template|$CODE_JURISDICTION_LABEL|g" README.md pyproj
 sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/workflows/workflow.yml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
 sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
 sed -i.template "s|https://example.com/repository|$REPOSITORY_URL|g" README.md CONTRIBUTING.md
+sed -i.template -e "1,${last_changelog_number}d" CHANGELOG.md  # remove country-template CHANGELOG leaving example
 sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL|g" pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete

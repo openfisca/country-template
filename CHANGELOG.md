@@ -7,7 +7,7 @@
 * Impacted periods: all.
 * Impacted areas: all
 * Details:
-  - Improvements to bootstrap.sh to improve experience for first time users. It includes
+  - Improvements to `bootstrap.sh` to improve experience for first time users. It includes
     - removing the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running.
     - introduces a simple guided setup process
     - provides a confirmation option/exit script option before changes are made
@@ -25,7 +25,6 @@
     - added new formating commands for `isort`, `pyupgrade` and `yamllint`
   - Authored default `pyproject.toml` based on the older `setup.py` and `setup.cfg`
     - Set version to 7.0.0
-    - Limited `requires-python` to `>= 3.9, < 3.10` (as OpenFisca-core has issues with `3.10`)
     - Added in `[project.urls]`: `Homepage`, `Repository`, `Documentation`, `Issues` and `Changelog`
     - Added in `[project.optional-dependencies]`: new dependancies `isort`, `pyupgrade` and `yamllint`
     - Added `[tool.pytest.ini_options]` with filterwarnings set to `"error"`
@@ -46,6 +45,7 @@
     - `openfisca_country_template/texts/situations/income_tax.yaml`
     - `openfisca_country_template/variables/demographics.py`
     - `openfisca_country_template/variables/taxes.py`
+  - Altered `CHANGELOG.md` added example entry and altered `bootstrap.sh` to strip out country-template entries. This resolves [issue 116](https://github.com/openfisca/country-template/issues/116).
 
 
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
@@ -717,3 +717,19 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
   - `taxes`.
 * Details:
   - Build the skeleton of the tax and benefit system.
+
+# Example Entry
+
+## 0.0.1 - [#1](https://github.com/openfisca/country-template/pull/1)
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas:
+  - `benefits`.
+  - `demographics`.
+  - `housing`.
+  - `income`.
+  - `stats`.
+  - `taxes`.
+* Details:
+  - Demonstration changelog entry which can be modified for your first entry 
