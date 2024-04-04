@@ -7,45 +7,44 @@
 * Impacted periods: all.
 * Impacted areas: all
 * Details:
-  - Improvements to `bootstrap.sh` to improve experience for first time users. It includes
-    - removing the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running.
-    - introduces a simple guided setup process
-    - provides a confirmation option/exit script option before changes are made
-    - allows for hypens and spaces appropriately
-    - sets `master` branch to `main` by default
-    - prints to console the commit actions along with description
+  - Improvements to `bootstrap.sh` to improve experience for first time users:
+    - remove the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running.
+    - introduce a simple guided setup process
+    - provide a confirmation option/exit script option before changes are made
+    - allow for hypens and spaces appropriately
+    - set `master` branch to `main` by default
+    - print to console the commit actions along with description
     - extensive work done on incorporating text replacements across new repository
-    - upon completion provides next steps with customised commands
-  - Altered `CONTRIBUTING.md` to allow for improved text replacements
-    - Replaced reference to `master` with `main`
-  - Altered `Makefile`
-    - Removed reference to `OpenFisca France` replacing it with new repository name
+    - script completion provides next steps with customised commands
+  - Change `CONTRIBUTING.md` to allow for improved text replacements
+    - Replace reference to `master` with `main`
+  - Change `Makefile`
+    - Remove reference to `OpenFisca France` replace with new repository name
     - replace argument `-e` with longer form `--editable` to aid newcomers
-    - removed argument `--use-deprecated=legacy-resolver` as it no longer appears necessary
-    - added new formating commands for `isort`, `pyupgrade` and `yamllint`
-  - Authored default `pyproject.toml` based on the older `setup.py` and `setup.cfg`
+    - add new formating commands for `isort`, `pyupgrade` and `yamllint`
+  - Author default `pyproject.toml` based on the older `setup.py` and `setup.cfg`
     - Set version to 7.0.0
-    - Added in `[project.urls]`: `Homepage`, `Repository`, `Documentation`, `Issues` and `Changelog`
-    - Added in `[project.optional-dependencies]`: new dependancies `isort`, `pyupgrade` and `yamllint`
-    - Added `[tool.pytest.ini_options]` with filterwarnings set to `"error"`
-    - Added `[tool.pylint.messages_control]` from `setup.cfg` but in long form for readability
-    - Added `[tool.isort]` section
-  - Added `.flake8` and `.yamllint` to project root as these projects do not support `pyproject.toml` format
-  - Altered `README.md` to allow for improved text replacements
-    - Removed commands (line 21) for `export COUNTRY_NAME=France` and `export REPOSITORY_URL=...` due to bootstrap.sh improvements
-    - Adjusted (Line 28) from `git push origin master` to `git push origin main`
-    - Adjusted (Line 69) to utilise more standard name for virtual environment `.venv` rather than `openfisca` which confused new users.
-    - Adjusted (Line 143) adding `build twine` to pip upgrade command to standardise it with `Makefile` and `bootstrap.sh`
-    - Adjusted (Line 148+) for replacement with repository url and likely repository folder name.
-    - Insured replacement of text on Line 196 worked so text previous to code block wasn't required.
-  - Removed `setup.py` and `setup.cfg`
-  - Updated `.github/*.sh` and `.github/workflows/workflow.yaml` files to reference `main` instead of `master`
-  - Fixed linting issues in:
+    - Add in `[project.urls]`: `Homepage`, `Repository`, `Documentation`, `Issues` and `Changelog`
+    - Add in `[project.optional-dependencies]`: new dependancies `isort`, `pyupgrade` and `yamllint`
+    - Add `[tool.pytest.ini_options]` with filterwarnings set to `"error"`
+    - Add `[tool.pylint.messages_control]` from `setup.cfg` but in long form for readability
+    - Add `[tool.isort]` section
+  - Add `.flake8` and `.yamllint` to project root as these projects do not support `pyproject.toml` format
+  - Alter `README.md` to allow for improved text replacements
+    - Remove commands (line 21) for `export COUNTRY_NAME=France` and `export REPOSITORY_URL=...` due to bootstrap.sh improvements
+    - Adjust (Line 28) from `git push origin master` to `git push origin main`
+    - Adjust (Line 69) to utilise more standard name for virtual environment `.venv` rather than `openfisca` to reduce confusion.
+    - Adjust (Line 143) adding `build twine` to pip upgrade command to standardise it with `Makefile` and `bootstrap.sh`
+    - Adjust (Line 148+) for replacement with repository url and likely repository folder name.
+    - Insure replacement of text on Line 196 worked so text previous to code block not required.
+  - Remove `setup.py` and `setup.cfg`
+  - Update `.github/*.sh` and `.github/workflows/workflow.yaml` files to reference `main` instead of `master`
+  - Fix linting issues in:
     - `openfisca_country_template/texts/social_security_contribution.yaml`
     - `openfisca_country_template/texts/situations/income_tax.yaml`
     - `openfisca_country_template/variables/demographics.py`
     - `openfisca_country_template/variables/taxes.py`
-  - Altered `CHANGELOG.md` added example entry and altered `bootstrap.sh` to strip out country-template entries. This resolves [issue 116](https://github.com/openfisca/country-template/issues/116).
+  - Alter `CHANGELOG.md`, add example entry and alter `bootstrap.sh` to strip out country-template entries. This resolves [issue 116](https://github.com/openfisca/country-template/issues/116).
 
 
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)

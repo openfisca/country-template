@@ -1,7 +1,7 @@
 [project]
 name = "openfisca-country_template"
 version = "7.0.0"
-description = "OpenFisca rules-as-code system for Country-Template."
+description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = ["microsimulation", "tax", "benefit", "rac", "rules-as-code"]
 authors = []

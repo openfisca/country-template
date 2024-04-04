@@ -6,6 +6,14 @@ PURPLE='\033[1;35m'
 YELLOW='\033[0;33m'
 BLUE='\033[1;34m'
 
+if [[ -d .git ]]
+then
+	echo 'It seems you cloned this repository, or already initialised it.'
+	echo 'Refusing to go further as you might lose work.'
+	echo "If you are certain this is a new repository, run 'cd $(dirname $0) && rm -rf .git' to erase the history."
+	exit 2
+fi
+
 if ! test $JURISDICTION_NAME
 then
 	while true; do
@@ -38,26 +46,20 @@ fi
 
 cd $(dirname $0)  # support being called from anywhere on the file system
 
-if [[ -d .git ]]
-then
-	echo 'It seems you cloned this repository, or already initialised it.'
-	echo 'Refusing to go further as you might lose work.'
-	echo "If you are certain this is a new repository, run 'cd $(dirname $0) && rm -rf .git' to erase the history."
-	exit 2
-fi
-
 echo -e "Jurisdiction title set to: ${PURPLE}$JURISDICTION_NAME\033[0m"
 # Removes hyphens for python environment
 echo -e "Jurisdiction python label: ${PURPLE}$CODE_JURISDICTION_LABEL\033[0m"
 echo -e "Git Repository URL       : ${PURPLE}$REPOSITORY_URL\033[0m"
 read -p "Would you like to continue (y/n): " choice
 case "$choice" in 
-  y|Y ) echo "yes";;
+  y|Y ) echo "You chose yes, carrying on...";;
   n|N ) 
-		echo "no"
+		echo "You chose no, exiting."
 		exit 1
 		;;
-  * ) echo "invalid";;
+  * ) echo "Invalid response, expected y or n, exiting."
+		exit 1
+		;;
 esac
 
 parent_folder=${PWD##*/} 
@@ -73,10 +75,9 @@ pwd
 mv $parent_folder openfisca-$NO_SPACES_JURISDICTION_LABEL
 cd openfisca-$NO_SPACES_JURISDICTION_LABEL
 
-git init
+git init --initial-branch=main
 git add .
-git symbolic-ref HEAD refs/heads/main
-git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>'
+git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
 echo -e "${YELLOW}--\033[0m"
 echo -e "${PURPLE}Set default branch to 'main'.\033[0m"
 echo -e "${PURPLE}Initial git commit made to 'main' branch: \033[0m${BLUE}$first_commit_message\033[0m"
@@ -104,11 +105,9 @@ git mv openfisca_country_template openfisca_$CODE_JURISDICTION_LABEL
 
 git rm bootstrap.sh
 git add .
-git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>'
+git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
 echo -e "${YELLOW}--\033[0m"
 echo -e "${PURPLE}Second git commit made: \033[0m${BLUE}$second_commit_message\033[0m"
-git remote add origin $REPOSITORY_URL.git
-echo -e "${PURPLE}Git remote origin added: \033[0m${BLUE}$REPOSITORY_URL.git\033[0m"
 echo -e "${YELLOW}--\033[0m"
 
 echo -e "${YELLOW}***********************************************************************\033[0m"
@@ -129,6 +128,7 @@ echo -e "${YELLOW}*\033[0m  $ ${BLUE}make all\033[0m"
 echo -e "${YELLOW}*\033[0m  (refer to ./Makefile for other examples)"
 echo -e "${YELLOW}*\033[0m"
 echo -e "${YELLOW}*\033[0m  Finally, push changes to your git host:"
+echo -e "${YELLOW}*\033[0m  $ ${BLUE}git remote add origin $REPOSITORY_URL.git\033[0m"
 echo -e "${YELLOW}*\033[0m  $ ${BLUE}git push origin main\033[0m"
 echo -e "${YELLOW}*\033[0m"
 echo -e "${YELLOW}***********************************************************************\033[0m"
