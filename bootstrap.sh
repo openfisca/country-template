@@ -100,6 +100,7 @@ sed -i.template -e "1,${last_changelog_number}d" CHANGELOG.md  # remove country-
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}pyproject.toml\033[0m"
 sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL|g" pyproject.toml
+sed -i.template "s|:: 5 - Production/Stable|:: 1 - Planning|g" pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete
 
