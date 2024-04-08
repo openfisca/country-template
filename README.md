@@ -140,6 +140,7 @@ Clone this Country Package on your machine:
 ```sh
 git clone https://example.com/repository.git
 cd repository_folder
+pip install --upgrade pip build twine
 pip install --editable .[dev] --upgrade
 ```
 
