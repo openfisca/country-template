@@ -9,26 +9,19 @@ This repository helps you quickly bootstrap and use your own OpenFisca country p
 
 ## Bootstrapping your Country Package
 
-This set of instructions will create your own copy of this boilerplate directory and customise it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
+This set of instructions **only needs to be followed once** and will create your own copy of this boilerplate directory, customising it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
 
 1. [Download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
 
-2. Create a new repository on your favourite git host (Github, Bitbucket, GitLab, etc) with the name openfisca-your_country_name. For example, `openfisca-france`.
+2. Create a new repository on your favourite git host (Github, Bitbucket, GitLab, etc) with the name openfisca-your_country_name. For example, `openfisca-new_zealand` or `openfisca-france`.
 
-3. Set up the two following variables and execute the `bootstrap.sh` script to initialise the git repository and replace all references to `openfisca_country_template` with references to your new country package in the code base:
+3. Execute the `bootstrap.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package. 
+   - Note: if required first run `chmod +x ./bootstrap.sh` to grant execute permission
+   - To execute the script run `./bootstrap.sh` from the command line
+   - After the `bootstrap.sh` has run both it and these instructions are removed.
 
-```sh
-./bootstrap.sh
-```
-(Note: you may need to first run `chmod +x ./bootstrap.sh` to grant execute permission)
+4. Follow the instructions in the new repository's README.md.
 
-4. Push your changes to your git host:
-
-```sh
-git push origin main
-```
-
-That's it, you're all set!
 
 ## Writing the Legislation
 
