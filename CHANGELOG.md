@@ -9,13 +9,10 @@
 * Details:
   - Improvements to `bootstrap.sh` to improve experience for first time users:
     - remove the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running.
-    - introduce a simple guided setup process
     - provide a confirmation option/exit script option before changes are made
     - allow for hypens and spaces appropriately
     - set `master` branch to `main` by default
     - print to console the commit actions along with description
-    - extensive work done on incorporating text replacements across new repository
-    - script completion provides next steps with customised commands
   - Change `CONTRIBUTING.md` to allow for improved text replacements
     - Replace reference to `master` with `main`
   - Change `Makefile`
@@ -33,10 +30,7 @@
   - Alter `README.md` to allow for improved text replacements
     - Remove commands (line 21) for `export COUNTRY_NAME=France` and `export REPOSITORY_URL=...` due to bootstrap.sh improvements
     - Adjust (Line 28) from `git push origin master` to `git push origin main`
-    - Adjust (Line 69) to utilise more standard name for virtual environment `.venv` rather than `openfisca` to reduce confusion.
-    - Adjust (Line 143) adding `build twine` to pip upgrade command to standardise it with `Makefile` and `bootstrap.sh`
-    - Adjust (Line 148+) for replacement with repository url and likely repository folder name.
-    - Insure replacement of text on Line 196 worked so text previous to code block not required.
+    - General changes to support change to bootstrap flow
   - Remove `setup.py` and `setup.cfg`
   - Update `.github/*.sh` and `.github/workflows/workflow.yaml` files to reference `main` instead of `master`
   - Fix linting issues in:
