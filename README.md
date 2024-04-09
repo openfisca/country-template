@@ -59,7 +59,7 @@ In order to limit dependencies conflicts, we recommend using a [virtual environm
 To create a virtual environment, launch a terminal on your computer, `cd` into your directory and follow these instructions:
 
 ```sh
-python3 -m venv .venv # create a new venv called “.venv”
+python3 -m venv .venv # create a new virtual environment in the “.venv” folder, which will contain all dependencies
 source .venv/bin/activate # activate the venv
 ```
 

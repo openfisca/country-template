@@ -17,7 +17,7 @@ fi
 if ! test $JURISDICTION_NAME
 then
 	while true; do
-		echo -e "${GREEN}Your jurisdiction (country?) name: \033[0m (i.e. New Zealand)"
+		echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (i.e. New Zealand)"
 		read JURISDICTION_NAME
 		if [[ "$JURISDICTION_NAME"  != "" ]]
 		then
@@ -34,7 +34,7 @@ fi
 if ! test $REPOSITORY_URL
 then
 	while true; do
-		echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://git***.com/organisation/openfisca-jurisdiction)"
+		echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
 		read REPOSITORY_URL
 		if [[ "$REPOSITORY_URL"  != "" ]]
 		then
