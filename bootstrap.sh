@@ -14,41 +14,35 @@ then
 	exit 2
 fi
 
-if ! test $JURISDICTION_NAME
-then
-	while true; do
-		echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (i.e. New Zealand)"
-		read JURISDICTION_NAME
-		if [[ "$JURISDICTION_NAME"  != "" ]]
-		then
-			lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]')
-			# Allows for hyphens to be used in jurisdiction names
-			NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g')
-			# Removes hyphens for use in python
-			CODE_JURISDICTION_LABEL=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g')
-			break
-		fi
-	done
-fi
+while ! test $JURISDICTION_NAME; do
+	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (i.e. New Zealand)"
+	read JURISDICTION_NAME
+	if [[ "$JURISDICTION_NAME"  != "" ]]
+	then
+		lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]')
+		# Allows for hyphens to be used in jurisdiction names
+		NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g')
+		# Removes hyphens for use in python
+		SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g')
+		break
+	fi
+done
 
-if ! test $REPOSITORY_URL
-then
-	while true; do
-		echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
-		read REPOSITORY_URL
-		if [[ "$REPOSITORY_URL"  != "" ]]
-		then
-			REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
-			break
-		fi
-	done
-fi
+while ! test $REPOSITORY_URL; do
+	echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
+	read REPOSITORY_URL
+	if [[ "$REPOSITORY_URL"  != "" ]]
+	then
+		REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
+		break
+	fi
+done
 
 cd $(dirname $0)  # support being called from anywhere on the file system
 
 echo -e "${PURPLE}Jurisdiction title set to: \033[0m${BLUE}$JURISDICTION_NAME\033[0m"
 # Removes hyphens for python environment
-echo -e "${PURPLE}Jurisdiction python label: \033[0m${BLUE}$CODE_JURISDICTION_LABEL\033[0m"
+echo -e "${PURPLE}Jurisdiction python label: \033[0m${BLUE}$SNAKE_CASE_JURISDICTION\033[0m"
 echo -e "${PURPLE}Git Repository URL       : \033[0m${BLUE}$REPOSITORY_URL\033[0m"
 read -p "Would you like to continue (y/n): " choice
 case "$choice" in 
@@ -86,7 +80,7 @@ all_module_files=`find openfisca_country_template -type f ! -name "*.DS_Store"`
 echo -e "${PURPLE}*  ${PURPLE}Replace default country_template references\033[0m"
 # Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
 sed -i.template "s|openfisca-country_template|openfisca-$NO_SPACES_JURISDICTION_LABEL|g" README.md Makefile pyproject.toml CONTRIBUTING.md
-sed -i.template "s|country_template|$CODE_JURISDICTION_LABEL|g" README.md pyproject.toml .flake8 .github/workflows/workflow.yml Makefile MANIFEST.in $all_module_files
+sed -i.template "s|country_template|$SNAKE_CASE_JURISDICTION|g" README.md pyproject.toml .flake8 .github/workflows/workflow.yml Makefile MANIFEST.in $all_module_files
 sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/workflows/workflow.yml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
 
 echo -e "${PURPLE}*  ${PURPLE}Remove bootstrap instructions\033[0m"
@@ -104,8 +98,8 @@ sed -i.template "s|:: 5 - Production/Stable|:: 1 - Planning|g" pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete
 
-echo -e "${PURPLE}*  ${PURPLE}Rename parent directory to: \033[0m${BLUE}openfisca_$CODE_JURISDICTION_LABEL\033[0m"
-git mv openfisca_country_template openfisca_$CODE_JURISDICTION_LABEL
+echo -e "${PURPLE}*  ${PURPLE}Rename parent directory to: \033[0m${BLUE}openfisca_$SNAKE_CASE_JURISDICTION\033[0m"
+git mv openfisca_country_template openfisca_$SNAKE_CASE_JURISDICTION
 
 echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}bootstrap.sh\033[0m${PURPLE} script\033[0m"
 git rm bootstrap.sh > /dev/null 2>&1
