@@ -16,8 +16,7 @@ This set of instructions **only needs to be followed once** and will create your
 2. Create a new repository on your favourite git host (Github, Bitbucket, GitLab, etc) with the name openfisca-your_country_name. For example, `openfisca-new_zealand` or `openfisca-france`.
 
 3. Execute the `bootstrap.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package. 
-   - Note: if required first run `chmod +x ./bootstrap.sh` to grant execute permission
-   - To execute the script run `./bootstrap.sh` from the command line
+   - To execute the script run `bash bootstrap.sh` from the command line
    - After the `bootstrap.sh` has run both it and these instructions are removed.
 
 4. Follow the instructions in the new repository's README.md.

@@ -8,7 +8,7 @@
 * Impacted areas: all
 * Details:
   - Improvements to `bootstrap.sh` to improve experience for first time users:
-    - remove the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running.
+    - remove the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running
     - provide a confirmation option/exit script option before changes are made
     - allow for hypens and spaces appropriately
     - set `master` branch to `main` by default

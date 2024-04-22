@@ -15,7 +15,7 @@ then
 fi
 
 while ! test $JURISDICTION_NAME; do
-	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (i.e. New Zealand)"
+	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (e.g. New Zealand, France…)"
 	read JURISDICTION_NAME
 	if [[ "$JURISDICTION_NAME"  != "" ]]
 	then
