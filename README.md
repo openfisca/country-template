@@ -130,10 +130,6 @@ Inside your venv, check the prerequisites:
 python --version  # should print "Python 3.9.xx".
 ```
 
-```sh
-pip --version  # should print at least 9.0.
-# if not, run "pip install --upgrade pip build twine"
-```
 Clone this Country Package on your machine:
 
 ```sh
@@ -161,7 +157,7 @@ If you are considering building a web application, you can use the packaged Open
 To serve the Openfisca Web API locally, run:
 
 ```sh
-openfisca serve --port 5000
+openfisca serve --port 5000 --country-package openfisca_country_template
 ```
 
 Or use the quick-start Make command:

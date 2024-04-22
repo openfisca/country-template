@@ -17,25 +17,19 @@ fi
 while ! test $JURISDICTION_NAME; do
 	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (e.g. New Zealand, France…)"
 	read JURISDICTION_NAME
-	if [[ "$JURISDICTION_NAME"  != "" ]]
-	then
-		lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]')
-		# Allows for hyphens to be used in jurisdiction names
-		NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g')
-		# Removes hyphens for use in python
-		SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g')
-		break
-	fi
+	lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]' | sed 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/')
+	# Allows for hyphens to be used in jurisdiction names
+	NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g')
+	# Removes hyphens for use in python
+	SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g') 
+	break
 done
 
 while ! test $REPOSITORY_URL; do
 	echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
 	read REPOSITORY_URL
-	if [[ "$REPOSITORY_URL"  != "" ]]
-	then
-		REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
-		break
-	fi
+	REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
+	break
 done
 
 cd $(dirname $0)  # support being called from anywhere on the file system
