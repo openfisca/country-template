@@ -6,7 +6,6 @@ This repository helps you quickly bootstrap and use your own OpenFisca country p
 
 > Otherwise, you will have to clean up all tags when you deploy your own country package.
 
-
 ## Bootstrapping your Country Package
 
 This set of instructions **only needs to be followed once** and will create your own copy of this boilerplate directory, customising it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
@@ -20,7 +19,6 @@ This set of instructions **only needs to be followed once** and will create your
    - After the `bootstrap.sh` has run both it and these instructions are removed.
 
 4. Follow the instructions in the new repository's README.md.
-
 
 ## Writing the Legislation
 

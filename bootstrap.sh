@@ -50,7 +50,7 @@ do
 	fi
 done
 
-parent_folder=${PWD##*/} 
+parent_folder=${PWD##*/}
 package_name="openfisca_$SNAKE_CASE_JURISDICTION"
 
 last_bootstrapping_line_number=$(grep --line-number '^## Writing the Legislation' README.md | cut -d ':' -f 1)
