@@ -19,7 +19,7 @@ then
 	exit 2
 fi
 
-while ! test $JURISDICTION_NAME; do
+while ! test "$JURISDICTION_NAME"; do
 	echo -e "${GREEN}The name of the jurisdiction (usually a country, e.g. New Zealand, France…) you will model the rules of: \033[0m"
 	read JURISDICTION_NAME
 done
