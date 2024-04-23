@@ -20,7 +20,7 @@ then
 fi
 
 while ! test $JURISDICTION_NAME; do
-	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (e.g. New Zealand, France…)"
+	echo -e "${GREEN}The name of the jurisdiction (usually a country, e.g. New Zealand, France…) you will model the rules of: \033[0m"
 	read JURISDICTION_NAME
 done
 
@@ -29,7 +29,7 @@ NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]
 SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g') # remove hyphens for use in Python
 
 while ! test $REPOSITORY_URL; do
-	echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
+	echo -e "${GREEN}Your Git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
 	read REPOSITORY_URL
 done
 
@@ -39,8 +39,8 @@ cd $(dirname $0)  # support being called from anywhere on the file system
 
 echo -e "${PURPLE}Jurisdiction title set to: \033[0m${BLUE}$JURISDICTION_NAME\033[0m"
 # Removes hyphens for python environment
-echo -e "${PURPLE}Jurisdiction python label: \033[0m${BLUE}$SNAKE_CASE_JURISDICTION\033[0m"
-echo -e "${PURPLE}Git Repository URL       : \033[0m${BLUE}$REPOSITORY_URL\033[0m"
+echo -e "${PURPLE}Jurisdiction Python label: \033[0m${BLUE}$SNAKE_CASE_JURISDICTION\033[0m"
+echo -e "${PURPLE}Git repository URL       : \033[0m${BLUE}$REPOSITORY_URL\033[0m"
 
 while [[ $continue != "y" ]] && [[ $continue != "Y" ]]
 do
@@ -51,6 +51,7 @@ do
 done
 
 parent_folder=${PWD##*/} 
+package_name="openfisca_$SNAKE_CASE_JURISDICTION"
 
 last_bootstrapping_line_number=$(grep --line-number '^## Writing the Legislation' README.md | cut -d ':' -f 1)
 last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut -d ':' -f 1)
@@ -92,8 +93,8 @@ sed -i.template "s|:: 5 - Production/Stable|:: 1 - Planning|g" pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete
 
-echo -e "${PURPLE}*  ${PURPLE}Rename parent directory to: \033[0m${BLUE}openfisca_$SNAKE_CASE_JURISDICTION\033[0m"
-git mv openfisca_country_template openfisca_$SNAKE_CASE_JURISDICTION
+echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033[0m"
+git mv openfisca_country_template $package_name
 
 echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}bootstrap.sh\033[0m${PURPLE} script\033[0m"
 git rm bootstrap.sh > /dev/null 2>&1
@@ -110,7 +111,7 @@ echo -e "${YELLOW}*\033[0m "
 echo -e "${YELLOW}*\033[0m  $ ${BLUE}git remote add origin $REPOSITORY_URL.git\033[0m"
 echo -e "${YELLOW}*\033[0m  $ ${BLUE}git push origin main\033[0m"
 echo -e "${YELLOW}*\033[0m "
-echo -e "${YELLOW}*\033[0m  Then refer to the project's \033[0m${BLUE}README.md\033[0m"
+echo -e "${YELLOW}*\033[0m  Then refer to the \033[0m${BLUE}README.md\033[0m"
 echo -e "${YELLOW}*\033[0m"
 echo -e "${YELLOW}* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \033[0m"
 
