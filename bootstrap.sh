@@ -6,6 +6,10 @@ PURPLE='\033[1;35m'
 YELLOW='\033[0;33m'
 BLUE='\033[1;34m'
 
+if [[ $JURISDICTION_NAME ]] && [[ $REPOSITORY_URL ]]
+then continue=Y
+fi
+
 if [[ -d .git ]]
 then
 	echo 'It seems you cloned this repository, or already initialised it.'
@@ -17,20 +21,18 @@ fi
 while ! test $JURISDICTION_NAME; do
 	echo -e "${GREEN}The name of the jurisdiction (country?) you will model the rules of: \033[0m (e.g. New Zealand, France…)"
 	read JURISDICTION_NAME
-	lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]' | sed 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/')
-	# Allows for hyphens to be used in jurisdiction names
-	NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g')
-	# Removes hyphens for use in python
-	SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g') 
-	break
 done
+
+lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:]' | sed 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/')
+NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g') # allow for hyphens to be used in jurisdiction names
+SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g') # remove hyphens for use in Python
 
 while ! test $REPOSITORY_URL; do
 	echo -e "${GREEN}Your git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
 	read REPOSITORY_URL
-	REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
-	break
 done
+
+REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
 
 cd $(dirname $0)  # support being called from anywhere on the file system
 
@@ -38,17 +40,14 @@ echo -e "${PURPLE}Jurisdiction title set to: \033[0m${BLUE}$JURISDICTION_NAME\03
 # Removes hyphens for python environment
 echo -e "${PURPLE}Jurisdiction python label: \033[0m${BLUE}$SNAKE_CASE_JURISDICTION\033[0m"
 echo -e "${PURPLE}Git Repository URL       : \033[0m${BLUE}$REPOSITORY_URL\033[0m"
-read -p "Would you like to continue (y/n): " choice
-case "$choice" in 
-  y|Y ) echo -e "${YELLOW}Yes selected, continuing…\033[0m";;
-  n|N ) 
-		echo "No selected, exiting."
-		exit 1
-		;;
-  * ) echo "Invalid response, expected y or n, exiting."
-		exit 1
-		;;
-esac
+
+while [[ $continue != "y" ]] && [[ $continue != "Y" ]]
+do
+	read -p "Would you like to continue (type Y for yes, N for no): " continue
+	if [[ $continue == "n" ]] || [[ $continue == "N" ]]
+	then exit 3
+	fi
+done
 
 parent_folder=${PWD##*/} 
 
