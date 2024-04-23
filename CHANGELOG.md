@@ -2,43 +2,17 @@
 
 ## 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
 
-* Technical improvement.
+* Technical improvement
 * Major change
-* Impacted periods: all.
-* Impacted areas: all
 * Details:
-  - Improvements to `bootstrap.sh` to improve experience for first time users:
-    - remove the need to set `COUNTRY_NAME` and `REPOSITORY_URL` before running
-    - provide a confirmation option/exit script option before changes are made
-    - allow for hypens and spaces appropriately
-    - set `master` branch to `main` by default
-    - print to console the commit actions along with description
-  - Change `CONTRIBUTING.md` to allow for improved text replacements
-    - Replace reference to `master` with `main`
-  - Change `Makefile`
-    - Remove reference to `OpenFisca France` replace with new repository name
-    - replace argument `-e` with longer form `--editable` to aid newcomers
-    - add new formating commands for `isort`, `pyupgrade` and `yamllint`
-  - Author default `pyproject.toml` based on the older `setup.py` and `setup.cfg`
-    - Set version to 7.0.0
-    - Add in `[project.urls]`: `Homepage`, `Repository`, `Documentation`, `Issues` and `Changelog`
-    - Add in `[project.optional-dependencies]`: new dependancies `isort`, `pyupgrade` and `yamllint`
-    - Add `[tool.pytest.ini_options]` with filterwarnings set to `"error"`
-    - Add `[tool.pylint.messages_control]` from `setup.cfg` but in long form for readability
-    - Add `[tool.isort]` section
-  - Add `.flake8` and `.yamllint` to project root as these projects do not support `pyproject.toml` format
+  - Make template setup process interactive
+  - Replace `master` branch with `main`
+  - Replace `setup.py` and `setup.cfg` with `pyproject.toml`
+  - Remove references to `OpenFisca France`
   - Alter `README.md` to allow for improved text replacements
-    - Remove commands (line 21) for `export COUNTRY_NAME=France` and `export REPOSITORY_URL=...` due to bootstrap.sh improvements
-    - Adjust (Line 28) from `git push origin master` to `git push origin main`
-    - General changes to support change to bootstrap flow
-  - Remove `setup.py` and `setup.cfg`
-  - Update `.github/*.sh` and `.github/workflows/workflow.yaml` files to reference `main` instead of `master`
-  - Fix linting issues in:
-    - `openfisca_country_template/texts/social_security_contribution.yaml`
-    - `openfisca_country_template/texts/situations/income_tax.yaml`
-    - `openfisca_country_template/variables/demographics.py`
-    - `openfisca_country_template/variables/taxes.py`
-  - Alter `CHANGELOG.md`, add example entry and alter `bootstrap.sh` to strip out country-template entries. This resolves [issue 116](https://github.com/openfisca/country-template/issues/116).
+  - Lint files
+  - Add an example entry to the changelog ([#116](https://github.com/openfisca/country-template/issues/116)
+  - Relax Python version constraint
 
 
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
