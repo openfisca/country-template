@@ -112,7 +112,6 @@ echo -e "${YELLOW}*\033[0m  $ ${BLUE}git remote add origin $REPOSITORY_URL.git\0
 echo -e "${YELLOW}*\033[0m  $ ${BLUE}git push origin main\033[0m"
 echo -e "${YELLOW}*\033[0m "
 echo -e "${YELLOW}*\033[0m  Then refer to the \033[0m${BLUE}README.md\033[0m"
+echo -e "${YELLOW}*\033[0m  The parent directory name has been changed, you can use ${BLUE}cd ..\033[0m to navigate again to it"
 echo -e "${YELLOW}*\033[0m"
 echo -e "${YELLOW}* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \033[0m"
-
-exec bash
