@@ -105,14 +105,14 @@ git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca 
 
 echo -e "${PURPLE}*  ${PURPLE}Second git commit made to 'main' branch: '\033[0m${BLUE}$second_commit_message\033[0m${PURPLE}'\033[0m"
 echo
+
+git remote add origin $REPOSITORY_URL.git
+
 cd ../openfisca-$NO_SPACES_JURISDICTION_LABEL
 
 echo -e "${YELLOW}* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \033[0m"
-echo -e "${YELLOW}*\033[0m  Bootstrap complete, don't forget to push to remote repository\033[0m"
-echo -e "${YELLOW}*\033[0m "
-echo -e "${YELLOW}*\033[0m  $ ${BLUE}git remote add origin $REPOSITORY_URL.git\033[0m"
-echo -e "${YELLOW}*\033[0m  $ ${BLUE}git push origin main\033[0m"
-echo -e "${YELLOW}*\033[0m "
+echo -e "${YELLOW}*\033[0m"
+echo -e "${YELLOW}*\033[0m  Bootstrap complete, you can now push to remote repository with '${BLUE}git push origin main\033[0m'"
 echo -e "${YELLOW}*\033[0m  Then refer to the \033[0m${BLUE}README.md\033[0m"
 echo -e "${YELLOW}*\033[0m  The parent directory name has been changed, you can use ${BLUE}cd ..\033[0m to navigate again to it"
 echo -e "${YELLOW}*\033[0m"
