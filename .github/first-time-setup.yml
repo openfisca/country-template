@@ -1,0 +1,34 @@
+name: first-time-setup
+run-name: Setup
+
+on:
+  # Run when repo is generated from template
+  create:
+
+# Only keep latest run of this workflow
+concurrency:
+  group: first-time-setup
+  cancel-in-progress: true
+
+permissions: 
+  actions: write
+  checks: write
+  contents: write
+
+
+jobs:
+  first-time-setup:
+    # Ensure this action is run only once
+    if: github.run_number == 1
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if repository is a fork
+        if: github.event.repository.fork
+        run: |
+          echo "This repository was created by forking another repository."
+      
+      - name: Check if repository was created from a template
+        if: github.event.repository.is_template
+        run: |
+          echo "This repository was created from a template."
