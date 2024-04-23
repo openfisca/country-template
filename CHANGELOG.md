@@ -713,7 +713,7 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
 
 # Example Entry
 
-## 0.0.1 - [#1](https://github.com/openfisca/country-template/pull/1)
+## 0.0.1 - [#0](https://github.com/openfisca/country-template/pull/0)
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
@@ -725,4 +725,4 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
   - `stats`.
   - `taxes`.
 * Details:
-  - Demonstration changelog entry which can be modified for your first entry 
+  - Import model from template
