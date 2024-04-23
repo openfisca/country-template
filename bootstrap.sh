@@ -59,7 +59,7 @@ last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
-echo -e ""
+echo
 cd ..
 mv $parent_folder openfisca-$NO_SPACES_JURISDICTION_LABEL
 cd openfisca-$NO_SPACES_JURISDICTION_LABEL
@@ -102,7 +102,7 @@ git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
 
 echo -e "${PURPLE}*  ${PURPLE}Second git commit made to 'main' branch: '\033[0m${BLUE}$second_commit_message\033[0m${PURPLE}'\033[0m"
-echo -e ""
+echo
 cd ../openfisca-$NO_SPACES_JURISDICTION_LABEL
 
 echo -e "${YELLOW}* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \033[0m"
