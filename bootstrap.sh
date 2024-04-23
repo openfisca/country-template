@@ -19,7 +19,8 @@ then
 	exit 2
 fi
 
-while ! test "$JURISDICTION_NAME"; do
+while [[ ! "$JURISDICTION_NAME" ]]
+do
 	echo -e "${GREEN}The name of the jurisdiction (usually a country, e.g. New Zealand, France…) you will model the rules of: \033[0m"
 	read JURISDICTION_NAME
 done
@@ -28,7 +29,8 @@ lowercase_jurisdiction_name=$(echo $JURISDICTION_NAME | tr '[:upper:]' '[:lower:
 NO_SPACES_JURISDICTION_LABEL=$(echo $lowercase_jurisdiction_name | sed -r 's/[ ]+/_/g') # allow for hyphens to be used in jurisdiction names
 SNAKE_CASE_JURISDICTION=$(echo $NO_SPACES_JURISDICTION_LABEL | sed -r 's/[-]+/_/g') # remove hyphens for use in Python
 
-while ! test $REPOSITORY_URL; do
+while [[ ! "$REPOSITORY_URL" ]]
+do
 	echo -e "${GREEN}Your Git repository URL: \033[0m (i.e. https://githost.example/organisation/openfisca-jurisdiction)"
 	read REPOSITORY_URL
 done
