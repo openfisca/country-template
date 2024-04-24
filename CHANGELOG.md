@@ -1,5 +1,20 @@
 # Changelog
 
+## 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
+
+* Technical improvement
+* Major change
+* Details:
+  - Make template setup process interactive
+  - Replace `master` branch with `main`
+  - Replace `setup.py` and `setup.cfg` with `pyproject.toml`
+  - Remove references to `OpenFisca France`
+  - Alter `README.md` to allow for improved text replacements
+  - Lint files
+  - Add an example entry to the changelog ([#116](https://github.com/openfisca/country-template/issues/116)
+  - Relax Python version constraint
+
+
 ### 6.0.3 [#136](https://github.com/openfisca/country-template/pull/136)
 
 * Technical improvement.
@@ -669,3 +684,19 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
   - `taxes`.
 * Details:
   - Build the skeleton of the tax and benefit system.
+
+# Example Entry
+
+## 0.0.1 - [#0](https://github.com/openfisca/country-template/pull/0)
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas:
+  - `benefits`.
+  - `demographics`.
+  - `housing`.
+  - `income`.
+  - `stats`.
+  - `taxes`.
+* Details:
+  - Import model from template

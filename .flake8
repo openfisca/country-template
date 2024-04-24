@@ -1,0 +1,20 @@
+[flake8]
+hang-closing              = true
+ignore                    = D101,D102,D103,D107,D401,E128,E251,E501,W503
+in-place                  = true
+inline-quotes             = "
+multiline-quotes          = """
+import-order-style        = appnexus
+no-accept-encodings       = true
+application-import-names  = openfisca_country_template
+application-package-names = openfisca_core
+exclude                   = .git,__pycache__,.venv,.github,.devcontainer,docs
+
+; D101:                   Variables already provide label/description
+; D102/103:               Do not document methods/functions
+; D107:                   Do not document __init__ method
+; D401:                   Do not require the imperative mood
+; E128/133:               Prefer hang-closing visual indents
+; E251:                   Prefer `function(x = 1)` over `function(x=1)`
+; E501:                   Do not enforce a maximum line length
+; W503/4:                 Break lines before binary operators (Knuth's style)

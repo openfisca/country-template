@@ -11,6 +11,7 @@ from datetime import date
 # Import from numpy the operations you need to apply on OpenFisca's population vectors
 # Import from openfisca-core the Python objects used to code the legislation in OpenFisca
 from numpy import where
+
 from openfisca_core.periods import ETERNITY, MONTH
 from openfisca_core.variables import Variable
 
