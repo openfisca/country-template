@@ -1,4 +1,5 @@
 name: Country-Template
+
 on:
   push:
     branches: [ master ]
