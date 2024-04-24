@@ -1,24 +1,36 @@
 # OpenFisca Country-Template
 
-This repository helps you quickly bootstrap and use your own OpenFisca country package.
+This repository helps you quickly set up and use your own OpenFisca country package.
 
-**You should NOT fork it but [download a copy](https://github.com/openfisca/country-template/archive/master.zip) of it** and follow the bootstrapping instructions below.
+**You should NOT fork it** but follow the set up instructions below.
 
 > Otherwise, you will have to clean up all tags when you deploy your own country package.
 
-## Bootstrapping your Country Package
+## Setting up your Country Package
 
 This set of instructions **only needs to be followed once** and will create your own copy of this boilerplate directory, customising it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
 
-1. [Download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
+### Using GitHub (recommended for GitHub users)
 
-2. Create a new repository on your favourite git host (Github, Bitbucket, GitLab, etc) with the name openfisca-your_country_name. For example, `openfisca-new_zealand` or `openfisca-france`.
+1. Click on the “Use this template” dropdown and select “Create a new repository”
 
-3. Execute the `bootstrap.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package. 
-   - To execute the script run `bash bootstrap.sh` from the command line. _Note: this script can only run on Unix systems, but OpenFisca and the resulting package will work on Windows too._
-   - After the `bootstrap.sh` has run both it and these instructions are removed.
+2. Set the repository name to `openfisca-<your_country_name>`. For example, `openfisca-new_zealand` or `openfisca-france`.
+
+3. Wait a minute or two for the automatic setup to run after being redirected to the newly generated repository. Once done, the title of the readme should be `OpenFisca <your_country_name>`.
 
 4. Follow the instructions in the new repository's README.md.
+
+### Manual setup (recommended for users of other Git hosts)
+
+1. [Download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
+
+2. Create a new repository on your favourite git host (Bitbucket, GitLab, …) with the name `openfisca-<your_country_name>`. For example, `openfisca-new_zealand` or `openfisca-france`.
+
+3. Execute the `first-time-setup.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package. 
+   - To execute the script run `bash first-time-setup.sh` from the command line
+   - After the `first-time-setup.sh` has run both it and these instructions are removed.
+
+4. Follow the instructions in the new repository's `README.md.`
 
 ## Writing the Legislation
 
