@@ -1,6 +1,10 @@
 # OpenFisca Country-Template
 
-This repository helps you quickly set up and use your own OpenFisca country package.
+This codebase demonstrates how to model rules with OpenFisca. It models the law of a fictional country that has a very simple tax and benefit system. This fictional tax and benefit system is designed to showcase classical constraints in modelling and usage of the main OpenFisca features.
+
+This model can also be used as a template to create new OpenFisca packages. Scripts are provided to automatically replace every reference to “country template” with the name of the actual jurisdiction to model.
+
+Finally, this model is used for continuous regression testing of the core OpenFisca engine. Combining demonstration, template and continuous testing into a single codebase ensures complete and up-to-date examples.
 
 ## Creating a new OpenFisca model
 
