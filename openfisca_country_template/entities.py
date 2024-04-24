@@ -1,5 +1,5 @@
 """
-This file defines the entities needed by our legislation.
+This file defines the entities that are needed by our legislation.
 
 Taxes and benefits can be calculated for different entities: persons, household, companies, etc…
 
