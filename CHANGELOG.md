@@ -689,7 +689,7 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
 
 ## 0.0.1 - [#0](https://github.com/openfisca/country-template/pull/0)
 
-* Tax and benefit system evolution.
+* Tax and benefit system evolution
 * Impacted periods: all.
 * Impacted areas:
   - `benefits`.
@@ -700,3 +700,4 @@ See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisc
   - `taxes`.
 * Details:
   - Import model from template
+  - 
