@@ -2,13 +2,9 @@
 
 This repository helps you quickly set up and use your own OpenFisca country package.
 
-**You should NOT fork it** but follow the set up instructions below.
+## Creating a new OpenFisca model
 
-> Otherwise, you will have to clean up all tags when you deploy your own country package.
-
-## Setting up your Country Package
-
-This set of instructions **only needs to be followed once** and will create your own copy of this boilerplate directory, customising it to the country you want to work on. You will need to have [Git](https://git-scm.com) installed.
+This set of instructions **only needs to be followed once** and will walk you through creating your own OpenFisca model from this demonstration model, automatically customised to a new jurisdiction.
 
 ### Using GitHub (recommended for GitHub users)
 
@@ -16,26 +12,35 @@ This set of instructions **only needs to be followed once** and will create your
 
 2. Set the repository name to `openfisca-<your_country_name>`; use underscore `_` as separator if there are spaces in the country name. For example, `openfisca-new_zealand` or `openfisca-france`.
 
-3. After being redirected to your newly created repository, please allow a few minutes for the automatic setup to be executed. Once done, the title of the README file should be updated to `OpenFisca <your_country_name>`. 
+3. After being redirected to your newly created repository, please allow a few minutes for the automatic setup to be executed. Once done, the title of the README file should be updated to `OpenFisca <your_country_name>`.
 
 > If the automatic setup does not start within a few minutes, you can initiate it manually:
 > - Navigate to the “Actions” tab.
 > - Select the “First time setup” workflow.
 > - Click on “Run workflow” to start the setup process manually.
 
-4. Follow the instructions in the new repository's README.md.
+4. Follow the instructions in the new repository's README.
 
 ### Manual setup (recommended for users of other Git hosts)
 
-1. [Download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository, unzip it and `cd` into it in a Terminal window.
+#### Prerequisites
 
-2. Create a new repository on your favourite git host (Bitbucket, GitLab, …) with the name `openfisca-<your_country_name>`. For example, `openfisca-new_zealand` or `openfisca-france`.
+- You are familiar with the command-line.
+- In order to benefit from the automated first-time setup, your operating system has to be Unix (e.g. Linux, macOS…). OpenFisca and the resulting package will work on Windows too, but the bootstrapping script is only tested on Unix. You could replicate its operations manually on Windows.
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed on your system.
+- [Python](https://wiki.python.org/moin/BeginnersGuide/Download) is installed on your system, at one of these versions:
 
-3. Execute the `first-time-setup.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package.
-   - To execute the script run `bash first-time-setup.sh` from the command line
-   - After the `first-time-setup.sh` has run both it and these instructions are removed.
+![Supported Python versions](https://img.shields.io/pypi/pyversions/openfisca-country_template)
 
-4. Follow the instructions in the new repository's `README.md.`
+#### Customising the model
+
+1. Create a new empty repository on your favourite Git host (GitHub, Bitbucket, GitLab…) with the name `openfisca-<your_country_name>`. Use snake case, that is lowercase with underscores (`_`) instead of spaces, and no accents. For example, `openfisca-new_zealand` or `openfisca-france`.
+2. [Download a copy](https://github.com/openfisca/country-template/archive/master.zip) of this repository. It is important **not** to fork the repository but to download a copy, as the history and tags of the demonstration model should be erased.
+3. Unzip the downloaded file.
+4. In a terminal, `cd` into the unzipped folder.
+5. Run `bash first-time-setup.sh` to execute the single use first-time setup script. This will initialise a Git repository, replace every reference to the Country Template with references to your new country package, and erase these instructions.
+6. Follow the instructions at the end of the script to upload the new model's contents to the shared repository.
+7. Follow the instructions in the new repository's README to start modelling!
 
 ## Writing the Legislation
 
