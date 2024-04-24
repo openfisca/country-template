@@ -1,4 +1,4 @@
-name: Bootstrap
+name: First time setup
 
 on:
   create:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  bootstrap:
+  first-time-setup:
     # Ensure this job does not run on the template repository or when the repository is forked
     if: ${{ !github.event.repository.is_template && !github.event.repository.fork }}
     runs-on: ubuntu-latest
@@ -19,8 +19,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Execute the bootstrap script
-        run: CI=true JURISDICTION_NAME="$(echo ${{ github.event.repository.name }} | sed 's/openfisca-//')" REPOSITORY_URL="${{ github.repositoryUrl }}" ./bootstrap.sh
+      - name: Execute the first-time-setup script
+        run: CI=true JURISDICTION_NAME="$(echo ${{ github.event.repository.name }} | sed 's/openfisca-//')" REPOSITORY_URL="${{ github.repositoryUrl }}" ./first-time-setup.sh
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

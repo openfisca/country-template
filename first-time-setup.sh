@@ -103,11 +103,11 @@ find . -name "*.template" -type f -delete
 echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033[0m"
 git mv openfisca_country_template $package_name
 
-echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}bootstrap.sh\033[0m${PURPLE} script\033[0m"
-git rm bootstrap.sh > /dev/null 2>&1
+echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}first-time-setup.sh\033[0m${PURPLE} script\033[0m"
+git rm first-time-setup.sh > /dev/null 2>&1
 
-echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}bootstrap.yml\033[0m${PURPLE} GitHub Action\033[0m"
-rm -f .github/workflows/bootstrap.yml
+echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}first-time-setup.yml\033[0m${PURPLE} GitHub Action\033[0m"
+rm -f .github/workflows/first-time-setup.yml
 
 if [[ $CI ]]
 then
