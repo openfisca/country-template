@@ -12,7 +12,7 @@ if [[ $JURISDICTION_NAME ]] && [[ $REPOSITORY_URL ]]
 then continue=Y
 fi
 
-if [[ -d .git ]]
+if [[ $CI ]] && [ ! -d .git ]
 then
 	echo 'It seems you cloned this repository, or already initialised it.'
 	echo 'Refusing to go further as you might lose work.'
@@ -62,17 +62,20 @@ last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
-echo
-cd ..
-mv $parent_folder openfisca-$NO_SPACES_JURISDICTION_LABEL
-cd openfisca-$NO_SPACES_JURISDICTION_LABEL
+if [[ ! "$CI" ]]
+then
+	echo
+	cd ..
+	mv $parent_folder openfisca-$NO_SPACES_JURISDICTION_LABEL
+	cd openfisca-$NO_SPACES_JURISDICTION_LABEL
 
-echo -e "${PURPLE}*  ${PURPLE}Initialise git repository\033[0m"
-git init --initial-branch=main > /dev/null 2>&1
-git add .
+	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository\033[0m"
+	git init --initial-branch=main > /dev/null 2>&1
+	git add .
 
-git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
-echo -e "${PURPLE}*  ${PURPLE}Initial git commit made to 'main' branch: '\033[0m${BLUE}$first_commit_message\033[0m${PURPLE}'\033[0m"
+	git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
+	echo -e "${PURPLE}*  ${PURPLE}Initial git commit made to 'main' branch: '\033[0m${BLUE}$first_commit_message\033[0m${PURPLE}'\033[0m"
+fi
 
 all_module_files=`find openfisca_country_template -type f ! -name "*.DS_Store"`
 echo -e "${PURPLE}*  ${PURPLE}Replace default country_template references\033[0m"
@@ -102,6 +105,12 @@ git mv openfisca_country_template $package_name
 
 echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}bootstrap.sh\033[0m${PURPLE} script\033[0m"
 git rm bootstrap.sh > /dev/null 2>&1
+
+if [[ $CI ]]
+then
+    exit 0
+fi
+
 git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
 
