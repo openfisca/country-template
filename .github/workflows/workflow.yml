@@ -1,4 +1,4 @@
-name: Country-Template
+name: CI/CD Pipeline
 
 on:
   push:
@@ -74,7 +74,7 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
-      - run: openfisca test --country-package openfisca_country_template openfisca_country_template/tests
+      - run: make test
 
   test-api:
     runs-on: ubuntu-20.04

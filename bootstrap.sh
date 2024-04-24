@@ -81,8 +81,8 @@ all_module_files=`find openfisca_country_template -type f ! -name "*.DS_Store"`
 echo -e "${PURPLE}*  ${PURPLE}Replace default country_template references\033[0m"
 # Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
 sed -i.template "s|openfisca-country_template|openfisca-$NO_SPACES_JURISDICTION_LABEL|g" README.md Makefile pyproject.toml CONTRIBUTING.md
-sed -i.template "s|country_template|$SNAKE_CASE_JURISDICTION|g" README.md pyproject.toml .flake8 .github/workflows/workflow.yml Makefile MANIFEST.in $all_module_files
-sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/workflows/workflow.yml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
+sed -i.template "s|country_template|$SNAKE_CASE_JURISDICTION|g" README.md pyproject.toml .flake8 Makefile MANIFEST.in $all_module_files
+sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
 
 echo -e "${PURPLE}*  ${PURPLE}Remove bootstrap instructions\033[0m"
 sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
