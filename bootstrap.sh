@@ -7,6 +7,7 @@ YELLOW='\033[0;33m'
 BLUE='\033[1;34m'
 JURISDICTION_NAME=${JURISDICTION_NAME:-$COUNTRY_NAME}  # backwards compatibility
 
+# Support non-interactive setup through env variables
 if [[ $JURISDICTION_NAME ]] && [[ $REPOSITORY_URL ]]
 then continue=Y
 fi
