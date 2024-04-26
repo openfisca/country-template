@@ -6,7 +6,6 @@ on:
       - main
     types: [ closed ]
 
-
 jobs:
   validate:
     uses: "./.github/workflows/validate.yml"
