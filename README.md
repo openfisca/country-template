@@ -16,7 +16,12 @@ This set of instructions **only needs to be followed once** and will create your
 
 2. Set the repository name to `openfisca-<your_country_name>`; use underscore `_` or dash `-` as separators. For example, `openfisca-new_zealand`, `openfisca-new-zealand` or `openfisca-france`.
 
-3. Wait a moment for the automatic setup to run after being redirected to the newly generated repository. Once done, the title of the readme should be `OpenFisca <your_country_name>`.
+3. After being redirected to your newly created repository, please allow a short period for the automatic setup to be executed. Once done, the title of the readme should be updated to `OpenFisca <your_country_name>`. 
+
+> If the automatic setup does not start within a few minutes, you can initiate it manually:
+> - Navigate to the “Actions” tab.
+> - Select the “First time setup” workflow.
+> - Click on “Run workflow” to start the setup process manually.
 
 4. Follow the instructions in the new repository's README.md.
 
@@ -26,7 +31,7 @@ This set of instructions **only needs to be followed once** and will create your
 
 2. Create a new repository on your favourite git host (Bitbucket, GitLab, …) with the name `openfisca-<your_country_name>`. For example, `openfisca-new_zealand` or `openfisca-france`.
 
-3. Execute the `first-time-setup.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package. 
+3. Execute the `first-time-setup.sh` script to initialise the git repository. This performs numerous tasks including replacing all references to `openfisca-country_template` with references to the new country package.
    - To execute the script run `bash first-time-setup.sh` from the command line
    - After the `first-time-setup.sh` has run both it and these instructions are removed.
 
