@@ -1,5 +1,21 @@
 # Changelog
 
+## 7.1.0 [#143](https://github.com/openfisca/country-template/pull/143)
+
+* Technical improvement
+* Minor change
+* Details:
+  - Automate template setup process via CI for GitHub users:
+    - When creating a new repository by using this template on GitHub, the setup script is automatically executed by the CI on the resulting generated repository.
+  - Improve accessibility by adopting less technical terminology:
+    - Replaced "bootstrap" with "first-time setup," clarifying its purpose as a one-time project initialization, particularly useful for users unfamiliar with the technical vocabulary.
+  - Decompose GitHub Actions monolithic workflow into specialized workflows:
+    - Split the `Country-Template` workflow into three distinct workflows: `build`, `validate` and `deploy` enhancing clarity and organization.
+  - Enhance accuracy of workflow triggers:
+    - Trigger deployment exclusively when a PR is merged on the `main` branch
+    - Trigger validation on PR events or as a dependency of the deployment workflow
+
+
 ## 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
 
 * Technical improvement
