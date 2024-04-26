@@ -12,11 +12,11 @@ This set of instructions **only needs to be followed once** and will create your
 
 ### Using GitHub (recommended for GitHub users)
 
-1. Click on the “Use this template” dropdown and select “Create a new repository”
+1. Click on the [“Use this template” dropdown and select “Create a new repository”](https://github.com/new?template_name=country-template&template_owner=openfisca).
 
 2. Set the repository name to `openfisca-<your_country_name>`. For example, `openfisca-new_zealand` or `openfisca-france`.
 
-3. Wait a minute or two for the automatic setup to run after being redirected to the newly generated repository. Once done, the title of the readme should be `OpenFisca <your_country_name>`.
+3. Wait a moment for the automatic setup to run after being redirected to the newly generated repository. Once done, the title of the readme should be `OpenFisca <your_country_name>`.
 
 4. Follow the instructions in the new repository's README.md.
 
