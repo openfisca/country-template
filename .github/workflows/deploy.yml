@@ -1,0 +1,63 @@
+name: Deploy
+
+on:
+  pull_request_target:
+    branches: 
+      - main
+    types: [ closed ]
+
+
+jobs:
+  validate:
+    uses: "./.github/workflows/validate.yml"
+
+  # GitHub Actions does not have a halt job option, to stop from deploying if no functional changes were found.
+  # We build a separate job to substitute the halt option.
+  # The `deploy` job is dependent on the output of the `check-for-functional-changes`job.
+  check-for-functional-changes:
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/main' # Only triggered for the `main` branch
+    outputs:
+      status: ${{ steps.stop-early.outputs.status }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all the tags
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.9
+      - id: stop-early
+        run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: [ validate, check-for-functional-changes ]
+    if: github.event.pull_request.merged == true && needs.check-for-functional-changes.outputs.status == 'success'
+    env:
+      PYPI_USERNAME: openfisca-bot
+      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all the tags
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.9
+      - name: Cache build
+        id: restore-build
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+      - name: Cache release
+        id: restore-release
+        uses: actions/cache@v2
+        with:
+          path: dist
+          key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+      - name: Upload a Python package to PyPi
+        run: twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
+      - name: Publish a git tag
+        run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
