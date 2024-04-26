@@ -92,7 +92,8 @@ sed -i.template -e "1,${last_changelog_number}d" CHANGELOG.md  # remove country-
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}pyproject.toml\033[0m"
 sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL|g" pyproject.toml
-sed -i.template "s|:: 5 - Production/Stable|:: 1 - Planning|g" pyproject.toml
+sed -i.template 's|:: 5 - Production/Stable|:: 1 - Planning|g' pyproject.toml
+sed -i.template 's|^version = "[0-9.]*"|version = "0.0.1"|g' pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
 find . -name "*.template" -type f -delete
 
@@ -104,7 +105,9 @@ git rm bootstrap.sh > /dev/null 2>&1
 git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
 
-echo -e "${PURPLE}*  ${PURPLE}Second git commit made to 'main' branch: '\033[0m${BLUE}$second_commit_message\033[0m${PURPLE}'\033[0m"
+git tag "0.0.1"
+
+echo -e "${PURPLE}*  ${PURPLE}Second commit and first tag made on 'main' branch: '\033[0m${BLUE}$second_commit_message\033[0m${PURPLE}'\033[0m"
 echo
 
 echo -e "${YELLOW}* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \033[0m"
