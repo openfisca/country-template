@@ -1,6 +1,12 @@
 # Changelog
 
-## 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
+### [#144](https://github.com/openfisca/country-template/pull/144)
+
+* Bug fix.
+* Details:
+  - Use PyPi token for deployment to fix `HTTPError: 403 Forbidden` on package uplaod
+
+# 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
 
 * Technical improvement
 * Major change
