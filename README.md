@@ -16,7 +16,7 @@ This set of instructions **only needs to be followed once** and will create your
 
 2. Set the repository name to `openfisca-<your_country_name>`; use underscore `_` or dash `-` as separators. For example, `openfisca-new_zealand`, `openfisca-new-zealand` or `openfisca-france`.
 
-3. After being redirected to your newly created repository, please allow a short period for the automatic setup to be executed. Once done, the title of the readme should be updated to `OpenFisca <your_country_name>`. 
+3. After being redirected to your newly created repository, please allow a few minutes for the automatic setup to be executed. Once done, the title of the readme should be updated to `OpenFisca <your_country_name>`. 
 
 > If the automatic setup does not start within a few minutes, you can initiate it manually:
 > - Navigate to the “Actions” tab.

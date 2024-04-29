@@ -8,9 +8,9 @@
   - Automate template setup process via CI for GitHub users:
     - When creating a new repository by using this template on GitHub, the setup script is automatically executed by the CI on the resulting generated repository.
   - Improve accessibility by adopting less technical terminology:
-    - Replaced "bootstrap" with "first-time setup," clarifying its purpose as a one-time project initialization, particularly useful for users unfamiliar with the technical vocabulary.
+    - Replace "bootstrap" with "first-time setup", clarifying its purpose as a one-time project initialisation, particularly for users unfamiliar with the technical vocabulary.
   - Decompose GitHub Actions monolithic workflow into specialized workflows:
-    - Split the `Country-Template` workflow into three distinct workflows: `build`, `validate` and `deploy` enhancing clarity and organization.
+    - Split the `Country-Template` workflow into three distinct workflows: `build`, `validate` and `deploy`.
   - Enhance accuracy of workflow triggers:
     - Trigger deployment exclusively when a PR is merged on the `main` branch
     - Trigger validation on PR events or as a dependency of the deployment workflow
