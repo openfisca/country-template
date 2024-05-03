@@ -28,8 +28,6 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     needs: [ validate, check-for-functional-changes ]
-    env:
-      PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
     if: needs.check-for-functional-changes.outputs.status == 'success'
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +46,6 @@ jobs:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username __token__ --password $PYPI_TOKEN_OPENFISCA_BOT
+        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
