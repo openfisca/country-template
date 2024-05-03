@@ -15,7 +15,6 @@ jobs:
         with:
           python-version: 3.9.9 # Patch version must be specified to avoid any cache confusion, since the cache key depends on the full Python version. Any difference in patches between jobs will lead to a cache not found error.
       - name: Cache build
-        id: restore-build
         uses: actions/cache@v2
         with:
           path: ${{ env.pythonLocation }}
@@ -26,7 +25,6 @@ jobs:
       - name: Build package
         run: make build
       - name: Cache release
-        id: restore-release
         uses: actions/cache@v2
         with:
           path: dist
