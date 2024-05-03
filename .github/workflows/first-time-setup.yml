@@ -28,7 +28,7 @@ jobs:
         run: CI=true JURISDICTION_NAME="$TITLE_CASE_JURISDICTION_NAME" REPOSITORY_URL="${{ github.repositoryUrl }}" ./first-time-setup.sh
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Customise country-template through CI"
           tagging_message: "0.0.1"
