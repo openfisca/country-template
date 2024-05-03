@@ -20,7 +20,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set environment variables
+      - name: Infer jurisdiction name from repository name
         run: |
           echo "TITLE_CASE_JURISDICTION_NAME=$(echo ${{ github.event.repository.name }} | sed 's/openfisca-//' | sed 's/[-|_]/ /g' | awk '{for (i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')" >> $GITHUB_ENV
 

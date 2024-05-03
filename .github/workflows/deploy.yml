@@ -11,8 +11,7 @@ jobs:
     uses: "./.github/workflows/validate.yml"
 
   # GitHub Actions does not have a halt job option to stop from deploying if no functional changes were found.
-  # We build a separate job to substitute the halt option.
-  # The `deploy` job is dependent on the output of the `check-for-functional-changes` job.
+  # We thus execute a separate deployment job depending on the output of this job.
   check-for-functional-changes:
     runs-on: ubuntu-22.04
     if: github.event.pull_request.merged == true
@@ -46,7 +45,7 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
-      - name: Cache release
+      - name: Restore built package
         uses: actions/cache@v4
         with:
           path: dist
