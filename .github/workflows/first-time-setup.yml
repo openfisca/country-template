@@ -1,0 +1,36 @@
+name: First time setup
+
+on:
+  create:
+  workflow_dispatch:
+
+permissions: 
+  actions: write
+  checks: write
+  contents: write
+
+jobs:
+  first-time-setup:
+    # Ensure this job does not run on the template repository or when the repository is forked
+    if: ${{ !github.event.repository.is_template && !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Infer jurisdiction name from repository name
+        run: |
+          echo "TITLE_CASE_JURISDICTION_NAME=$(echo ${{ github.event.repository.name }} | sed 's/openfisca-//' | sed 's/[-|_]/ /g' | awk '{for (i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')" >> $GITHUB_ENV
+
+      - name: Execute the first-time-setup script
+        run: CI=true JURISDICTION_NAME="$TITLE_CASE_JURISDICTION_NAME" REPOSITORY_URL="${{ github.repositoryUrl }}" ./first-time-setup.sh
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Customise country-template through CI"
+          tagging_message: "0.0.1"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

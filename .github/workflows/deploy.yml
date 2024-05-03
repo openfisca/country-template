@@ -1,0 +1,51 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    uses: "./.github/workflows/validate.yml"
+
+  # GitHub Actions does not have a halt job option to stop from deploying if no functional changes were found.
+  # We thus execute a separate deployment job depending on the output of this job.
+  check-for-functional-changes:
+    runs-on: ubuntu-22.04
+    outputs:
+      status: ${{ steps.stop-early.outputs.status }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all the tags
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9.12
+      - id: stop-early
+        run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
+
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: [ validate, check-for-functional-changes ]
+    if: needs.check-for-functional-changes.outputs.status == 'success'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9.12
+      - name: Restore build
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.pythonLocation }}
+          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+      - name: Restore built package
+        uses: actions/cache@v4
+        with:
+          path: dist
+          key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+      - name: Upload a Python package to PyPi
+        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
+      - name: Publish a git tag
+        run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
