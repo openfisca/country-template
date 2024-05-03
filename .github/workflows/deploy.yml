@@ -34,8 +34,7 @@ jobs:
     needs: [ validate, check-for-functional-changes ]
     if: github.event.pull_request.merged == true && needs.check-for-functional-changes.outputs.status == 'success'
     env:
-      PYPI_USERNAME: openfisca-bot
-      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -57,6 +56,6 @@ jobs:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username $PYPI_USERNAME --password $PYPI_PASSWORD
+        run: twine upload dist/* --username __token__ --password $PYPI_TOKEN_OPENFISCA_BOT
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"

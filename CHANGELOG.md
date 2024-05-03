@@ -16,7 +16,7 @@
     - Trigger validation on PR events or as a dependency of the deployment workflow.
 
 
-## 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
+# 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
 
 * Technical improvement
 * Major change
