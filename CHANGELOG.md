@@ -12,7 +12,7 @@
   - Decompose GitHub Actions monolithic workflow into specialized workflows:
     - Split the `Country-Template` workflow into three distinct workflows: `build`, `validate` and `deploy`.
   - Enhance accuracy of workflow triggers:
-    - Trigger deployment exclusively when a PR is merged on the `main` branch.
+    - Trigger deployment only when changes are pushed to the `main` branch.
     - Trigger validation on PR events or as a dependency of the deployment workflow.
   - Update CI dependencies
 

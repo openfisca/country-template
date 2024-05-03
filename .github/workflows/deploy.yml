@@ -1,10 +1,8 @@
 name: Deploy
 
 on:
-  pull_request_target:
-    branches: 
-      - main
-    types: [ closed ]
+  push:
+    branches: [ main ]
 
 jobs:
   validate:
@@ -14,7 +12,6 @@ jobs:
   # We thus execute a separate deployment job depending on the output of this job.
   check-for-functional-changes:
     runs-on: ubuntu-22.04
-    if: github.event.pull_request.merged == true
     outputs:
       status: ${{ steps.stop-early.outputs.status }}
     steps:
@@ -31,9 +28,9 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     needs: [ validate, check-for-functional-changes ]
-    if: github.event.pull_request.merged == true && needs.check-for-functional-changes.outputs.status == 'success'
     env:
       PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
+    if: needs.check-for-functional-changes.outputs.status == 'success'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
