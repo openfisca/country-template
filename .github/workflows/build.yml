@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12 # Patch version must be specified to avoid any cache confusion, since the cache key depends on the full Python version. Any difference in patches between jobs will lead to a cache not found error.
-      - name: Restore build
+      - name: Cache build
         uses: actions/cache@v4
         with:
           path: ${{ env.pythonLocation }}
