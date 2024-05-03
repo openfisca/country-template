@@ -62,7 +62,7 @@ last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
-if [[ ! "$CI" ]]
+if [[ ! $CI ]]
 then
 	echo
 	cd ..
