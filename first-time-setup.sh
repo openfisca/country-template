@@ -110,8 +110,7 @@ echo -e "${PURPLE}*  ${PURPLE}Remove single use \033[0m${BLUE}first-time-setup.y
 rm -f .github/workflows/first-time-setup.yml
 
 if [[ $CI ]]
-then
-    exit 0
+then exit 0  # committing and tagging take directly place in the GitHub Actions workflow
 fi
 
 git add .
