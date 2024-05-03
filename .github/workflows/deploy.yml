@@ -42,12 +42,12 @@ jobs:
         with:
           python-version: 3.9.12
       - name: Restore build
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
       - name: Cache release
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
