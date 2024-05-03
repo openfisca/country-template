@@ -12,7 +12,7 @@ if [[ $JURISDICTION_NAME ]] && [[ $REPOSITORY_URL ]]
 then continue=Y
 fi
 
-if [[ $CI ]] && [ ! -d .git ]
+if [[ ! $CI ]] && [[ -d .git ]]
 then
 	echo 'It seems you cloned this repository, or already initialised it.'
 	echo 'Refusing to go further as you might lose work.'
