@@ -14,7 +14,7 @@ jobs:
   # We build a separate job to substitute the halt option.
   # The `deploy` job is dependent on the output of the `check-for-functional-changes` job.
   check-for-functional-changes:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.pull_request.merged == true
     outputs:
       status: ${{ steps.stop-early.outputs.status }}
@@ -30,7 +30,7 @@ jobs:
         run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
 
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ validate, check-for-functional-changes ]
     if: github.event.pull_request.merged == true && needs.check-for-functional-changes.outputs.status == 'success'
     env:

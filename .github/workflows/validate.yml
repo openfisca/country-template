@@ -10,7 +10,7 @@ jobs:
     uses: "./.github/workflows/build.yml"
 
   lint-files:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/lint-changed-yaml-tests.sh"
 
   test-yaml:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -49,7 +49,7 @@ jobs:
       - run: make test
 
   test-api:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
       - uses: actions/checkout@v2
@@ -66,7 +66,7 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/test-api.sh"
 
   check-version-and-changelog:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
         with:
