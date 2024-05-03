@@ -37,8 +37,6 @@ jobs:
       PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # Fetch all the tags
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
