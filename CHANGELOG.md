@@ -14,6 +14,7 @@
   - Enhance accuracy of workflow triggers:
     - Trigger deployment exclusively when a PR is merged on the `main` branch.
     - Trigger validation on PR events or as a dependency of the deployment workflow.
+  - Update CI dependencies
 
 
 # 7.0.0 [#139](https://github.com/openfisca/country-template/pull/139)
