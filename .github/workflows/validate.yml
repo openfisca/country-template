@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all the tags
       - name: Set up Python
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -68,7 +68,7 @@ jobs:
   check-version-and-changelog:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all the tags
       - name: Set up Python

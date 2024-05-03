@@ -19,7 +19,7 @@ jobs:
     outputs:
       status: ${{ steps.stop-early.outputs.status }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all the tags
       - name: Set up Python
@@ -36,7 +36,7 @@ jobs:
     env:
       PYPI_TOKEN_OPENFISCA_BOT: ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
