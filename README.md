@@ -1,4 +1,4 @@
-# OpenFisca Country-Template
+# OpenFisca Country Template
 
 This codebase demonstrates how to model rules with OpenFisca. It models the law of a fictional country that has a very simple tax and benefit system. This fictional tax and benefit system is designed to showcase classical constraints in modelling and usage of the main OpenFisca features.
 
