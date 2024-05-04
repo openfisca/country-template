@@ -32,7 +32,7 @@ This set of instructions **only needs to be followed once** and will walk you th
 - You are familiar with the command-line.
 - In order to benefit from the automated first-time setup, your operating system has to be Unix (e.g. Linux, macOS…). OpenFisca and the resulting package will work on Windows too, but the bootstrapping script is only tested on Unix. You could replicate its operations manually on Windows.
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed on your system.
-- [Python](https://wiki.python.org/moin/BeginnersGuide/Download) is installed on your system, at one of these versions:
+- [Python](https://wiki.python.org/moin/BeginnersGuide/Download) is installed on your system, at one of the [listed versions](./pyproject.toml):
 
 ![Supported Python versions](https://img.shields.io/pypi/pyversions/openfisca-country_template)
 
