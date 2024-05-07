@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.1.1 [#146](https://github.com/openfisca/country-template/pull/146)
+
+* Technical improvement
+* Details:
+  - Update minimal Core dependency to require a version that can parse `pyproject.toml` (see https://github.com/openfisca/openfisca-core/pull/1209)
+  - Use version specifiers compatible with Conda packaging
+
 ## 7.1.0 [#143](https://github.com/openfisca/country-template/pull/143)
 
 * Technical improvement
