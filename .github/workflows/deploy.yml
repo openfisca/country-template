@@ -25,10 +25,24 @@ jobs:
       - id: stop-early
         run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
 
+  check-pypi-token:
+    runs-on: ubuntu-22.04
+    outputs:
+      pypi_token_present: ${{ steps.check_token.outputs.pypi_token_present }}
+    steps:
+      - name: Check PYPI Token
+        id: check_token
+        run: |
+          if [[ -n "${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}" ]]; then
+            echo "pypi_token_present=true" >> $GITHUB_OUTPUT
+          else
+            echo "pypi_token_present=false" >> $GITHUB_OUTPUT
+          fi
+      
   deploy:
     runs-on: ubuntu-22.04
-    needs: [ validate, check-for-functional-changes ]
-    if: needs.check-for-functional-changes.outputs.status == 'success'
+    needs: [ validate, check-for-functional-changes, check-pypi-token ]
+    if: needs.check-for-functional-changes.outputs.status == 'success' && needs.check-pypi-token.outputs.pypi_token_present == 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
