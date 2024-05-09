@@ -23,7 +23,10 @@ jobs:
         with:
           python-version: 3.9.12
       - id: stop-early
-        run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
+        run: |
+          if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then 
+            echo "status=success" >> $GITHUB_OUTPUT
+          fi
 
   check-pypi-token:
     runs-on: ubuntu-22.04
