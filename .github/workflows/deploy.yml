@@ -36,7 +36,7 @@ jobs:
       - name: Check PYPI Token
         id: check_token
         run: |
-          if [[ -n "${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}" ]]; then
+          if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]; then
             echo "pypi_token_present=true" >> $GITHUB_OUTPUT
           else
             echo "pypi_token_present=false" >> $GITHUB_OUTPUT
@@ -63,6 +63,6 @@ jobs:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
+        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
