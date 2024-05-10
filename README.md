@@ -56,7 +56,28 @@ The files that are outside from the `openfisca_country_template` folder are used
 
 ## Packaging your Country Package for Distribution
 
-Country packages are python distributions. To distribute your package via `pip`, follow the steps given by the [Python Packaging Authority](https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/#packaging-your-project).
+Country packages are Python distributions. You can choose to distribute your package automatically via the predefined continuous deployment system on GitHub Actions, or manually.
+
+### Automatic continuous deployment on GitHub
+
+This repository is configured with a continuous deployment system to automate the distribution of your package via `pip`.
+
+#### Setting up continuous deployment
+
+To activate the continuous deployment:
+
+1. Create an account on [PyPI](https://pypi.org/) if you don't already have one.
+2. Generate a token in your PyPI account. This token will allow GitHub Actions to securely upload new versions of your package to PyPI.
+3. Add this token to your GitHub repository's secrets under the name `PYPI_TOKEN`.
+
+Once set up, changes to the `main` branch will trigger an automated workflow to build and publish your package to PyPI, making it available for `pip` installation.
+
+### Manual distribution
+
+If you prefer to manually manage the release and distribution of your package, follow the guidelines provided by the [Python Packaging Authority](https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/#packaging-your-project).
+
+This involves detailed steps on preparing your package, creating distribution files, and uploading them to PyPI.
+
 
 ## Install Instructions for Users and Contributors
 

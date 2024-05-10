@@ -23,12 +23,31 @@ jobs:
         with:
           python-version: 3.9.12
       - id: stop-early
-        run: if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then echo "::set-output name=status::success" ; fi
+        run: |
+          if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh"
+          then 
+            echo "status=success" >> $GITHUB_OUTPUT
+          fi
 
+  check-pypi-token: # Use intermediary job as secrets cannot be directly referenced in `if:` conditionals; see https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow
+    runs-on: ubuntu-22.04
+    outputs:
+      pypi_token_present: ${{ steps.check_token.outputs.pypi_token_present }}
+    steps:
+      - name: Check PyPI token is defined
+        id: check_token
+        run: |
+          if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]
+          then
+            echo "pypi_token_present=true" >> $GITHUB_OUTPUT
+          else
+            echo "pypi_token_present=false" >> $GITHUB_OUTPUT
+          fi
+      
   deploy:
     runs-on: ubuntu-22.04
-    needs: [ validate, check-for-functional-changes ]
-    if: needs.check-for-functional-changes.outputs.status == 'success'
+    needs: [ validate, check-for-functional-changes, check-pypi-token ]
+    if: needs.check-for-functional-changes.outputs.status == 'success' && needs.check-pypi-token.outputs.pypi_token_present == 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -46,6 +65,6 @@ jobs:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN_OPENFISCA_BOT }}
+        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
