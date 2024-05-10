@@ -1,11 +1,10 @@
 #! /usr/bin/env bash
 
-last_tagged_commit=`git describe --always --tags --abbrev=0 --first-parent`  # --first-parent ensures we don't follow tags not published in main through an unlikely intermediary merge commit
+last_tagged_commit=$(git describe --tags --abbrev=0 --first-parent 2>/dev/null) # Attempt to find the last tagged commit in the direct ancestry of the main branch avoiding tags introduced by merge commits from other branches
 
-if [ $? -ne 0 ]
+if [ -z "$last_tagged_commit" ]
 then
-    echo "Error: Failed to find the last tagged commit."
-    exit 1
+    last_tagged_commit=$(git rev-list --max-parents=0 HEAD) # Fallback to finding the root commit if no tags are present
 fi
 
 if ! changed_files=$(git diff-index --name-only --diff-filter=ACMR --exit-code $last_tagged_commit -- "tests/*.yaml")
