@@ -33,7 +33,7 @@ jobs:
     outputs:
       pypi_token_present: ${{ steps.check_token.outputs.pypi_token_present }}
     steps:
-      - name: Check PYPI Token
+      - name: Check PyPI token is defined
         id: check_token
         run: |
           if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]; then

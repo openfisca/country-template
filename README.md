@@ -56,7 +56,7 @@ The files that are outside from the `openfisca_country_template` folder are used
 
 ## Packaging your Country Package for Distribution
 
-Country packages are Python distributions. You can choose to distribute your package automatically via our continuous deployment system on GitHub, or manually.
+Country packages are Python distributions. You can choose to distribute your package automatically via the predefined continuous deployment system on GitHub Actions, or manually.
 
 ### Automatic continuous deployment on GitHub
 

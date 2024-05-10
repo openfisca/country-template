@@ -7,7 +7,7 @@
   - Skip `deploy` workflow when PyPI token is not defined in GitHub secrets
   - Ensure lint scripts work properly without reachable tags
   - Rename the GitHub secret `PYPI_TOKEN_OPENFISCA_BOT` used in `deploy` workflow to `PYPI_TOKEN`
-  - Update deprecated syntax in GitHub Action workflow
+  - Update deprecated syntax in GitHub Actions workflow
 
 ### 7.1.1 [#146](https://github.com/openfisca/country-template/pull/146)
 
