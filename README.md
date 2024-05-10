@@ -78,13 +78,6 @@ If you prefer to manually manage the release and distribution of your package, f
 
 This involves detailed steps on preparing your package, creating distribution files, and uploading them to PyPI.
 
-### Accessing your package
-
-Once deployed, your package can be easily installed by users with the following command:
-
-```sh
-pip install openfisca-<your_country_name>
-```
 
 ## Install Instructions for Users and Contributors
 
