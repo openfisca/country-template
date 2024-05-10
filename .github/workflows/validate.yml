@@ -33,10 +33,10 @@ jobs:
       - run: make check-style
 
       - name: Lint Python files
-        run: "${GITHUB_WORKSPACE}/.github/lint-changed-python-files.sh"
-
+        run: "${GITHUB_WORKSPACE}/.github/lint-files.sh '*.py' 'flake8'"
+        
       - name: Lint YAML tests
-        run: "${GITHUB_WORKSPACE}/.github/lint-changed-yaml-tests.sh"
+        run: "${GITHUB_WORKSPACE}/.github/lint-files.sh 'tests/*.yaml' 'yamllint'"
 
   test-yaml:
     runs-on: ubuntu-22.04
