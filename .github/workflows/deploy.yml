@@ -29,7 +29,7 @@ jobs:
             echo "status=success" >> $GITHUB_OUTPUT
           fi
 
-  check-pypi-token:
+  check-pypi-token: # Use intermediary job as secrets cannot be directly referenced in `if:` conditionals; see https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow
     runs-on: ubuntu-22.04
     outputs:
       pypi_token_present: ${{ steps.check_token.outputs.pypi_token_present }}
