@@ -24,7 +24,8 @@ jobs:
           python-version: 3.9.12
       - id: stop-early
         run: |
-          if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh" ; then 
+          if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh"
+          then 
             echo "status=success" >> $GITHUB_OUTPUT
           fi
 
@@ -36,7 +37,8 @@ jobs:
       - name: Check PyPI token is defined
         id: check_token
         run: |
-          if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]; then
+          if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]
+          then
             echo "pypi_token_present=true" >> $GITHUB_OUTPUT
           else
             echo "pypi_token_present=false" >> $GITHUB_OUTPUT
