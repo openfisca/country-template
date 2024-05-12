@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.1.3 [#148](https://github.com/openfisca/country-template/pull/148)
+
+* Technical improvement
+* Minor change
+* Details:
+  - Add licence to pyproject.toml, reorder to match official pyproject.toml example
+
 ### 7.1.2 [#147](https://github.com/openfisca/country-template/pull/147)
 
 * Technical improvement
