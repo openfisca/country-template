@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.1.3 [#149](https://github.com/openfisca/country-template/pull/149)
+
+* Technical improvement
+* Details:
+  - Add `run.py` to situation examples, enables simple executable situation example for documentation.
+
 ### 7.1.2 [#147](https://github.com/openfisca/country-template/pull/147)
 
 * Technical improvement

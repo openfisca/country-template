@@ -14,5 +14,6 @@ def parse(file_name):
         return json.loads(file.read())
 
 
-single = parse("single.json")
 couple = parse("couple.json")
+housing = parse("housing.json")
+single = parse("single.json")
