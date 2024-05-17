@@ -178,7 +178,6 @@ jobs:
       - name: Update meta.yaml
         run: |
           python3 -m pip install requests argparse
-          python3 .github/get_pypi_info.py -p OpenFisca-Country-Template
       - name: Conda Config
         run: |
           conda install conda-build anaconda-client
