@@ -16,7 +16,7 @@ classifiers = [
 ]
 requires-python = ">= 3.9"
 dependencies = [
-    "openfisca-core[web-api] >= 41.0.0, < 42.0.0"
+    "openfisca-core[web-api] >=41.0.0, <42.0.0"
 ]
 
 [project.urls]
@@ -28,12 +28,12 @@ Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.m
 
 [project.optional-dependencies]
 dev = [
-    "autopep8 >= 2.0.4",
-    "flake8 >= 7.0.0",
-    "isort >= 5.13.2",
-    "pylint >= 3.1.0",
-    "pyupgrade >= 3.15.1",
-    "yamllint >= 1.35.1"
+    "autopep8 >=2.0.4",
+    "flake8 >=7.0.0",
+    "isort >=5.13.2",
+    "pylint >=3.1.0",
+    "pyupgrade >=3.15.1",
+    "yamllint >=1.35.1"
 ]
 
 [tool.pytest.ini_options]
