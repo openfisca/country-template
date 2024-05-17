@@ -5,28 +5,29 @@
 ###############################################################################
 
 {% set name = "OpenFisca-Country-Template" %}
-{% set version = "PYPI_VERSION" %}
+{% set pyproject = load_file_data('pyproject.toml') %}
+{% set version = pyproject.get('project').get('version') %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: PYPI_URL
-  sha256: PYPI_SHA256
+  path: ..
 
 build:
   noarch: python
   number: 0
-  script: "python3 -m pip install . -vv"
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - python
     - pip
   run:
-    - python >=3.6,<4.0
-    - openfisca-core >=35.0.0,<36.0.0
+    {% for req in pyproject.get('project').get('dependencies') %}
+    - {{ req }}
+    {% endfor %}
 
 test:
   imports:
@@ -38,19 +39,6 @@ test:
 
 outputs:
   - name: openfisca-country-template
-
-  - name: openfisca-country-template-dev
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python
-      run:
-        - autopep8 >=1.5.4, <2.0.0
-        - flake8 >=3.8.0,<4.0.0
-        - pylint >=2.6.0, <3.0.0
-        - pycodestyle >=2.6.0, <3.0.0
-        - {{ pin_subpackage('openfisca-country-template', exact=True) }}
 
 about:
   home: https://fr.openfisca.org/

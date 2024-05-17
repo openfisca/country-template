@@ -33,3 +33,28 @@ To create the package you can do the following in the project root folder:
     - `conda build .conda`
     - `anaconda login`
     - `anaconda upload openfisca-country-template-<VERSION>-py_0.tar.bz2`
+
+
+## Test with Docker
+
+Docker could be used to test the build and the installation of the package.
+
+To test the build:
+
+```sh
+docker run --volume $PWD:/openfisca -i -t continuumio/anaconda3 /bin/bash
+cd /openfisca
+# Pour tester le meta.yaml
+conda-build conda-recipe -c openfisca -c conda-forge .conda
+# Pour lancer le build
+conda build -c openfisca -c conda-forge .conda
+```
+
+To test the installation of the package:
+
+```sh
+docker run --volume $PWD:/openfisca -i -t continuumio/anaconda3 /bin/bash
+cd /openfisca
+conda install -c openfisca -c conda-forge openfisca-country-template
+openfisca test --country-package openfisca-country-template tests
+```
