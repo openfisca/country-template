@@ -4,3 +4,6 @@ extends: relaxed
 
 rules:
   line-length: disable
+
+ignore:
+  - .conda/meta.yaml
