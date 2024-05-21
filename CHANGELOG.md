@@ -1,5 +1,11 @@
 # Changelog
 
+### 7.1.3 [#152](https://github.com/openfisca/country-template/pull/147)
+
+* Technical improvement. 
+* Details:
+  - Update classifiers in pyproject.toml to include all supported versions of python
+
 ### 7.1.2 [#147](https://github.com/openfisca/country-template/pull/147)
 
 * Technical improvement
