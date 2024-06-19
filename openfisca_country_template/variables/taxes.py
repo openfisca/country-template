@@ -64,10 +64,9 @@ class housing_tax(Variable):
         Housing tax.
 
         The housing tax is defined for a year, but depends on the `accommodation_size` and `housing_occupancy_status` on the first month of the year.
-        Here period is a year. We can get the first month of a year with the following shortcut.
         To build different periods, see https://openfisca.org/doc/coding-the-legislation/35_periods.html#calculate-dependencies-for-a-specific-period
         """
-        january = period.first_month
+        january = period.first_month  # since the definition_period is a year, we have to calculate the first month of the year of the calculation
         accommodation_size = household("accommodation_size", january)
 
         tax_params = parameters(period).taxes.housing_tax
