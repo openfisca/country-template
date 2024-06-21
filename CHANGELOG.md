@@ -1,8 +1,10 @@
 # Changelog
 
-## Unreleased [no-release]
+## Unreleased [patch]
 
-_Modifications made in this changeset do not add, remove or alter any behavior, dependency, API or functionality of the software. They only change non-functional parts of the repository, such as the README file or CI workflows._
+### Added
+
+- Automatically update changelog in CI
 
 ## 7.1.3 - 2024-05-21
 
