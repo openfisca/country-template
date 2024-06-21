@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased [patch]
+## 7.1.4 - 2024-06-21
 
 ### Added
 
