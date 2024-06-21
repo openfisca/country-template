@@ -8,27 +8,6 @@ jobs:
   validate:
     uses: "./.github/workflows/validate.yml"
 
-  # GitHub Actions does not have a halt job option to stop from deploying if no functional changes were found.
-  # We thus execute a separate deployment job depending on the output of this job.
-  check-for-functional-changes:
-    runs-on: ubuntu-22.04
-    outputs:
-      status: ${{ steps.stop-early.outputs.status }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all the tags
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.9.12
-      - id: stop-early
-        run: |
-          if "${GITHUB_WORKSPACE}/.github/has-functional-changes.sh"
-          then 
-            echo "status=success" >> $GITHUB_OUTPUT
-          fi
-
   check-pypi-token: # Use intermediary job as secrets cannot be directly referenced in `if:` conditionals; see https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow
     runs-on: ubuntu-22.04
     outputs:
@@ -46,25 +25,64 @@ jobs:
       
   deploy:
     runs-on: ubuntu-22.04
-    needs: [ validate, check-for-functional-changes, check-pypi-token ]
-    if: needs.check-for-functional-changes.outputs.status == 'success' && needs.check-pypi-token.outputs.pypi_token_present == 'true'
+    needs: [ validate, check-pypi-token ]
+    if: needs.validate.outputs.release-type != 'no-release' && needs.check-pypi-token.outputs.pypi_token_present == 'true'
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12
+
       - name: Restore build
         uses: actions/cache@v4
         with:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+
       - name: Restore built package
         uses: actions/cache@v4
         with:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
-      - name: Upload a Python package to PyPi
+
+      - name: Update changelog
+        id: release-changelog
+        uses: OpenTermsArchive/manage-changelog/release@v0.3.0
+
+      - name: Save changelog
+        run: |
+          git config user.name "OpenFisca Bot"
+          git config user.email "bot@openfisca.org"
+          git commit -m "Update changelog" CHANGELOG.md
+          git tag v${{ steps.release-changelog.outputs.version }}
+          git push origin
+          git push --tags
+
+      - name: Upload Python package to PyPi
         run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
-      - name: Publish a git tag
-        run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.release-changelog.outputs.version }}
+          body: ${{ steps.release-changelog.outputs.content }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  clean-changelog:
+    runs-on: ubuntu-22.04
+    needs: [ validate ]
+    if: needs.validate.outputs.release-type == 'no-release'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update changelog for release
+        uses: OpenTermsArchive/manage-changelog/release@v0.3.0
+
+      - name: Save changelog
+        run: |
+          git config user.name "OpenFisca Bot"
+          git config user.email "bot@openfisca.org"
+          git commit -m "Clean changelog" CHANGELOG.md
+          git push origin

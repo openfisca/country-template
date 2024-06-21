@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [ assigned, opened, reopened, synchronize, ready_for_review ]
   workflow_call:
+    outputs:
+      release-type:
+        description: The release type from changelog
+        value: ${{ jobs.check-version-and-changelog.outputs.release-type }}
 
 jobs:
   build:
@@ -79,12 +83,15 @@ jobs:
 
   check-version-and-changelog:
     runs-on: ubuntu-22.04
+    outputs:
+      release-type: ${{ steps.validate-changelog.outputs.release-type }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all the tags
 
       - name: Validate changelog
+        id: validate-changelog
         uses: OpenTermsArchive/manage-changelog/validate@v0.3.0
 
       - name: Check version number has been properly updated
