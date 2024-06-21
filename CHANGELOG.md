@@ -223,13 +223,13 @@ _Full changeset and discussions: [#99](https://github.com/openfisca/country-temp
 - Add a new variable called parenting_allowance to show how group entities and single entities can be used together
 - This variable calls the household_income variable
 
-## 3.12.1
+## 3.12.1 - 2021-02-03
 
-> Note: Version `3.12.1` wasn't unpublished by mistake. Please use version `3.12.2` or more recent.
+_Version `3.12.1` was published by mistake. Please use version `3.12.2` or more recent._
 
-## 3.12.0
+## 3.12.0 - 2021-02-03
 
-> Note: Version `3.12.0` wasn't unpublished by mistake. Please use version `3.12.2` or more recent.
+_Version `3.12.0` was published by mistake. Please use version `3.12.2` or more recent._
 
 ## 3.11.0 - 2020-12-14
 
