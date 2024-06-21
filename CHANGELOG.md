@@ -549,7 +549,6 @@ _Full changeset and discussions: [#34](https://github.com/openfisca/country-temp
 
 ## 2.1.0 - 2018-02-06
 
-
 _Full changeset and discussions: [#29](https://github.com/openfisca/country-template/pull/29) [#30](https://github.com/openfisca/country-template/pull/30)._
 
 ### Added
@@ -559,80 +558,13 @@ _Full changeset and discussions: [#29](https://github.com/openfisca/country-temp
 
 ## 2.0.1 - 2018-01-11
 
-_Full changeset and discussions: [#24](https://github.com/openfisca/country-template/pull/24) [#27](https://github.com/openfisca/country-template/pull/27)._
+_Full changeset and discussions: [#24](https://github.com/openfisca/country-template/pull/24) and [#27](https://github.com/openfisca/country-template/pull/27)._
 
 ### Changed
 
-- Upgrade to Core v21
-- Introduce the use of a string identifier to reference Enum items
-- When setting an Enum (e.g. housing_occupancy_status), set the relevant string identifier (e.g. `free_lodger`). Indexes (e.g.`2`) and phrases (e.g. `Free Lodgers`) cannot be used anymore
-- The default value is indicated for each Enum variable instead of being implicitly the first item of the enum
-
-#### Web API request/response
-
-Before:
-
-```
-"persons": {
-    "Bill": {}
-},
-"households": {
-    "_": {
-        "parent": ["Bill"]
-        "housing_occupancy_status": "Free Lodger"
-    }
-}
-```
-
-Now:
-
-```
-"persons": {
-    "Bill": {}
-},
-"households": {
-    "_": {
-        "parent": ["Bill"]
-        "housing_occupancy_status": "free_lodger"
-    }
-}
-```
-
-#### YAML testing
-
-Before:
-
-```
-name: Household living in a 40 sq. metres accommodation while being free lodgers
-  period: 2017
-  input_variables:
-    accommodation_size:
-      2017-01: 40
-    housing_occupancy_status:
-      2017-01: 2
-  output_variables:
-    housing_tax: 0
-```
-
-Now:
-
-```
-name: Household living in a 40 sq. metres accommodation while being free lodgers
-  period: 2017
-  input_variables:
-    accommodation_size:
-      2017-01: 40
-    housing_occupancy_status:
-      2017-01: free_lodger
-  output_variables:
-    housing_tax: 0
-```
-
-#### Python API
-
-When calculating an enum variable in Python, the output will be an [EnumArray](https://openfisca.org/doc/openfisca-python-api/enum_array.html).
-
-See more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisca-core/blob/enums-perfs/CHANGELOG.md#2102-589-600-605).
+- **Breaking:**: upgrade to Core v21; see more on the OpenFisca-Core [changelog](https://github.com/openfisca/openfisca-core/blob/enums-perfs/CHANGELOG.md#2102-589-600-605
+- **Breaking:**: introduce the use of a string identifier instead of indexes and phrases to reference Enum items; when setting an Enum (e.g. `housing_occupancy_status`), set the relevant string identifier (e.g. `free_lodger`)
+- **Breaking:** the default value must be indicated for each Enum variable instead of being implicitly the first item
 
 ## 1.4.0 - 2017-11-06
 
