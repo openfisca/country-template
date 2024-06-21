@@ -66,7 +66,7 @@ jobs:
         run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
 
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.release-changelog.outputs.version }}
           body: ${{ steps.release-changelog.outputs.content }}
