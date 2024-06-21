@@ -87,8 +87,6 @@ jobs:
       release-type: ${{ steps.validate-changelog.outputs.release-type }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all the tags
 
       - name: Validate changelog
         id: validate-changelog
