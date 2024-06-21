@@ -92,7 +92,8 @@ jobs:
 
       - name: Validate changelog
         id: validate-changelog
-        uses: OpenTermsArchive/manage-changelog/validate@v0.3.0
+        uses: OpenTermsArchive/manage-changelog/validate@v0.4.0
 
       - name: Check version number has been properly updated
-        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
+        run: |
+          grep "^version = \"${{ steps.validate-changelog.outputs.next-version }}\""
