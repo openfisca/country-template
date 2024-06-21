@@ -94,6 +94,5 @@ jobs:
         id: validate-changelog
         uses: OpenTermsArchive/manage-changelog/validate@v0.4.0
 
-      - name: Check version number has been properly updated
-        run: |
-          grep "^version = \"${{ steps.validate-changelog.outputs.next-version }}\""
+      - name: Check version number in pyproject.toml matches next version according to changelog
+        run: grep "^version = \"${{ steps.validate-changelog.outputs.next-version }}\""
