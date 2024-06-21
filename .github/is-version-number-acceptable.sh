@@ -1,11 +1,5 @@
 #! /usr/bin/env bash
 
-if [[ ${GITHUB_REF#refs/heads/} == main ]]
-then
-    echo "No need for a version check on main."
-    exit 0
-fi
-
 if ! $(dirname "$BASH_SOURCE")/has-functional-changes.sh
 then
     echo "No need for a version update."
