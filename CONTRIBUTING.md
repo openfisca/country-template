@@ -65,7 +65,7 @@ All changes to the codebase that impact users must be documented in the [`CHANGE
 
 #### Changes that do not impact users
 
-Some changes are not functional and do not impact users, such as changes in tooling, README or CI workflows. Such changes do not need to trigger a release, and the git history is sufficient to provide information to contributors. Such changesets must be clearly indicated by adding the following content in its entirety to the changelog:
+Some changes are [not functional](https://common-changelog.org/#32-remove-noise) and do not impact users, such as changes in tooling, README or CI workflows. Such changes do not need to trigger a release, and the git history is sufficient to provide information to contributors. Such changesets must be clearly indicated by adding the following content in its entirety to the changelog:
 
 ```plaintext
 ## Unreleased [no-release]
