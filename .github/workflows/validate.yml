@@ -84,5 +84,8 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all the tags
 
+      - name: Validate changelog
+        uses: OpenTermsArchive/manage-changelog/validate@v0.3.0
+
       - name: Check version number has been properly updated
         run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
