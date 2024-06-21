@@ -89,20 +89,16 @@ _Full changeset and discussions: [#129](https://github.com/openfisca/country-tem
 
 ### Changed
 
+- **Breaking:** drop support for Python versions < 3.9
 - Upgrade every dependency & use their latest versions to support Python 3.9 and 3.10
-- Drop support for Python versions < 3.9
 
 ## 5.0.0 - 2022-12-12
 
 _Full changeset and discussions: [#128](https://github.com/openfisca/country-template/pull/128)._
 
-### Added
-
-- Upgrade Web API specification to OpenAPI v3
-
 ### Changed
 
-- Drop support for OpenAPI specification v2 and prior. Users relying on OpenAPI v2 can use Swagger Converter to migrate
+- **Breaking:** upgrade Web API specification to OpenAPI v3; users relying on OpenAPI v2 can use Swagger Converter to migrate
 
 ## 4.0.0 - 2022-12-07
 
@@ -110,14 +106,13 @@ _Full changeset and discussions: [#127](https://github.com/openfisca/country-tem
 
 ### Changed
 
-- Expire deprecated class `Bracket`
-- Functionality is now provided by `ParameterScaleBracket`
+- **Breaking:** remove class `Bracket`; functionality is now provided by `ParameterScaleBracket`
 
 ## 3.13.3 - 2022-12-07
 
 _Full changeset and discussions: [#122](https://github.com/openfisca/country-template/pull/122)._
 
-### Changed
+### Fixed
 
 - Add pull request as GitHub Actions workflow trigger
 
@@ -125,7 +120,7 @@ _Full changeset and discussions: [#122](https://github.com/openfisca/country-tem
 
 _Full changeset and discussions: [#123](https://github.com/openfisca/country-template/pull/123)._
 
-### Changed
+### Fixed
 
 - Add tar.gz to PyPi to be used by conda to build conda package
 
@@ -158,7 +153,7 @@ _Full changeset and discussions: [#119](https://github.com/openfisca/country-tem
 
 _Full changeset and discussions: [#113](https://github.com/openfisca/country-template/pull/113)._
 
-### Changed
+### Added
 
 - Add a Web API smoke test to the CI
 
@@ -200,11 +195,9 @@ _Full changeset and discussions: [#107](https://github.com/openfisca/country-tem
 
 _Full changeset and discussions: [#103](https://github.com/openfisca/country-template/pull/103)._
 
-### Changed
+### Fixed
 
-- Fix CHANGELOG versions
-- `3.13.0` was supposed to be `3.12.3`
-- `3.12.0` and `3.12.1` are unpublished
+- Correct changelog history: `3.13.0` was supposed to be `3.12.3`, `3.12.0` and `3.12.1` are unpublished
 
 ## 3.12.3 - 2021-03-07
 
@@ -218,10 +211,9 @@ _Full changeset and discussions: [#97](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#99](https://github.com/openfisca/country-template/pull/99)._
 
-### Changed
+### Added
 
-- Add a new variable called parenting_allowance to show how group entities and single entities can be used together
-- This variable calls the household_income variable
+- Add a new variable called `parenting_allowance` to show how group entities and single entities can be used together
 
 ## 3.12.1 - 2021-02-03
 
@@ -235,7 +227,7 @@ _Version `3.12.0` was published by mistake. Please use version `3.12.2` or more 
 
 _Full changeset and discussions: [#90](https://github.com/openfisca/country-template/pull/90)._
 
-### Changed
+### Added
 
 - Declare package compatible with OpenFisca-Core v35 that updates `numpy` dependency
 
@@ -246,15 +238,14 @@ _Full changeset and discussions: [#98](https://github.com/openfisca/country-temp
 ### Added
 
 - Add a new reform example creating a variable
-- The example is a new tax that adds a fixed 100.0 of the country's currency to the actual income tax
 
 ## 3.9.13 - 2020-10-17
 
 _Full changeset and discussions: [#96](https://github.com/openfisca/country-template/pull/96)._
 
-### Changed
+### Removed
 
-- Remove wildcard imports as they're considered an anti-pattern
+- Remove wildcard imports as they are considered an anti-pattern
 
 ## 3.9.12 - 2020-10-17
 
@@ -268,7 +259,7 @@ _Full changeset and discussions: [#93](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#94](https://github.com/openfisca/country-template/pull/94)._
 
-### Changed
+### Fixed
 
 - Fix `make test` warning by updating OpenFisca test command
 
@@ -276,7 +267,7 @@ _Full changeset and discussions: [#94](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#86](https://github.com/openfisca/country-template/pull/86)._
 
-### Changed
+### Fixed
 
 - Fix installation and building operations by fixing the bootstrap script
 
@@ -284,7 +275,7 @@ _Full changeset and discussions: [#86](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#85](https://github.com/openfisca/country-template/pull/85)._
 
-### Changed
+### Added
 
 - Add `make serve-local` command to Makefile
 
@@ -292,9 +283,9 @@ _Full changeset and discussions: [#85](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#83](https://github.com/openfisca/country-template/pull/83)._
 
-### Changed
+### Added
 
-- Add additional example JSON file; add to README
+- Add additional example JSON file
 
 ## 3.9.7 - 2020-01-27
 
@@ -308,7 +299,7 @@ _Full changeset and discussions: [#80](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#78](https://github.com/openfisca/country-template/pull/78)._
 
-### Changed
+### Added
 
 - Declare package compatible with Core v34
 
@@ -316,7 +307,7 @@ _Full changeset and discussions: [#78](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#76](https://github.com/openfisca/country-template/pull/76)._
 
-### Changed
+### Added
 
 - Declare package compatible with Core v32
 
@@ -356,7 +347,7 @@ _Full changeset and discussions: [#74](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#72](https://github.com/openfisca/country-template/pull/72)._
 
-### Changed
+### Added
 
 - Declare package compatible with Core v31
 
@@ -364,7 +355,7 @@ _Full changeset and discussions: [#72](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#69](https://github.com/openfisca/country-template/pull/69)._
 
-### Changed
+### Added
 
 - Declare package compatible with Core v27
 
@@ -398,18 +389,17 @@ _Full changeset and discussions: [#65](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#64](https://github.com/openfisca/country-template/pull/64)._
 
-### Changed
+### Added
 
 - Document housing tax
 
 ## 3.5.2 - 2018-10-30
 
-_Full changeset and discussions: [#59](https://github.com/openfisca/country-template/pull/59) [#62](https://github.com/openfisca/country-template/pull/62) [#63](https://github.com/openfisca/country-template/pull/63)._
+_Full changeset and discussions: [#59](https://github.com/openfisca/country-template/pull/59), [#62](https://github.com/openfisca/country-template/pull/62) and [#63](https://github.com/openfisca/country-template/pull/63)._
 
 ### Changed
 
-- Tests library against its packaged version
-- By doing so, we prevent some hideous bugs
+- Test library against the packaged version instead of the source
 
 ## 3.5.1 - 2018-10-29
 
@@ -439,10 +429,10 @@ _Full changeset and discussions: [#58](https://github.com/openfisca/country-temp
 
 ## 3.3.1 - 2018-10-02
 
-### Changed
+### Added
 
-- Add `documentation` to parameters: `benefits` node and `benefits/housing_allowance`
-- Add documentation to `housing_allowance` variable and formula
+- Add documentation to `benefits` parameters
+- Add documentation to `housing_allowance`
 
 ## 3.3.0 - 2018-08-15
 
@@ -468,16 +458,13 @@ _Full changeset and discussions: [#49](https://github.com/openfisca/country-temp
 ### Added
 
 - Implement housing tax minimal amount
-
-### Changed
-
 - Add metadata to parameters
 
 ## 3.2.1 - 2018-06-09
 
 _Full changeset and discussions: [#47](https://github.com/openfisca/country-template/pull/47)._
 
-### Changed
+### Added
 
 - Make boostrap script portable
 
@@ -485,7 +472,7 @@ _Full changeset and discussions: [#47](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#43](https://github.com/openfisca/country-template/pull/43)._
 
-### Changed
+### Fixed
 
 - Improve reliability and accuracy of `age` formula
 - Improve variables comments
@@ -518,7 +505,7 @@ _Full changeset and discussions: [#44](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#41](https://github.com/openfisca/country-template/pull/41)._
 
-### Changed
+### Added
 
 - Make package compatible with Python 3
 
@@ -542,9 +529,9 @@ _Full changeset and discussions: [#39](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#34](https://github.com/openfisca/country-template/pull/34)._
 
-### Changed
+### Fixed
 
-- Fix spelling by renaming `accomodation_size` variable to `accommodation_size`
+- **Breaking:** Fix spelling by renaming `accomodation_size` variable to `accommodation_size`
 - Improve spelling
 
 ## 2.1.0 - 2018-02-06
@@ -604,7 +591,7 @@ _Full changeset and discussions: [#22](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#21](https://github.com/openfisca/country-template/pull/21)._
 
-### Changed
+### Fixed
 
 - Use the technical documentation new address
 
@@ -612,7 +599,7 @@ _Full changeset and discussions: [#21](https://github.com/openfisca/country-temp
 
 _Full changeset and discussions: [#20](https://github.com/openfisca/country-template/pull/20)._
 
-### Changed
+### Added
 
 - Document entities
 
@@ -667,8 +654,8 @@ _Full changeset and discussions: [#10](https://github.com/openfisca/country-temp
 ### Changed
 
 - Upgrade OpenFisca-Core
-  - Update the way we define formulas start dates and variables stop dates
-  - Update the naming conventions for variable formulas
+- Update the way we define formulas start dates and variables stop dates
+- Update the naming conventions for variable formulas
 
 ## 1.1.0 - 2017-05-31
 
@@ -677,8 +664,8 @@ _Full changeset and discussions: [#7](https://github.com/openfisca/country-templ
 ### Added
 
 - Add a reform modifying the brackets of a scale
-  - Show how to add, modify and remove a bracket
-  - Add corresponding tests
+- Show how to add, modify and remove a bracket
+- Add corresponding tests
 
 ## 1.0.0 - 2017-05-17
 
