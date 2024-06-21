@@ -755,11 +755,3 @@ _Full changeset and discussions: [#4](https://github.com/openfisca/country-templ
 ### Added
 
 - Build the skeleton of the tax and benefit system
-
-## 0.0.1
-
-_Full changeset and discussions: [#0](https://github.com/openfisca/country-template/pull/0)._
-
-### Added
-
-- Import model from template

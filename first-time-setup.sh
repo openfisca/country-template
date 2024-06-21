@@ -57,7 +57,6 @@ parent_folder=${PWD##*/}
 package_name="openfisca_$SNAKE_CASE_JURISDICTION"
 
 last_bootstrapping_line_number=$(grep --line-number '^## Writing the Legislation' README.md | cut -d ':' -f 1)
-last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut -d ':' -f 1)
 
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
@@ -91,7 +90,14 @@ echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}README.MD\033[0m${PURPLE} an
 sed -i.template "s|https://example.com/repository|$REPOSITORY_URL|g" README.md CONTRIBUTING.md
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}CHANGELOG.md\033[0m"
-sed -i.template -e "1,${last_changelog_number}d" CHANGELOG.md  # remove country-template CHANGELOG leaving example
+echo "# Changelog
+
+## 0.0.1 - $(date +%Y-%m-%d)
+
+### Added
+
+- Import model from template
+" > CHANGELOG.md
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}pyproject.toml\033[0m"
 sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL|g" pyproject.toml
