@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ test-ci ]
 
 jobs:
   validate:
@@ -16,7 +16,7 @@ jobs:
       - name: Check PyPI token is defined
         id: check_token
         run: |
-          if [[ -n "${{ secrets.PYPI_TOKEN }}" ]]
+          if [[ -n "${{ secrets.TEST_PYPI_TOKEN }}" ]]
           then
             echo "pypi_token_present=true" >> $GITHUB_OUTPUT
           else
@@ -63,7 +63,7 @@ jobs:
           git push --tags
 
       - name: Upload Python package to PyPi
-        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+        run: twine upload --repository testpypi dist/* --username __token__ --password ${{ secrets.TEST_PYPI_TOKEN }}
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
