@@ -84,10 +84,5 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all the tags
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.9.12
-
       - name: Check version number has been properly updated
         run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
