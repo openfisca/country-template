@@ -2,7 +2,7 @@
 name = "openfisca-country_template"
 version = "7.1.4"
 dependencies = [
-    "openfisca-core[web-api] >=41.4.5, <42.0.0"
+    "openfisca-core[web-api] @ https://github.com/openfisca/openfisca-core/archive/fix-mypy-checks-periods.zip"
 ]
 requires-python = ">=3.9"
 authors = []
@@ -80,8 +80,8 @@ known_openfisca = [
     "openfisca_country_template"
 ]
 known_typing = [
-    "mypy*", 
-    "*types*", 
+    "mypy*",
+    "*types*",
     "*typing*"
 ]
 sections = [
