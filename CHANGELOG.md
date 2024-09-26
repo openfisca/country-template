@@ -1,6 +1,13 @@
 # Changelog
 
-### 7.1.3 [#152](https://github.com/openfisca/country-template/pull/147)
+### 7.1.4 [#153](https://github.com/openfisca/country-template/pull/153)
+
+* Technical improvement. 
+* Details:
+  - Update README.md references to latest supported python (3.11)
+  - Reorder pyproject.toml content to match official example
+
+### 7.1.3 [#152](https://github.com/openfisca/country-template/pull/152)
 
 * Technical improvement. 
 * Details:

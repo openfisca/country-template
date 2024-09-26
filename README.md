@@ -81,7 +81,7 @@ This involves detailed steps on preparing your package, creating distribution fi
 
 ## Install Instructions for Users and Contributors
 
-This package requires [Python 3.9](https://www.python.org/downloads/release/python-390/). More recent versions should work, but are not tested.
+This package requires [Python 3.11](https://www.python.org/downloads/release/python-390/). More recent versions should work, but are not tested.
 
 All platforms that can execute Python are supported, which includes GNU/Linux, macOS and Microsoft Windows.
 
@@ -121,7 +121,7 @@ For more advanced uses, head to the [Advanced Installation](#advanced-installati
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 3.9.xx".
+python --version  # should print "Python 3.11.xx".
 ```
 
 ```sh
@@ -163,7 +163,7 @@ Set your working directory to the location where you want this OpenFisca Country
 Inside your venv, check the prerequisites:
 
 ```sh
-python --version  # should print "Python 3.9.xx".
+python --version  # should print "Python 3.11.xx".
 ```
 
 Clone this Country Package on your machine:
