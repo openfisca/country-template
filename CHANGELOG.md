@@ -1,5 +1,10 @@
 # Changelog
 
+### 7.1.5 [#154](https://github.com/openfisca/country-template/pull/154)
+
+* Minor change.
+  - Update OpenFisca-Core to 42.0.0
+
 ### 7.1.4 [#153](https://github.com/openfisca/country-template/pull/153)
 
 * Technical improvement. 
@@ -7,7 +12,7 @@
   - Update README.md references to latest supported python (3.11)
   - Reorder pyproject.toml content to match official example
 
-### 7.1.3 [#152](https://github.com/openfisca/country-template/pull/152)
+### 7.1.3 [#152](https://github.com/openfisca/country-template/pull/147)
 
 * Technical improvement. 
 * Details:
