@@ -1,6 +1,6 @@
 [project]
 name = "openfisca-country_template"
-version = "7.1.5"
+version = "7.1.6"
 dependencies = [
     "openfisca-core[web-api] >= 43",
 ]
