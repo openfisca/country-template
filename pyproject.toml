@@ -2,7 +2,7 @@
 name = "openfisca-country_template"
 version = "7.1.5"
 dependencies = [
-    "openfisca-core[web-api] >= 42.0.0, <43.0.0",
+    "openfisca-core[web-api] >= 43",
 ]
 requires-python = ">=3.9"
 authors = []
@@ -23,11 +23,10 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = [
-    "autopep8 >=2.0.4",
-    "flake8 >=7.0.0",
-    "isort >=5.13.2",
-    "pylint >=3.1.0",
-    "pyupgrade >=3.15.1",
+    "black >=24.8.0, <25.0",
+    "isort >=5.13.2, <6.0",
+    "ruff >=0.6.9, <1.0",
+    "ruff-lsp >=0.0.57, <1.0",
     "yamllint >=1.35.1"
 ]
 
@@ -39,57 +38,65 @@ Issues = "https://github.com/openfisca/country-template/issues"
 Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
 
 
-[tool.pytest.ini_options]
-addopts = "--showlocals --doctest-modules"
-testpaths = [ "openfisca_country_template/tests" ]
-python_files = "**/*.py"
-filterwarnings = [
-    "error",
-    "ignore::UserWarning",
-    'ignore:function ham\(\) is deprecated:DeprecationWarning'
-]
-
-[tool.pylint.messages_control]
-disable = [
-    "invalid-name",
-    "missing-class-docstring",
-    "missing-function-docstring",
-    "line-too-long",
-    "no-self-argument",
-    "invalid-enum-extension",
-    "no-member",
-    "not-callable",
-    "duplicate-code",
-    "too-many-locals",
-    "fixme",
-    "unused-argument",
-    "redefined-outer-name"
-]
-score = "no"
+[tool.black]
+target_version = ["py39", "py310", "py311"]
 
 [tool.isort]
-case_sensitive = "true"
-force_alphabetical_sort_within_sections = "false"
-group_by_package = "true"
-include_trailing_comma = "true"
-multi_line_output = "8"
-py_version = "39"
-known_first_party = "openfisca_country_template"
-known_openfisca = [
-    "openfisca_core",
-    "openfisca_country_template"
-]
-known_typing = [
-    "mypy*",
-    "*types*",
-    "*typing*"
-]
+case_sensitive = true
+combine_as_imports = true
+force_alphabetical_sort_within_sections = false
+group_by_package = true
+honor_noqa = true
+include_trailing_comma = true
+known_first_party = ["openfisca_country_template"]
+known_openfisca = ["openfisca_core", "openfisca_extension_template"]
+known_typing = ["*collections.abc*", "*typing*", "*typing_extensions*"]
+known_types = ["*types*"]
+multi_line_output = 3
+profile = "black"
+py_version = 39
 sections = [
     "FUTURE",
     "TYPING",
+    "TYPES",
     "STDLIB",
     "THIRDPARTY",
     "OPENFISCA",
     "FIRSTPARTY",
-    "LOCALFOLDER"
+    "LOCALFOLDER",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--exitfirst --showlocals --doctest-modules"
+testpaths = [ "openfisca_country_template/tests" ]
+python_files = "**/*.py"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+target-version = "py39"
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 72
+
+[tool.ruff.lint]
+ignore = [
+    "ANN",
+    "COM812",
+    "D101",
+    "D104",
+    "I001",
+    "ISC001",
+    "N801",
+    "N805",
+    "N806",
+    "PLR2004",
+    "PTH100",
+    "PTH118",
+    "PTH120",
+    "PTH123",
+]
+select = ["ALL"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
