@@ -41,6 +41,11 @@ check-style:
 	isort --check `git ls-files | grep "\.py$$"`
 	black --check `git ls-files | grep "\.py$$"`
 
+check-yaml:
+	@# Do not analyse .gitignored files.
+	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
+	yamllint `git ls-files | grep "\.yaml$$"`
+
 test: clean check-syntax-errors check-style
 	openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 

@@ -34,7 +34,7 @@ jobs:
         run: make check-style
 
       - name: Lint YAML tests
-        run: "${GITHUB_WORKSPACE}/.github/lint-files.sh 'tests/*.yaml' 'yamllint'"
+        run: make check-yaml
 
   test-yaml:
     runs-on: ubuntu-22.04
