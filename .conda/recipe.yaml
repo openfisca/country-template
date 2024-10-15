@@ -1,0 +1,41 @@
+schema_version: 1
+
+context:
+  name: openfisca-country-template
+  version: 8.0.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: pip install . -v
+
+requirements:
+  host:
+  - numpy
+  - pip
+  - python
+  - setuptools >=61.0
+  run:
+  - numpy
+  - python
+  - openfisca-core-api >=43
+
+tests:
+- python:
+    imports:
+    - openfisca_country_template
+
+about:
+  summary: OpenFisca Rules as Code model for Country-Template.
+  license: AGPL-3.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+  - bonjourmauko

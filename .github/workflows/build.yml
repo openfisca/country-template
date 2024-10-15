@@ -4,17 +4,17 @@ on:
   workflow_call:
 
 jobs:
-  build-and-cache:
+  python-build-and-cache:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12 # Patch version must be specified to avoid any cache confusion, since the cache key depends on the full Python version. Any difference in patches between jobs will lead to a cache not found error.
-      
+
       - name: Cache build
         uses: actions/cache@v4
         with:
@@ -23,12 +23,35 @@ jobs:
           restore-keys: |
             build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}
             build-${{ env.pythonLocation }}-
-      
+
       - name: Build package
         run: make build
-      
+
       - name: Cache release
         uses: actions/cache@v4
         with:
           path: dist
           key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+
+  conda-build-and-cache:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache build
+        uses: actions/cache@v4
+        with:
+          path: /tmp/conda-bld
+          key: build-conda-${{ hashFiles('.conda/recipe.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            build-conda-${{ hashFiles('.conda/recipe.yaml') }}
+            build-conda-
+
+
+      - name: Build conda package
+        uses: prefix-dev/rattler-build-action@v0.2.16
+        with:
+          build-args: --channel openfisca --channel conda-forge --output-dir /tmp/conda-bld
+          recipe-path: .conda/recipe.yaml
+          upload-artifact: true
