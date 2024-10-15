@@ -39,19 +39,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cache build
-        uses: actions/cache@v4
-        with:
-          path: /tmp/conda-bld
-          key: build-conda-${{ hashFiles('.conda/recipe.yaml') }}-${{ github.sha }}
-          restore-keys: |
-            build-conda-${{ hashFiles('.conda/recipe.yaml') }}
-            build-conda-
-
-
       - name: Build conda package
         uses: prefix-dev/rattler-build-action@v0.2.16
         with:
           build-args: --channel openfisca --channel conda-forge --output-dir /tmp/conda-bld
           recipe-path: .conda/recipe.yaml
-          upload-artifact: true
+          upload-artifact: false
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: openfisca_country_template
+          path: /tmp/conda-bld/**/*.conda
