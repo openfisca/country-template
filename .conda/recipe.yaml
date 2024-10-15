@@ -14,6 +14,11 @@ source:
 build:
   noarch: python
   script: pip install . -v
+  files:
+    include:
+      - "**/*.py"
+      - "**/*.json"
+      - "**/*.yaml"
 
 requirements:
   host:

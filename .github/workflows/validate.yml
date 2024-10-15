@@ -55,6 +55,34 @@ jobs:
 
       - run: make test
 
+  test-conda:
+    runs-on: ubuntu-22.04
+    needs: [ build ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: openfisca
+          miniforge-version: latest
+          python-version: 3.9.12
+          use-mamba: true
+
+      - name: Restore build
+        uses: actions/cache@v4
+        with:
+          path: /tmp/conda-bld
+          key: build-conda-${{ hashFiles('.conda/recipe.yaml') }}-${{ github.sha }}
+
+      - name: Install package
+        shell: bash -l {0}
+        run: mamba install --channel file:///tmp/conda-bld --channel openfisca openfisca-country-template
+
+      - name: Test conda package
+        shell: bash -l {0}
+        run: openfisca test openfisca-country-template/tests
+
   test-api:
     runs-on: ubuntu-22.04
     needs: [ build ]
