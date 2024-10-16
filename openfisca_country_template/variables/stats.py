@@ -1,12 +1,11 @@
-"""
-This file defines variables for the modelled legislation.
+"""This file defines variables for the modelled legislation.
 
 A variable is a property of an Entity such as a Person, a Household…
 
 See https://openfisca.org/doc/key-concepts/variables.html
 """
 
-# Import from openfisca-core the Python objects used to code the legislation in OpenFisca
+# Import from openfisca-core the objects used to code the legislation in OpenFisca
 from openfisca_core.periods import MONTH
 from openfisca_core.variables import Variable
 
@@ -23,12 +22,15 @@ class total_benefits(Variable):
 
     def formula(household, period, _parameters):
         """Total benefits."""
-        basic_income_i = household.members("basic_income", period)  # Calculates the value of basic_income for each member of the household
+        basic_income_i = household.members(
+            "basic_income", period
+        )  # Calculates the value of basic_income for each member of the household
 
-        return (
-            + household.sum(basic_income_i)  # Sum the household members basic incomes
-            + household("housing_allowance", period)
-            )
+        return +household.sum(
+            basic_income_i
+        ) + household(  # Sum the household members basic incomes
+            "housing_allowance", period
+        )
 
 
 class total_taxes(Variable):
@@ -41,10 +43,12 @@ class total_taxes(Variable):
     def formula(household, period, _parameters):
         """Total taxes."""
         income_tax_i = household.members("income_tax", period)
-        social_security_contribution_i = household.members("social_security_contribution", period)
+        social_security_contribution_i = household.members(
+            "social_security_contribution", period
+        )
 
         return (
-            + household.sum(income_tax_i)
+            +household.sum(income_tax_i)
             + household.sum(social_security_contribution_i)
             + household("housing_tax", period.this_year) / 12
-            )
+        )

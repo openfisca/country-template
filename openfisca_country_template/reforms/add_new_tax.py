@@ -1,12 +1,12 @@
-"""
-This file defines a reform.
+"""This file defines a reform.
 
-A reform is a set of modifications to be applied to a reference tax and benefit system to carry out experiments.
+A reform is a set of modifications to be applied to a reference tax and benefit
+system to carry out experiments.
 
 See https://openfisca.org/doc/key-concepts/reforms.html
 """
 
-# Import from openfisca-core the Python objects used to code the legislation in OpenFisca
+# Import from openfisca-core the objects used to code the legislation in OpenFisca
 from openfisca_core.periods import MONTH
 from openfisca_core.reforms import Reform
 from openfisca_core.variables import Variable
@@ -32,8 +32,7 @@ class new_tax(Variable):
     reference = "https://law.gov.example/new_tax"  # Always use the most official source
 
     def formula(person, period, _parameters):
-        """
-        New tax reform.
+        """New tax reform.
 
         Our reform adds a new variable `new_tax` that is calculated based on
         the current `income_tax`, if the person has a car.
@@ -46,8 +45,7 @@ class new_tax(Variable):
 
 class add_new_tax(Reform):
     def apply(self):
-        """
-        Apply reform.
+        """Apply reform.
 
         A reform always defines an `apply` method that builds the reformed tax
         and benefit system from the reference one.

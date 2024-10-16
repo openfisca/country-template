@@ -1,12 +1,11 @@
-"""
-This file defines variables for the modelled legislation.
+"""This file defines variables for the modelled legislation.
 
 A variable is a property of an Entity such as a Person, a Household…
 
 See https://openfisca.org/doc/key-concepts/variables.html
 """
 
-# Import from openfisca-core the Python objects used to code the legislation in OpenFisca
+# Import from openfisca-core the objects used to code the legislation in OpenFisca
 from openfisca_core.indexed_enums import Enum
 from openfisca_core.periods import MONTH
 from openfisca_core.variables import Variable
@@ -31,8 +30,9 @@ class rent(Variable):
     label = "Rent paid by the household"
 
 
-# Possible values for the housing_occupancy_status variable, defined further down
-# See more at <https://openfisca.org/doc/coding-the-legislation/20_input_variables.html#advanced-example-enumerations-enum>
+# Possible values for the housing_occupancy_status variable, defined further
+# down. See more at
+# <https://openfisca.org/doc/coding-the-legislation/20_input_variables.html#advanced-example-enumerations-enum>
 class HousingOccupancyStatus(Enum):
     __order__ = "owner tenant free_lodger homeless"
     owner = "Owner"

@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.1.6 [#156](https://github.com/openfisca/country-template/pull/156)
+
+* Minor change.
+* Impacted areas: `**/*`
+* Details:
+  - Normalize `pyproject.toml`
+  - Update OpenFisca-Core to 43.0.0
+
 ### 7.1.5 [#154](https://github.com/openfisca/country-template/pull/154)
 
 * Minor change.
