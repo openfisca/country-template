@@ -14,29 +14,36 @@ jobs:
     needs: [ build ]
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all the tags
+
+      - name: Install Tox
+        run: pipx install tox
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12
 
-      - name: Restore build
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.pythonLocation }}
-          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
-
-      - run: make check-syntax-errors
-
-      - name: Lint Python files
-        run: make check-style
-
-      - name: Lint YAML tests
-        run: make check-yaml
+      - name: Lint files
+        run: tox -r -e lint
 
   test-yaml:
+    runs-on: ubuntu-22.04
+    needs: [ build ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Tox
+        run: pipx install tox
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9.12
+
+      - name: Test files
+        run: tox -r -e py39
+
+  test-dist:
     runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
@@ -53,7 +60,8 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
 
-      - run: make test
+      - name: Test the built package
+        run: twine check dist/*
 
   test-api:
     runs-on: ubuntu-22.04
