@@ -54,14 +54,16 @@ jobs:
         with:
           python-version: 3.9.12
 
-      - name: Restore build
+      - name: Restore built package
         uses: actions/cache@v4
         with:
-          path: ${{ env.pythonLocation }}
-          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+          path: dist
+          key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
 
       - name: Test the built package
-        run: twine check dist/*
+        run: |
+          pip install twine
+          twine check dist/*
 
   test-api:
     runs-on: ubuntu-22.04
