@@ -1,5 +1,12 @@
 # Changelog
 
+### 7.1.7 [#158](https://github.com/openfisca/country-template/pull/158)
+
+* Technical improvement.
+* Details:
+  - Run tests in absolute isolation
+    - Uses `tox` to test builds in isolation
+
 ### 7.1.6 [#156](https://github.com/openfisca/country-template/pull/156)
 
 * Minor change.
