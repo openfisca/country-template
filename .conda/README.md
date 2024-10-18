@@ -23,6 +23,8 @@ cd /openfisca
 # Check meta.yaml
 conda-build --check .conda
 # Build
+conda install conda-verify
+conda config --add channels defaults
 conda build -c openfisca -c conda-forge .conda
 ```
 
