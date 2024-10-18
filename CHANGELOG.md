@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.1.8 [#159](https://github.com/openfisca/country-template/pull/159)
+
+* Crash fix
+* Impacted areas: `pyproject.toml`
+* Details:
+  - Changed `openfisca-country_template` to `openfisca-country-template` by mistake
+  - This changeset fixes that problem
+
 ### 7.1.7 [#158](https://github.com/openfisca/country-template/pull/158)
 
 * Technical improvement.
