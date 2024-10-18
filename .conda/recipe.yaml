@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  name: openfisca-country-template
+  name: openfisca-country_template
   version: 8.0.0
 
 package:
@@ -22,19 +22,19 @@ build:
 
 requirements:
   host:
-  - numpy
-  - pip
-  - python
-  - setuptools >=61.0
+    - numpy
+    - pip
+    - python
+    - setuptools >=61.0
   run:
-  - numpy
-  - python
-  - openfisca-core-api >=43
+    - numpy
+    - python
+    - openfisca-core-api >=43
 
 tests:
-- python:
-    imports:
-    - openfisca_country_template
+  - python:
+      imports:
+        - openfisca_country_template
 
 about:
   summary: OpenFisca Rules as Code model for Country-Template.
@@ -43,4 +43,4 @@ about:
 
 extra:
   recipe-maintainers:
-  - bonjourmauko
+    - bonjourmauko

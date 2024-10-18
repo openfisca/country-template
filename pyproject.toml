@@ -1,86 +1,49 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [ "setuptools>=61" ]
+
 [project]
 name = "openfisca-country_template"
 version = "8.0.0"
-dependencies = [
-    "openfisca-core[web-api] >= 43",
-]
-requires-python = ">=3.9"
-authors = []
-maintainers = []
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
-keywords = ["microsimulation", "tax", "benefit", "rac", "rules-as-code"]
+keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
+maintainers = [  ]
+authors = [  ]
+requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: GNU Affero General Public License v3",
     "Operating System :: POSIX",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "black >=24.8.0, <25.0",
-    "isort >=5.13.2, <6.0",
-    "ruff >=0.6.9, <1.0",
-    "ruff-lsp >=0.0.57, <1.0",
-    "yamllint >=1.35.1"
+dependencies = [
+    "openfisca-core[web-api]>=43",
 ]
-
-[project.urls]
-Homepage = "https://github.com/openfisca/country-template"
-Repository = "https://github.com/openfisca/country-template"
-Documentation = "https://openfisca.org/doc"
-Issues = "https://github.com/openfisca/country-template/issues"
-Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
-
-
-[tool.black]
-target_version = ["py39", "py310", "py311"]
-
-[tool.isort]
-case_sensitive = true
-combine_as_imports = true
-force_alphabetical_sort_within_sections = false
-group_by_package = true
-honor_noqa = true
-include_trailing_comma = true
-known_first_party = ["openfisca_country_template"]
-known_openfisca = ["openfisca_core", "openfisca_extension_template"]
-known_typing = ["*collections.abc*", "*typing*", "*typing_extensions*"]
-known_types = ["*types*"]
-multi_line_output = 3
-profile = "black"
-py_version = 39
-sections = [
-    "FUTURE",
-    "TYPING",
-    "TYPES",
-    "STDLIB",
-    "THIRDPARTY",
-    "OPENFISCA",
-    "FIRSTPARTY",
-    "LOCALFOLDER",
+optional-dependencies.dev = [
+    "isort>=5.13.2,<6",
+    "ruff>=0.6.9,<1",
+    "ruff-lsp>=0.0.57,<1",
+    "yamllint>=1.35.1",
 ]
-
-[tool.pytest.ini_options]
-addopts = "--exitfirst --showlocals --doctest-modules"
-testpaths = [ "openfisca_country_template/tests" ]
-python_files = "**/*.py"
-filterwarnings = ["ignore::DeprecationWarning"]
+urls.Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
+urls.Documentation = "https://openfisca.org/doc"
+urls.Homepage = "https://github.com/openfisca/country-template"
+urls.Issues = "https://github.com/openfisca/country-template/issues"
+urls.Repository = "https://github.com/openfisca/country-template"
 
 [tool.ruff]
 target-version = "py39"
-
-[tool.ruff.format]
-docstring-code-format = true
-docstring-code-line-length = 72
-
-[tool.ruff.lint]
-ignore = [
+format.docstring-code-line-length = 72
+format.docstring-code-format = true
+lint.select = [ "ALL" ]
+lint.ignore = [
     "ANN",
     "COM812",
     "D101",
@@ -96,7 +59,71 @@ ignore = [
     "PTH120",
     "PTH123",
 ]
-select = ["ALL"]
+lint.pydocstyle.convention = "google"
 
-[tool.ruff.lint.pydocstyle]
-convention = "google"
+[tool.isort]
+case_sensitive = true
+combine_as_imports = true
+force_alphabetical_sort_within_sections = false
+group_by_package = true
+honor_noqa = true
+include_trailing_comma = true
+known_first_party = [ "openfisca_country_template" ]
+known_openfisca = [ "openfisca_core", "openfisca_extension_template" ]
+known_typing = [ "*collections.abc*", "*typing*", "*typing_extensions*" ]
+known_types = [ "*types*" ]
+multi_line_output = 3
+profile = "black"
+py_version = 39
+sections = [
+    "FUTURE",
+    "TYPING",
+    "TYPES",
+    "STDLIB",
+    "THIRDPARTY",
+    "OPENFISCA",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
+
+[tool.pytest.ini_options]
+addopts = "--exitfirst --showlocals --doctest-modules --disable-warnings --import-mode importlib"
+testpaths = [ "openfisca_country_template/tests" ]
+python_files = "**/*.py"
+
+[tool.tox]
+requires = [ "tox>=4.20" ]
+env_list = [ "py39", "py310", "py311", "lint", "dist" ]
+
+[tool.tox.env_run_base]
+allowlist_externals = [ "make" ]
+commands = [ [ "make", "test" ] ]
+commands_pre = [
+    [
+        "pip",
+        "install",
+        "--find-links",
+        ".",
+        "openfisca_country_template",
+    ],
+]
+
+[tool.tox.env.lint]
+allowlist_externals = [ "make" ]
+basepython = [ "py39" ]
+commands = [ [ "make", "lint" ] ]
+commands_pre = [
+    [
+        "pip",
+        "install",
+        "--find-links",
+        ".",
+        "openfisca_country_template[dev]",
+    ],
+]
+
+[tool.tox.env.dist]
+basepython = [ "py39" ]
+commands = [ [ "twine", "check", "dist/*" ] ]
+commands_pre = [ [ "python", "-m", "build" ] ]
+deps = [ "build", "twine" ]
