@@ -478,7 +478,7 @@ name: Housing tax
 
 * Minor change.
 * Details:
-  - Make boostrap script portable.
+  - Make bootstrap script portable.
 
 ## 3.2.0 - [#43](https://github.com/openfisca/country-template/pull/43)
 
