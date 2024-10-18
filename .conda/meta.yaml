@@ -26,7 +26,7 @@ requirements:
     - pip
   run:
     {% for req in pyproject.get('project').get('dependencies') %}
-    - {{ req }}
+    - {{ req | replace(" ", "") }}
     {% endfor %}
 
 test:
