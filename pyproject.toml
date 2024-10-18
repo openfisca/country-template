@@ -3,8 +3,8 @@ build-backend = "setuptools.build_meta"
 requires = [ "setuptools>=61" ]
 
 [project]
-name = "openfisca-country-template"
-version = "7.1.7"
+name = "openfisca-country_template"
+version = "7.1.8"
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
@@ -28,7 +28,6 @@ dependencies = [
 ]
 optional-dependencies.dev = [
     "isort>=5.13.2,<6",
-    "pyproject-fmt>=2.3.1,<3",
     "ruff>=0.6.9,<1",
     "ruff-lsp>=0.0.57,<1",
     "yamllint>=1.35.1",
@@ -110,7 +109,7 @@ commands_pre = [
         "install",
         "--find-links",
         ".",
-        "openfisca_country_template",
+        "openfisca-country_template",
     ],
 ]
 
@@ -124,7 +123,7 @@ commands_pre = [
         "install",
         "--find-links",
         ".",
-        "openfisca_country_template[dev]",
+        "openfisca-country_template[dev]",
     ],
 ]
 
