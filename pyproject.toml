@@ -27,7 +27,6 @@ dependencies = [
     "openfisca-core[web-api]>=43",
 ]
 optional-dependencies.dev = [
-    "black>=24.8,<25",
     "isort>=5.13.2,<6",
     "pyproject-fmt>=2.3.1,<3",
     "ruff>=0.6.9,<1",
@@ -39,9 +38,6 @@ urls.Documentation = "https://openfisca.org/doc"
 urls.Homepage = "https://github.com/openfisca/country-template"
 urls.Issues = "https://github.com/openfisca/country-template/issues"
 urls.Repository = "https://github.com/openfisca/country-template"
-
-[tool.black]
-target_version = [ "py39", "py310", "py311" ]
 
 [tool.ruff]
 target-version = "py39"
@@ -97,7 +93,7 @@ indent = 4
 max_supported_python = "3.11"
 
 [tool.pytest.ini_options]
-addopts = "--exitfirst --showlocals --doctest-modules --disable-warnings"
+addopts = "--exitfirst --showlocals --doctest-modules --disable-warnings --import-mode importlib"
 testpaths = [ "openfisca_country_template/tests" ]
 python_files = "**/*.py"
 

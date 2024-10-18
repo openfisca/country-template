@@ -28,21 +28,19 @@ build: clean deps
 format:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
-	black `git ls-files | grep "\.py$$"`
+	ruff format `git ls-files | grep "\.py$$"`
 	isort `git ls-files | grep "\.py$$"`
 	pyproject-fmt pyproject.toml
-	ruff format `git ls-files | grep "\.py$$"`
 
 lint:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
-	black --check `git ls-files | grep "\.py$$"`
 	isort --check `git ls-files | grep "\.py$$"`
 	ruff check `git ls-files | grep "\.py$$"`
 	yamllint `git ls-files | grep "\.yaml$$"`
 
 test: clean
-	PYTEST_ADDOPTS="--import-mode importlib" openfisca test --country-package openfisca_country_template openfisca_country_template/tests
+	openfisca test --country-package openfisca_country_template openfisca_country_template/tests
 
 serve-local: build
 	openfisca serve --country-package openfisca_country_template
