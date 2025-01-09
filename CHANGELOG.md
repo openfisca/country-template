@@ -1,5 +1,13 @@
 # Changelog
 
+### 7.1.9 [#163](https://github.com/openfisca/country-template/pull/163)
+
+* Crash fix
+* Impacted areas: `first-time-setup.sh`
+* Details:
+  - Trying to adapt file `.flake8` would crash setup script when file is not present
+  - This changeset fixes that problem
+
 ### 7.1.8 [#159](https://github.com/openfisca/country-template/pull/159)
 
 * Crash fix
