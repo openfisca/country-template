@@ -6,9 +6,6 @@
             },
             "salary": {
                 "2017-01": 4000
-            },
-            "disposable_income": {
-                "2017-01": null
             }
         },
         "Javier": {
@@ -17,15 +14,15 @@
             },
             "salary": {
                 "2017-01": 2500
-            },
-            "disposable_income": {
-                "2017-01": null
             }
         }
     },
     "households": {
         "_": {
             "parents": ["Alicia", "Javier"],
+            "disposable_income": {
+                "2017-01": null
+            },
             "total_benefits": {
                 "2017-01": null
             },
