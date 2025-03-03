@@ -4,7 +4,7 @@ requires = [ "setuptools>=61" ]
 
 [project]
 name = "openfisca-country_template"
-version = "7.1.9"
+version = "7.2.0"
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
