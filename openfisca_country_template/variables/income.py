@@ -58,7 +58,7 @@ class disposable_income(Variable):
         capital_returns = household.sum(household.members("capital_returns", period))
         # Pension is an age-tested amount given to non-working people in the household.
         pension = household.sum(household.members("pension", period))
-        # Basic income is an income-tested lump sum given to people in the household.
+        # Basic income is a lump sum given any adult regardless of income.
         basic_income = household.sum(household.members("basic_income", period))
         # Housing allowance is an amount given to people the household for rent.
         housing_allowance = household("housing_allowance", period)
