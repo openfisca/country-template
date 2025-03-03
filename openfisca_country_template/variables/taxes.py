@@ -30,7 +30,11 @@ class income_tax(Variable):
 
         The formula to compute the income tax for a given person at a given period
         """
-        return person("salary", period) * parameters(period).taxes.income_tax_rate
+        return (
+            person("salary", period)
+            + person("capital_returns", period)
+            + person("pension", period)
+        ) * parameters(period).taxes.income_tax_rate
 
 
 class social_security_contribution(Variable):
