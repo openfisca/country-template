@@ -36,12 +36,18 @@ Household = build_entity(
     """,
     roles=[
         {
+            "key": "cohabiting_partner",
+            "plural": "cohabiting_partners",
+            "label": "Cohabiting Partners",
+            "subroles": ["main_partner", "other_partner", "another_partner"],
+            "doc": "The one or many adults in charge of the household.",
+        },
+        {
             "key": "parent",
             "plural": "parents",
             "label": "Parents",
-            "max": 2,
-            "subroles": ["first_parent", "second_parent"],
-            "doc": "The one or two adults in charge of the household.",
+            "subroles": ["first_parent", "second_parent", "other_parent"],
+            "doc": "The one or many adults in charge of the household.",
         },
         {
             "key": "child",
