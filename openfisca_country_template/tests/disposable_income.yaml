@@ -14,7 +14,7 @@
   period: 2025-01
   input:
     household:
-      cohabiting_partners: [ Mehdi, Sandra ]
+      adults: [ Mehdi, Sandra ]
     persons:
       Mehdi:
         salary: 0
@@ -28,7 +28,7 @@
   period: 2025-01
   input:
     household:
-      cohabiting_partners: [ Lautaro, Caupolicán ]
+      adults: [ Lautaro, Caupolicán ]
     persons:
       Lautaro:
         salary: 1250
@@ -42,7 +42,7 @@
   period: 2025-01
   input:
     household:
-      cohabiting_partners: [ Gwendolyne, Sarah ]
+      adults: [ Gwendolyne, Sarah ]
       accommodation_size: 100
       housing_occupancy_status: tenant
     persons:
@@ -59,7 +59,7 @@
   period: 2025-01
   input:
     household:
-      cohabiting_partners: [ José, María, Espíritu Santo ]
+      adults: [ José, María, Espíritu Santo ]
       accommodation_size: 350
       housing_occupancy_status: tenant
     persons:
