@@ -1,6 +1,6 @@
 # Changelog
 
-## 7.2.0 [#165](https://github.com/openfisca/country-template/pull/165)
+# 8.0.0 [#165](https://github.com/openfisca/country-template/pull/165)
 
 * Tax and benefit system evolution.
 * Impacted periods: from 01/01/2015.
