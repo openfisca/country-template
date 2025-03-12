@@ -7,7 +7,7 @@
   absolute_error_margin: 0
   input:
     household:
-      parents: [Phil, Saz]
+      adults: [ Phil, Saz ]
       children: [Caz, Eille, Nimasay]
     persons:
       Phil:

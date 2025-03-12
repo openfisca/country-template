@@ -1,5 +1,15 @@
 # Changelog
 
+# 8.0.0 [#165](https://github.com/openfisca/country-template/pull/165)
+
+* Tax and benefit system evolution.
+* Impacted periods: from 01/01/2015.
+* Impacted areas: `disposable_income`
+* Details:
+  - Calculate `disposable_income` for the entire household
+  - Include taxes and benefits in `disposable income`
+  - Allow for triplets in households
+
 ### 7.1.9 [#163](https://github.com/openfisca/country-template/pull/163)
 
 * Crash fix

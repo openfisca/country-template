@@ -1,65 +1,73 @@
 # Test files describe situations and their expected outcomes
 # We can run this test on our command line using `openfisca-run-test disposable_income.yaml`
 
-- name: Person earning no salary in Jan 2015
-  period: 2015-01
+- name: Person earning no salary in Jan 2025
+  absolute_error_margin: 0.01
+  period: 2025-01
   input:
     salary: 0
   output:
-    disposable_income: 0
+    disposable_income: 600 - 200 / 12  # basic income - housing tax
 
-- name: Person earning 2500 in Jan 2015
-  period: 2015-01
+- name: Couple earning no salary in Jan2025
+  absolute_error_margin: 0.01
+  period: 2025-01
   input:
-    salary: 2500
+    household:
+      adults: [ Mehdi, Sandra ]
+    persons:
+      Mehdi:
+        salary: 0
+      Sandra:
+        salary: 0
   output:
-    disposable_income: 2025
+    disposable_income: 600 * 2 - 200 / 12  # basic income - housing tax
 
-- name: Person earning 10000 in Jan 2015
-  period: 2015-01
+- name: Couple earning 2500 in Jan 2025
+  absolute_error_margin: 0.01
+  period: 2025-01
   input:
-    salary: 10000
+    household:
+      adults: [ Lautaro, Caupolicán ]
+    persons:
+      Lautaro:
+        salary: 1250
+      Caupolicán:
+        salary: 1250
   output:
-    disposable_income: 8100
+    disposable_income: 3258.33
 
-- name: Person earning no salary in Jan 2016
-  period: 2016-01
+- name: Couple earning 10000 in Jan 2025
+  absolute_error_margin: 0.01
+  period: 2025-01
   input:
-    salary: 0
+    household:
+      adults: [ Gwendolyne, Sarah ]
+      accommodation_size: 100
+      housing_occupancy_status: tenant
+    persons:
+      Gwendolyne:
+        salary: 4000
+      Sarah:
+        salary: 6000
   output:
-    disposable_income: 600
+    disposable_income: 9416.67
 
-- name: Person earning 2500 in Jan 2016
-  period: 2016-01
-  input:
-    salary: 2500
-  output:
-    disposable_income: 2025
 
-- name: Person earning 10000 in Jan 2016
-  period: 2016-01
+- name: Triplet earning 100000 in Jan 2025
+  absolute_error_margin: 0.01
+  period: 2025-01
   input:
-    salary: 10000
+    household:
+      adults: [ José, María, Espíritu Santo ]
+      accommodation_size: 350
+      housing_occupancy_status: tenant
+    persons:
+      José:
+        salary: 10000
+      María:
+        salary: 20000
+      Espíritu Santo:
+        salary: 70000
   output:
-    disposable_income: 8100
-
-- name: Person earning no salary in Jan 2017
-  period: 2017-01
-  input:
-    salary: 0
-  output:
-    disposable_income: 600
-
-- name: Person earning 2500 in Jan 2017
-  period: 2017-01
-  input:
-    salary: 2500
-  output:
-    disposable_income: 2675
-
-- name: Person earning 10000 in Jan 2017
-  period: 2017-01
-  input:
-    salary: 10000
-  output:
-    disposable_income: 8740
+    disposable_income: 77316.33
