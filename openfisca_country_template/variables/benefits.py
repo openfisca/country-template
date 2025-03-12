@@ -125,13 +125,8 @@ class parenting_allowance(Variable):
         income_threshold = parenting_allowance.income_threshold
         income_condition = household_income <= income_threshold
 
-        is_single = (
-            household.nb_persons(Household.MAIN) == 1
-            and household.nb_persons(Household.ADULT) == 0
-        ) or (
-            household.nb_persons(Household.MAIN) == 0
-            and household.nb_persons(Household.ADULT) == 1
-        )
+        is_single = household.nb_persons(Household.ADULT) == 0
+
         ages = household.members("age", period)
         under_8 = household.any(ages < 8)
         under_6 = household.any(ages < 6)

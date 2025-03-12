@@ -19,8 +19,7 @@
     },
     "households": {
         "_": {
-            "main": ["Alicia"],
-            "adults": ["Javier"],
+            "adults": ["Alicia", "Javier"],
             "disposable_income": {
                 "2017-01": null
             },

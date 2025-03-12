@@ -26,7 +26,7 @@ Household = build_entity(
 
     Usage:
         Check the number of individuals of a specific role (e.g. check if there
-        is a 'main' adult with household.nb_persons(Household.MAIN)).
+        is an 'adult' with household.nb_persons(Household.ADULT)).
         Calculate a variable applied to each individual of the group entity
         (e.g. calculate the 'salary' of each member of the 'Household' with:
             salaries = household.members("salary", period = MONTH)
@@ -36,22 +36,16 @@ Household = build_entity(
     """,
     roles=[
         {
-            "key": "main",
-            "label": "Main",
-            "max": 1,
-            "doc": "The main person of the household for calculation purposes.",
-        },
-        {
             "key": "adult",
             "plural": "adults",
             "label": "Adult",
-            "doc": "The other adults of the household.",
+            "doc": "The adults of the household.",
         },
         {
             "key": "child",
             "plural": "children",
             "label": "Child",
-            "doc": "The other non-adult individuals living in the household.",
+            "doc": "The non-adults of the household.",
         },
     ],
 )
@@ -67,9 +61,6 @@ Person = build_entity(
     Usage:
         Calculate a variable applied to a 'Person' (e.g. access the 'salary' of
         a specific month with person("salary", "2017-05")).
-        Check the role of a 'Person' in a group entity (e.g. check if a the
-        'Person' is a 'main' individual in a 'Household' entity with
-        person.has_role(Household.MAIN)).
 
     For more information, see: https://openfisca.org/doc/coding-the-legislation/50_entities.html
     """,

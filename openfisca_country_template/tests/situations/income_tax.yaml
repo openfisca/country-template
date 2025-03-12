@@ -7,7 +7,7 @@
   absolute_error_margin: 0
   input:
     household:
-      main: [ Alicia ]
+      adults: [ Alicia ]
       children: [ Michael ]
       accommodation_size: 100
       housing_occupancy_status: tenant
