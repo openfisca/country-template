@@ -36,7 +36,7 @@ do
 	read REPOSITORY_URL
 done
 
-REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
+REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/} | sed 's/\.git$//')
 
 cd $(dirname $0)  # support being called from anywhere on the file system
 
