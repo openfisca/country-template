@@ -36,7 +36,7 @@ do
 	read REPOSITORY_URL
 done
 
-REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/})
+REPOSITORY_FOLDER=$(echo ${REPOSITORY_URL##*/} | sed 's/\.git$//')
 
 cd $(dirname $0)  # support being called from anywhere on the file system
 
@@ -88,7 +88,7 @@ echo -e "${PURPLE}*  ${PURPLE}Remove bootstrap instructions\033[0m"
 sed -i.template -e "3,${last_bootstrapping_line_number}d" README.md  # remove instructions lines
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}README.MD\033[0m${PURPLE} and \033[0m${BLUE}CONTRIBUTING.md\033[0m"
-sed -i.template "s|https://example.com/repository|$REPOSITORY_URL|g" README.md CONTRIBUTING.md
+sed -i.template "s|https://example.com/repository.git|$REPOSITORY_URL|g" README.md CONTRIBUTING.md
 
 echo -e "${PURPLE}*  ${PURPLE}Prepare \033[0m${BLUE}CHANGELOG.md\033[0m"
 sed -i.template -e "1,${last_changelog_number}d" CHANGELOG.md  # remove country-template CHANGELOG leaving example
