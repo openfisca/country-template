@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.0.1 [#166](https://github.com/openfisca/country-template/pull/166)
+
+* Technical improvement.
+* Impacted areas: `first-time-setup.sh`
+* Details:
+  - Include .git in replacing the example repo URL
+
 # 8.0.0 [#165](https://github.com/openfisca/country-template/pull/165)
 
 * Tax and benefit system evolution.
