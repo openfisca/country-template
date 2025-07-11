@@ -230,7 +230,7 @@ Clone this Country Package on your machine:
 git clone https://example.com/repository.git
 cd repository_folder
 pip install --upgrade pip build twine
-pip install --editable .[dev] --upgrade
+pip install --editable ".[dev]" --upgrade
 ```
 
 You can make sure that everything is working by running the provided tests with
