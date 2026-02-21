@@ -1,6 +1,6 @@
 # Changelog
 
-### 8.0.2 (see PR)
+### 8.0.2 [#170](https://github.com/openfisca/country-template/pull/170)
 
 * Technical improvement.
 * Impacted areas: `pyproject.toml`, `Makefile`, lint/format tooling.
