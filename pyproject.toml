@@ -4,7 +4,7 @@ requires = [ "setuptools>=61" ]
 
 [project]
 name = "openfisca-country_template"
-version = "8.0.2"
+version = "8.0.3"
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
@@ -32,6 +32,14 @@ dev = [
     "ruff>=0.6.9,<1",
     "ruff-lsp>=0.0.57,<1",
     "yamllint>=1.35.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.6.9,<1",
+    "ruff-lsp>=0.0.57,<1",
+    "yamllint>=1.35.1",
+    "twine",
 ]
 
 [project.urls]
@@ -77,40 +85,3 @@ max_supported_python = "3.11"
 addopts = "--exitfirst --showlocals --doctest-modules --disable-warnings --import-mode importlib"
 testpaths = [ "openfisca_country_template/tests" ]
 python_files = "**/*.py"
-
-[tool.tox]
-requires = [ "tox>=4.20" ]
-env_list = [ "py39", "py310", "py311", "lint", "dist" ]
-
-[tool.tox.env_run_base]
-allowlist_externals = [ "make" ]
-commands = [ [ "make", "test" ] ]
-commands_pre = [
-    [
-        "pip",
-        "install",
-        "--find-links",
-        "dist",
-        "openfisca-country_template",
-    ],
-]
-
-[tool.tox.env.lint]
-allowlist_externals = [ "make" ]
-basepython = [ "py39" ]
-commands = [ [ "make", "lint" ] ]
-commands_pre = [
-    [
-        "pip",
-        "install",
-        "--find-links",
-        "dist",
-        "openfisca-country_template[dev]",
-    ],
-]
-
-[tool.tox.env.dist]
-basepython = [ "py39" ]
-commands = [ [ "twine", "check", "dist/*" ] ]
-commands_pre = [ [ "python", "-m", "build" ] ]
-deps = [ "build", "twine" ]

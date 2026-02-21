@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.0.3 (see PR)
+
+* Technical improvement.
+* Impacted areas: `pyproject.toml`, `Makefile`, `.github/workflows/`, `.github/lint-files.sh`.
+* Details:
+  - Switch to **uv** for dependency management and builds: add `[dependency-groups]` dev, commit `uv.lock`.
+  - Makefile: use `uv sync`, `uv build`, `uv run` for format, lint, test; add `check-syntax-errors`, `check-style`, `ci` target.
+  - CI: replace pip/tox with uv in build, validate, and deploy workflows; cache `~/.cache/uv` and `.venv`; add `lint-files.sh` for changed-files linting.
+  - Remove Tox configuration from `pyproject.toml`.
+
 ### 8.0.2 [#170](https://github.com/openfisca/country-template/pull/170)
 
 * Technical improvement.

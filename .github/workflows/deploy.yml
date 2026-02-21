@@ -18,6 +18,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all the tags
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -43,28 +47,44 @@ jobs:
           else
             echo "pypi_token_present=false" >> $GITHUB_OUTPUT
           fi
-      
+
   deploy:
     runs-on: ubuntu-22.04
     needs: [ validate, check-for-functional-changes, check-pypi-token ]
     if: needs.check-for-functional-changes.outputs.status == 'success' && needs.check-pypi-token.outputs.pypi_token_present == 'true'
     steps:
       - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12
+      - name: Cache uv
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
       - name: Restore build
         uses: actions/cache@v4
         with:
-          path: ${{ env.pythonLocation }}
-          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.sha }}
+          restore-keys: |
+            venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+            venv-${{ runner.os }}-
       - name: Restore built package
         uses: actions/cache@v4
         with:
           path: dist
-          key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+          key: release-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.sha }}
+      - name: Sync dependencies
+        run: uv sync --group dev
       - name: Upload a Python package to PyPi
-        run: twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+        run: uv run twine upload dist/* --username __token__ --password ${{ secrets.PYPI_TOKEN }}
       - name: Publish a git tag
         run: "${GITHUB_WORKSPACE}/.github/publish-git-tag.sh"
