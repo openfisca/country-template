@@ -26,17 +26,20 @@ classifiers = [
 dependencies = [
     "openfisca-core[web-api]>=43",
 ]
-optional-dependencies.dev = [
-    "isort>=5.13.2,<6",
+
+[project.optional-dependencies]
+dev = [
     "ruff>=0.6.9,<1",
     "ruff-lsp>=0.0.57,<1",
     "yamllint>=1.35.1",
 ]
-urls.Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
-urls.Documentation = "https://openfisca.org/doc"
-urls.Homepage = "https://github.com/openfisca/country-template"
-urls.Issues = "https://github.com/openfisca/country-template/issues"
-urls.Repository = "https://github.com/openfisca/country-template"
+
+[project.urls]
+Changelog = "https://github.com/openfisca/country-template/blob/main/CHANGELOG.md"
+Documentation = "https://openfisca.org/doc"
+Homepage = "https://github.com/openfisca/country-template"
+Issues = "https://github.com/openfisca/country-template/issues"
+Repository = "https://github.com/openfisca/country-template"
 
 [tool.ruff]
 target-version = "py39"
@@ -48,7 +51,6 @@ lint.ignore = [
     "COM812",
     "D101",
     "D104",
-    "I001",
     "ISC001",
     "N801",
     "N805",
@@ -61,30 +63,10 @@ lint.ignore = [
 ]
 lint.pydocstyle.convention = "google"
 
-[tool.isort]
-case_sensitive = true
-combine_as_imports = true
-force_alphabetical_sort_within_sections = false
-group_by_package = true
-honor_noqa = true
-include_trailing_comma = true
-known_first_party = [ "openfisca_country_template" ]
-known_openfisca = [ "openfisca_core", "openfisca_extension_template" ]
-known_typing = [ "*collections.abc*", "*typing*", "*typing_extensions*" ]
-known_types = [ "*types*" ]
-multi_line_output = 3
-profile = "black"
-py_version = 39
-sections = [
-    "FUTURE",
-    "TYPING",
-    "TYPES",
-    "STDLIB",
-    "THIRDPARTY",
-    "OPENFISCA",
-    "FIRSTPARTY",
-    "LOCALFOLDER",
-]
+[tool.ruff.lint.isort]
+known-first-party = [ "openfisca_country_template" ]
+combine-as-imports = true
+force-single-line = false
 
 [tool.pyproject-fmt]
 column_width = 79
