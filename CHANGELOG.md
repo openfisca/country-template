@@ -1,5 +1,15 @@
 # Changelog
 
+### 8.0.2 (see PR)
+
+* Technical improvement.
+* Impacted areas: `pyproject.toml`, `Makefile`, lint/format tooling.
+* Details:
+  - Normalize `pyproject.toml`: use standard `[project.optional-dependencies]` and `[project.urls]`.
+  - Use Ruff only for lint and format: remove standalone isort; add `[tool.ruff.lint.isort]`.
+  - Makefile: `format` and `lint` targets use only `ruff format` and `ruff check` (and `yamllint`).
+  - Enable import order checks (Ruff isort); apply fixes in `variables/demographics.py` and `variables/taxes.py`.
+
 ### 8.0.1 [#166](https://github.com/openfisca/country-template/pull/166)
 
 * Technical improvement.
