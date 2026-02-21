@@ -1,6 +1,6 @@
 # Changelog
 
-### 8.0.3 (see PR)
+### 8.0.3 [#171](https://github.com/openfisca/country-template/pull/171)
 
 * Technical improvement.
 * Impacted areas: `pyproject.toml`, `Makefile`, `.github/workflows/`, `.github/lint-files.sh`.
