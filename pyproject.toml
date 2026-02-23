@@ -90,7 +90,7 @@ commands_pre = [
         "pip",
         "install",
         "--find-links",
-        ".",
+        "dist",
         "openfisca-country_template",
     ],
 ]
@@ -104,7 +104,7 @@ commands_pre = [
         "pip",
         "install",
         "--find-links",
-        ".",
+        "dist",
         "openfisca-country_template[dev]",
     ],
 ]
