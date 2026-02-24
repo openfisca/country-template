@@ -26,16 +26,16 @@ build: clean deps
 	find dist -name "*.whl" -exec pip install --force-reinstall {}[dev] \;
 
 format:
-	@# Do not analyse .gitignored files.
+	@# Do not analyse .gitignored files. Ruff format + ruff check --fix (imports, etc.).
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
 	ruff format `git ls-files | grep "\.py$$"`
-	isort `git ls-files | grep "\.py$$"`
+	ruff check --fix `git ls-files | grep "\.py$$"`
 
 lint:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
-	isort --check `git ls-files | grep "\.py$$"`
 	ruff check `git ls-files | grep "\.py$$"`
+	ruff format --check `git ls-files | grep "\.py$$"`
 	yamllint `git ls-files | grep "\.yaml$$"`
 
 test: clean
