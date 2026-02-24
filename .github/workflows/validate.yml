@@ -127,16 +127,15 @@ jobs:
           restore-keys: |
             release-${{ runner.os }}-${{ hashFiles('uv.lock') }}
 
+      - name: Sync dependencies
+        run: uv sync --group dev
+
       - name: Build package if not in cache
         run: |
           if [ ! -d dist ] || [ -z "$(ls -A dist 2>/dev/null)" ]; then
             echo "dist/ not in cache, building..."
-            uv sync --group dev
             uv build
           fi
-
-      - name: Sync dependencies
-        run: uv sync --group dev
 
       - name: Test the built package
         run: uv run twine check dist/*
