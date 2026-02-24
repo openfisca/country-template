@@ -9,26 +9,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9.12 # Patch version must be specified to avoid any cache confusion, since the cache key depends on the full Python version. Any difference in patches between jobs will lead to a cache not found error.
-      
+
+      - name: Cache uv
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
+
       - name: Cache build
         uses: actions/cache@v4
         with:
-          path: ${{ env.pythonLocation }}
-          key: build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }} # Cache the entire build Python environment
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.sha }}
           restore-keys: |
-            build-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}
-            build-${{ env.pythonLocation }}-
-      
+            venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+            venv-${{ runner.os }}-
+
       - name: Build package
         run: make build
-      
+
       - name: Cache release
         uses: actions/cache@v4
         with:
           path: dist
-          key: release-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-${{ github.sha }}
+          key: release-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.sha }}
