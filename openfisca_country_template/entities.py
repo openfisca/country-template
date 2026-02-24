@@ -8,6 +8,8 @@ See https://openfisca.org/doc/key-concepts/person,_entities,_role.html
 
 from openfisca_core.entities import build_entity
 
+from openfisca_core.links import Many2OneLink, One2ManyLink
+
 Household = build_entity(
     key="household",
     plural="households",
@@ -67,4 +69,41 @@ Person = build_entity(
     is_person=True,
 )
 
-entities = [Household, Person]
+Employer = build_entity(
+    key="employer",
+    plural="employers",
+    label="An employer. Example of an alternative non-person single entity.",
+    doc="Demonstrates inter-entity explicit links connecting with Person.",
+    roles=[{"key": "contractor", "plural": "contractors", "label": "Contractor"}],
+)
+
+# ----------------------------------------------------------------------------
+# Declare Explicit Entity Links (Phase 5 of Entity Links Implementation)
+# ----------------------------------------------------------------------------
+
+# 1. Intra-entity Many-to-One Link: A person has one mother (another person).
+Person.add_link(Many2OneLink(
+    name="mother",
+    link_field="mother_id",
+    target_entity_key="person"  # The target of the link is another 'person'
+))
+
+# 2. Inter-entity Many-to-One Link: A person works for one employer.
+Person.add_link(Many2OneLink(
+    name="employer",
+    link_field="employer_id",
+    target_entity_key="employer"
+))
+
+# 3. Inter-entity One-to-Many Link: An employer has many employees (persons).
+Employer.add_link(One2ManyLink(
+    name="employees",
+    link_field="employer_id",  # Defined on the target (person)
+    target_entity_key="person"
+))
+
+# 4. Injected Implicit Links (Automated by OpenFisca core, but noted here for clarity)
+# `person.household` (Many2One) and `household.persons` (One2Many) are automatically
+# injected by OpenFisca during simulation payload resolution.
+
+entities = [Household, Person, Employer]
