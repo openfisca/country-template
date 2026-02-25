@@ -1003,8 +1003,8 @@ wheels = [
 
 [[package]]
 name = "openfisca-core"
-version = "44.2.2"
-source = { registry = "https://pypi.org/simple" }
+version = "44.3.0"
+source = { git = "https://github.com/openfisca/openfisca-core.git?branch=feat%2Fentity-links#5b49db2a09c6a811870c7aa3ad6a036e21e20cd7" }
 dependencies = [
     { name = "dpath" },
     { name = "numexpr", version = "2.10.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -1019,10 +1019,6 @@ dependencies = [
     { name = "strenum" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e5/4c/128b54954a5d96615a30023fd4ea458379c6f9c607d10e8e9cf4abb61fe3/openfisca_core-44.2.2.tar.gz", hash = "sha256:d5d4d9c16dbb669d3736c5fd2117ea8950714a52d78216535c680098febac7d5", size = 208072 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e7/02/0a31be34cc7c697599c9e538988afee62624344616b92d68240c916dce91/openfisca_core-44.2.2-py3-none-any.whl", hash = "sha256:b55d293d0e2a4840f6db5f33450c588f08753abb189cbfa6ff9c5e2a28ed7402", size = 268685 },
-]
 
 [package.optional-dependencies]
 web-api = [
@@ -1034,7 +1030,7 @@ web-api = [
 
 [[package]]
 name = "openfisca-country-template"
-version = "8.0.2"
+version = "8.0.3"
 source = { editable = "." }
 dependencies = [
     { name = "openfisca-core", extra = ["web-api"] },
@@ -1059,7 +1055,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "openfisca-core", extras = ["web-api"], specifier = ">=43" },
+    { name = "openfisca-core", extras = ["web-api"], git = "https://github.com/openfisca/openfisca-core.git?branch=feat%2Fentity-links" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6.9,<1" },
     { name = "ruff-lsp", marker = "extra == 'dev'", specifier = ">=0.0.57,<1" },
     { name = "yamllint", marker = "extra == 'dev'", specifier = ">=1.35.1" },

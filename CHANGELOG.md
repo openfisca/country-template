@@ -1,5 +1,13 @@
 # Changelog
 
+### Unreleased (feat/entity-links-demo)
+
+* Technical improvement.
+* Impacted areas: `openfisca_country_template/entities.py`, `pyproject.toml`, `uv.lock`, `openfisca_country_template/tests/test_links_demo.py`.
+* Details:
+  - Pin openfisca-core to PR #1363 (Generic Entity Links) via `[tool.uv.sources]` for testing.
+  - Add entity links demo: mother, employer, employees (Many2One / One2Many); style fixes in entities.py.
+
 ### 8.0.3 [#171](https://github.com/openfisca/country-template/pull/171)
 
 * Technical improvement.
