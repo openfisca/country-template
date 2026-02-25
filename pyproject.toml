@@ -27,6 +27,9 @@ dependencies = [
     "openfisca-core[web-api]>=43",
 ]
 
+[tool.uv.sources]
+openfisca-core = { git = "https://github.com/openfisca/openfisca-core.git", branch = "feat/entity-links" }
+
 [project.optional-dependencies]
 dev = [
     "ruff>=0.6.9,<1",
