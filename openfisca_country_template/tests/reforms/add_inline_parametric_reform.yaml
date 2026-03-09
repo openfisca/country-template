@@ -1,0 +1,12 @@
+- name: We will dynamically update the parameter tree
+  period: 2015-01
+  parameters:
+    benefits:
+      housing_allowance:
+        values:
+          2010-01-01:
+            value: 0.1
+  input:
+    rent: 100
+  output:
+    housing_allowance: 100*0.1
