@@ -1,4 +1,4 @@
-- name: We will dynamically update the parameter tree
+- name: The parameter tree is replaced by the content of the node parameters
   period: 2015-01
   parameters:
     benefits:

@@ -29,5 +29,5 @@
   output:
     household:
       parenting_allowance:
-        2017-01: 600
+        2017-01: 750
         2018-01: 0
