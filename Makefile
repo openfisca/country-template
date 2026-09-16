@@ -12,6 +12,7 @@ build: clean
 	@# Install openfisca-country_template for deployment and publishing.
 	@# `make build` allows us to be sure tests are run against the packaged version
 	@# of openfisca-country_template, the same we put in the hands of users and reusers.
+	uv sync --frozen
 	uv build
 	uv pip uninstall --yes openfisca-country_template 2>/dev/null || true
 	find dist -name "*.whl" -exec uv pip install --force-reinstall {}[dev] \;
