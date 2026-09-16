@@ -1,0 +1,44 @@
+---
+name: Continuous integration
+
+on:
+  pull_request:
+    types: [ assigned, opened, reopened, synchronize, ready_for_review ]
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9.12
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
+
+      - run: uv run --frozen make test
+
+      - name: Test the Web API
+        run: uv run --frozen "${GITHUB_WORKSPACE}/.github/test-api.sh"
+
+      - run: uv run --frozen pre-commit run --all-files
+
+      - name: Check version number has been properly updated
+        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
+
+      - run: uv build
+
+      - name: Test the built package
+        run: uv run --frozen twine check dist/*

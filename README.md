@@ -127,33 +127,7 @@ recent versions should work, but are not tested.
 All platforms that can execute Python are supported, which includes GNU/Linux,
 macOS and Microsoft Windows.
 
-### Setting-up a Virtual Environment with venv
-
-In order to limit dependencies conflicts, we recommend using a
-[virtual environment](https://www.python.org/dev/peps/pep-0405/) with
-[venv](https://docs.python.org/3/library/venv.html).
-
-- A [venv](https://docs.python.org/3/library/venv.html) is a project specific
-  environment created to suit the needs of the project you are working on.
-
-To create a virtual environment, launch a terminal on your computer, `cd` into
-your directory and follow these instructions:
-
-```sh
-python3 -m venv .venv # create a new virtual environment in the “.venv” folder, which will contain all dependencies
-source .venv/bin/activate # activate the venv
-```
-
-You can now operate in the venv you just created.
-
-You can deactivate that venv at any time with `deactivate`.
-
-:tada: You are now ready to install this OpenFisca Country Package!
-
-Two install procedures are available. Pick procedure A or B below depending on
-how you plan to use this Country Package.
-
-### A. Minimal Installation (Pip Install)
+### A. Minimal Installation
 
 Follow this installation if you wish to:
 
@@ -165,27 +139,13 @@ Follow this installation if you wish to:
 For more advanced uses, head to the
 [Advanced Installation](#advanced-installation-git-clone).
 
-#### Install this Country Package with Pip Install
-
-Inside your venv, check the prerequisites:
-
-```sh
-python --version  # should print "Python 3.11.xx".
-```
-
-```sh
-pip --version  # should print at least 9.0.
-# if not, run "pip install --upgrade pip"
-```
+#### Install this Country Package with [uv](https://docs.astral.sh/uv/)
 
 Install the Country Package:
 
 ```sh
-pip install openfisca-country_template
+uv add install openfisca-country_template
 ```
-
-:warning: Please beware that installing the Country Package with `pip` is
-dependent on its maintainers publishing said package.
 
 :tada: This OpenFisca Country Package is now installed and ready!
 
@@ -197,7 +157,7 @@ dependent on its maintainers publishing said package.
   [OpenFisca Web API](#serve-your-country-package-with-the-openFisca-web-api).
 
 Depending on what you want to do with OpenFisca, you may want to install yet
-other packages in your venv:
+other packages:
 
 - To install extensions or write on top of this Country Package, head to the
   [Extensions documentation](https://openfisca.org/doc/contribute/extensions.html).
@@ -218,19 +178,11 @@ First, make sure [Git](https://www.git-scm.com/) is installed on your machine.
 Set your working directory to the location where you want this OpenFisca
 Country Package cloned.
 
-Inside your venv, check the prerequisites:
-
-```sh
-python --version  # should print "Python 3.11.xx".
-```
-
 Clone this Country Package on your machine:
 
 ```sh
 git clone https://example.com/repository.git
 cd repository_folder
-pip install --upgrade pip build twine
-pip install --editable ".[dev]" --upgrade
 ```
 
 You can make sure that everything is working by running the provided tests with
@@ -250,50 +202,7 @@ You can make sure that everything is working by running the provided tests with
 
 ### C. Contributing
 
-Follow this tutorial if you wish to:
-
-- contribute to the source code.
-
-_Note: This tutorial assumes you have already followed the instructions laid
-out in section [B. Advanced Installation](#b-advanced-installation-git-clone)._
-
-In order to ensure all published versions of this template work as expected,
-new contributions are tested in an isolated manner on Github Actions.
-
-Follow these steps to set up an isolated environment for testing your
-contributions as Github Actions does.
-
-#### Set up an isolated environment
-
-First, make sur [Tox](https://tox.wiki/en/4.23.0/) is installed on your
-machine.
-
-We recommend using [pipx](<(https://pypi.org/project/pipx/)>) to install `tox`,
-to avoid mixing isolated-testing dependencies testing with `virtualenv`.
-
-```sh
-pipx install tox
-```
-
-#### Testing your contribution in an isolated environment
-
-You can make sure that your contributions will work as expected by running:
-
-```sh
-tox
-```
-
-You can also run these in parallel:
-
-```sh
-tox -p
-```
-
-:tada: Your contribution to OpenFisca Country Package is now ready for prime
-time!
-
-#### Next Steps
-
+- Read [CONTRIBUTING](CONTRIBUTING.md).
 - Open a pull request to the `main` branch of this repository.
 - Announce your changes as described in [CONTRIBUTING](CONTRIBUTING.md).
 
