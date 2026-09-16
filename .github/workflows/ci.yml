@@ -26,7 +26,6 @@ jobs:
         run: uv sync --locked --all-extras --dev
 
       - run: uv run make test
-      - run: uv run make test
 
       - name: Test the Web API
         run: uv run --frozen "${GITHUB_WORKSPACE}/.github/test-api.sh"

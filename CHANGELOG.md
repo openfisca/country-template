@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.0.4 [#179](https://github.com/openfisca/country-template/pull/179)
+
+* Technical improvement.
+* Details:
+  - Simplify CI/CD
+
 ### 8.0.3 [#171](https://github.com/openfisca/country-template/pull/171)
 
 * Technical improvement.
