@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [ "setuptools>=61" ]
+requires = ["setuptools-scm"]
 
 [project]
 name = "openfisca-country_template"
@@ -13,7 +13,6 @@ authors = [  ]
 requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "License :: OSI Approved :: GNU Affero General Public License v3",
     "Operating System :: POSIX",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
@@ -22,6 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
+license="AGPL-3.0-or-later"
 
 dependencies = [
     "openfisca-core[web-api]>=43",
@@ -40,6 +40,7 @@ dev = [
     "ruff-lsp>=0.0.57,<1",
     "yamllint>=1.35.1",
     "twine",
+    "pre-commit>=4.3.0",
 ]
 
 [project.urls]
@@ -53,22 +54,6 @@ Repository = "https://github.com/openfisca/country-template"
 target-version = "py39"
 format.docstring-code-line-length = 72
 format.docstring-code-format = true
-lint.select = [ "ALL" ]
-lint.ignore = [
-    "ANN",
-    "COM812",
-    "D101",
-    "D104",
-    "ISC001",
-    "N801",
-    "N805",
-    "N806",
-    "PLR2004",
-    "PTH100",
-    "PTH118",
-    "PTH120",
-    "PTH123",
-]
 lint.pydocstyle.convention = "google"
 
 [tool.ruff.lint.isort]

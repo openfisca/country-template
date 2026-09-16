@@ -1,6 +1,2 @@
 ---
-
-extends: relaxed
-
-rules:
-  line-length: disable
+ignore-from-file: .gitignore

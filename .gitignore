@@ -1,9 +1,11 @@
 # Python builds
-
+__pycache__/
 *.egg-info
 *.pyc
 build
 dist
+.pytest_cache
+.ruff_cache
 .venv
 
 # Editors
