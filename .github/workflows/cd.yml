@@ -1,5 +1,5 @@
 ---
-name: Continuous deployment for OpenFisca Excel Reform
+name: Continuous deployment
 on:
   push:
     branches: [main]
