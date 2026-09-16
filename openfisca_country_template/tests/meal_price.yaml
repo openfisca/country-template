@@ -1,0 +1,6 @@
+- name: Prices increase as household income
+  period: 2017-01
+  input:
+    household_income: [0, 1, 250, 499, 500, 3000]
+  output:
+    meal_price: [0, 0, 1, 1, 2, 8]
