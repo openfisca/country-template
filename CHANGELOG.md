@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.1.0 [#180](https://github.com/openfisca/country-template/pull/180)
+
+* Tax and benefit system evolution.
+* Impacted periods: from 2017.
+* Impacted areas: `meal_price`
+* Details:
+  - Add a `meal_price` variable and associated _single amount scale_ parameter.
+
 ### 8.0.5 [#169](https://github.com/openfisca/country-template/pull/169)
 
 * Technical improvement.
