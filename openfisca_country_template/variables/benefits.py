@@ -103,17 +103,6 @@ class pension(Variable):
         return person("age", period) >= parameters(period).general.age_of_retirement
 
 
-
-class parenting_allowance_children_count(Variable):
-    value_type = int
-    entity = Household
-    definition_period = MONTH
-    label = "Allowance for low income people with children to care for."
-
-    def formula(household, period):
-        return household.nb_persons(Household.CHILD)
-
-
 class parenting_allowance(Variable):
     value_type = float
     entity = Household
@@ -145,10 +134,7 @@ class parenting_allowance(Variable):
         allowance_condition = income_condition * ((is_single * under_8) + under_6)
         allowance_amount = parenting_allowance.amount
 
-        children_count = household("parenting_allowance_children_count", period)
-        allowance_bonus_rate = parenting_allowance.bonus_rate.calc(children_count)
-
-        return allowance_condition * allowance_amount * (1 + allowance_bonus_rate)
+        return allowance_condition * allowance_amount
 
 
 class household_income(Variable):
