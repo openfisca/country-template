@@ -25,15 +25,17 @@ jobs:
       - name: Install the project
         run: uv sync --locked --all-extras --dev
 
-      - run: uv run make test
+      - run: uv run --frozen make test
 
       - name: Test the Web API
         run: uv run --frozen "${GITHUB_WORKSPACE}/.github/test-api.sh"
+
+      - run: uv run --frozen pre-commit run --all-files
+
+      - name: Check version number has been properly updated
+        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
 
       - run: uv build
 
       - name: Test the built package
         run: uv run --frozen twine check dist/*
-
-      - name: Check version number has been properly updated
-        run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
