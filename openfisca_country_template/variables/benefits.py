@@ -159,3 +159,15 @@ class meal_price(Variable):
         income = household("household_income", period)
         meal_price = parameters(period).benefits.meal_price
         return meal_price.calc(income)
+
+
+class swimming_pool_access(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = "The cost of swimming pool access"
+
+    def formula(household, period, parameters):
+        income = household("household_income", period)
+        cost = parameters(period).benefits.swimming_pool_access_cost_increase
+        return cost.calc(income)
