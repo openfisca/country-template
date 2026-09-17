@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.2.0 [#183](https://github.com/openfisca/country-template/pull/183)
+
+* Tax and benefit system evolution.
+* Impacted periods: from 2017.
+* Impacted areas: `swimming_pool_access`
+* Details:
+  - Add a `swimming_pool_access` variable and associated _marginal amount scale_ parameter.
+
 ### 8.1.1 [#182](https://github.com/openfisca/country-template/pull/182)
 
 * Technical improvement
