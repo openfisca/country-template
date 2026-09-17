@@ -147,3 +147,15 @@ class household_income(Variable):
         """A household's income."""
         salaries = household.members("salary", period)
         return household.sum(salaries)
+
+
+class meal_price(Variable):
+    value_type = float
+    entity = Household
+    definition_period = MONTH
+    label = "The price of a meal"
+
+    def formula(household, period, parameters):
+        income = household("household_income", period)
+        meal_price = parameters(period).benefits.meal_price
+        return meal_price.calc(income)

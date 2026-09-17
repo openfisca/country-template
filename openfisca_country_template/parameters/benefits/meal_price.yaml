@@ -1,0 +1,35 @@
+description: Social security contribution tax scale
+metadata:
+  threshold_unit: currency-EUR
+  type: single_amount
+brackets:
+- threshold:
+    2017-01-01:
+      value: 0
+  amount:
+    2017-01-01:
+      value: 0
+- threshold:
+    2017-01-01:
+      value: 250
+  amount:
+    2017-01-01:
+      value: 1
+- threshold:
+    2017-01-01:
+      value: 500
+  amount:
+    2017-01-01:
+      value: 2
+- threshold:
+    2017-01-01:
+      value: 1000
+  amount:
+    2017-01-01:
+      value: 4
+- threshold:
+    2017-01-01:
+      value: 2000
+  amount:
+    2017-01-01:
+      value: 8
