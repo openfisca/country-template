@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.1.1 [#182](https://github.com/openfisca/country-template/pull/182)
+
+* Technical improvement
+* Details:
+  - Update dependancies
+
 ## 8.1.0 [#180](https://github.com/openfisca/country-template/pull/180)
 
 * Tax and benefit system evolution.
