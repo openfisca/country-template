@@ -1130,7 +1130,7 @@ web-api = [
 
 [[package]]
 name = "openfisca-country-template"
-version = "8.0.4"
+version = "8.0.5"
 source = { editable = "." }
 dependencies = [
     { name = "openfisca-core", extra = ["web-api"] },
@@ -1157,7 +1157,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "openfisca-core", extras = ["web-api"], specifier = ">=43" },
+    { name = "openfisca-core", extras = ["web-api"], specifier = ">=44.1.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6.9,<1" },
     { name = "ruff-lsp", marker = "extra == 'dev'", specifier = ">=0.0.57,<1" },
     { name = "yamllint", marker = "extra == 'dev'", specifier = ">=1.35.1" },

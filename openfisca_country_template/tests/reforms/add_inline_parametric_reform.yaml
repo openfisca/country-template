@@ -1,0 +1,12 @@
+- name: The parameter tree is replaced by the content of the node parameters
+  period: 2015-01
+  parameters:
+    benefits:
+      housing_allowance:
+        values:
+          2010-01-01:
+            value: 0.1
+  input:
+    rent: 100
+  output:
+    housing_allowance: 100*0.1

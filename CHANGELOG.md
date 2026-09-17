@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.0.5 [#169](https://github.com/openfisca/country-template/pull/169)
+
+* Technical improvement.
+* Impacted areas: `openfisca_country_template/tests/reforms/add_inline_parametric_reform.yaml`
+* Details:
+  - Add a test with a in-yaml parametric reform
+
 ### 8.0.4 [#179](https://github.com/openfisca/country-template/pull/179)
 
 * Technical improvement.

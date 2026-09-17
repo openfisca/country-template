@@ -4,7 +4,7 @@ requires = ["setuptools-scm"]
 
 [project]
 name = "openfisca-country_template"
-version = "8.0.4"
+version = "8.0.5"
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
@@ -24,7 +24,7 @@ classifiers = [
 license="AGPL-3.0-or-later"
 
 dependencies = [
-    "openfisca-core[web-api]>=43",
+    "openfisca-core[web-api]>=44.1.0",
 ]
 
 [project.optional-dependencies]
