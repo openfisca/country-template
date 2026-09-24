@@ -1,0 +1,28 @@
+description: This is a marginal amount scale, values are added up not picked from the scale
+metadata:
+  threshold_unit: currency-EUR
+brackets:
+- threshold:
+    2017-01-01:
+      value: 0
+  amount:
+    2017-01-01:
+      value: 0
+- threshold:
+    2017-01-01:
+      value: 249
+  amount:
+    2017-01-01:
+      value: 1
+- threshold:
+    2017-01-01:
+      value: 499
+  amount:
+    2017-01-01:
+      value: 1
+- threshold:
+    2017-01-01:
+      value: 999
+  amount:
+    2017-01-01:
+      value: 2
