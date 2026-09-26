@@ -72,4 +72,4 @@ testpaths = [ "openfisca_country_template/tests" ]
 python_files = "**/*.py"
 
 [tool.uv.sources]
-openfisca-core = { git = "https://github.com/openfisca/openfisca-core.git", branch = "relationships" }
+openfisca-core = { git = "https://github.com/openfisca/openfisca-core.git", branch = "more_relationships" }
