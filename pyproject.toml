@@ -24,7 +24,7 @@ classifiers = [
 license="AGPL-3.0-or-later"
 
 dependencies = [
-    "openfisca-core[web-api]>=44.1.0",
+    "openfisca-core[web-api]>=47",
 ]
 
 [project.optional-dependencies]
