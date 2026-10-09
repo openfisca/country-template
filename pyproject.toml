@@ -24,7 +24,7 @@ classifiers = [
 license="AGPL-3.0-or-later"
 
 dependencies = [
-    "openfisca-core[web-api]>=47",
+    "openfisca-core[web-api]>=44.1.0",
 ]
 
 [project.optional-dependencies]
@@ -71,5 +71,5 @@ addopts = "--exitfirst --showlocals --doctest-modules --disable-warnings --impor
 testpaths = [ "openfisca_country_template/tests" ]
 python_files = "**/*.py"
 
-[tool.uv.sources]
-openfisca-core = { git = "https://github.com/openfisca/openfisca-core.git", branch = "more_relationships" }
+# [tool.uv.sources]
+# openfisca-core = { git = "https://github.com/openfisca/openfisca-core.git", branch = "more_relationships" }

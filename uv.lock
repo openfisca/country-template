@@ -933,13 +933,12 @@ wheels = [
 [[package]]
 name = "openfisca-core"
 version = "44.7.1"
-source = { git = "https://github.com/openfisca/openfisca-core.git?branch=more_relationships#0d6255b7b059a99cc3dec4c3132fcf0d23c1949b" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dpath" },
     { name = "numexpr" },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "openfisca-country-template" },
     { name = "pendulum" },
     { name = "psutil" },
     { name = "pytest" },
@@ -947,6 +946,10 @@ dependencies = [
     { name = "sortedcontainers" },
     { name = "strenum" },
     { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/02/07/bbbe0f42adb3e09173b077de79669029dce8659a138da52823e4c1d8a893/openfisca_core-44.7.1.tar.gz", hash = "sha256:3062c6808e1241f37619e638412b64ec2b7d2fcedb14a39ee6a74eebba6f6a6e", size = 209977, upload-time = "2026-09-04T07:00:45.94Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/70/29/c50f81ec3fe5eb912140e8fd304828f9d85fd9e9618e7c349abf78167c85/openfisca_core-44.7.1-py3-none-any.whl", hash = "sha256:770e3465ca3999c39d331242a4d273ffba1e75aa205e8a16849b2b6a4a20c116", size = 270645, upload-time = "2026-09-04T07:00:44.047Z" },
 ]
 
 [package.optional-dependencies]
@@ -983,7 +986,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "openfisca-core", extras = ["web-api"], git = "https://github.com/openfisca/openfisca-core.git?branch=more_relationships" },
+    { name = "openfisca-core", extras = ["web-api"], specifier = ">=44.1.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6.9,<1" },
     { name = "ruff-lsp", marker = "extra == 'dev'", specifier = ">=0.0.57,<1" },
     { name = "yamllint", marker = "extra == 'dev'", specifier = ">=1.35.1" },
