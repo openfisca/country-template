@@ -1,7 +1,6 @@
-description: Prices inscrease as incomes, amounts are prices
+description: This is a marginal amount scale, values are added up not picked from the scale
 metadata:
   threshold_unit: currency-EUR
-  type: single_amount
 brackets:
 - threshold:
     2017-01-01:
@@ -11,25 +10,19 @@ brackets:
       value: 0
 - threshold:
     2017-01-01:
-      value: 250
+      value: 249
   amount:
     2017-01-01:
       value: 1
 - threshold:
     2017-01-01:
-      value: 500
+      value: 499
+  amount:
+    2017-01-01:
+      value: 1
+- threshold:
+    2017-01-01:
+      value: 999
   amount:
     2017-01-01:
       value: 2
-- threshold:
-    2017-01-01:
-      value: 1000
-  amount:
-    2017-01-01:
-      value: 4
-- threshold:
-    2017-01-01:
-      value: 2000
-  amount:
-    2017-01-01:
-      value: 8
