@@ -25,6 +25,8 @@ jobs:
           version: "latest"
           enable-cache: true
 
+      - uses: pre-commit/action@v3.0.1
+
       - name: Install the project
         run: uv sync --locked --all-extras --dev
 
@@ -32,8 +34,6 @@ jobs:
 
       - name: Test the Web API
         run: uv run --frozen "${GITHUB_WORKSPACE}/.github/test-api.sh"
-
-      - run: uv run --frozen pre-commit run --all-files
 
       - name: Check version number has been properly updated
         run: "${GITHUB_WORKSPACE}/.github/is-version-number-acceptable.sh"
