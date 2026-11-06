@@ -14,11 +14,13 @@ jobs:
     # Ensure this job does not run on the template repository or when the repository is forked
     if: ${{ !github.event.repository.is_template && !github.event.repository.fork }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # give GITHUB_TOKEN write permission to commit and push
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Infer jurisdiction name from repository name
         run: |
@@ -28,9 +30,7 @@ jobs:
         run: CI=true JURISDICTION_NAME="$TITLE_CASE_JURISDICTION_NAME" REPOSITORY_URL="${{ github.repositoryUrl }}" ./first-time-setup.sh
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7.2.1
         with:
           commit_message: "Customise country-template through CI"
           tagging_message: "0.0.1"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
