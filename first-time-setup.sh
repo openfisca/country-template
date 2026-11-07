@@ -81,7 +81,7 @@ all_module_files=`find openfisca_country_template -type f ! -name "*.DS_Store"`
 echo -e "${PURPLE}*  ${PURPLE}Replace default country_template references\033[0m"
 # Use intermediate backup files (`-i`) with a weird syntax due to lack of portable 'no backup' option. See https://stackoverflow.com/q/5694228/594053.
 sed -i.template "s|openfisca-country_template|openfisca-$NO_SPACES_JURISDICTION_LABEL|g" README.md Makefile pyproject.toml CONTRIBUTING.md
-sed -i.template "s|country_template|$SNAKE_CASE_JURISDICTION|g" README.md pyproject.toml Makefile MANIFEST.in $all_module_files
+sed -i.template "s|country_template|$SNAKE_CASE_JURISDICTION|g" README.md pyproject.toml Makefile $all_module_files
 sed -i.template "s|Country-Template|$JURISDICTION_NAME|g" README.md pyproject.toml .github/PULL_REQUEST_TEMPLATE.md CONTRIBUTING.md
 
 echo -e "${PURPLE}*  ${PURPLE}Remove bootstrap instructions\033[0m"
@@ -104,12 +104,13 @@ echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033
 git mv openfisca_country_template $package_name
 
 echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files\033[0m"
-git rm .github/workflows/first-time-setup.yml > /dev/null 2>&1
 git rm first-time-setup.sh > /dev/null 2>&1
 
 if [[ $CI ]]
 then exit 0  # committing and tagging take directly place in the GitHub Actions workflow
 fi
+
+git rm .github/workflows/first-time-setup.yml > /dev/null 2>&1
 
 git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet

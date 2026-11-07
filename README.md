@@ -92,7 +92,7 @@ Actions, or manually.
 ### Automatic continuous deployment on GitHub
 
 This repository is configured with a continuous deployment system to automate
-the distribution of your package via `pip`.
+the distribution of your package via `uv`.
 
 #### Setting up continuous deployment
 
@@ -106,7 +106,7 @@ To activate the continuous deployment:
    `PYPI_TOKEN`.
 
 Once set up, changes to the `main` branch will trigger an automated workflow to
-build and publish your package to PyPI, making it available for `pip`
+build and publish your package to PyPI, making it available for `uv`
 installation.
 
 ### Manual distribution
