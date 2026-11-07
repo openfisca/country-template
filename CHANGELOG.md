@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.1 [#185](https://github.com/openfisca/country-template/pull/185) & [#186](https://github.com/openfisca/country-template/pull/186)
+
+* Technical improvement
+* Details:
+  - Update CI and CD Python and dependencies versions
+  - Following GitHub Actions update, the `first-time-setup.yaml` workflow is not erased automatically anymore. Remove it manually after setup.
+
 ## 8.2.0 [#183](https://github.com/openfisca/country-template/pull/183)
 
 * Tax and benefit system evolution.
@@ -12,7 +19,7 @@
 
 * Technical improvement
 * Details:
-  - Update dependancies
+  - Update dependencies
 
 ## 8.1.0 [#180](https://github.com/openfisca/country-template/pull/180)
 

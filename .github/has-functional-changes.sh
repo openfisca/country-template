@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-IGNORE_DIFF_ON="README.md CONTRIBUTING.md first-time-setup.sh Makefile .gitignore .github/*"
+IGNORE_DIFF_ON="README.md CONTRIBUTING.md Makefile .gitignore .github/*"
 
 tag_count=`git tag | wc -l`
 if [[ $tag_count -eq 0 ]]
