@@ -19,7 +19,7 @@
 
 * Technical improvement
 * Details:
-  - Update dependancies
+  - Update dependencies
 
 ## 8.1.0 [#180](https://github.com/openfisca/country-template/pull/180)
 
