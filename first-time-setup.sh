@@ -103,6 +103,9 @@ find . -name "*.template" -type f -delete
 echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033[0m"
 git mv openfisca_country_template $package_name
 
+echo -e "${PURPLE}*  ${PURPLE}Update lockfile\033[0m"
+uv lock
+
 echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files\033[0m"
 git rm first-time-setup.sh > /dev/null 2>&1
 
