@@ -107,13 +107,12 @@ echo -e "${PURPLE}*  ${PURPLE}Update lockfile\033[0m"
 uv lock
 
 echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files\033[0m"
+git rm .github/workflows/first-time-setup.yaml > /dev/null 2>&1
 git rm first-time-setup.sh > /dev/null 2>&1
 
 if [[ $CI ]]
 then exit 0  # committing and tagging take directly place in the GitHub Actions workflow
 fi
-
-git rm .github/workflows/first-time-setup.yml > /dev/null 2>&1
 
 git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
