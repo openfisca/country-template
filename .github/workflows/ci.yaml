@@ -26,7 +26,10 @@ jobs:
           enable-cache: true
 
       - name: Test first time setup script
-        run: "${GITHUB_WORKSPACE}/.github/test-first-time-setup.sh"
+        run: |
+          git config user.email "louise.michel@commune.paris"
+          git config user.name "Louise Michel"
+          "${GITHUB_WORKSPACE}/.github/test-first-time-setup.sh"
 
       - name: Install the project
         run: uv sync --locked --all-extras --dev

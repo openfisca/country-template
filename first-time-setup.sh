@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 GREEN='\033[0;32m'
 PURPLE='\033[1;35m'
 YELLOW='\033[0;33m'
@@ -63,7 +63,7 @@ first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
 last_line_script_test_step=$(grep --line-number 'test-first-time-setup.sh' .github/workflows/ci.yaml | cut -d ':' -f 1)
-first_line_script_test_step=$(expr $last_line_script_test_step - 2)
+first_line_script_test_step=$(expr $last_line_script_test_step - 5)
 
 if [[ ! $CI ]]
 then
@@ -74,12 +74,9 @@ then
 
 	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository\033[0m"
 	git init --initial-branch=main > /dev/null
-	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository1\033[0m"
 	git add .
-	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository2\033[0m"
 
 	git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
-	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository3\033[0m"
 	echo -e "${PURPLE}*  ${PURPLE}Initial git commit made to 'main' branch: '\033[0m${BLUE}$first_commit_message\033[0m${PURPLE}'\033[0m"
 fi
 
