@@ -5,7 +5,6 @@ set -ev
 ORIGIN=`pwd`
 
 # Mock running script in CI
-rm -fr ../openfisca-country-template-test-first-time-setup/test-in-ci
 git worktree prune
 git worktree add ../openfisca-country-template-test-first-time-setup/test-in-ci HEAD
 cd ../openfisca-country-template-test-first-time-setup/test-in-ci
@@ -18,11 +17,11 @@ CI=1 ./first-time-setup.sh
 
 uv run make test
 cd . && pwd
+cd .. && rm -fr test-in-ci
 
 
 # Mock running script locally
 cd $ORIGIN
-rm -fr ../openfisca-country-template-test-first-time-setup/test-manual
 git worktree prune
 git worktree add ../openfisca-country-template-test-first-time-setup/test-manual HEAD
 cd ../openfisca-country-template-test-first-time-setup/test-manual
