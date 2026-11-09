@@ -2,7 +2,6 @@
 
 set -ev
 
-#git worktree remove test-in-ci --force
 ORIGIN=`pwd`
 
 # Mock running script in CI
