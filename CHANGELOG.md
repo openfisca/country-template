@@ -1,5 +1,12 @@
 # Changelog
 
+### 8.2.2 [#181](https://github.com/openfisca/country-template/pull/181)
+
+* Technical improvement
+* Details:
+  - Check that uv.lock is up-to-date in pre-commit and CI.
+  - Update dependencies
+
 ### 8.2.1 [#185](https://github.com/openfisca/country-template/pull/185) & [#186](https://github.com/openfisca/country-template/pull/186)
 
 * Technical improvement
