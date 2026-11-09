@@ -70,7 +70,7 @@ then
 	cd openfisca-$NO_SPACES_JURISDICTION_LABEL
 
 	echo -e "${PURPLE}*  ${PURPLE}Initialise git repository\033[0m"
-	git init --initial-branch=main > /dev/null 2>&1
+	git init --initial-branch=main > /dev/null
 	git add .
 
 	git commit --no-gpg-sign --message "$first_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet
@@ -103,14 +103,16 @@ find . -name "*.template" -type f -delete
 echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033[0m"
 git mv openfisca_country_template $package_name
 
+echo -e "${PURPLE}*  ${PURPLE}Update lockfile\033[0m"
+uv lock
+
 echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files\033[0m"
-git rm first-time-setup.sh > /dev/null 2>&1
+git rm .github/workflows/first-time-setup.yaml > /dev/null
+git rm first-time-setup.sh > /dev/null
 
 if [[ $CI ]]
 then exit 0  # committing and tagging take directly place in the GitHub Actions workflow
 fi
-
-git rm .github/workflows/first-time-setup.yml > /dev/null 2>&1
 
 git add .
 git commit --no-gpg-sign --message "$second_commit_message" --author='OpenFisca Bot <bot@openfisca.org>' --quiet

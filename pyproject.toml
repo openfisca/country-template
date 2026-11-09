@@ -4,7 +4,7 @@ requires = ["setuptools-scm"]
 
 [project]
 name = "openfisca-country_template"
-version = "8.2.0"
+version = "8.2.1"
 description = "OpenFisca Rules as Code model for Country-Template."
 readme = "README.md"
 keywords = [ "benefit", "microsimulation", "rac", "rules-as-code", "tax" ]
@@ -15,10 +15,11 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Operating System :: POSIX",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
 license="AGPL-3.0-or-later"

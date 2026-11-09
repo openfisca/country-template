@@ -14,8 +14,6 @@ jobs:
     # Ensure this job does not run on the template repository or when the repository is forked
     if: ${{ !github.event.repository.is_template && !github.event.repository.fork }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # give GITHUB_TOKEN write permission to commit and push
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
