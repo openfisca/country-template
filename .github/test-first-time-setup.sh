@@ -34,6 +34,9 @@ export REPOSITORY_URL="https://githost.example/no-organisation/openfisca-no-coun
 rm -fr .git
 ls -al
 
+git config --global user.email "louise.michel@commune.paris"
+git config --global user.name "Louise Michel"
+
 unset CI && ./first-time-setup.sh
 
 uv run make test
