@@ -34,7 +34,7 @@ export REPOSITORY_URL="https://githost.example/no-organisation/openfisca-no-coun
 rm -fr .git
 ls -al
 
-./first-time-setup.sh
+unset CI && ./first-time-setup.sh
 
 uv run make test
 cd . && pwd
