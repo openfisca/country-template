@@ -25,6 +25,9 @@ jobs:
           version: latest
           enable-cache: true
 
+      - name: Test first time setup script
+        run: "${GITHUB_WORKSPACE}/.github/test-first-time-setup.sh"
+
       - name: Install the project
         run: uv sync --locked --all-extras --dev
 
