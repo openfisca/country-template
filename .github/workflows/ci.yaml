@@ -27,6 +27,7 @@ jobs:
 
       - name: Test first time setup script
         run: |
+          # Git requires a valid config even if it does not use it
           git config --global user.email "louise.michel@commune.paris"
           git config --global user.name "Louise Michel"
           "${GITHUB_WORKSPACE}/.github/test-first-time-setup.sh"
