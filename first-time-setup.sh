@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ev
 GREEN='\033[0;32m'
 PURPLE='\033[1;35m'
 YELLOW='\033[0;33m'
