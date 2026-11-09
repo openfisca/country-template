@@ -2,7 +2,17 @@
 
 set -ev
 
-ORIGIN=`pwd`
+ORIGIN=$(pwd)
+
+function check_folder() {
+    uv run make test
+    if grep test-first-time-setup.sh .github/workflows/ci.yaml --line-number
+    then
+        echo "Mention of test-first-time-setup.sh in .github/workflows/ci.yaml should have been removed"
+        exit 1
+    fi
+    cd . && pwd
+}
 
 # Mock running script in CI
 git worktree prune
@@ -15,8 +25,7 @@ ls -al
 
 CI=1 ./first-time-setup.sh
 
-uv run make test
-cd . && pwd
+check_folder
 cd .. && rm -fr test-in-ci
 
 
@@ -37,7 +46,6 @@ git config --global user.name "Louise Michel"
 
 unset CI && ./first-time-setup.sh
 
-uv run make test
-cd . && pwd
+check_folder
 cd . && pwd | grep openfisca-no_country_locally$
 cd .. && rm -fr openfisca-no_country_locally

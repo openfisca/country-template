@@ -62,6 +62,9 @@ last_changelog_number=$(grep --line-number '^# Example Entry' CHANGELOG.md | cut
 first_commit_message='Initial import from OpenFisca country-template'
 second_commit_message='Customise country-template through script'
 
+last_line_script_test_step=$(grep --line-number 'test-first-time-setup.sh' .github/workflows/ci.yaml | cut -d ':' -f 1)
+first_line_script_test_step=$(expr $last_line_script_test_step - 2)
+
 if [[ ! $CI ]]
 then
 	echo
@@ -98,6 +101,7 @@ sed -i.template "s|https://github.com/openfisca/country-template|$REPOSITORY_URL
 sed -i.template 's|:: 5 - Production/Stable|:: 1 - Planning|g' pyproject.toml
 sed -i.template 's|^version = "[0-9.]*"|version = "0.0.1"|g' pyproject.toml
 sed -i.template "s|repository_folder|$REPOSITORY_FOLDER|g" README.md
+
 find . -name "*.template" -type f -delete
 
 echo -e "${PURPLE}*  ${PURPLE}Rename package to: \033[0m${BLUE}$package_name\033[0m"
@@ -106,9 +110,11 @@ git mv openfisca_country_template $package_name
 echo -e "${PURPLE}*  ${PURPLE}Update lockfile\033[0m"
 uv lock
 
-echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files\033[0m"
+echo -e "${PURPLE}*  ${PURPLE}Remove single use first time setup files and CI logic\033[0m"
 git rm .github/workflows/first-time-setup.yaml > /dev/null
+git rm .github/test-first-time-setup.sh > /dev/null
 git rm first-time-setup.sh > /dev/null
+sed -i -e "${first_line_script_test_step},${last_line_script_test_step}d" .github/workflows/ci.yaml
 
 if [[ $CI ]]
 then exit 0  # committing and tagging take directly place in the GitHub Actions workflow
