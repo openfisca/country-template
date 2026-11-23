@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.2.2 [#185](https://github.com/openfisca/country-template/pull/185) & [#186](https://github.com/openfisca/country-template/pull/186)
+
+* Technical improvement
+* Details:
+  - Remove Python 3.9 and 3.10 support
+
 ### 8.2.1 [#185](https://github.com/openfisca/country-template/pull/185) & [#186](https://github.com/openfisca/country-template/pull/186)
 
 * Technical improvement
